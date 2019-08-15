@@ -1,0 +1,19 @@
+#cloud1 {
+    animation: playClouds_1500 .8s steps(3) infinite;
+}
+
+#cloud2 {
+    animation: playClouds_1500 .8s steps(3) infinite;
+}
+
+#cloud3 {
+    animation: playClouds_2000 .8s steps(4) infinite;
+}
+
+@keyframes playClouds_1500{
+    100% {background-position: -1500px;}
+}
+
+@keyframes playClouds_2000{
+    100% {background-position: -2000px;}
+}
