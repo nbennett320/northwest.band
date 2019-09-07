@@ -1,0 +1,190 @@
+:root{
+    --bottom-color: rgba(255,255,255,.75);
+    --top-color: #fec0d3;
+}
+
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
+.wrapper{
+    background: var(--top-color);
+    width: 100vw;
+}
+
+.home{
+    background: var(--top-color);
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background-size: contain;
+}
+
+.cloud_wrapper{
+    display: flex;
+    align-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+}
+
+.clouds{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.text{
+    position: relative;
+    z-index: 20;
+}
+
+#cloud1{
+    width: 500px;
+    height: 364px;
+    margin: 2% auto;
+    background: no-repeat center center cover;
+    animation: playClouds1 0.8s steps(3) infinite;
+}
+
+@keyframes playClouds1{
+    100% { background-position: -1500px; }
+}
+
+#music_text{
+    background-image: url('/img/text/music_sprites2_cropped.png');
+    width: 495px;
+    height: 273px;
+    top: 20px;
+    transform: scale(0.5);
+    animation: playMusicText 1.2s steps(11) infinite;
+}
+
+#music_text:hover{
+    background-image: url('/img/text/music_sprites_hover_500_164.png');
+    width: 500px;
+    height: 164px;
+    top: 80px;
+    transform: scale(0.6);
+    animation: playMusicHover 0.6s steps(3) infinite;
+}
+
+@keyframes playMusicText{
+    100% { background-position: -5500px; }
+}
+
+@keyframes playMusicHover{
+    100% { background-position: -1500px; }
+}
+/* endmusic cloud */
+
+/* merch cloud */
+#cloud2{
+    width: 500px;
+    height: 364px;
+    animation: playClouds2 0.8s steps(3) infinite;
+}
+
+@keyframes playClouds2{
+    100% { background-position: -1500px; }
+}
+
+#merch_text{
+    background: url('/img/text/merchsprites2000x198.png');
+    width: 500px;
+    height: 198px;
+    top: 70px;
+    transform: scale(0.5);
+    animation: playMerchText 0.8s steps(4) infinite;
+}
+
+#merch_text:hover{
+    background: url('/img/text/merch_hoversprites1500x145.png');
+    width: 500px;
+    height: 145px;
+    top: 90px;
+    transform: scale(0.6);
+
+    animation: playMerchHover 0.5s steps(2) infinite;
+}
+
+@keyframes playMerchText{
+    100% { background-position: -2000px; }
+}
+
+@keyframes playMerchHover{
+    100% { background-position: -1000px; }
+}
+/* end merch cloud */
+
+/* goodies cloud */
+#cloud3{
+    background-image: url('/img/clouds/nwcloud4sprites_462_2000.png');
+    width: 500px;
+    height: 462px;
+
+    animation: playClouds3 0.8s steps(4) infinite;
+}
+
+@keyframes playClouds3{
+    100% { background-position: -2000px; }
+}
+
+#goodies_text{
+    background: url('/img/text/goodiessprites6500x292.png');
+    width: 500px;
+    height: 292px;
+    top: 100px;
+    transform: scale(0.6);
+
+    animation: playGoodiesText 1.5s steps(13) infinite;
+}
+
+#goodies_text:hover{
+    background: url('/img/text/goodies_hoversprites1500x308.png');
+    width: 500px;
+    height: 308px;
+    top: 90px;
+    left: 15px;
+    transform: scale(0.6);
+
+    animation: playGoodiesHover 0.5s steps(3) infinite;
+}
+
+@keyframes playGoodiesText{
+    100% {background-position: -6500px;}
+}
+
+@keyframes playGoodiesHover{
+    100% {background-position: -1500px;}
+}
+
+/* phone */
+@media only screen and (max-width: 633px){
+    .home{
+        justify-content: flex-start;
+        width: auto;
+    }
+
+    .clouds {
+        transform: scale(0.8);
+    }
+
+    .top img{
+        transform: scale(0.8);
+    }
+
+    .top img:hover{
+        transform: scale(0.85);
+    }
+    
+    .top{
+        height: 17.5%;/*145px*/
+    }
+}
