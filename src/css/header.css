@@ -1,3 +1,7 @@
 #headerImg:hover {
     transform: scale(1.05);
 }
+
+img {
+    opacity: 100% !important;
+}
