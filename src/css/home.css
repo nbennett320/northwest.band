@@ -17,6 +17,7 @@
     background: var(--top-color);
     width: 100%;
     height: auto;
+    padding-top: calc(8vh + 40px);
     display: flex;
     justify-content: center;
     align-items: flex-start;

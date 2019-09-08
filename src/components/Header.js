@@ -10,13 +10,11 @@ class Header extends Component {
 
         return (
             <div className="header" style={styles.main}>
-                <div className="bar" style={styles.bar}>
-                    <a href={this.props.headerLink}>
+                <a href={this.props.headerLink}>
 
-                        <img src={headerImg} id="headerImg" style={styles.img}/>
+                    <img src={headerImg} id="headerImg" style={styles.img}/>
 
-                    </a>
-                </div>
+                </a>
             </div>
         )
     }
@@ -25,17 +23,6 @@ class Header extends Component {
 const styles = {
 
     main: {
-        maxWidth: '100vw',
-        height: 'calc(8vh + 40px)',
-        display: 'flex',
-        justifyContent: 'center',
-        backgroundColor: '#fec0d3',
-        margin: '0',
-        top: '0',
-        zIndex: '49'
-    },
-
-    bar: {
         width: '100vw',
         height: '8vh',
         display: 'flex',

@@ -10,19 +10,28 @@ class Main extends Component {
     state = {
         headerLink: 'http://www.instagram.com/northwest219'
     }
+    
+    geth2 = () => {
+        return (<h2> hello</h2>)
+
+    }
 
     render(){
 
         return(
-            <div className="mainWrapper">
+            <Router>
+
 
                 <Header 
                     headerLink={this.state.headerLink}
                 />
 
-                <Home />
+                <Route exact path="/" component={Home} />
 
-            </div>
+                <Route path="/music" component={this.geth2} />
+
+
+            </Router>
         )
 
     }
