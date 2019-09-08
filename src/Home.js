@@ -1,12 +1,10 @@
 import React, { Component } from 'react'
 
-import './css/home2.css'
+import './css/home.css'
 
 import cloud1 from './img/home/clouds/nwcloud1sprites_364_1500.png'
 import cloud2 from './img/home/clouds/nwcloud2sprites_364_1500_2.png'
 import cloud3 from './img/home/clouds/nwcloud4sprites_462_2000.png'
-import musicText from './img/home/text/music_sprites2_cropped.png'
-import musicTextHover from './img/home/text/music_sprites_hover_500_164.png'
 
 class Home extends Component {
 
@@ -14,16 +12,71 @@ class Home extends Component {
         super(props)
 
         this.state = {
-            musicText: false,
-            merchText: false,
-            goodiesText: false,
+            hover: {
+                musicText: false,
+                merchText: false,
+                goodiesText: false,
+            }
         }
     }
 
     getMusicText = () => {
-        if (this.state.musicText === true) return musicTextHover
-        else return musicText
+        let img = {backgroundImage: `url(${require('./img/home/text/music_sprites2_cropped.png')})`}
+        if (this.state.hover.musicText === true) {
+            img = {backgroundImage: `url(${require('./img/home/text/music_sprites_hover_500_164.png')})`}
+            return img
+        }
+        else if (this.state.hover.musicText !== true) {
+            return img
+        }
     }
+
+    getMerchText = () => {
+        let img = {backgroundImage: `url(${require('./img/home/text/merchsprites2000x198.png')})`}
+        if (this.state.hover.merchText === true) {
+            img = {backgroundImage: `url(${require('./img/home/text/merch_hoversprites1500x145.png')})`}
+            return img
+        }
+        else if (this.state.hover.merchText !== true) {
+            return img
+        }
+    }
+
+    getGoodiesText = () => {
+        let img = {backgroundImage: `url(${require('./img/home/text/goodiessprites6500x292.png')})`}
+        if (this.state.hover.goodiesText === true) {
+            img = {backgroundImage: `url(${require('./img/home/text/goodies_hoversprites1500x308.png')})`}
+            return img
+        }
+        else if (this.state.hover.merchText !== true) {
+            return img
+        }
+    }
+
+    toggleMusicHover = () => {
+        this.setState({ 
+            hover: {
+                musicText: !this.state.hover.musicText
+            } 
+        })
+    }
+
+    toggleMerchHover = () => {
+        this.setState({ 
+            hover: {
+                merchText: !this.state.hover.merchText
+            } 
+        })
+    }
+
+    toggleGoodiesHover = () => {
+        this.setState({ 
+            hover: {
+                goodiesText: !this.state.hover.goodiesText
+            } 
+        })
+    }
+    
 
     render() {
 
@@ -32,17 +85,24 @@ class Home extends Component {
             <div className="home">
                 <div className="cloud_wrapper">
                     <div className="clouds" id="cloud1" style={styles.clouds.music}>
-                        <div className="text" id="music_text" style={styles.text.music} />
+                        <div className="text" id="music_text" style={this.getMusicText()} 
+                            onMouseEnter={this.toggleMusicHover}
+                            onMouseLeave={this.toggleMusicHover}
+                        />
                     </div>
 
                     <div className="clouds" id="cloud2" style={styles.clouds.merch}>
-                        <div className="text" id="merch_text"
-                            onMouseEnter={() => {this.setState({ musicText: true })}}
+                        <div className="text" id="merch_text" style={this.getMerchText()}
+                            onMouseEnter={this.toggleMerchHover}
+                            onMouseLeave={this.toggleMerchHover}
                         />
                     </div>
 
                     <div className="clouds" id="cloud3" style={styles.clouds.goodies}>
-                        <div className="text" id="goodies_text"  />
+                        <div className="text" id="goodies_text" style={this.getGoodiesText()}
+                            onMouseEnter={this.toggleGoodiesHover}
+                            onMouseLeave={this.toggleGoodiesHover}
+                        />
                     </div>
                 </div>
             </div>
@@ -54,18 +114,6 @@ class Home extends Component {
 }
 
 const styles = {
-    // main: {
-    //     background: '#fec0d3',
-    //     backgroundSize: 'contain',
-    //     overflow: 'hidden',
-    //     width: '100%',
-    //     height: 'auto',
-    //     display: 'flex',
-    //     flexDirection: 'column',
-    //     alignItems: 'flex-start',
-    //     justifyContent: 'center',
-    // },
-
     clouds: {
         music: {
             backgroundImage: `url(${cloud1})`,
@@ -79,20 +127,6 @@ const styles = {
             backgroundImage: `url(${cloud3})`,
         }
     },
-
-    text: {
-        music: {
-            backgroundImage: `url(${musicText})`
-        },
-
-        merch: {
-
-        },
-
-        goodies: {
-
-        }
-    }
 }
 
 
