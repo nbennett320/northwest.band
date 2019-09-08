@@ -48,7 +48,7 @@ class Home extends Component {
             img = {backgroundImage: `url(${require('./img/home/text/goodies_hoversprites1500x308.png')})`}
             return img
         }
-        else if (this.state.hover.merchText !== true) {
+        else if (this.state.hover.goodiesText !== true) {
             return img
         }
     }

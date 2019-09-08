@@ -24,6 +24,7 @@
 }
 
 .cloud_wrapper{
+    max-width: 100vw;
     display: flex;
     align-content: center;
     align-items: center;
@@ -32,10 +33,11 @@
 }
 
 .clouds{
+    transform: scale(0.8);
     margin-left: auto;
     margin-right: auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: -2%;
+    margin-bottom: -2%;
     overflow: hidden;
     z-index: 10;
 }
@@ -48,7 +50,6 @@
 #cloud1{
     width: 500px;
     height: 364px;
-    margin: 2% auto;
     background: no-repeat center center cover;
     animation: playClouds1 0.8s steps(3) infinite;
 }
@@ -165,18 +166,7 @@
     }
 
     .clouds {
-        transform: scale(0.8);
-    }
-
-    .top img{
-        transform: scale(0.8);
-    }
-
-    .top img:hover{
-        transform: scale(0.85);
-    }
-    
-    .top{
-        height: 17.5%;/*145px*/
+        transform: scale(0.6);
+        margin: -15% -20px;
     }
 }

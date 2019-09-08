@@ -25,8 +25,8 @@ class Header extends Component {
 const styles = {
 
     main: {
-        width: '100%',
-        height: 'calc(10vh + 40px)',
+        maxWidth: '100vw',
+        height: 'calc(8vh + 40px)',
         display: 'flex',
         justifyContent: 'center',
         backgroundColor: '#fec0d3',
@@ -36,8 +36,8 @@ const styles = {
     },
 
     bar: {
-        width: '100%',
-        height: '10vh',
+        width: '100vw',
+        height: '8vh',
         display: 'flex',
         justifyContent: 'center',
         backgroundColor: 'rgba(255,255,255,0.8)',
@@ -52,9 +52,11 @@ const styles = {
 
     img: {
         width: 'auto',
+        maxWidth: '633px',
         height: '-webkit-fill-available',
         marginLeft: 'auto',
         marginRight: 'auto',
+        zIndex: '51'
     }
 
 }
