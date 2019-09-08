@@ -3,17 +3,26 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
 import Header from './components/Header'
 import Home from './Home'
+import Music from './Music'
 
 
 class Main extends Component {
 
-    state = {
-        headerLink: 'http://www.instagram.com/northwest219'
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            headerLink: 'http://www.instagram.com/northwest219'
+        }
+
+    }
+
+    handleLinkToHome = () => {
+        return (<Home />)
     }
     
-    geth2 = () => {
-        return (<h2> hello</h2>)
-
+    handleLinkToMusic = () => {
+        return (<Music />)
     }
 
     render(){
@@ -21,14 +30,13 @@ class Main extends Component {
         return(
             <Router>
 
-
                 <Header 
                     headerLink={this.state.headerLink}
                 />
 
-                <Route exact path="/" component={Home} />
+                <Route exact path="/" component={this.handleLinkToHome} />
 
-                <Route path="/music" component={this.geth2} />
+                <Route path="/music" component={this.handleLinkToMusic} />
 
 
             </Router>

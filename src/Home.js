@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 import './css/home.css'
 
@@ -85,10 +86,13 @@ class Home extends Component {
             <div className="home">
                 <div className="cloud_wrapper">
                     <div className="clouds" id="cloud1" style={styles.clouds.music}>
-                        <div className="text" id="music_text" style={this.getMusicText()} 
-                            onMouseEnter={this.toggleMusicHover}
-                            onMouseLeave={this.toggleMusicHover}
-                        />
+                        <Link to='/music/'>
+                            <div className="text" id="music_text" style={this.getMusicText()} 
+                                onMouseEnter={this.toggleMusicHover}
+                                onMouseLeave={this.toggleMusicHover}
+                                onClick={this.goToMusic}
+                            />
+                        </Link>
                     </div>
 
                     <div className="clouds" id="cloud2" style={styles.clouds.merch}>

@@ -1,20 +1,10 @@
-:root{
-    --bottom-color: rgba(255,255,255,.75);
-    --top-color: #fec0d3;
-}
-
-*{
-    padding: 0px;
-    margin: 0px;
-}
-
 .wrapper{
-    background: var(--top-color);
+    background: #fec0d3;
     width: 100vw;
 }
 
 .home{
-    background: var(--top-color);
+    background: #fec0d3;
     width: 100%;
     height: auto;
     padding-top: calc(8vh + 40px);

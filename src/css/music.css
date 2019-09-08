@@ -1,0 +1,175 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
+.music{
+    width: 100%;
+    padding-top: calc(8vh + 150px);
+    margin-left: 0;
+    margin-right: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: #050505;
+    letter-spacing: 1px;
+}
+
+h2{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    font-size: auto;
+}
+
+a{
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.entry{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -180px;
+    transform: scale(0.7)
+}
+
+.items{
+    display: flex;
+    flex-direction: column;
+}
+
+.album-art{
+    max-width: 500px; /*500x500*/
+    max-height: 500px;
+    width: auto;
+    height: auto;
+    /* transform: scale(0.7); */
+    /* margin-left: auto;
+    margin-right: auto; */
+}
+
+.streaming-logos{
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-self: auto;
+}
+
+.logo{
+    width: 100%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    transform: scale(0.8);
+}
+
+.logo:hover{
+    transform: scale(0.9);
+}
+
+p{
+    color: #ffffff;
+    font-family: 'Courier New', Courier, monospace;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    font-size: 1.4em;
+    margin-top: 0.3em;
+    margin-bottom: 0.3em;
+    margin-left: auto;
+    text-align: left;
+}
+
+.song-link{
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    font-size: 1.4em;
+    margin-top: 0.3em;
+    margin-bottom: 0.3em;
+    text-align: left;
+}
+
+.song-link:hover{
+    font-size: 1.5em;
+    margin-top: 0.18em;
+    margin-bottom: 0.18em;
+}
+
+/* phone */
+@media only screen and (max-width: 633px){
+    body{
+        justify-content: flex-start;
+    }
+
+    .music{
+        padding-top: calc(8vh + 40px);
+        width: 100%;
+        margin: 0 auto 0 auto;
+    }
+
+    .entry{
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
+        transform: scale(1);
+        margin-top: 20px;
+    }
+
+    .album-art{
+        max-width: 70%;
+        max-height: 70%;
+        width: auto;
+        height: auto;
+        margin-left: 15%;
+        margin-right: 15%;
+    }
+
+    .items{
+        display: flex;
+        flex-direction: column;
+    }
+
+    h2 {
+        margin-left: 15%;
+        margin-right: auto;
+    }
+
+    p{
+        font-size: 1em;
+        margin-top: 0.2em;
+        margin-bottom: 0.2em;
+        margin-left: 15%;
+    }
+
+    .song-link{
+        font-size: 1em;
+        margin-top: 0.2em;
+        margin-bottom: 0.2em;
+    }
+    
+    .song-link:hover{
+        font-size: 1.1em;
+        margin-top: 0.2em;
+        margin-bottom: 0.2em;
+    }
+
+    .streaming-logos{
+        margin-top: 5px;
+        margin-bottom: 5px;
+        transform: scale(.7);
+    }
+}
