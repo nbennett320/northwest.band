@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 
 import Header from './components/Header'
 import Home from './Home'
 import Music from './Music'
-
+import Lyrics from './Lyrics'
 
 class Main extends Component {
 
@@ -17,14 +17,6 @@ class Main extends Component {
 
     }
 
-    handleLinkToHome = () => {
-        return (<Home />)
-    }
-    
-    handleLinkToMusic = () => {
-        return (<Music />)
-    }
-
     render(){
 
         return(
@@ -32,12 +24,16 @@ class Main extends Component {
 
                 <Header 
                     headerLink={this.state.headerLink}
-                />
+                /> 
+                <Switch>
 
-                <Route exact path="/" component={this.handleLinkToHome} />
+                    <Route exact path='/' component={Home} />
 
-                <Route path="/music" component={this.handleLinkToMusic} />
+                    <Route path='/music' component={Music} />
 
+                    {/* <Route path='/:swmtn' render={(props) => <Lyrics {...props} />} /> */}
+                    
+                </Switch>
 
             </Router>
         )

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 import '../css/header.css'
 
@@ -10,11 +11,11 @@ class Header extends Component {
 
         return (
             <div className="header" style={styles.main}>
-                <a href={this.props.headerLink}>
+                <Link to='..'>
 
-                    <img src={headerImg} id="headerImg" style={styles.img}/>
+                    <img src={headerImg} id="headerImg" style={styles.img} alt="northwest header"/>
 
-                </a>
+                </Link>
             </div>
         )
     }
@@ -23,7 +24,7 @@ class Header extends Component {
 const styles = {
 
     main: {
-        width: '100vw',
+        width: '100%',
         height: '8vh',
         display: 'flex',
         justifyContent: 'center',
@@ -33,6 +34,8 @@ const styles = {
         position: 'fixed',
         top: '0',
         zIndex: '50',
+        borderBottomLeftRadius: '10px',
+        borderBottomRightRadius: '10px',
         boxShadow: '0px 0px 8px 2px rgba(0,0,0,0.1)',
         backdropFilter: 'blur(5px)'
     },
