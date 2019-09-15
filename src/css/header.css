@@ -5,3 +5,9 @@
 img {
     opacity: 100% !important;
 }
+
+@media only screen and (max-width: 633px) {
+    #headerImg:hover {
+        transform: scale(1.0);
+    }
+}

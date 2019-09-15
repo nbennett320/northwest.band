@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { Route, Link } from 'react-router-dom'
-import Lyrics from './Lyrics'
+import { Link } from 'react-router-dom'
+// import { Route, Link, Switch } from 'react-router-dom'
+// import Lyrics from './Lyrics'
 
 import './css/music.css'
 
@@ -11,6 +12,7 @@ class Music extends Component {
         return (
 
             <div className="music" style={styles.music}>
+                
                 <div className="entry">
                     <h2 className="album-head">
                         Come Around<br />
@@ -39,7 +41,7 @@ class Music extends Component {
                         </div>
                     </div>
     
-                    {/* <p className="song-link"><a href=''>Come Around</a></p> */}
+                    <p className="song-link"><Link to={`/come-around`} params={{songKey: 'comearound'}} >Come Around</Link></p>
     
                 </div>
 
@@ -72,7 +74,7 @@ class Music extends Component {
                         </div>
                     </div>
 
-                    <p className="song-link"><a href="lyrics/newfeel.html">New Feel</a></p>
+                    <p className="song-link"><Link to={`/new-feel`} params={{songKey: 'newfeel'}} >New Feel</Link></p>
 
                 </div>
 
@@ -108,18 +110,30 @@ class Music extends Component {
                     <p className="song-link"><Link to={`/swmtn`} params={{songKey: 'swmtn'}} >Stay W. Me 2nite</Link></p>
                     <p className="song-list"> Out Past Curfew</p>
                     <p className="song-list">(Loading Screen)</p>
-                    <p className="song-link"><Link to={`../:lover`} params={{songKey: 'lover'}} >Lover...</Link></p>
-                    <p className="song-link"><Link to={`../:rendezvous`} params={{songKey: 'rendezvous'}} >Rendezvous</Link></p>
-                    <p className="song-link"><Link to={`../:flake`} params={{songKey: 'flake'}} >Flake</Link></p>
+                    <p className="song-link"><Link to={`/lover`} params={{songKey: 'lover'}} >Lover...</Link></p>
+                    <p className="song-link"><Link to={`/rendezvous`} params={{songKey: 'rendezvous'}} >Rendezvous</Link></p>
+                    <p className="song-link"><Link to={`/flake`} params={{songKey: 'flake'}} >Flake</Link></p>
                     <p className="song-list">Summer Night</p>
-                    <p className="song-link"><Link to={`../:fader`} params={{songKey: 'fader'}} >Fader</Link></p>
-                    <p className="song-link"><Link to={`../:quink`} params={{songKey: 'quink'}} >Quink</Link></p>
+                    <p className="song-link"><Link to={`/fader`} params={{songKey: 'fader'}} >Fader</Link></p>
+                    <p className="song-link"><Link to={`/quink`} params={{songKey: 'quink'}} >Quink</Link></p>
                     <p className="song-list">Dot Dot Dot</p>
                     <p className="song-list">4431</p>
 
                 </div>
 
+
+            {/* <Switch>
+
+                <Route path='/music/swmtn' render={(props) => <Lyrics {...props} songKey="swmtn" />} />
+                <Route path='/swmtn' render={(props) => <Lyrics {...props} songKey="lover" />} />
+                <Route path='/swmtn' render={(props) => <Lyrics {...props} songKey="rendezvous" />} />
+                <Route path='/swmtn' render={(props) => <Lyrics {...props} songKey="flake" />} />
+                <Route path='/swmtn' render={(props) => <Lyrics {...props} songKey="fader" />} />
+                <Route path='/swmtn' render={(props) => <Lyrics {...props} songKey="quink" />} />
+
+            </Switch> */}
             </div>
+
         )
 
     }

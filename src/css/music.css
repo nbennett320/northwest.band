@@ -5,7 +5,9 @@
 
 .music{
     width: 100%;
-    padding-top: calc(8vh + 150px);
+    height: 100%;
+    padding-top: calc(8vh + 80px);
+    padding-bottom: 2vh;
     margin-left: 0;
     margin-right: 0;
     display: flex;
@@ -20,28 +22,36 @@ a{
 }
 
 .entry{
+    /* max-height: 70%; */
+    max-width: 50%;
     margin-left: auto;
     margin-right: auto;
-    margin-top: -180px;
-    transform: scale(0.7)
+    margin-top: auto;
+    /* transform: scale(0.7); */
+    /* transform-origin: center; */
+    position: relative;
 }
 
 .items{
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .album-art{
-    max-width: 500px; /*500x500*/
-    max-height: 500px;
+    /* max-width: calc(500px * .7);
+    max-height: calc(500px * .7); */
+    max-width: 70%;
+    max-height: 70%;
     width: auto;
     height: auto;
     /* transform: scale(0.7); */
-    /* margin-left: auto;
-    margin-right: auto; */
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.streaming-logos{
+.streaming-logos {
+    width: 70%;
     display: flex;
     margin-left: auto;
     margin-right: auto;
@@ -52,7 +62,7 @@ a{
     align-self: auto;
 }
 
-.logo{
+.logo {
     width: 100%;
     height: auto;
     margin-left: auto;
@@ -66,30 +76,31 @@ a{
     transform: scale(0.9);
 }
 
-p .song-link{
+p .song-link {
     color: #ffffff;
     font-family: 'Courier New', Courier, monospace;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: normal;
-    font-size: 1.4em;
+    font-size: calc(1.4em * .7);
     margin-top: 0.3em;
     margin-bottom: 0.3em;
     margin-left: auto;
     text-align: left;
 }
 
-.song-link{
+.song-link {
     color: #ffffff;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: normal;
-    font-size: 1.4em;
+    font-size: calc(1.4em * .7);
     margin-top: 0.3em;
     margin-bottom: 0.3em;
+    margin-left: 15%;
     text-align: left;
 }
 
 .song-link:hover{
-    font-size: 1.5em;
+    font-size: calc(1.5em * .7);
     margin-top: 0.18em;
     margin-bottom: 0.18em;
 }
@@ -99,17 +110,17 @@ p .song-link{
     font-family: 'Courier New', Courier, monospace;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: normal;
-    font-size: 1.4em;
+    font-size: calc(1.4em * .7);
     margin-top: 0.3em;
     margin-bottom: 0.3em;
-    margin-left: auto;
+    margin-left: 15%;
     text-align: left;
 }
 
 .album-head {
     margin-top: 10px;
     margin-bottom: 10px;
-    margin-left: auto;
+    margin-left: 15%;
     margin-right: auto;
     text-align: left;
     color: #fff;
@@ -130,7 +141,13 @@ p .song-link{
         margin: 0 auto 0 auto;
     }
 
+    .streaming-logos {
+        width: 100%;
+    }
+
     .entry{
+        max-width: 100%;
+        height: auto;
         display: flex;
         flex-direction: column;
         align-content: center;
