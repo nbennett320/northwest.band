@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import Header from './components/Header'
 import Home from './Home'
@@ -17,22 +17,22 @@ class Main extends Component {
 
     }
 
-    render(){
+    render() {
 
-        return(
+        return (
             <Router>
 
-                <Header 
+                <Header
                     headerLink={this.state.headerLink}
-                /> 
+                />
                 <Switch>
 
                     <Route exact path='/' component={Home} />
 
-                    <Route path='/music' component={Music} />
+                    <Route path='/music/' render={(props) => <Music {...props} />} />
 
-                    {/* <Route path='/:swmtn' render={(props) => <Lyrics {...props} />} /> */}
-                    
+                    <Route path='/swmtn' render={(props) => <Lyrics {...props} songKey="swmtn" />} />
+
                 </Switch>
 
             </Router>
