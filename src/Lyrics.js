@@ -61,7 +61,7 @@ class Lyrics extends Component {
         'swmtn':{
             title: 'Stay W. Me 2nite',
             date: 'July 15, 2018',
-            lyrics: "Stay up for a little while\nTalk to me, lets go get\nCoffee tomorrow\nBut not 'til three\n\nIt's three A.M. and I gotta go\nIt's not like I'm saying no\nBut I only wanted to stay 'til eight\nI didn't want to stay this late...\n\nStay with me tonight\nStaring at the clouds\nAnd at the bluish\nMoonlight\n\nUnless you leave\nI won't put up a fight\nTonight\n\nYou said I belong\nSo I lay and ponder\nOh, that night\nWas all\nThinking back to\nEvery conversation\nWe had\n\nStay with me tonight\nStaring at the clouds\nAnd at the bluish\nMoonlight\n\nUnless you leave\nI won't put up a fight\nTonight\n",
+            lyrics: ["Stay up for a little while","Talk to me, lets go get","Coffee tomorrow","But not 'til three","","It's three A.M. and I gotta go","It's not like I'm saying no","But I only wanted to stay 'til eight","I didn't want to stay this late...","","Stay with me tonight","Staring at the clouds","And at the bluish","Moonlight","","Unless you leave","I won't put up a fight","Tonight","","You said I belong","So I lay and ponder","Oh, that night","Was all","Thinking back to","Every conversation","We had","","Stay with me tonight","Staring at the clouds","And at the bluish","Moonlight","","Unless you leave","I won't put up a fight","Tonight"],
             image: './img/misc/landn2.png',
             altText: 'noah and lukas in forest',
             key: 'swmtn'

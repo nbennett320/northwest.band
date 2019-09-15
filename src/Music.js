@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-// import { Route, Link, Switch } from 'react-router-dom'
-// import Lyrics from './Lyrics'
 
 import './css/music.css'
 
