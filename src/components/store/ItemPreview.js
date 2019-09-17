@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import '../../css/store-main.css'
+import '../../css/store.css'
 
 class ItemPreview extends Component {
 
@@ -18,6 +18,8 @@ class ItemPreview extends Component {
                 <p class="preview-description" style={styles.description}>{this.props.description}</p>
                 <div class="price-preview" style={styles.price}>
                     add to cart...............${this.props.price}
+                    <br />
+                    (COMING SOON)
                 </div>
             </div>
 
@@ -79,7 +81,7 @@ const styles = {
     },
 
     price: {
-        backgroundColor: '#154d3a',
+        // backgroundColor: '#154d3a',
         backgroundColor: 'rgba(21, 77, 58, 0.9)',
         color: '#fff',
         paddingTop: '5px',
