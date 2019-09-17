@@ -1,0 +1,13 @@
+.price-preview {
+    background-color: rgba(21, 77, 58, 0.9);
+}
+
+.price-preview:hover {
+    background-color: rgba(48, 138, 108, 0.8) !important;
+    color: #eedd4a !important;
+    cursor: pointer;
+}
+
+.preview-header {
+    cursor: pointer;
+}

@@ -96,17 +96,21 @@ class Home extends Component {
                     </div>
 
                     <div className="clouds" id="cloud2" style={styles.clouds.merch}>
+                        <Link to='/merch/'>
                         <div className="text" id="merch_text" style={this.getMerchText()}
                             onMouseEnter={this.toggleMerchHover}
                             onMouseLeave={this.toggleMerchHover}
                         />
+                        </Link>
                     </div>
 
                     <div className="clouds" id="cloud3" style={styles.clouds.goodies}>
-                        <div className="text" id="goodies_text" style={this.getGoodiesText()}
-                            onMouseEnter={this.toggleGoodiesHover}
-                            onMouseLeave={this.toggleGoodiesHover}
-                        />
+                        <Link to='/goodies/'>
+                            <div className="text" id="goodies_text" style={this.getGoodiesText()}
+                                onMouseEnter={this.toggleGoodiesHover}
+                                onMouseLeave={this.toggleGoodiesHover}
+                            />
+                        </Link>
                     </div>
                 </div>
             </div>
