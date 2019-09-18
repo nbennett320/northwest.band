@@ -41,7 +41,7 @@ class CartListing extends Component {
 const styles = {
     container:{
         width: '80%',
-        height: '100%',
+        height: 'auto',
         marginLeft: 'auto',
         marginRight: 'auto',
         marginTop: '20px',

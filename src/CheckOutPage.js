@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import CartListing from './CartListing'
+import CheckoutFooter from './components/store/CheckoutFooter'
 
 import './css/checkout.css'
 
@@ -44,13 +45,19 @@ class CheckOutPage extends Component {
 
             <div className="checkout" style={styles.main}>
 
-                <div className="checkout-title" style={styles.title}>
-                    Checkout:
-                </div>
+                <div className="hacked-wrapper" style={styles.hack}>
 
-                <div className="checkout-items" style={styles.listing}>
+                    <div className="checkout-title" style={styles.title}>
+                        Checkout:
+                    </div>
 
-                    {this.mapCartItems()}
+                    <div className="checkout-items" style={styles.listing}>
+
+                        {this.mapCartItems()}
+
+                    </div>
+
+                    <CheckoutFooter itemsInCart={this.props.itemsInCart} />
 
                 </div>
 
@@ -65,7 +72,8 @@ class CheckOutPage extends Component {
 const styles = {
     main: {
         backgroundColor: '#f2d880',
-        height: 'fill',
+        height: 'auto',
+        width: '100%',
         paddingTop: 'calc(8vh + 40px)',
         paddingBottom: '40px',
         display: 'flex',
@@ -85,8 +93,21 @@ const styles = {
     }, 
 
     listing: {
+        backgroundColor: '#f2d880',
         height: '100%',
         width: '100%',
+        overflowY: 'auto',
+        overflowX: 'hidden !important',
+    },
+
+    hack: {
+        backgroundColor: '#f2d880',
+        height: '85vh',
+        width: '100vw',
+        zIndex: '1',
+        position: 'absolute',
+        paddingBottom: '15vh'
+        
     }
 }
 

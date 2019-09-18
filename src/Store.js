@@ -19,7 +19,7 @@ class Store extends Component {
                 model: 'cursive-star',
                 color: 'hot-pink',
             },
-            price: '12'
+            price: 12
         },
 
         1:{
@@ -34,7 +34,7 @@ class Store extends Component {
                 model: 'cursive-star',
                 color: 'yellow',
             },
-            price: '12'
+            price: 12
         },
 
         2:{
@@ -49,7 +49,7 @@ class Store extends Component {
                 model: 'cursive-star',
                 color: 'red',
             },
-            price: '20'
+            price: 20
         },
 
         3:{
@@ -64,7 +64,7 @@ class Store extends Component {
                 model: 'cursive-star',
                 color: 'black',
             },
-            price: '20'
+            price: 20
         },
 
         4:{
@@ -79,7 +79,7 @@ class Store extends Component {
                 model: 'cursive-star',
                 color: 'white',
             },
-            price: '20'
+            price: 20
         },
 
     }
