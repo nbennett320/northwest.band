@@ -16,7 +16,9 @@ class Main extends Component {
 
         this.state = {
             headerLink: 'http://www.instagram.com/northwest219',
-            showCart: false
+            showCart: false,
+            numberOfItemsInCart: 0,
+            itemsInCart: [],
         }
 
     }
@@ -25,6 +27,17 @@ class Main extends Component {
         this.setState({
             showCart: bool,
         })
+    }
+
+    addItemToCart = item => {
+        const items = this.state.itemsInCart
+        items.push(item)
+        this.setState({
+            itemsInCart: items,
+            numberOfItemsInCart: items.length
+        })
+        console.log(this.state.numberOfItemsInCart)
+        console.log(this.state.itemsInCart)
     }
 
     render() {
@@ -52,7 +65,13 @@ class Main extends Component {
                         <Route path='/new-feel' render={(props) => <Lyrics {...props} songKey="newfeel" />} />
                         <Route path='/come-around' render={(props) => <Lyrics {...props} songKey="comearound" />} />
 
-                        <Route path='/merch' render={(props) => <Store {...props} setShowCart={this.setShowCart} />} />
+                        <Route path='/merch' 
+                            render={(props) => <Store 
+                                {...props} 
+                                setShowCart={this.setShowCart}
+                                addItemToCart={this.addItemToCart} 
+                            />}
+                        />
 
                         <Route path='/goodies' component={Goodies} />
 

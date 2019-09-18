@@ -14,6 +14,11 @@ class ItemPreview extends Component {
 
     }
 
+    handleAddToCart = () => {
+        this.props.addItemToCart(this.props)
+        
+    }
+
     handleMouseEnter = () => {
         this.setState({
             previewImg: this.props.hoverImg,
@@ -47,7 +52,10 @@ class ItemPreview extends Component {
                         style={styles.previewImage}
                     />
                 <p className="preview-description" style={styles.description}>{this.props.description}</p>
-                <div className="price-preview" style={styles.price}>
+                <div className="price-preview" 
+                    style={styles.price}
+                    onClick={this.handleAddToCart}
+                >
                     add to cart...............${this.props.price}
                     <br />
                     (COMING SOON)

@@ -5,16 +5,6 @@ import ItemPreview from './components/store/ItemPreview'
 
 class Store extends Component {
 
-    constructor (props) {
-        super (props)
-
-        this.state = {
-            numberOfItemsInCart: 0,
-
-        }
-
-    }
-
     items = {
 
         0:{
@@ -113,6 +103,7 @@ class Store extends Component {
                 description={items[i].description} 
                 price={items[i].price}
                 key={i*2}
+                addItemToCart={this.props.addItemToCart}
             /> )
 
         }
