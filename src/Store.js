@@ -134,7 +134,6 @@ const styles = {
         backgroundColor: '#e8e1b3',
         // height: 'calc(100vh - 8vh - 40px)',
         paddingTop: 'calc(8vh + 40px)',
-        // marginTop: '40px',
         paddingBottom: '40px',
         display: 'flex',
         flexDirection: 'row',

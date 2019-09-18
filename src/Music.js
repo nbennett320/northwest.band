@@ -9,7 +9,7 @@ class Music extends Component {
 
         return (
 
-            <div className="music" style={styles.music}>
+            <div className="music">
                 
                 <div className="entry">
                     <h2 className="album-head">
@@ -119,17 +119,6 @@ class Music extends Component {
 
                 </div>
 
-
-            {/* <Switch>
-
-                <Route path='/music/swmtn' render={(props) => <Lyrics {...props} songKey="swmtn" />} />
-                <Route path='/swmtn' render={(props) => <Lyrics {...props} songKey="lover" />} />
-                <Route path='/swmtn' render={(props) => <Lyrics {...props} songKey="rendezvous" />} />
-                <Route path='/swmtn' render={(props) => <Lyrics {...props} songKey="flake" />} />
-                <Route path='/swmtn' render={(props) => <Lyrics {...props} songKey="fader" />} />
-                <Route path='/swmtn' render={(props) => <Lyrics {...props} songKey="quink" />} />
-
-            </Switch> */}
             </div>
 
         )
@@ -142,10 +131,6 @@ const styles = {
     iconBorders: {
         borderRadius: '10px',
     },
-
-    music: {
-        visibility: ''
-    }
 }
 
 export default Music

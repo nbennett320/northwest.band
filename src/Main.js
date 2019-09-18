@@ -7,7 +7,8 @@ import Music from './Music'
 import Lyrics from './Lyrics'
 import Store from './Store'
 import Goodies from './Goodies'
-import ScrollToTop from './ScrollToTop'
+import ScrollToTop from './scripts/ScrollToTop'
+import CheckOutPage from './CheckOutPage'
 
 class Main extends Component {
 
@@ -75,6 +76,14 @@ class Main extends Component {
                         />
 
                         <Route path='/goodies' component={Goodies} />
+
+                        <Route path='/checkout' 
+                            render={(props) => <CheckOutPage 
+                                {...props} 
+                                itemsInCart={this.state.itemsInCart}
+                            />} 
+                                
+                        />
 
                     </Switch>
                 </ScrollToTop>
