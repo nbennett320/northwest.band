@@ -2,12 +2,16 @@
     background-color: rgba(21, 77, 58, 0.9);
 }
 
-.price-preview:hover {
-    background-color: rgba(48, 138, 108, 0.8) !important;
-    color: #eedd4a !important;
+.preview-header {
     cursor: pointer;
 }
 
-.preview-header {
-    cursor: pointer;
+@media only screen and (min-width: 633px) {
+
+    .price-preview:hover {
+        background-color: rgba(48, 138, 108, 0.8) !important;
+        color: #eedd4a !important;
+        cursor: pointer;
+    }
+
 }

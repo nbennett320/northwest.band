@@ -4,19 +4,51 @@ import '../../css/store.css'
 
 class ItemPreview extends Component {
 
-    render () {
+    constructor(props) {
+        super (props)
 
+        this.state = {
+            previewImg: this.props.defaultImg,
+            isHovering: false,
+        }
+
+    }
+
+    handleMouseEnter = () => {
+        console.log(this.props)
+        this.setState({
+            previewImg: this.props.hoverImg,
+            isHovering: true,
+        })
+    }
+
+    handleMouseLeave = () => {
+        this.setState({
+            previewImg: this.props.defaultImg,
+            isHovering: true,
+        })
+    }
+
+    getPreviewImg = () => {
+        if(this.state.isHovering === true) return this.props.hoverImg
+        else return this.props.defaultImg
+    }
+
+    render () {
+        
         return (
             
-            <div class="product-preview" style={styles.card}>
-                <div class="preview-header" style={styles.cardHeader}>{this.props.title}</div>
-                    <img class="product-img"
-                        src={this.props.img}
+            <div className="product-preview" style={styles.card}>
+                <div className="preview-header" style={styles.cardHeader}>{this.props.title}</div>
+                    <img className="product-img"
+                        src={this.state.previewImg}
+                        onMouseEnter={this.handleMouseEnter}
+                        onMouseLeave={this.handleMouseLeave}
                         alt={this.props.altText}
                         style={styles.previewImage}
                     />
-                <p class="preview-description" style={styles.description}>{this.props.description}</p>
-                <div class="price-preview" style={styles.price}>
+                <p className="preview-description" style={styles.description}>{this.props.description}</p>
+                <div className="price-preview" style={styles.price}>
                     add to cart...............${this.props.price}
                     <br />
                     (COMING SOON)
