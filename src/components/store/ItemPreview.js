@@ -15,7 +15,6 @@ class ItemPreview extends Component {
     }
 
     handleMouseEnter = () => {
-        console.log(this.props)
         this.setState({
             previewImg: this.props.hoverImg,
             isHovering: true,

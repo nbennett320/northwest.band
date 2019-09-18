@@ -4,13 +4,12 @@
  * should be given as string, ex: 'long-sleeve' => subcategory 
  * should be given as string (represents design/more specific elements), ex: 'box-logo' => model 
  * should be given as string, ex: 'yellow' => color 
- * should be given as string of two characters, ex: '0S', '0M', '0L', 'XL', '2L' (where 2L == 2XL) => size 
  * should be an integer => key
  */
-const GenerateProductId = (category, subcategory, model, color, size, key) => {
+const GenerateProductListing = (category, subcategory, model, color, key) => {
     
     let hex, param, result = ''
-    let paramsArr = [category, subcategory, model, color, size]
+    let paramsArr = [category, subcategory, model, color]
 
     for(let i = 0; i < paramsArr.length; i++){
 
@@ -26,4 +25,4 @@ const GenerateProductId = (category, subcategory, model, color, size, key) => {
     return result + '' + key
 }
 
-export default GenerateProductId
+export default GenerateProductListing
