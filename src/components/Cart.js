@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import NumberOfItemsBubble from './NumberOfItemsBubble'
 import '../css/cart-logo.css'
 
 class Cart extends Component {
@@ -13,6 +13,8 @@ class Cart extends Component {
                 <div className='cart-image'
                     style={{backgroundImage: `url(${require('../img/store/cart300x100.png')})`}}
                 />
+
+                <NumberOfItemsBubble numberOfItemsInCart={this.props.numberOfItemsInCart} />
 
             </div>
 

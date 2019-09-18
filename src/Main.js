@@ -49,6 +49,7 @@ class Main extends Component {
                         headerLink={this.state.headerLink}
                         showCart={this.state.showCart}
                         setShowCart={this.setShowCart}
+                        numberOfItemsInCart={this.state.numberOfItemsInCart}
                     />
                     <Switch>
 

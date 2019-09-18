@@ -21,7 +21,7 @@ class Header extends Component {
 
     render () {
         let cart
-        if(this.props.showCart === true) cart = <Cart />
+        if(this.props.showCart === true) cart = <Cart numberOfItemsInCart={this.props.numberOfItemsInCart} />
 
         return (
             <div className="header" style={styles.main}>
