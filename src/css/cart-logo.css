@@ -1,5 +1,6 @@
 .shopping-cart {
     display: block;
+    cursor: pointer;
 }
 
 .cart-image {

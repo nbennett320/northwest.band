@@ -1,0 +1,12 @@
+.counter-bubble {
+    background-color: rgba(231, 117, 117, .95);
+    right: 20px;
+    bottom: 4vh;
+}
+
+@media only screen and (max-width: 633px) {
+    .counter-bubble {
+        bottom: 5.5vh;
+        right: 3px;
+    }
+}

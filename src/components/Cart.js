@@ -6,6 +6,10 @@ class Cart extends Component {
 
     render () {
 
+        const displayCounter = () => {
+            if(this.props.numberOfItemsInCart > 0) return <NumberOfItemsBubble numberOfItemsInCart={this.props.numberOfItemsInCart} />
+        }
+
         return (
 
             <div className='shopping-cart'>
@@ -14,7 +18,7 @@ class Cart extends Component {
                     style={{backgroundImage: `url(${require('../img/store/cart300x100.png')})`}}
                 />
 
-                <NumberOfItemsBubble numberOfItemsInCart={this.props.numberOfItemsInCart} />
+                {displayCounter()}
 
             </div>
 

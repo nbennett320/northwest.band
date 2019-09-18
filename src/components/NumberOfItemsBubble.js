@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+import '../css/bubble.css'
+
 class NumberOfItemsBubble extends Component {
 
     render () {
@@ -32,18 +34,22 @@ const styles = {
         borderRadius: '50%',
         width: '20px',
         height: '20px',
-        backgroundColor: 'red',
         color: '#fff',
         position: 'absolute',
-        
         fontFamily: 'Arial, Helvetica, sans-serif',
-
+        cursor: 'pointer',
+        zIndex: '40',
     },
 
     number: {
         marginLeft: 'auto',
         marginRight: 'auto',
-        textAlign: 'center'
+        marginTop: 'auto',
+        marginBottom: 'auto',
+        textAlign: 'center',
+        alignSelf: 'center',
+        cursor: 'pointer',
+        zIndex: '41',
     }
 
 }
