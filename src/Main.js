@@ -15,9 +15,16 @@ class Main extends Component {
         super(props)
 
         this.state = {
-            headerLink: 'http://www.instagram.com/northwest219'
+            headerLink: 'http://www.instagram.com/northwest219',
+            showCart: false
         }
 
+    }
+
+    setShowCart = bool => {
+        this.setState({
+            showCart: bool,
+        })
     }
 
     render() {
@@ -27,6 +34,8 @@ class Main extends Component {
                 <ScrollToTop>
                     <Header
                         headerLink={this.state.headerLink}
+                        showCart={this.state.showCart}
+                        setShowCart={this.setShowCart}
                     />
                     <Switch>
 
@@ -43,7 +52,7 @@ class Main extends Component {
                         <Route path='/new-feel' render={(props) => <Lyrics {...props} songKey="newfeel" />} />
                         <Route path='/come-around' render={(props) => <Lyrics {...props} songKey="comearound" />} />
 
-                        <Route path='/merch' component={Store} />
+                        <Route path='/merch' render={(props) => <Store {...props} setShowCart={this.setShowCart} />} />
 
                         <Route path='/goodies' component={Goodies} />
 

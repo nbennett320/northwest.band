@@ -4,18 +4,39 @@ import { Link } from 'react-router-dom'
 import '../css/header.css'
 
 import headerImg from '../img/Northwest_banner_puddle2.png'
+import Cart from './Cart'
 
 class Header extends Component {
 
+    constructor (props) {
+        super (props)
+        this.state = {
+            showCart: this.props.showCart
+        }
+    }
+
+    handleHeaderClick = () => {
+        this.props.setShowCart(false)
+    }
+
     render () {
+        let cart
+        if(this.props.showCart === true) cart = <Cart />
 
         return (
             <div className="header" style={styles.main}>
                 <Link to='..'>
 
-                    <img src={headerImg} id="headerImg" style={styles.img} alt="northwest header"/>
+                    <img src={headerImg} 
+                        id="headerImg" 
+                        style={styles.img} 
+                        alt="northwest header"
+                        onClick={this.handleHeaderClick}
+                    />
 
                 </Link>
+
+                {cart}
             </div>
         )
     }

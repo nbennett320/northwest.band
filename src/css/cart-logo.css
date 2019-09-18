@@ -1,0 +1,25 @@
+.shopping-cart {
+    display: block;
+}
+
+.cart-image {
+    width: 100px;
+    height: 100px;
+    transform: scale(0.5);
+    position: absolute;
+    right: 0px;
+    top: 4vh;
+    animation: playCart 0.7s steps(3) infinite;
+    z-index: 30;
+}
+
+@keyframes playCart {
+    100% { background-position: -300px; }
+}
+
+@media only screen and (max-width: 633px) {
+    .cart-image {
+        top: 2vh;
+        right: -20px;
+    }
+}
