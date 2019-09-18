@@ -8,12 +8,13 @@ class CartListing extends Component {
         {value: 's', label: 'S'},
         {value: 'm', label: 'M'},
         {value: 'l', label: 'L'},
-        {value: 'xl', label: 'XL'}
+        {value: 'xl', label: 'XL'},
+        {value: 'xxl', label: 'XXL'}
     ]
     
     render () {
 
-        console.log(this.props)
+        // console.log(this.props)
 
         return (
 
@@ -24,7 +25,6 @@ class CartListing extends Component {
                 <div style={styles.selector}>
                     <Select options={this.sizeOptions}
                         placeholder="Size"
-                        size='5'
                     />
                 </div>
 
@@ -52,7 +52,6 @@ const styles = {
         flexDirection: 'row',
         alignContent: 'center',
         backgroundColor: 'rgba(255,255,255,0.8)',
-        // backdropFilter: 'blur(5px)',
         borderRadius: '10px',
     },
 

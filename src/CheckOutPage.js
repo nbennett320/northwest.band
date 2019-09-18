@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 
 import CartListing from './CartListing'
 
+import './css/checkout.css'
+
 class CheckOutPage extends Component {
 
     constructor (props) {
@@ -63,6 +65,7 @@ class CheckOutPage extends Component {
 const styles = {
     main: {
         backgroundColor: '#f2d880',
+        height: 'fill',
         paddingTop: 'calc(8vh + 40px)',
         paddingBottom: '40px',
         display: 'flex',
