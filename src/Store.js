@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import ItemPreview from './components/store/ItemPreview'
 
-// import GenerateProductListing from './scripts/GenerateProductListing'
-
 class Store extends Component {
 
     items = {
@@ -132,7 +130,6 @@ const styles = {
 
     main: {
         backgroundColor: '#e8e1b3',
-        // height: 'calc(100vh - 8vh - 40px)',
         paddingTop: 'calc(8vh + 40px)',
         paddingBottom: '40px',
         display: 'flex',

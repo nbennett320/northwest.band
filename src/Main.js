@@ -37,8 +37,23 @@ class Main extends Component {
             itemsInCart: items,
             numberOfItemsInCart: items.length
         })
-        console.log(this.state.numberOfItemsInCart)
-        console.log(this.state.itemsInCart)
+        // console.log(this.state.numberOfItemsInCart)
+        // console.log(this.state.itemsInCart)
+    }
+
+    removeItem = itemNumber => {
+        console.log("item num:" + itemNumber)
+        let items = this.state.itemsInCart
+        
+        if(items.length == 1) items.pop()
+        else items.splice(itemNumber, 1)
+
+        this.setState({
+            itemsInCart: items,
+            numberOfItemsInCart: items.length
+        })
+        // console.log(this.state.numberOfItemsInCart)
+        // console.log(this.state.itemsInCart)
     }
 
     render() {
@@ -81,6 +96,7 @@ class Main extends Component {
                             render={(props) => <CheckOutPage 
                                 {...props} 
                                 itemsInCart={this.state.itemsInCart}
+                                removeItem={this.removeItem}
                             />} 
                                 
                         />

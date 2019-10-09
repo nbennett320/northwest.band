@@ -11,10 +11,15 @@ class CartListing extends Component {
         {value: 'xl', label: 'XL'},
         {value: 'xxl', label: 'XXL'}
     ]
+
+    handleClick = () => {
+
+        const itemCartNumber = this.props.itemCartNumber
+        this.props.removeItem(itemCartNumber)
+
+    }
     
     render () {
-
-        // console.log(this.props)
 
         return (
 
@@ -29,6 +34,10 @@ class CartListing extends Component {
                 </div>
 
                 <div className="listing-price" style={styles.price}>${this.props.price}</div>
+
+                <div className="remove-from-cart-x" style={styles.x} onClick={this.handleClick}>
+                    <img src={require('./img/store/x-icon-png-25.png')} alt="x icon"/>
+                </div>
 
             </div>
 
@@ -66,6 +75,7 @@ const styles = {
         marginRight: '20px',
         marginTop: 'auto',
         marginBottom: 'auto',
+        fontSize: '1.2em',
     },
 
     selector: {
@@ -73,6 +83,15 @@ const styles = {
         minWidth: '15%',
         maxWidth: '20%',
         margin: 'auto',
+    },
+
+    x: {
+        marginLeft: '20px',
+        marginRight: '20px',
+        marginTop: 'auto',
+        marginBottom: 'auto',
+        transform: 'scale(0.5)',
+        cursor: 'pointer',
     },
 }
 

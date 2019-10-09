@@ -7,8 +7,8 @@ import './css/checkout.css'
 
 class CheckOutPage extends Component {
 
-    constructor (props) {
-        super (props)
+    constructor(props) {
+        super(props)
 
         this.state = {
 
@@ -22,13 +22,15 @@ class CheckOutPage extends Component {
 
         console.log(itemDataArr)
 
-        for(let i = 0; i < itemDataArr.length; i++) {
+        for (let i = 0; i < itemDataArr.length; i++) {
 
-            listingComponentArr.push( <CartListing
+            listingComponentArr.push(<CartListing
                 title={itemDataArr[i].title}
                 thumbnail={itemDataArr[i].defaultImg}
-                altText={itemDataArr[i].altText}  
+                altText={itemDataArr[i].altText}
                 price={itemDataArr[i].price}
+                itemCartNumber={i}
+                removeItem={this.props.removeItem}
             />
 
             )
@@ -39,7 +41,7 @@ class CheckOutPage extends Component {
 
     }
 
-    render () {
+    render() {
 
         return (
 
@@ -90,14 +92,14 @@ const styles = {
         color: '#000',
         textAlign: 'center',
         fontSize: '1.5em',
-    }, 
+    },
 
     listing: {
         backgroundColor: '#f2d880',
         height: '100%',
         width: '100%',
         overflowY: 'auto',
-        overflowX: 'hidden !important',
+
     },
 
     hack: {
@@ -107,7 +109,7 @@ const styles = {
         zIndex: '1',
         position: 'absolute',
         paddingBottom: '15vh'
-        
+
     }
 }
 
