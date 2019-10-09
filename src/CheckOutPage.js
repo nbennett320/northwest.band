@@ -100,7 +100,7 @@ const styles = {
         height: 'auto',
         width: '100%',
         paddingBottom: '80px',
-        overflowY: 'auto',
+        overflowY: 'visible',
     },
 
     hack: {
