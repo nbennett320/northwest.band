@@ -76,8 +76,9 @@ const styles = {
         backgroundColor: '#f2d880',
         height: 'auto',
         width: '100%',
-        paddingTop: 'calc(8vh + 40px)',
-        paddingBottom: '40px',
+        paddingTop: '8vh',
+        paddingBottom: '8vh',
+        //marginTop: '40px',
         display: 'flex',
         flexDirection: 'row',
         alignContent: 'flex-start',
@@ -87,7 +88,7 @@ const styles = {
 
     title: {
         width: '100%',
-        marginTop: '20px',
+        marginTop: '60px',
         marginBottom: '20px',
         color: '#000',
         textAlign: 'center',
@@ -96,15 +97,15 @@ const styles = {
 
     listing: {
         backgroundColor: '#f2d880',
-        height: '100%',
+        height: 'auto',
         width: '100%',
+        paddingBottom: '80px',
         overflowY: 'auto',
-
     },
 
     hack: {
         backgroundColor: '#f2d880',
-        height: '85vh',
+        height: 'calc(100% - (15vh + 8vh))',
         width: '100vw',
         zIndex: '1',
         position: 'absolute',

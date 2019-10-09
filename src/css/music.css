@@ -12,6 +12,8 @@
     margin-right: 0;
     display: flex;
     flex-direction: column;
+    top: 0;
+    position: absolute;
     background-color: #050505;
     letter-spacing: 1px;
 }

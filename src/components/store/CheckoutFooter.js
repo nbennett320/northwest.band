@@ -25,7 +25,6 @@ class CheckoutFooter extends Component {
                     <span style={styles.span}>Total:</span>
                 
                     <div style={styles.price}>${this.calculatePrice()}</div>
-
                 </div>
 
             </div>

@@ -45,7 +45,7 @@ class Main extends Component {
         console.log("item num:" + itemNumber)
         let items = this.state.itemsInCart
         
-        if(items.length == 1) items.pop()
+        if(items.length === 1) items.pop()
         else items.splice(itemNumber, 1)
 
         this.setState({

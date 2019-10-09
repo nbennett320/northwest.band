@@ -133,9 +133,12 @@ const styles = {
         paddingTop: 'calc(8vh + 40px)',
         paddingBottom: '40px',
         display: 'flex',
+        top: '0',
+        position: 'absolute',
         flexDirection: 'row',
         alignContent: 'flex-start',
         flexWrap: 'wrap',
+        
     }
 
 }
