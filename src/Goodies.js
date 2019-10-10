@@ -43,8 +43,9 @@ const styles = {
         paddingTop: 'calc(8vh + 40px)',
         margin: 'auto',
         height: 'calc(100vh - 8vh - 40px)',
-        // top: '0',
-        // position: 'absolute',
+        width: '100%',
+        top: '0',
+        position: 'absolute',
     },
 
     span: {
