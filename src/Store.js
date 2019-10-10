@@ -103,7 +103,8 @@ class Store extends Component {
                 defaultImg={items[i].defaultImg} 
                 hoverImg={items[i].hoverImg}
                 altText={items[i].altText} 
-                description={items[i].description} 
+                description={items[i].description}
+                attributes={items[i].attributes}
                 price={items[i].price}
                 key={i*2}
                 addItemToCart={this.props.addItemToCart}

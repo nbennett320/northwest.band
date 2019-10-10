@@ -39,12 +39,12 @@ class Main extends Component {
             itemsInCart: items,
             numberOfItemsInCart: items.length
         })
-        // console.log(this.state.numberOfItemsInCart)
-        // console.log(this.state.itemsInCart)
     }
 
     setTotalPrice = total => {
         let totalPrice = total
+        console.log("items in cart: ")
+        console.log(this.state.itemsInCart)
         console.log("total price: $" + totalPrice)
         this.setState({
             totalPrice: totalPrice,
@@ -52,7 +52,7 @@ class Main extends Component {
     }
 
     removeItem = itemNumber => {
-        console.log("item num:" + itemNumber)
+        // console.log("item num:" + itemNumber)
         let items = this.state.itemsInCart
         
         if(items.length === 1) items.pop()
@@ -62,8 +62,6 @@ class Main extends Component {
             itemsInCart: items,
             numberOfItemsInCart: items.length
         })
-        // console.log(this.state.numberOfItemsInCart)
-        // console.log(this.state.itemsInCart)
     }
 
     render() {
@@ -114,16 +112,12 @@ class Main extends Component {
                             />} 
                         />
 
-                        {/* <Route path='/place-order' 
+                        <Route path='/place-order' 
                             render={(props) => <PlaceOrderPage
                                 {...props} 
                                 itemsInCart={this.state.itemsInCart}
                                 totalPrice={this.state.totalPrice}
                             />} 
-                        /> */}
-
-                        <Route path='/place-order' 
-                            component={PlaceOrderPage}
                         />
 
                     </Switch>

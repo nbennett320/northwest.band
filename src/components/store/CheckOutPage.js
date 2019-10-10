@@ -11,7 +11,7 @@ class CheckOutPage extends Component {
         super(props)
 
         this.state = {
-            
+            itemsForPurchase: [],
         }
     }
 
@@ -45,10 +45,12 @@ class CheckOutPage extends Component {
     handleSizeChange = (newSize, itemCartNumber) => {
 
         const itemDataArr = this.props.itemsInCart
-        console.log("poop")
-        console.log(itemDataArr[itemCartNumber].attributes)
-
+        let purchaseArr = this.state.itemsForPurchase
+        
         itemDataArr[itemCartNumber].attributes.size = newSize.value
+
+        purchaseArr.push(itemDataArr[itemCartNumber.attributes])
+        this.setState({itemsForPurchase: purchaseArr})
 
     }
 
@@ -72,6 +74,7 @@ class CheckOutPage extends Component {
                     itemsInCart={this.props.itemsInCart} 
                     totalPrice={this.props.totalPrice} 
                     setTotalPrice={this.props.setTotalPrice}
+                    itemsForPurchase={this.state.itemsForPurchase}
                 />
 
             </div>
