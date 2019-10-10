@@ -35,8 +35,21 @@ class CheckOutPage extends Component {
     }
 
     handleSizeChange = (newSize, itemCartNumber) => {
+        this.verifyOrderValidity()
         const itemDataArr = this.props.itemsInCart
         itemDataArr[itemCartNumber].attributes.size = newSize.value
+    }
+
+    verifyOrderValidity = () => {
+
+        let dummyCartArr = this.props.itemsInCart
+
+        for(let i = 0; i < dummyCartArr.length; i++) {
+            if(dummyCartArr[i].attributes.size === '') return false
+        }
+
+        return true
+
     }
 
     render() {
@@ -59,6 +72,7 @@ class CheckOutPage extends Component {
                     itemsInCart={this.props.itemsInCart} 
                     totalPrice={this.props.totalPrice} 
                     setTotalPrice={this.props.setTotalPrice}
+                    verifyOrderValidity={this.verifyOrderValidity}
                 />
 
             </div>

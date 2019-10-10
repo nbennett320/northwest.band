@@ -21,6 +21,17 @@ class CheckoutFooter extends Component {
         this.props.setTotalPrice(sum)
     }
 
+    verifyIfValid = () => {
+
+        let component
+
+        if(this.props.verifyOrderValidity === true) component = <Link to={'/place-order'} style={styles.placeOrder} onClick={this.handlePlaceOrderClick}>Place Order</Link> 
+        else component = <span>Select a size for each item.</span>
+
+        return component
+
+    }
+
     render () {
 
         return (
@@ -32,7 +43,7 @@ class CheckoutFooter extends Component {
                 
                     <div style={styles.price}>${this.calculatePrice()}</div>
 
-                    <Link to={'/place-order'} style={styles.placeOrder} onClick={this.handlePlaceOrderClick}>Place Order</Link>
+                    {this.verifyIfValid()}
 
                 </div>
 
