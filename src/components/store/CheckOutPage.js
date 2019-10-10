@@ -7,14 +7,6 @@ import '../../css/checkout.css'
 
 class CheckOutPage extends Component {
 
-    constructor(props) {
-        super(props)
-
-        this.state = {
-            itemsForPurchase: [],
-        }
-    }
-
     mapCartItems = () => {
 
         const itemDataArr = this.props.itemsInCart
@@ -43,15 +35,8 @@ class CheckOutPage extends Component {
     }
 
     handleSizeChange = (newSize, itemCartNumber) => {
-
         const itemDataArr = this.props.itemsInCart
-        let purchaseArr = this.state.itemsForPurchase
-        
         itemDataArr[itemCartNumber].attributes.size = newSize.value
-
-        purchaseArr.push(itemDataArr[itemCartNumber.attributes])
-        this.setState({itemsForPurchase: purchaseArr})
-
     }
 
     render() {
@@ -74,7 +59,6 @@ class CheckOutPage extends Component {
                     itemsInCart={this.props.itemsInCart} 
                     totalPrice={this.props.totalPrice} 
                     setTotalPrice={this.props.setTotalPrice}
-                    itemsForPurchase={this.state.itemsForPurchase}
                 />
 
             </div>

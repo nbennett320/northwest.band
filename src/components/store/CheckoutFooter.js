@@ -17,7 +17,6 @@ class CheckoutFooter extends Component {
     }
 
     handlePlaceOrderClick = () => {
-        console.log(this.props.itemsForPurchase)
         let sum = this.calculatePrice()
         this.props.setTotalPrice(sum)
     }
