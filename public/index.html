@@ -1,52 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
+	<head>
+		<meta charset="utf-8" />
+		<link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="theme-color" content="#000000" />
 
-    <link rel="icon" href="./logo1.ico">
-    <meta name="description" content="official page of northwest the band... come say hi :)">
-    <meta name="description" content="
-        
-        Northwest is a band from Northwest Indiana, started before the summer of 2017. The first tracks came from
-        Lukas Needham and Noah Bennett, though they weren't mmade seriously or with any intention of making a band. 
-        However, they kept playing, recording, and hanging out, and eventually became Northwest -- releasing their
-        first album 'Area Code' in July of 2018.
-        
-        ">
-    <meta name="robots" content="noindex">
-    <meta name="url" content="www.northwest.band">
-    <meta name="type" content="website">
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+		<link rel="icon" href="./logo1.ico" />
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>northwest the band</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+		<link rel="canonical" href="http://northwest.band" />
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+		<!-- generally don't want to have more than ten, see https://www.wordstream.com/meta-keyword -->
+		<meta name="keywords" 
+			content="
+				northwest, 
+				northwest the band, 
+				north west, 
+				band, 
+				nwi, 
+				219, 
+				the region, 
+				northwest indiana, 
+				chicago, 
+				indie
+			"
+		/>
+		
+		<meta name="author" content="Noah Bennett">
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
+		<meta name="description" content="
+			Northwest is a band from Northwest Indiana, started before the summer of 2017. The first tracks came from
+			Lukas Needham and Noah Bennett, though they weren't made seriously or with any intention of making a band.
+			Though they were released as joke, their first works recieved surprisingly positive reception among friends
+			and a very small community of listeners. As Lukas and Noah kept playing, recording, and hanging out, they 
+			eventually became Northwest -- releasing their first album 'Area Code' on July 15th of 2018.
+
+			Since its release, they've continued to work on music and began playing live shows -- adding drummer Blake 
+			Fletcher, a long time friend of Lukas, and bassist Hayden Carlson, a cousin and best friend to Noah. 
+			Their collaboration and further dedication to improving their musical ability has allowed for much more 
+			cohesive projects, such as their second full length album 'Suburban Dogs', to come about.
+
+			For booking or general inquiries regarding Northwest, email northwestband9@gmail.com.
+			" />
+		<meta name="robots" content="noindex" />
+		<meta name="url" content="http://northwest.band" />
+
+		<!--
+		manifest.json provides metadata used when your web app is installed on a
+		user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+		-->
+		<link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+		<!--
+		Notice the use of %PUBLIC_URL% in the tags above.
+		It will be replaced with the URL of the `public` folder during the build.
+		Only files inside the `public` folder can be referenced from the HTML.
+
+		Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+		work correctly both with client-side routing and a non-root public URL.
+		Learn how to configure a non-root public URL by running `npm run build`.
+		-->
+		<title>northwest the band | music, merch, and cool stuff</title>
+	</head>
+	<body>
+
+		<!-- not visible at all on main page, meant to help with seo, may not be needed -->
+		<div id="crawl">
+			<h1>music | checkout northwest's entire discography</h1>
+			<h2>suburban dogs</h2>
+			<p>northwest's second album</p>
+			<h2>area code</h2>
+			<p>northwest's first album</p>
+
+			<h1>merch | show the world you love northwest</h1>
+			<h2>shirts</h2>
+			<p>epic shirts</p>
+			<h2>sweatshirts</h2>
+			<p>comfy shirts</p>
+			<h2>misc</h2>
+			<p>cds, cool stuff, etc.</p>
+			
+			<h1>goodies | cool stuff from indiana's most epic band</h1>
+			<h2>demos</h2>
+			<p>old music and stuff from northwest</p>
+			<h2>art</h2>
+			<p>some of our artwork</p>
+		</div>
+
+		<noscript>You need to enable JavaScript to run this app.</noscript>
+		<div id="root"></div>
+		<!--
+		This HTML file is a template.
+		If you open it directly in the browser, you will see an empty page.
+
+		You can add webfonts, meta tags, or analytics to this file.
+		The build step will place the bundled scripts into the <body> tag.
+
+		To begin the development, run `npm start` or `yarn start`.
+		To create a production bundle, use `npm run build` or `yarn build`.
+		-->
+	</body>
 </html>

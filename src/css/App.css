@@ -10,3 +10,7 @@ html, body {
     height: 100%;
     overflow-x: hidden !important;
 }
+
+#crawl {
+    visibility: hidden !important;
+}
