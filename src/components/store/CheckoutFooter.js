@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
+import '../../css/checkout-footer.css'
+
 class CheckoutFooter extends Component {
 
     calculatePrice = () => {
@@ -24,9 +26,9 @@ class CheckoutFooter extends Component {
     verifyIfValid = () => {
 
         let component
-
-        if(this.props.verifyOrderValidity === true) component = <Link to={'/place-order'} style={styles.placeOrder} onClick={this.handlePlaceOrderClick}>Place Order</Link> 
-        else component = <span>Select a size for each item.</span>
+        if(this.props.itemsInCart.length === 0) component = <span className="place-order-text" style={styles.placeOrderNoPointer}>No items in cart!</span>
+        else if(this.props.verifyOrderValidity === true) component = <Link to={'/place-order'} className="place-order-text" style={styles.placeOrder} onClick={this.handlePlaceOrderClick}>Place Order</Link> 
+        else if(this.props.verifyOrderValidity === false) component = <span className="place-order-text" style={styles.placeOrderNoPointer}>Select a size for each item.</span>
 
         return component
 
@@ -38,10 +40,10 @@ class CheckoutFooter extends Component {
 
             <div className="checkout-footer" style={styles.foot}>
 
-                <div style={styles.total}>
-                    <span style={styles.span}>Total:</span>
+                <div className="total-container">
+                    <span className="total-text">Total:</span>
                 
-                    <div style={styles.price}>${this.calculatePrice()}</div>
+                    <div className="total-num">${this.calculatePrice()}</div>
 
                     {this.verifyIfValid()}
 
@@ -58,7 +60,6 @@ class CheckoutFooter extends Component {
 const styles = {
 
     foot: {
-        height: '8vh',
         width: '100%',
         backgroundColor: 'rgba(255,255,255,0.8)',
         boxShadow: '0px 0px 8px 2px rgba(0,0,0,0.1)',
@@ -66,7 +67,6 @@ const styles = {
         borderTopLeftRadius: '10px',
         borderTopRightRadius: '10px',
         position: 'fixed',
-        top: '92vh'
     },
 
     total: {
@@ -84,7 +84,7 @@ const styles = {
     price: {
         fontSize: '2em',
         marginLeft: 'auto',
-        marginRight: 'auto',
+        marginRight: 'calc(auto +)',
     },
 
     span: {
@@ -94,9 +94,13 @@ const styles = {
     placeOrder: {
         color: '#000',
         position: 'fixed',
-        right: '20px',
         cursor: 'pointer'
     },
+
+    placeOrderNoPointer: {
+        color: '#000',
+        position: 'fixed',
+    }
 
 }
 

@@ -76,8 +76,8 @@ const styles = {
     },
 
     price: {
-        marginLeft: 'auto',
-        marginRight: '20px',
+        marginLeft: '20px',
+        marginRight: 'auto',
         marginTop: 'auto',
         marginBottom: 'auto',
         fontSize: '1.2em',

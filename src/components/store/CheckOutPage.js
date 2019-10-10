@@ -7,6 +7,15 @@ import '../../css/checkout.css'
 
 class CheckOutPage extends Component {
 
+    constructor (props) { 
+        super (props)
+
+        this.state = {
+            canPurchase: false
+        }
+
+    }
+
     mapCartItems = () => {
 
         const itemDataArr = this.props.itemsInCart
@@ -35,20 +44,21 @@ class CheckOutPage extends Component {
     }
 
     handleSizeChange = (newSize, itemCartNumber) => {
-        this.verifyOrderValidity()
         const itemDataArr = this.props.itemsInCart
         itemDataArr[itemCartNumber].attributes.size = newSize.value
+        this.verifyOrderValidity()
     }
 
     verifyOrderValidity = () => {
 
         let dummyCartArr = this.props.itemsInCart
+        let bool = true
 
         for(let i = 0; i < dummyCartArr.length; i++) {
-            if(dummyCartArr[i].attributes.size === '') return false
+            if(dummyCartArr[i].attributes.size === '') bool = false
         }
 
-        return true
+        this.setState({canPurchase: bool})
 
     }
 
@@ -72,7 +82,7 @@ class CheckOutPage extends Component {
                     itemsInCart={this.props.itemsInCart} 
                     totalPrice={this.props.totalPrice} 
                     setTotalPrice={this.props.setTotalPrice}
-                    verifyOrderValidity={this.verifyOrderValidity}
+                    verifyOrderValidity={this.state.canPurchase}
                 />
 
             </div>
