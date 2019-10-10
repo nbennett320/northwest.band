@@ -57,7 +57,11 @@ class CheckOutPage extends Component {
 
                 </div>
 
-                <CheckoutFooter itemsInCart={this.props.itemsInCart} />
+                <CheckoutFooter 
+                    itemsInCart={this.props.itemsInCart} 
+                    totalPrice={this.props.totalPrice} 
+                    setTotalPrice={this.props.setTotalPrice}
+                />
 
             </div>
 

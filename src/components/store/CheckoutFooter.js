@@ -2,6 +2,14 @@ import React, { Component } from 'react'
 
 class CheckoutFooter extends Component {
 
+    constructor (props) {
+        super (props)
+
+        this.state = {
+            totalSum: 0,
+        }
+    }
+
     calculatePrice = () => {
 
         let sum = 0
@@ -15,6 +23,12 @@ class CheckoutFooter extends Component {
 
     }
 
+    handlePlaceOrderClick = () => {
+        let sum = this.calculatePrice()
+        this.setState({totalSum: sum})
+        this.props.setTotalPrice(this.state.totalSum)
+    }
+
     render () {
 
         return (
@@ -25,7 +39,12 @@ class CheckoutFooter extends Component {
                     <span style={styles.span}>Total:</span>
                 
                     <div style={styles.price}>${this.calculatePrice()}</div>
+
+                    <span style={styles.placeOrder} onClick={this.handlePlaceOrderClick}>Place Order</span>
+
                 </div>
+
+                <span style={styles.placeOrder} onClick={this.handlePlaceOrderClick}>Place Order</span>
 
             </div>
 
@@ -69,6 +88,10 @@ const styles = {
 
     span: {
         position: 'fixed'
+    },
+
+    placeOrder: {
+        color: '#000',
     },
 
 }

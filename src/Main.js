@@ -21,6 +21,7 @@ class Main extends Component {
             showCart: false,
             numberOfItemsInCart: 0,
             itemsInCart: [],
+            totalPrice: 0,
         }
 
     }
@@ -40,6 +41,14 @@ class Main extends Component {
         })
         // console.log(this.state.numberOfItemsInCart)
         // console.log(this.state.itemsInCart)
+    }
+
+    setTotalPrice = total => {
+        let totalPrice = total
+        console.log("totalPRICE" + totalPrice)
+        this.setState({
+            totalPrice: totalPrice,
+        })
     }
 
     removeItem = itemNumber => {
@@ -100,6 +109,8 @@ class Main extends Component {
                                 {...props} 
                                 itemsInCart={this.state.itemsInCart}
                                 removeItem={this.removeItem}
+                                totalPrice={this.state.totalPrice}
+                                setTotalPrice={this.setTotalPrice}
                             />} 
                                 
                         />
@@ -108,6 +119,7 @@ class Main extends Component {
                             render={(props) => <PlaceOrderPage
                                 {...props} 
                                 itemsInCart={this.state.itemsInCart}
+                                totalPrice={this.state.totalPrice}
                             />} 
                                 
                         />
