@@ -96,7 +96,7 @@ class Lyrics extends Component {
             flexDirection: 'column',
             alignContent: 'center',
             paddingTop: 'calc(8vh + 30px)',
-            // letterSpacing: '1px',
+            height: 'auto',
 
         }
 
@@ -107,7 +107,7 @@ class Lyrics extends Component {
             flexDirection: 'column',
             alignContent: 'center',
             paddingTop: 'calc(8vh + 30px)',
-
+            height: 'auto',
         }
 
         const comearound = {
@@ -117,6 +117,7 @@ class Lyrics extends Component {
             flexDirection: 'column',
             alignContent: 'center',
             paddingTop: 'calc(8vh + 30px)',
+            height: 'auto',
 
         }
 
@@ -143,7 +144,6 @@ class Lyrics extends Component {
 
     renderLyrics = lyrics => {
         let stringArr = []
-        // console.log(lyrics)
 
         for(let i = 0; i < lyrics.length; i++) {
             if(lyrics[i] !== ``){
@@ -191,6 +191,8 @@ const styles = {
     main: {
         backgroundColor: '#e8e1b3',
         display: 'flex',
+        width: '100% !important',
+        height: '100%',
         flexDirection: 'column',
         alignContent: 'center',
         paddingTop: 'calc(8vh + 30px)',

@@ -1,13 +1,15 @@
 .lyrics {
     top: 0;
     position: absolute;
+    width: 100%;
 }
 
 .misc-img {
-    width: 100%;
+    width: auto;
     height: auto;
-    margin: auto auto auto auto;
-    transform: scale(0.7);
+    max-width: 70%;
+    max-height: 70%;
+    margin: 20px auto 20px auto;
 }
 
 .lines {

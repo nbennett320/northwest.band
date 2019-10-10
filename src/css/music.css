@@ -78,18 +78,6 @@ a{
     transform: scale(0.9);
 }
 
-p .song-link {
-    color: #ffffff;
-    font-family: 'Courier New', Courier, monospace;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: normal;
-    font-size: calc(1.4em * .7);
-    margin-top: 0.3em;
-    margin-bottom: 0.3em;
-    margin-left: auto;
-    text-align: left;
-}
-
 .song-link {
     color: #ffffff;
     font-family: Arial, Helvetica, sans-serif;
@@ -101,15 +89,14 @@ p .song-link {
     text-align: left;
 }
 
-.song-link:hover{
-    font-size: calc(1.5em * .7);
-    margin-top: 0.18em;
-    margin-bottom: 0.18em;
+.song-link:hover {
+    font-size: calc(1.4em * .75);
+    margin-top: calc(0.3em * -1.5);
+    margin-bottom: calc(0.3em * -1.5);
 }
 
 .song-list {
     color: #ffffff;
-    font-family: 'Courier New', Courier, monospace;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: normal;
     font-size: calc(1.4em * .7);
@@ -117,6 +104,11 @@ p .song-link {
     margin-bottom: 0.3em;
     margin-left: 15%;
     text-align: left;
+}
+
+.song-list-p {
+    margin-top: 0.3em;
+    margin-bottom: 0.3em;
 }
 
 .album-head {
@@ -183,7 +175,6 @@ p .song-link {
         font-size: 1em;
         margin-top: 0.2em;
         margin-bottom: 0.2em;
-        margin-left: 15%;
     }
 
     .song-list {
@@ -197,6 +188,7 @@ p .song-link {
         font-size: 1em;
         margin-top: 0.2em;
         margin-bottom: 0.2em;
+        margin-left: 15%;
     }
     
     .song-link:hover{
