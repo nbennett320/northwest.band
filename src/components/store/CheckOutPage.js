@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 
 import CartListing from './CartListing'
-import CheckoutFooter from './components/store/CheckoutFooter'
+import CheckoutFooter from './CheckoutFooter'
 
-import './css/checkout.css'
+import '../../css/checkout.css'
 
 class CheckOutPage extends Component {
 

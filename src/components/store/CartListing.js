@@ -36,7 +36,7 @@ class CartListing extends Component {
                 <div className="listing-price" style={styles.price}>${this.props.price}</div>
 
                 <div className="remove-from-cart-x" style={styles.x} onClick={this.handleClick}>
-                    <img src={require('./img/store/x-icon-png-25.png')} alt="x icon"/>
+                    <img src={require('../../img/store/x-icon-png-25.png')} alt="x icon"/>
                 </div>
 
             </div>

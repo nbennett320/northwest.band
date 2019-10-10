@@ -8,7 +8,8 @@ import Lyrics from './Lyrics'
 import Store from './Store'
 import Goodies from './Goodies'
 import ScrollToTop from './scripts/ScrollToTop'
-import CheckOutPage from './CheckOutPage'
+import CheckOutPage from './components/store/CheckOutPage'
+import PlaceOrderPage from './components/store/PlaceOrderPage';
 
 class Main extends Component {
 
@@ -61,12 +62,14 @@ class Main extends Component {
         return (
             <Router>
                 <ScrollToTop>
+
                     <Header
                         headerLink={this.state.headerLink}
                         showCart={this.state.showCart}
                         setShowCart={this.setShowCart}
                         numberOfItemsInCart={this.state.numberOfItemsInCart}
                     />
+
                     <Switch>
 
                         <Route exact path='/' component={Home} />
@@ -97,6 +100,14 @@ class Main extends Component {
                                 {...props} 
                                 itemsInCart={this.state.itemsInCart}
                                 removeItem={this.removeItem}
+                            />} 
+                                
+                        />
+
+                        <Route path='/place-order' 
+                            render={(props) => <PlaceOrderPage
+                                {...props} 
+                                itemsInCart={this.state.itemsInCart}
                             />} 
                                 
                         />
