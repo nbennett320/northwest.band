@@ -8,9 +8,9 @@
 html, body {
     margin: 0;
     height: 100%;
-    overflow-x: hidden !important;
 }
 
 #crawl {
     visibility: hidden !important;
+    color: #fff !important;
 }

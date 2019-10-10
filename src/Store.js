@@ -16,6 +16,7 @@ class Store extends Component {
                 subcategory: 'short-sleeve',
                 model: 'cursive-star',
                 color: 'hot-pink',
+                size: '',
             },
             price: 12
         },
@@ -31,6 +32,7 @@ class Store extends Component {
                 subcategory: 'short-sleeve',
                 model: 'cursive-star',
                 color: 'yellow',
+                size: '',
             },
             price: 12
         },
@@ -46,6 +48,7 @@ class Store extends Component {
                 subcategory: 'crew-neck',
                 model: 'cursive-star',
                 color: 'red',
+                size: '',
             },
             price: 20
         },
@@ -61,6 +64,7 @@ class Store extends Component {
                 subcategory: 'crew-neck',
                 model: 'cursive-star',
                 color: 'black',
+                size: '',
             },
             price: 20
         },
@@ -76,6 +80,7 @@ class Store extends Component {
                 subcategory: 'short-sleeve',
                 model: 'cursive-star',
                 color: 'white',
+                size: '',
             },
             price: 20
         },

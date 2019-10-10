@@ -21,7 +21,7 @@ class PlaceOrderPage extends Component {
 const styles = {
 
     main: {
-
+        
     }
 
 }

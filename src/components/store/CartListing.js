@@ -18,6 +18,10 @@ class CartListing extends Component {
         this.props.removeItem(itemCartNumber)
 
     }
+
+    changeSize = newSize => {
+        this.props.handleSizeChange(newSize, this.props.itemCartNumber)
+    }
     
     render () {
 
@@ -30,6 +34,7 @@ class CartListing extends Component {
                 <div style={styles.selector}>
                     <Select options={this.sizeOptions}
                         placeholder="Size"
+                        onChange={this.changeSize}
                     />
                 </div>
 

@@ -1,14 +1,7 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 class CheckoutFooter extends Component {
-
-    constructor (props) {
-        super (props)
-
-        this.state = {
-            totalSum: 0,
-        }
-    }
 
     calculatePrice = () => {
 
@@ -25,8 +18,7 @@ class CheckoutFooter extends Component {
 
     handlePlaceOrderClick = () => {
         let sum = this.calculatePrice()
-        this.setState({totalSum: sum})
-        this.props.setTotalPrice(this.state.totalSum)
+        this.props.setTotalPrice(sum)
     }
 
     render () {
@@ -40,11 +32,9 @@ class CheckoutFooter extends Component {
                 
                     <div style={styles.price}>${this.calculatePrice()}</div>
 
-                    <span style={styles.placeOrder} onClick={this.handlePlaceOrderClick}>Place Order</span>
+                    <Link to={'/place-order'} style={styles.placeOrder} onClick={this.handlePlaceOrderClick}>Place Order</Link>
 
                 </div>
-
-                <span style={styles.placeOrder} onClick={this.handlePlaceOrderClick}>Place Order</span>
 
             </div>
 
@@ -92,6 +82,9 @@ const styles = {
 
     placeOrder: {
         color: '#000',
+        position: 'fixed',
+        right: '20px',
+        cursor: 'pointer'
     },
 
 }

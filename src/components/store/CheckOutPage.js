@@ -11,7 +11,7 @@ class CheckOutPage extends Component {
         super(props)
 
         this.state = {
-
+            
         }
     }
 
@@ -31,6 +31,7 @@ class CheckOutPage extends Component {
                 price={itemDataArr[i].price}
                 itemCartNumber={i}
                 removeItem={this.props.removeItem}
+                handleSizeChange={this.handleSizeChange}
             />
 
             )
@@ -38,6 +39,16 @@ class CheckOutPage extends Component {
         }
 
         return listingComponentArr
+
+    }
+
+    handleSizeChange = (newSize, itemCartNumber) => {
+
+        const itemDataArr = this.props.itemsInCart
+        console.log("poop")
+        console.log(itemDataArr[itemCartNumber].attributes)
+
+        itemDataArr[itemCartNumber].attributes.size = newSize.value
 
     }
 

@@ -45,7 +45,7 @@ class Main extends Component {
 
     setTotalPrice = total => {
         let totalPrice = total
-        console.log("totalPRICE" + totalPrice)
+        console.log("total price: $" + totalPrice)
         this.setState({
             totalPrice: totalPrice,
         })
@@ -83,7 +83,7 @@ class Main extends Component {
 
                         <Route exact path='/' component={Home} />
 
-                        <Route path='/music/' render={(props) => <Music {...props} />} />
+                        <Route path='/music' render={(props) => <Music {...props} />} />
 
                         <Route path='/swmtn' render={(props) => <Lyrics {...props} songKey="swmtn" />} />
                         <Route path='/lover' render={(props) => <Lyrics {...props} songKey="lover" />} />
@@ -112,16 +112,18 @@ class Main extends Component {
                                 totalPrice={this.state.totalPrice}
                                 setTotalPrice={this.setTotalPrice}
                             />} 
-                                
                         />
 
-                        <Route path='/place-order' 
+                        {/* <Route path='/place-order' 
                             render={(props) => <PlaceOrderPage
                                 {...props} 
                                 itemsInCart={this.state.itemsInCart}
                                 totalPrice={this.state.totalPrice}
                             />} 
-                                
+                        /> */}
+
+                        <Route path='/place-order' 
+                            component={PlaceOrderPage}
                         />
 
                     </Switch>
