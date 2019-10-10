@@ -47,21 +47,17 @@ class CheckOutPage extends Component {
 
             <div className="checkout" style={styles.main}>
 
-                <div className="hacked-wrapper" style={styles.hack}>
+                <div className="checkout-title" style={styles.title}>
+                    Checkout:
+                </div>
 
-                    <div className="checkout-title" style={styles.title}>
-                        Checkout:
-                    </div>
+                <div className="checkout-items" style={styles.listing}>
 
-                    <div className="checkout-items" style={styles.listing}>
-
-                        {this.mapCartItems()}
-
-                    </div>
-
-                    <CheckoutFooter itemsInCart={this.props.itemsInCart} />
+                    {this.mapCartItems()}
 
                 </div>
+
+                <CheckoutFooter itemsInCart={this.props.itemsInCart} />
 
             </div>
 
@@ -78,11 +74,14 @@ const styles = {
         width: '100%',
         paddingTop: '8vh',
         paddingBottom: '8vh',
+        margin: 'auto',
         //marginTop: '40px',
         display: 'flex',
         flexDirection: 'row',
         alignContent: 'flex-start',
         flexWrap: 'wrap',
+        position: 'absolute',
+        top: '0',
         fontFamily: 'Arial, Helvetica, sans-serif',
     },
 
@@ -103,15 +102,6 @@ const styles = {
         overflowY: 'visible',
     },
 
-    hack: {
-        backgroundColor: '#f2d880',
-        height: 'calc(100% - (15vh + 8vh))',
-        width: '100vw',
-        zIndex: '1',
-        position: 'absolute',
-        paddingBottom: '15vh'
-
-    }
 }
 
 export default CheckOutPage
