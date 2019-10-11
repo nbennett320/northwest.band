@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import validateEmail from '../../scripts/validateEmail'
+import validatePhone from '../../scripts/validatePhone'
 
 class PlaceOrderPage extends Component {
 
@@ -37,9 +38,20 @@ class PlaceOrderPage extends Component {
         else return true
     }
 
-    displayWarning = warningString => {
-        console.log(warningString)
-        return <span className="warning-string" style={styles.warningString}> {warningString} </span>
+    displayWarning = warningString => <span className="warning-string" style={styles.warningString}> {warningString} </span>
+
+    validateEmailInput = warningString => { 
+        if(
+            !this.isBlank(this.state.email) && 
+            !validateEmail(this.state.email)
+        ) return this.displayWarning(warningString)
+    }
+
+    validatePhoneInput = warningString => { 
+        if(
+            !this.isBlank(this.state.phone) && 
+            !validatePhone(this.state.phone)
+        ) return this.displayWarning(warningString)
     }
 
     render () {
@@ -67,12 +79,7 @@ class PlaceOrderPage extends Component {
                         value={this.state.email}
                         onChange={this.handleChange}
                     />
-                    { () => { 
-                        if(
-                            this.isBlank(this.state.email) && 
-                            !validateEmail(this.state.email)
-                        ) return this.displayWarning("Please enter a valid email.") 
-                    }}
+                    {this.validateEmailInput("Please enter a valid email")}
 
                     <span style={styles.txt1}> Phone Number </span>
                     <input
@@ -82,6 +89,7 @@ class PlaceOrderPage extends Component {
                         value={this.state.phone}
                         onChange={this.handleChange}
                     />
+                    {this.validatePhoneInput("Please enter a valid phone number")}
 
                     <span style={styles.txt1}> Street Address </span>
                     <input
@@ -169,6 +177,8 @@ const styles = {
 
     warningString: {
         color: 'red',
+        marginTop: '-7.5px',
+        marginBottom: '15px',
     },
 
 }

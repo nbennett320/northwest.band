@@ -26,7 +26,10 @@ const containsDotAfterAt = (atIndex, emailString) => {
 
 const validNumOfCharsAfterFinalDot = (lastDotIndex, emailString) => {
 
-    if(emailString.length - lastDotIndex > 4) return false
+    if(
+        emailString.length - lastDotIndex - 1 > 4 ||
+        emailString.length - lastDotIndex - 1 < 2
+    ) return false
     else return true
 
 }
