@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 import validateEmail from '../../scripts/validateEmail'
 import validatePhone from '../../scripts/validatePhone'
@@ -49,10 +50,6 @@ class PlaceOrderPage extends Component {
     handleHoverOverSubmit = warningString => {
         this.validateAddress(warningString)
         this.validateCanSubmit()
-    }
-
-    handleSubmit = warningString => {
-        if(this.state.canSubmit) 
     }
 
     handleChange = ev => {
@@ -111,6 +108,11 @@ class PlaceOrderPage extends Component {
             if(err) {return this.handleInvalidAddress(warningString)}
             else this.setState({fullAddress: address})
         })
+    }
+
+    linkToOrderSummary = () => {
+        if(this.state.canSubmit) return '/order-summary'
+        else return '/place-order'
     }
 
     render () {
@@ -187,11 +189,12 @@ class PlaceOrderPage extends Component {
                     />
                     {/* {this.validateAddress("Please enter valid address parameters")} */}
 
-                    <button 
-                        style={styles.button} 
-                        onMouseEnter={()=>this.handleHoverOverSubmit()}
-                        onClick={this.handleSubmit()}
-                    >Submit</button>
+                    <Link to={this.linkToOrderSummary()} style={styles.button}>
+                        <div 
+                            style={styles.button} 
+                            onMouseEnter={()=>this.handleHoverOverSubmit()}
+                        >Submit</div>
+                    </Link>
 
                 </div>
 
@@ -237,6 +240,7 @@ const styles = {
     },
 
     button: {
+        color: '#000',
         backgroundColor: '#fbf2d4',
         width: 'auto',
         margin: 'auto',

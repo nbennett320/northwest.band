@@ -144,7 +144,6 @@ const styles = {
         flexDirection: 'row',
         alignContent: 'flex-start',
         flexWrap: 'wrap',
-        
     }
 
 }

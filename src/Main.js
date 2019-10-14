@@ -10,6 +10,7 @@ import Goodies from './Goodies'
 import ScrollToTop from './scripts/ScrollToTop'
 import CheckOutPage from './components/store/CheckOutPage'
 import PlaceOrderPage from './components/store/PlaceOrderPage';
+import OrderSummary from './components/store/OrderSummary'
 
 class Main extends Component {
 
@@ -114,6 +115,14 @@ class Main extends Component {
 
                         <Route path='/place-order' 
                             render={(props) => <PlaceOrderPage
+                                {...props} 
+                                itemsInCart={this.state.itemsInCart}
+                                totalPrice={this.state.totalPrice}
+                            />} 
+                        />
+
+                        <Route path='/order-summary' 
+                            render={(props) => <OrderSummary
                                 {...props} 
                                 itemsInCart={this.state.itemsInCart}
                                 totalPrice={this.state.totalPrice}
