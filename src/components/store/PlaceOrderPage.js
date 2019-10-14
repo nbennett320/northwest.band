@@ -111,8 +111,10 @@ class PlaceOrderPage extends Component {
     }
 
     linkToOrderSummary = () => {
-        if(this.state.canSubmit) return '/order-summary'
-        else return '/place-order'
+        if(this.state.canSubmit) {
+            this.props.setFullAddress(this.state.fullAddress)
+            return '/order-summary'
+        } else return '/place-order'
     }
 
     render () {
@@ -193,6 +195,7 @@ class PlaceOrderPage extends Component {
                         <div 
                             style={styles.button} 
                             onMouseEnter={()=>this.handleHoverOverSubmit()}
+                            onClick={()=>this.handleHoverOverSubmit()}
                         >Submit</div>
                     </Link>
 

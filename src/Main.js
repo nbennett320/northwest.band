@@ -23,6 +23,7 @@ class Main extends Component {
             numberOfItemsInCart: 0,
             itemsInCart: [],
             totalPrice: 0,
+            fullAddress: '',
         }
 
     }
@@ -64,6 +65,8 @@ class Main extends Component {
             numberOfItemsInCart: items.length
         })
     }
+
+    setFullAddress = fullAddress => this.setState({fullAddress: fullAddress})
 
     render() {
 
@@ -118,6 +121,7 @@ class Main extends Component {
                                 {...props} 
                                 itemsInCart={this.state.itemsInCart}
                                 totalPrice={this.state.totalPrice}
+                                setFullAddress={this.setFullAddress}
                             />} 
                         />
 
@@ -126,6 +130,7 @@ class Main extends Component {
                                 {...props} 
                                 itemsInCart={this.state.itemsInCart}
                                 totalPrice={this.state.totalPrice}
+                                fullAddress={this.state.fullAddress}
                             />} 
                         />
 
