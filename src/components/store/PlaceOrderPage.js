@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 import validateEmail from '../../scripts/validateEmail'
 import validatePhone from '../../scripts/validatePhone'
+import usps from '../../scripts/validateAddress'
 
 class PlaceOrderPage extends Component {
 
@@ -13,19 +14,45 @@ class PlaceOrderPage extends Component {
             email: '',
             phone: '',
             street: '',
+            city: '',
             zip: '',
             region: '',
+            fullAddress: '',
+            canSubmit: false
         }
 
     }
 
-    handleSubmit = () => {
-        
+    validateCanSubmit = () => {
+        if(
+            this.state.name === '' || 
+            this.state.email === '' || 
+            this.state.phone === '' || 
+            this.state.fullAddress === ''
+        ) {
+            this.setState({
+                canSubmit: false
+            })
+        }
+        else if(
+            this.state.name !== '' && 
+            this.state.email !== '' && 
+            this.state.phone !== '' && 
+            this.state.fullAddress !== ''
+        ) {
+            this.setState({
+                canSubmit: true
+            })
+        }
     }
 
-    testValidation = () => {
-        console.log(this.state)
-        console.log(validateEmail(this.state.email))
+    handleHoverOverSubmit = warningString => {
+        this.validateAddress(warningString)
+        this.validateCanSubmit()
+    }
+
+    handleSubmit = warningString => {
+        if(this.state.canSubmit) 
     }
 
     handleChange = ev => {
@@ -44,14 +71,46 @@ class PlaceOrderPage extends Component {
         if(
             !this.isBlank(this.state.email) && 
             !validateEmail(this.state.email)
-        ) return this.displayWarning(warningString)
+        ) {
+            this.setState({
+                canSubmit: false
+            })
+            return this.displayWarning(warningString)
+        }
     }
 
     validatePhoneInput = warningString => { 
         if(
             !this.isBlank(this.state.phone) && 
             !validatePhone(this.state.phone)
-        ) return this.displayWarning(warningString)
+        ) {
+            this.setState({
+                canSubmit: false
+            })
+            return this.displayWarning(warningString)
+        }
+    }
+
+    handleInvalidAddress = warningString => {
+        if(
+            !this.isBlank(this.state.fullAddress)
+        ) {
+            this.setState({
+                canSubmit: false
+            })
+            return this.displayWarning(warningString)
+        }
+    }
+
+    validateAddress = warningString => {
+        usps.verify({
+            street1: this.state.street,
+            city: this.state.city,
+            state: this.state.region
+        }, (err, address) => {
+            if(err) {return this.handleInvalidAddress(warningString)}
+            else this.setState({fullAddress: address})
+        })
     }
 
     render () {
@@ -60,7 +119,7 @@ class PlaceOrderPage extends Component {
 
             <div className="place-order-page" style={styles.main}>
 
-                <form onSubmit={this.handleSubmit} style={styles.form}>
+                <div style={styles.form}>
 
                     <span style={styles.txt1}> Name </span>
                     <input
@@ -100,12 +159,12 @@ class PlaceOrderPage extends Component {
                         onChange={this.handleChange}
                     />
 
-                    <span style={styles.txt1}> Area Code </span>
+                    <span style={styles.txt1}> City </span>
                     <input
                         type='text'
-                        name='zip'
+                        name='city'
                         style={styles.textBox}
-                        value={this.state.zip}
+                        value={this.state.city}
                         onChange={this.handleChange}
                     />
 
@@ -118,9 +177,23 @@ class PlaceOrderPage extends Component {
                         onChange={this.handleChange}
                     />
 
-                    <button style={styles.button} onMouseEnter={()=>this.testValidation()}>Submit</button>
+                    <span style={styles.txt1}> Area Code </span>
+                    <input
+                        type='text'
+                        name='zip'
+                        style={styles.textBox}
+                        value={this.state.zip}
+                        onChange={this.handleChange}
+                    />
+                    {/* {this.validateAddress("Please enter valid address parameters")} */}
 
-                </form>
+                    <button 
+                        style={styles.button} 
+                        onMouseEnter={()=>this.handleHoverOverSubmit()}
+                        onClick={this.handleSubmit()}
+                    >Submit</button>
+
+                </div>
 
             </div>
 
