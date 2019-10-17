@@ -23,7 +23,16 @@ class Main extends Component {
             numberOfItemsInCart: 0,
             itemsInCart: [],
             totalPrice: 0,
-            fullAddress: '',
+            orderInfo: {
+                name: '',
+                email: '',
+                phone: '',
+                street: '',
+                city: '',
+                zip: '',
+                region: '',
+                fullAddress: '',
+            }
         }
 
     }
@@ -66,7 +75,24 @@ class Main extends Component {
         })
     }
 
-    setFullAddress = fullAddress => this.setState({fullAddress: fullAddress})
+    setFullAddress = fullAddress => this.setState({orderInfo: {fullAddress: fullAddress}})
+
+    setOrderInfo = (name, email, phone, street, city, zip, region, fullAddress) => {
+
+        this.setState({
+            orderInfo: {
+                name: name,
+                email: email,
+                phone: phone,
+                street: street,
+                city: city,
+                zip: zip,
+                region: region,
+                fullAddress: fullAddress,
+            }
+        })
+
+    }
 
     render() {
 
@@ -122,6 +148,7 @@ class Main extends Component {
                                 itemsInCart={this.state.itemsInCart}
                                 totalPrice={this.state.totalPrice}
                                 setFullAddress={this.setFullAddress}
+                                setOrderInfo={this.setOrderInfo}
                             />} 
                         />
 
@@ -130,7 +157,8 @@ class Main extends Component {
                                 {...props} 
                                 itemsInCart={this.state.itemsInCart}
                                 totalPrice={this.state.totalPrice}
-                                fullAddress={this.state.fullAddress}
+                                fullAddress={this.state.orderInfo.fullAddress}
+                                orderInfo={this.state.orderInfo}
                             />} 
                         />
 

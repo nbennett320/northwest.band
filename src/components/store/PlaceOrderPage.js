@@ -23,6 +23,21 @@ class PlaceOrderPage extends Component {
 
     }
 
+    componentWillUnmount () {
+        if(this.state.fullAddress !== '') {
+            this.props.setOrderInfo(
+                this.state.name,
+                this.state.email,
+                this.state.phone,
+                this.state.street,
+                this.state.city,
+                this.state.region,
+                this.state.zip,
+                this.state.fullAddress
+            )
+        }
+    }
+
     validateCanSubmit = () => {
         if(
             this.state.name === '' || 
@@ -77,24 +92,14 @@ class PlaceOrderPage extends Component {
         }
     }
 
-    handleInvalidAddress = warningString => {
-        // if(
-        //     !this.isBlank(this.state.fullAddress)
-        // ) {
-        //     this.setState({
-        //         canSubmit: false
-        //     })
-            return this.displayWarning(warningString)
-        //}
-    }
-
+    // warning cant do state update to non rendered component is coming from => else this.setState
     validateAddress = warningString => {
         usps.verify({
             street1: this.state.street,
             city: this.state.city,
             state: this.state.region
         }, (err, address) => {
-            if(err) {console.log("fuck");return this.handleInvalidAddress(warningString)}
+            if(err) return this.displayWarning(warningString)
             else this.setState({fullAddress: address})
         })
     }
@@ -104,28 +109,6 @@ class PlaceOrderPage extends Component {
             // this.props.setFullAddress(this.state.fullAddress)
             return '/order-summary'
         } else return '/place-order'
-    }
-    
-    getOrderInfo = () => {
-        const orderInfo = {
-            customerInfo: {
-                name: this.state.name,
-                email: this.state.email,
-                phone: this.state.phone,
-                street: this.state.street,
-                city: this.state.city,
-                zip: this.state.zip,
-                region: this.state.region,
-                fullAddress: this.state.fullAddress,
-            },
-
-            purchaseInfo: {
-                items: this.props.itemsInCart,
-                totalPrice: this.props.totalPrice
-            }
-        }
-
-        return orderInfo
     }
 
     render () {
@@ -223,7 +206,6 @@ class PlaceOrderPage extends Component {
 
                     <Link to={this.linkToOrderSummary()} 
                         style={styles.button} 
-                        params={{ orderInfo: this.getOrderInfo }}
                     >
                         <div style={submit}>Submit</div>
                     </Link>
