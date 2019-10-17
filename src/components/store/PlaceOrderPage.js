@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
-import validateEmail from '../../scripts/validateEmail'
-import validatePhone from '../../scripts/validatePhone'
-import usps from '../../scripts/validateAddress'
+import validateEmail from '../../scripts/ValidateEmail'
+import validatePhone from '../../scripts/ValidatePhone'
+import usps from '../../scripts/ValidateAddress'
 
 class PlaceOrderPage extends Component {
 
@@ -19,7 +19,6 @@ class PlaceOrderPage extends Component {
             zip: '',
             region: '',
             fullAddress: '',
-            canSubmit: false
         }
 
     }
@@ -30,10 +29,8 @@ class PlaceOrderPage extends Component {
             this.state.email === '' || 
             this.state.phone === '' || 
             this.state.fullAddress === ''
-        ) {
-            this.setState({
-                canSubmit: false
-            })
+        ) { 
+            return false
         }
         else if(
             this.state.name !== '' && 
@@ -41,9 +38,7 @@ class PlaceOrderPage extends Component {
             this.state.phone !== '' && 
             this.state.fullAddress !== ''
         ) {
-            this.setState({
-                canSubmit: true
-            })
+            return true
         }
     }
 
@@ -54,7 +49,7 @@ class PlaceOrderPage extends Component {
 
     handleChange = ev => {
         ev.preventDefault()
-        this.setState({ [ev.target.name]: ev.target.value })
+        this.setState({ [ev.target.name]: ev.target.value } )
     }
 
     isBlank = input => {
@@ -69,9 +64,6 @@ class PlaceOrderPage extends Component {
             !this.isBlank(this.state.email) && 
             !validateEmail(this.state.email)
         ) {
-            this.setState({
-                canSubmit: false
-            })
             return this.displayWarning(warningString)
         }
     }
@@ -81,22 +73,19 @@ class PlaceOrderPage extends Component {
             !this.isBlank(this.state.phone) && 
             !validatePhone(this.state.phone)
         ) {
-            this.setState({
-                canSubmit: false
-            })
             return this.displayWarning(warningString)
         }
     }
 
     handleInvalidAddress = warningString => {
-        if(
-            !this.isBlank(this.state.fullAddress)
-        ) {
-            this.setState({
-                canSubmit: false
-            })
+        // if(
+        //     !this.isBlank(this.state.fullAddress)
+        // ) {
+        //     this.setState({
+        //         canSubmit: false
+        //     })
             return this.displayWarning(warningString)
-        }
+        //}
     }
 
     validateAddress = warningString => {
@@ -105,19 +94,60 @@ class PlaceOrderPage extends Component {
             city: this.state.city,
             state: this.state.region
         }, (err, address) => {
-            if(err) {return this.handleInvalidAddress(warningString)}
+            if(err) {console.log("fuck");return this.handleInvalidAddress(warningString)}
             else this.setState({fullAddress: address})
         })
     }
 
     linkToOrderSummary = () => {
-        if(this.state.canSubmit) {
-            this.props.setFullAddress(this.state.fullAddress)
+        if(this.validateCanSubmit()) {
+            // this.props.setFullAddress(this.state.fullAddress)
             return '/order-summary'
         } else return '/place-order'
     }
+    
+    getOrderInfo = () => {
+        const orderInfo = {
+            customerInfo: {
+                name: this.state.name,
+                email: this.state.email,
+                phone: this.state.phone,
+                street: this.state.street,
+                city: this.state.city,
+                zip: this.state.zip,
+                region: this.state.region,
+                fullAddress: this.state.fullAddress,
+            },
+
+            purchaseInfo: {
+                items: this.props.itemsInCart,
+                totalPrice: this.props.totalPrice
+            }
+        }
+
+        return orderInfo
+    }
 
     render () {
+
+        const showSubmitButton = () => {
+            if(this.state.fullAddress !== '') return 'inherit'
+            else return 'none'
+        }
+
+        let submit = {
+            color: '#000',
+            backgroundColor: '#fbf2d4',
+            width: 'auto',
+            margin: 'auto',
+            padding: '10px',
+            border: '0',
+            borderBottomLeftRadius: '10px',
+            borderBottomRightRadius: '10px',
+            borderTopLeftRadius: '10px',
+            borderTopRightRadius: '10px',
+            display: showSubmitButton(),
+        }
 
         return (
 
@@ -189,14 +219,13 @@ class PlaceOrderPage extends Component {
                         value={this.state.zip}
                         onChange={this.handleChange}
                     />
-                    {/* {this.validateAddress("Please enter valid address parameters")} */}
+                    {this.validateAddress("Please enter valid address parameters")}
 
-                    <Link to={this.linkToOrderSummary()} style={styles.button}>
-                        <div 
-                            style={styles.button} 
-                            onMouseEnter={()=>this.handleHoverOverSubmit()}
-                            onClick={()=>this.handleHoverOverSubmit()}
-                        >Submit</div>
+                    <Link to={this.linkToOrderSummary()} 
+                        style={styles.button} 
+                        params={{ orderInfo: this.getOrderInfo }}
+                    >
+                        <div style={submit}>Submit</div>
                     </Link>
 
                 </div>
