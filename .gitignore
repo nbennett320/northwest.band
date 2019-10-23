@@ -25,3 +25,6 @@ build.zip
 
 #downloads
 /src/downloads/*
+
+#old images
+/src/img/img_merch/old/*
