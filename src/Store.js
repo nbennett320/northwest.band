@@ -5,84 +5,164 @@ class Store extends Component {
 
     items = {
 
-        0:{
-            title: 'Northwest (PINK) Cursive Star T-Shirt',
-            defaultImg: `${require('./img/img_merch/IMG-2805_512.png')}`,
-            hoverImg: `${require('./img/img_merch/IMG-2800_512.png')}`,
-            altText: 'hot pink t-shirt with silver northwest cursive star logo',
-            description: 'hot pink t-shirt with silver northwest cursive star logo',
+        0: {
+            title: 'Northwest (HOT PINK) Suburban Dogs Tee',
+            defaultImg: `${require('./img/img_merch/img_500x500/hotpinksd.png')}`,
+            hoverImg: `${require('./img/img_merch/img_500x500/hotpinksd.png')}`,
+            altText: 'hot pink t-shirt with black suburban dogs logo',
+            description: 'hot pink t-shirt with black suburban dogs logo',
             attributes: {
                 category: 'shirt',
                 subcategory: 'short-sleeve',
-                model: 'cursive-star',
+                model: 'suburban-dogs-tee',
                 color: 'hot-pink',
                 size: '',
             },
             price: 12
         },
 
-        1:{
-            title: 'Northwest (YELLOW) Cursive Star T-Shirt',
-            defaultImg: `${require('./img/img_merch/IMG-2801_512.png')}`,
-            hoverImg: `${require('./img/img_merch/IMG-2793_512.png')}`,
-            altText: 'happy yellow t-shirt with red northwest cursive star logo',
-            description: 'happy yellow t-shirt with red northwest cursive star logo',
+        1: {
+            title: 'Northwest (ORANGE) Suburban Dogs Tee',
+            defaultImg: `${require('./img/img_merch/img_500x500/orangesd.png')}`,
+            hoverImg: `${require('./img/img_merch/img_500x500/orangesd.png')}`,
+            altText: 'bright orange t-shirt with black suburban dogs logo',
+            description: 'bright orange t-shirt with black suburban dogs logo',
             attributes: {
                 category: 'shirt',
                 subcategory: 'short-sleeve',
-                model: 'cursive-star',
+                model: 'suburban-dogs-tee',
+                color: 'orange',
+                size: '',
+            },
+            price: 12
+        },
+
+        2: {
+            title: 'Northwest (VINTAGE ROSE) Suburban Dogs Tee',
+            defaultImg: `${require('./img/img_merch/img_500x500/pinksd.png')}`,
+            hoverImg: `${require('./img/img_merch/img_500x500/pinksd.png')}`,
+            altText: 'light pink t-shirt with black suburban dogs logo',
+            description: 'light pink t-shirt with black suburban dogs logo',
+            attributes: {
+                category: 'shirt',
+                subcategory: 'crew-neck',
+                model: 'suburban-dogs-tee',
+                color: 'pink',
+                size: '',
+            },
+            price: 12
+        },
+
+        3: {
+            title: 'Northwest (EGGSHELL) Suburban Dogs Tee',
+            defaultImg: `${require('./img/img_merch/img_500x500/whitesd.png')}`,
+            hoverImg: `${require('./img/img_merch/img_500x500/whitesd.png')}`,
+            altText: 'white (kinda eggshell-y) t-shirt with black suburban dogs logo',
+            description: 'white (kinda eggshell-y) t-shirt with black suburban dogs logo',
+            attributes: {
+                category: 'shirt',
+                subcategory: 'crew-neck',
+                model: 'suburban-dogs-tee',
+                color: 'white',
+                size: '',
+            },
+            price: 12
+        },
+
+        4: {
+            title: 'Northwest (YELLOW) Suburban Dogs Tee',
+            defaultImg: `${require('./img/img_merch/img_500x500/yellowsd.png')}`,
+            hoverImg: `${require('./img/img_merch/img_500x500/yellowsd.png')}`,
+            altText: 'yellow t-shirt with black suburban dogs logo',
+            description: 'yellow t-shirt with black suburban dogs logo',
+            attributes: {
+                category: 'shirt',
+                subcategory: 'short-sleeve',
+                model: 'suburban-dogs-tee',
                 color: 'yellow',
                 size: '',
             },
             price: 12
         },
 
-        2:{
-            title: 'Northwest (RED) Cursive Star Crewneck',
-            defaultImg: `${require('./img/img_merch/IMG-2808_512.png')}`,
-            hoverImg: `${require('./img/img_merch/IMG-2809_512.png')}`,
-            altText: 'comfy red crewneck with navy northwest cursive star logo',
-            description: 'comfy red crewneck with navy northwest cursive star logo',
-            attributes: {
-                category: 'shirt',
-                subcategory: 'crew-neck',
-                model: 'cursive-star',
-                color: 'red',
-                size: '',
-            },
-            price: 20
-        },
-
-        3:{
-            title: 'Northwest (BLACK) Cursive Star Crewneck',
-            defaultImg: `${require('./img/img_merch/IMG-2821_512.png')}`,
-            hoverImg: `${require('./img/img_merch/IMG-2818_512.png')}`,
-            altText: 'comfy black crewneck with white northwest cursive star logo',
-            description: 'comfy black crewneck with white northwest cursive star logo',
-            attributes: {
-                category: 'shirt',
-                subcategory: 'crew-neck',
-                model: 'cursive-star',
-                color: 'black',
-                size: '',
-            },
-            price: 20
-        },
-
-        4:{
-            title: 'Northwest (WHITE) Cursive Star T-Shirt',
-            defaultImg: `${require('./img/img_merch/IMG-2817_512.png')}`,
-            hoverImg: `${require('./img/img_merch/IMG-2816_512.png')}`,
-            altText: 'all white t-shirt with red northwest cursibe star logo',
-            description: 'all white t-shirt with red northwest cursibe star logo',
+        5: {
+            title: 'Northwest (WHITE) E.T. Tee',
+            defaultImg: `${require('./img/img_merch/img_500x500/et shirt.png')}`,
+            hoverImg: `${require('./img/img_merch/img_500x500/et shirt.png')}`,
+            altText: 'all white nw tee endorsed by everyone\'s favorite extra terrestrial',
+            description: 'all white nw tee endorsed by everyone\'s favorite extra terrestrial',
             attributes: {
                 category: 'shirt',
                 subcategory: 'short-sleeve',
-                model: 'cursive-star',
+                model: 'et-tee',
                 color: 'white',
                 size: '',
             },
-            price: 20
+            price: 12
+        },
+
+        6: {
+            title: 'Northwest (YELLOW) E.T. Tee',
+            defaultImg: `${require('./img/img_merch/img_500x500/yellow et.png')}`,
+            hoverImg: `${require('./img/img_merch/img_500x500/yellow et.png')}`,
+            altText: 'yellow nw tee endorsed by everyone\'s favorite extra terrestrial',
+            description: 'yellow nw tee endorsed by everyone\'s favorite extra terrestrial',
+            attributes: {
+                category: 'shirt',
+                subcategory: 'short-sleeve',
+                model: 'et-tee',
+                color: 'yellow',
+                size: '',
+            },
+            price: 12
+        },
+
+        7: {
+            title: 'Northwest (GREY) Suburban Dogs Hoodie',
+            defaultImg: `${require('./img/img_merch/img_500x500/grey hoodie.png')}`,
+            hoverImg: `${require('./img/img_merch/img_500x500/grey hoodie.png')}`,
+            altText: 'grey hoodie with black suburban dogs',
+            description: 'grey hoodie with black suburban dogs',
+            attributes: {
+                category: 'sweatshirt',
+                subcategory: 'hoodie',
+                model: 'suburban-dogs-hoodie',
+                color: 'grey',
+                size: '',
+            },
+            price: 22
+        },
+
+        8: {
+            title: 'Northwest (ORANGE) Suburban Dogs Hoodie',
+            defaultImg: `${require('./img/img_merch/img_500x500/orange hoodie.png')}`,
+            hoverImg: `${require('./img/img_merch/img_500x500/orange hoodie.png')}`,
+            altText: 'bright orange hoodie with black suburban dogs',
+            description: 'bright orange hoodie with black suburban dogs',
+            attributes: {
+                category: 'sweatshirt',
+                subcategory: 'hoodie',
+                model: 'suburban-dogs-hoodie',
+                color: 'orange',
+                size: '',
+            },
+            price: 22
+        },
+
+        9: {
+            title: 'Northwest (PINK) Suburban Dogs Hoodie',
+            defaultImg: `${require('./img/img_merch/img_500x500/pink hoodie.png')}`,
+            hoverImg: `${require('./img/img_merch/img_500x500/pink hoodie.png')}`,
+            altText: 'pink hoodie with black suburban dogs',
+            description: 'pink hoodie with black suburban dogs',
+            attributes: {
+                category: 'sweatshirt',
+                subcategory: 'hoodie',
+                model: 'suburban-dogs-hoodie',
+                color: 'pink',
+                size: '',
+            },
+            price: 22
         },
 
     }
@@ -98,17 +178,17 @@ class Store extends Component {
         let catalog = []
 
         for (let i = 0; i < Object.keys(items).length; i++) {
-            catalog.push( <ItemPreview 
-                title={items[i].title} 
-                defaultImg={items[i].defaultImg} 
+            catalog.push(<ItemPreview
+                title={items[i].title}
+                defaultImg={items[i].defaultImg}
                 hoverImg={items[i].hoverImg}
-                altText={items[i].altText} 
+                altText={items[i].altText}
                 description={items[i].description}
                 attributes={items[i].attributes}
                 price={items[i].price}
-                key={i*2}
+                key={i * 2}
                 addItemToCart={this.props.addItemToCart}
-            /> )
+            />)
 
         }
 
@@ -116,7 +196,7 @@ class Store extends Component {
 
     }
 
-    render () {
+    render() {
 
         return (
 
