@@ -1,11 +1,31 @@
 import React, { Component } from 'react'
-import paypal from 'paypal-checkout'
+import DropIn from "braintree-web-drop-in-react"
 
 import SummaryListing from './SummaryListing'
 
 import '../../css/order-summary-page.css'
 
 class OrderSummary extends Component {
+
+    instance
+
+    state = {
+        clientToken: null,
+    }
+
+    async componentDidMount() {
+        const response = await fetch("localhost:3001/client_token")
+        const clientToken = await response.json()
+
+        this.setState({
+            clientToken
+        })
+    }
+
+    async buy() {
+        const { nonce } = await this.instance.requestPaymentMethod()
+        await fetch(`localhost:3001/purchases/${nonce}`)
+    }
 
     printItems = () => {
 
@@ -28,6 +48,8 @@ class OrderSummary extends Component {
     }
 
     getTotalPrice = () => Number(this.props.totalPrice).toFixed(2)
+
+
 
     render () {
 
@@ -62,33 +84,16 @@ class OrderSummary extends Component {
 
                     <h3>Total price: ${this.props.totalPrice}</h3>
 
-                </div>
+                    <DropIn 
+                        options={{ authorization: this.state.clientToken }}
+                        onInstance={instance => (this.instance = instance)}
+                    />
 
-                <div id="paypal-button-container" style={styles.paypal}
-                    onClick={
-                        paypal.createOrder = (data, actions) => {
-                            return actions.order.create({
-                                purchase_units: [{
-                                    amount: {
-                                        value: `${this.getTotalPrice()}`
-                                    }
-                                }]
-                            })
-                        },
-            
-                        paypal.onApprove = (data, actions) => {
-                            return actions.order.capture().then(
-                                (details) => {
-                                    alert('Transaction completed by ' + details.payer.name.given_name)
-                                }
-                            )
-                        }
-
-                    }
-                >
-                    <img src={require('../../img/logos/paypal_960_720.png')} style={styles.paypalImg}/>
+                    <button onClick={this.buy.bind(this)}>Buy</button>
 
                 </div>
+
+                
 
             </div>
 
