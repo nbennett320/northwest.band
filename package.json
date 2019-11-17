@@ -13,6 +13,7 @@
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
     "react-select": "^3.0.4",
+    "react-universal-component": "^4.0.0",
     "styled-components": "^4.3.2",
     "usps-webtools": "^1.0.3"
   },
@@ -36,5 +37,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "proxy": "http://localhost:3001/"
 }
