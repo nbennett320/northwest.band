@@ -7,6 +7,8 @@ import cloud1 from './img/home/clouds/nwcloud1sprites_364_1500.png'
 import cloud2 from './img/home/clouds/nwcloud2sprites_364_1500_2.png'
 import cloud3 from './img/home/clouds/nwcloud4sprites_462_2000.png'
 
+import Footer from './components/Footer'
+
 class Home extends Component {
 
     constructor(props){
@@ -112,7 +114,11 @@ class Home extends Component {
                             />
                         </Link>
                     </div>
+
                 </div>
+
+                <Footer />
+
             </div>
 
         )

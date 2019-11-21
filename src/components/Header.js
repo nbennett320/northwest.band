@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 import '../css/header.css'
 
-import headerImg from '../img/Northwest_banner_puddle2.png'
+import headerImg from '../img/nwStarLogoBlack_407x128.png'
 import Cart from './Cart'
 
 class Header extends Component {
@@ -58,8 +58,8 @@ const styles = {
         position: 'fixed',
         top: '0',
         zIndex: '50',
-        borderBottomLeftRadius: '10px',
-        borderBottomRightRadius: '10px',
+        // borderBottomLeftRadius: '10px',
+        // borderBottomRightRadius: '10px',
         boxShadow: '0px 0px 8px 2px rgba(0,0,0,0.1)',
         backdropFilter: 'blur(5px)'
     },

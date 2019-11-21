@@ -13,19 +13,19 @@ class OrderSummary extends Component {
         clientToken: null,
     }
 
-    async componentDidMount() {
-        const response = await fetch("localhost:3001/client_token")
-        const clientToken = await response.json()
+    // async componentDidMount() {
+    //     const response = await fetch("localhost:3001/client_token")
+    //     const clientToken = await response.json()
 
-        this.setState({
-            clientToken
-        })
-    }
+    //     this.setState({
+    //         clientToken
+    //     })
+    // }
 
-    async buy() {
-        const { nonce } = await this.instance.requestPaymentMethod()
-        await fetch(`localhost:3001/purchases/${nonce}`)
-    }
+    // async buy() {
+    //     const { nonce } = await this.instance.requestPaymentMethod()
+    //     await fetch(`localhost:3001/purchases/${nonce}`)
+    // }
 
     printItems = () => {
 
