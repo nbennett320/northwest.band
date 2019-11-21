@@ -11,7 +11,6 @@ import ScrollToTop from './scripts/ScrollToTop'
 import CheckOutPage from './components/store/CheckOutPage'
 import PlaceOrderPage from './components/store/PlaceOrderPage';
 import OrderSummary from './components/store/OrderSummary'
-import Footer from './components/Footer'
 
 class Main extends Component {
 

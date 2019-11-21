@@ -87,12 +87,11 @@ a{
     margin-bottom: 0.3em;
     margin-left: 15%;
     text-align: left;
+    text-decoration: none;
 }
 
 .song-link:hover {
-    font-size: calc(1.4em * .75);
-    margin-top: calc(0.3em * -1.5);
-    margin-bottom: calc(0.3em * -1.5);
+    text-decoration: underline;
 }
 
 .song-list {

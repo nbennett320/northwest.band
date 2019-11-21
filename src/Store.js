@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import ItemPreview from './components/store/ItemPreview'
+import StoreHeader from './components/store/StoreHeader'
+import Footer from './components/Footer'
 
 class Store extends Component {
 
@@ -202,7 +204,11 @@ class Store extends Component {
 
             <div className="merch" style={styles.main}>
 
+                <StoreHeader />
+
                 {this.mapCatalog()}
+
+                <Footer />
 
             </div>
 
@@ -215,8 +221,8 @@ class Store extends Component {
 const styles = {
 
     main: {
-        backgroundColor: '#e8e1b3',
-        paddingTop: 'calc(8vh + 40px)',
+        backgroundColor: '#fafafa',
+        // paddingTop: '5vh',
         paddingBottom: '40px',
         display: 'flex',
         top: '0',

@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
+import Footer from './components/Footer'
+
 import './css/music.css'
 
 class Music extends Component {
@@ -118,6 +120,8 @@ class Music extends Component {
                     <p className="song-list">4431</p>
 
                 </div>
+
+                <Footer />
 
             </div>
 

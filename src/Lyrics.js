@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+import Footer from './components/Footer'
+
 import './css/lyrics.css'
 
 class Lyrics extends Component {
@@ -178,6 +180,8 @@ class Lyrics extends Component {
                 </div>
 
                 <img className='misc-img' src={require( `${song.image}` )} alt={song.altText} />
+                
+                <Footer />
                 
             </div>
 
