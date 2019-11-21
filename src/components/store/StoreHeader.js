@@ -2,6 +2,17 @@ import React, { Component } from 'react'
 
 class StoreHeader extends Component {
 
+    state = {
+        headerImage: null
+    }
+
+    componentWillMount() {
+        let img = this.randomImg()
+        this.setState({
+            headerImage: img
+        })
+    }
+
     randomNum = max => Math.floor(Math.random() * Math.floor(max))
 
     randomImg = () => require(`../../img/store/store_header_imgs/${this.randomNum(3)}.jpg`)
@@ -18,7 +29,7 @@ class StoreHeader extends Component {
             headerImage: {
                 height: 'calc(250px + 5vh)',
                 width: 'auto',
-                backgroundImage: `url("${this.randomImg()}")`,
+                backgroundImage: `url("${this.state.headerImage}")`,
                 // backgroundAttachment: 'fixed',
                 backgroundPosition: 'top',
                 backgroundRepeat: 'no-repeat',
