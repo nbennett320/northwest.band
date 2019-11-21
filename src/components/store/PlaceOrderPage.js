@@ -120,7 +120,7 @@ class PlaceOrderPage extends Component {
 
         let submit = {
             color: '#000',
-            backgroundColor: '#fbf2d4',
+            backgroundColor: '#f0f0f0',
             width: 'auto',
             margin: 'auto',
             padding: '10px',
@@ -138,7 +138,7 @@ class PlaceOrderPage extends Component {
 
                 <div style={styles.form}>
 
-                    <span style={styles.txt1}> Name </span>
+                    <span style={styles.txt1}> name </span>
                     <input
                         type='text'
                         name='name'
@@ -147,7 +147,7 @@ class PlaceOrderPage extends Component {
                         onChange={this.handleChange}
                     />
 
-                    <span style={styles.txt1}> Email </span>
+                    <span style={styles.txt1}> email </span>
                     <input
                         type='text'
                         name='email'
@@ -157,7 +157,7 @@ class PlaceOrderPage extends Component {
                     />
                     {this.validateEmailInput("Please enter a valid email")}
 
-                    <span style={styles.txt1}> Phone Number </span>
+                    <span style={styles.txt1}> phone number </span>
                     <input
                         type='text'
                         name='phone'
@@ -167,7 +167,7 @@ class PlaceOrderPage extends Component {
                     />
                     {this.validatePhoneInput("Please enter a valid phone number")}
 
-                    <span style={styles.txt1}> Street Address </span>
+                    <span style={styles.txt1}> street address </span>
                     <input
                         type='text'
                         name='street'
@@ -176,7 +176,7 @@ class PlaceOrderPage extends Component {
                         onChange={this.handleChange}
                     />
 
-                    <span style={styles.txt1}> City </span>
+                    <span style={styles.txt1}> city </span>
                     <input
                         type='text'
                         name='city'
@@ -185,7 +185,7 @@ class PlaceOrderPage extends Component {
                         onChange={this.handleChange}
                     />
 
-                    <span style={styles.txt1}> State </span>
+                    <span style={styles.txt1}> state </span>
                     <input
                         type='text'
                         name='region'
@@ -194,7 +194,7 @@ class PlaceOrderPage extends Component {
                         onChange={this.handleChange}
                     />
 
-                    <span style={styles.txt1}> Area Code </span>
+                    <span style={styles.txt1}> area code </span>
                     <input
                         type='text'
                         name='zip'
@@ -207,7 +207,7 @@ class PlaceOrderPage extends Component {
                     <Link to={this.linkToOrderSummary()} 
                         style={styles.button} 
                     >
-                        <div style={submit}>Submit</div>
+                        <div style={submit}>submit</div>
                     </Link>
 
                 </div>
@@ -227,8 +227,10 @@ const styles = {
         width: '100%',
         position: 'absolute',
         top: '0',
-        backgroundColor: '#f2d880',
-        fontFamily: 'Arial, Helvetica, sans-serif',
+        backgroundColor: '#f5f5f5',
+        fontFamily: '"Work Sans",sans-serif',
+        fontWeight: '600',
+        fontSize: 'auto',
     },
 
     form: {
@@ -255,7 +257,7 @@ const styles = {
 
     button: {
         color: '#000',
-        backgroundColor: '#fbf2d4',
+        backgroundColor: '#f7f7f7',
         width: 'auto',
         margin: 'auto',
         padding: '10px',
@@ -264,6 +266,9 @@ const styles = {
         borderBottomRightRadius: '10px',
         borderTopLeftRadius: '10px',
         borderTopRightRadius: '10px',
+        fontFamily: '"Work Sans",sans-serif',
+        fontWeight: '300',
+        fontSize: 'auto',
     },
 
     warningString: {

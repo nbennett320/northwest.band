@@ -59,7 +59,7 @@ class OrderSummary extends Component {
 
                 <div className="content" style={styles.content}>
 
-                    <h3>Shipping: </h3>
+                    <h3>shipping: </h3>
 
                     <div className="itemSummaryContainer" style={styles.itemSummaryContainer}>
 
@@ -67,29 +67,29 @@ class OrderSummary extends Component {
 
                     </div>
 
-                    <h3>To: </h3>
+                    <h3>to: </h3>
                     <div className="shipping-details" style={styles.shippingDetails}>
 
-                        <h4>Name: </h4>
+                        <h4>name: </h4>
                         {this.props.orderInfo.name}
-                        <h4>Email: </h4>
+                        <h4>email: </h4>
                         {this.props.orderInfo.email}
-                        <h4>Phone: </h4>
+                        <h4>phone: </h4>
                         {this.props.orderInfo.phone}
-                        <h4>Address: </h4>
+                        <h4>address: </h4>
                         {this.props.orderInfo.fullAddress.street1} <br />
                         {this.props.orderInfo.fullAddress.city}, {this.props.orderInfo.fullAddress.state} <br />
                         {this.props.orderInfo.fullAddress.zip}-{this.props.orderInfo.fullAddress.zip4} <br />
                     </div>
 
-                    <h3>Total price: ${this.props.totalPrice}</h3>
+                    <h3>total price: ${this.props.totalPrice}</h3>
 
-                    <DropIn 
+                    {/* <DropIn 
                         options={{ authorization: this.state.clientToken }}
                         onInstance={instance => (this.instance = instance)}
                     />
 
-                    <button onClick={this.buy.bind(this)}>Buy</button>
+                    <button onClick={this.buy.bind(this)}>buy</button> */}
 
                 </div>
 
@@ -110,7 +110,7 @@ const styles = {
         width: '100%',
         position: 'fixed',
         top: '0',
-        backgroundColor: '#f2d880',
+        backgroundColor: '#fafafa',
         fontFamily: 'Arial, Helvetica, sans-serif',
     }, 
 

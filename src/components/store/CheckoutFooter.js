@@ -26,9 +26,9 @@ class CheckoutFooter extends Component {
     verifyIfValid = () => {
 
         let component
-        if(this.props.itemsInCart.length === 0) component = <span className="place-order-text" style={styles.placeOrderNoPointer}>No items in cart!</span>
-        else if(this.props.verifyOrderValidity === true) component = <Link to={'/place-order'} className="place-order-text" style={styles.placeOrder} onClick={this.handlePlaceOrderClick}>Place Order</Link> 
-        else if(this.props.verifyOrderValidity === false) component = <span className="place-order-text" style={styles.placeOrderNoPointer}>Select a size for each item.</span>
+        if(this.props.itemsInCart.length === 0) component = <span className="place-order-text" style={styles.placeOrderNoPointer}>no items in cart...!</span>
+        else if(this.props.verifyOrderValidity === true) component = <Link to={'/place-order'} className="place-order-text" style={styles.placeOrder} onClick={this.handlePlaceOrderClick}>place order</Link> 
+        else if(this.props.verifyOrderValidity === false) component = <span className="place-order-text" style={styles.placeOrderNoPointer}>select a size for each item.</span>
 
         return component
 
@@ -41,7 +41,7 @@ class CheckoutFooter extends Component {
             <div className="checkout-footer" style={styles.foot}>
 
                 <div className="total-container">
-                    <span className="total-text">Total:</span>
+                    <span className="total-text">total:</span>
                 
                     <div className="total-num">${this.calculatePrice()}</div>
 
@@ -67,6 +67,9 @@ const styles = {
         borderTopLeftRadius: '10px',
         borderTopRightRadius: '10px',
         position: 'fixed',
+        fontFamily: '"Work Sans",sans-serif',
+        fontWeight: '600',
+        fontSize: 'auto',
     },
 
     total: {

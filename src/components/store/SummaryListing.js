@@ -10,9 +10,9 @@ class SummaryListing extends Component {
 
                 <div className="summary-title" style={styles.title}>{this.props.title}</div>
                 <div className="summary-details" style={styles.details}>
-                    <div className="summary-attribute" >Color: {this.props.attributes.color}</div>
-                    <div className="summary-attribute" >Size: {this.props.attributes.size}</div>
-                    <div className="summary-attribute" >Price: ${this.props.price}</div>
+                    <div className="summary-attribute" >color: {this.props.attributes.color}</div>
+                    <div className="summary-attribute" >size: {this.props.attributes.size}</div>
+                    <div className="summary-attribute" >price: ${this.props.price}</div>
                 </div>
 
             </div>

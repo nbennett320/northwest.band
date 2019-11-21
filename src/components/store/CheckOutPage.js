@@ -69,7 +69,7 @@ class CheckOutPage extends Component {
             <div className="checkout" style={styles.main}>
 
                 <div className="checkout-title" style={styles.title}>
-                    Checkout:
+                    checkout:
                 </div>
 
                 <div className="checkout-items" style={styles.listing}>
@@ -95,7 +95,8 @@ class CheckOutPage extends Component {
 
 const styles = {
     main: {
-        backgroundColor: '#f2d880',
+        // backgroundColor: '#f2d880',
+        backgroundColor: '#f5f5f5',
         height: 'auto',
         width: '100%',
         paddingTop: '8vh',
@@ -108,7 +109,9 @@ const styles = {
         flexWrap: 'wrap',
         position: 'absolute',
         top: '0',
-        fontFamily: 'Arial, Helvetica, sans-serif',
+        fontFamily: '"Work Sans",sans-serif',
+        fontWeight: '600',
+        fontSize: 'auto',
     },
 
     title: {
@@ -121,7 +124,7 @@ const styles = {
     },
 
     listing: {
-        backgroundColor: '#f2d880',
+        backgroundColor: '#f5f5f5',
         height: 'auto',
         width: '100%',
         paddingBottom: '80px',
