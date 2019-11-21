@@ -48,8 +48,6 @@ class ItemPreview extends Component {
                 style={styles.card}
             >
 
-                {/* <div className="preview-header" style={styles.cardHeader}></div> */}
-
                 <img className="product-img"
                     src={this.state.previewImg}
                     onMouseEnter={this.handleMouseEnter}
@@ -57,8 +55,6 @@ class ItemPreview extends Component {
                     alt={this.props.altText}
                     style={styles.previewImage}
                 />
-
-                {/* <p className="preview-description" style={styles.description}>{this.props.description}</p> */}
                 
                 <div className="preview-card"
                     style={styles.previewCard}
