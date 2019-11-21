@@ -40,6 +40,7 @@ class Header extends Component {
                 </Link>
 
                 {cart}
+                
             </div>
         )
     }

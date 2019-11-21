@@ -15,7 +15,7 @@ class Cart extends Component {
             <div className='shopping-cart'>
 
                 <div className='cart-image'
-                    style={{backgroundImage: `url(${require('../img/store/cart300x100.png')})`}}
+                    style={{backgroundImage: `url(${require('../img/store/bag-icon.png')})`}}
                 />
 
                 {displayCounter()}
