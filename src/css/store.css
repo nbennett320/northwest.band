@@ -1,16 +1,53 @@
+.product-preview {
+    text-decoration: none;
+    max-width: 33.3333333% !important;
+}
+
+.product-preview:hover {
+    filter: brightness(1.075);
+    text-decoration: underline;
+    text-decoration-color: #3d4246;
+}
+
+.preview-card {
+    color: #3d4246;
+    font-size: x-large;
+    font-family: "Work Sans", sans-serif;
+    font-weight: 800;
+    text-decoration: none;
+}
+
 .price-preview {
-    background-color: rgba(21, 77, 58, 0.9);
+    background-color: #fff;
+    color: #69727b !important;
+    font-size: large;
+    font-family: "Work Sans", sans-serif;
+    font-weight: 800;
+    text-decoration: none !important;
+}
+
+.price-text {
+    text-decoration: none !important;
 }
 
 .preview-header {
     cursor: pointer;
 }
 
-@media only screen and (min-width: 633px) {
+/* phone */
+@media only screen and (max-width: 633px) {
+
+    .product-preview {
+        text-decoration: none;
+        max-width: 50% !important;
+    }
+
+    .product-preview:hover {
+        filter: brightness(1);
+        text-decoration: none;
+    }
 
     .price-preview:hover {
-        background-color: rgba(48, 138, 108, 0.8) !important;
-        color: #eedd4a !important;
         cursor: pointer;
     }
 

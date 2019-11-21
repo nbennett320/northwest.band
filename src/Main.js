@@ -54,9 +54,9 @@ class Main extends Component {
 
     setTotalPrice = total => {
         let totalPrice = total
-        console.log("items in cart: ")
-        console.log(this.state.itemsInCart)
-        console.log("total price: $" + totalPrice)
+        // console.log("items in cart: ")
+        // console.log(this.state.itemsInCart)
+        // console.log("total price: $" + totalPrice)
         this.setState({
             totalPrice: totalPrice,
         })

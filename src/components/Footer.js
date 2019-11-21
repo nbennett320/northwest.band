@@ -22,7 +22,7 @@ class Footer extends Component {
 
                 </ul>
 
-                <div style={styles.bottom}>&copy; Northwest 2020</div>
+                <div style={styles.bottom}>&copy; 2020, northwest, 4431 records</div>
 
             </div>
 

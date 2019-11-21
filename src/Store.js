@@ -225,7 +225,7 @@ const styles = {
     main: {
         backgroundColor: '#fafafa',
         // paddingTop: '5vh',
-        paddingBottom: '40px',
+        // paddingBottom: '40px',
         display: 'flex',
         top: '0',
         position: 'absolute',

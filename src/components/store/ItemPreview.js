@@ -42,9 +42,11 @@ class ItemPreview extends Component {
         
         return (
             
-            <div className="product-preview" style={styles.card}>
+            <div className="product-preview" 
+                style={styles.card}
+            >
 
-                <div className="preview-header" style={styles.cardHeader}>{this.props.title}</div>
+                {/* <div className="preview-header" style={styles.cardHeader}></div> */}
 
                 <img className="product-img"
                     src={this.state.previewImg}
@@ -55,13 +57,29 @@ class ItemPreview extends Component {
                 />
 
                 {/* <p className="preview-description" style={styles.description}>{this.props.description}</p> */}
-
-                <div className="price-preview" 
-                    style={styles.price}
-                    onClick={this.handleAddToCart}
+                
+                <div className="preview-card"
+                    style={styles.previewCard}
                 >
-                    <div style={{padding: '10px 0'}}>add to cart...............${this.props.price}</div>
+
+                    <div>{this.props.title}</div>
+
+                    <div className="price-preview" 
+                        style={styles.price}
+                        onClick={this.handleAddToCart}
+                    >
+                        <div className="price-text"
+                            style={{padding: '10px 0', 
+                                textDecoration: 'none !important',
+                                textDecorationColor: '#69727b !important',
+                            }}
+                        >
+                            ${this.props.price}
+                        </div>
+                    </div>
+
                 </div>
+
             </div>
 
         )
@@ -70,24 +88,26 @@ class ItemPreview extends Component {
 
 }
 
+// good color #3d4246
+
 const styles = {
 
     card: {
-        // backgroundColor: '#e8e1b3',
         backgroundColor: 'rgba(255,255,255,0.8)',
         backdropFilter: 'blur(5px)',
         boxShadow: '0px 0px 8px 2px rgba(0,0,0,0.1)',
         height: 'auto',
         width: '70%',
-        maxWidth: '300px',
-        marginTop: '5%',
-        marginBottom: 'auto',
-        marginLeft: 'auto',
-        marginRight: 'auto', 
-        borderRadius: '10px',
+        // maxWidth: '33.3333333%',
+        // marginTop: 'auto',
+        // marginBottom: 'auto',
+        // marginLeft: 'auto',
+        // marginRight: 'auto', 
+        // borderRadius: '10px',
         display: 'flex',
         flexDirection: 'column',
-        fontFamily: '"Work Sans",sans-serif'
+        fontFamily: '"Work Sans",sans-serif',
+        cursor: 'pointer',
     },
 
     cardHeader: {
@@ -97,14 +117,21 @@ const styles = {
         color: '#fff',
         fontSize: '0.8em',
         width: '100%',
-        borderTopLeftRadius: '10px',
-        borderTopRightRadius: '10px',
+        // borderTopLeftRadius: '10px',
+        // borderTopRightRadius: '10px',
         textAlign: 'center',
         marginLeft: 'auto',
         marginRight: 'auto',
         paddingTop: '10px',
         paddingBottom: '10px',
+    },
 
+    previewCard: {
+        width: 'auto',
+        paddingTop: '5px',
+        paddingBottom: '5px',
+        paddingLeft: '5%',
+        paddingRight: '5%',
     },
 
     previewImage: {
@@ -127,16 +154,17 @@ const styles = {
 
     price: {
         // backgroundColor: '#154d3a',
-        backgroundColor: 'rgba(21, 77, 58, 0.9)',
+        // backgroundColor: 'rgba(21, 77, 58, 0.9)',
         color: '#fff',
         paddingTop: '5px',
         paddingBottom: '5px',
-        paddingLeft: '5%',
-        paddingRight: '5%',
-        borderBottomLeftRadius: '10px',
-        borderBottomRightRadius: '10px',
-        fontSize: '0.8em',
-        textAlign: 'center',
+        // paddingLeft: '5%',
+        // paddingRight: '5%',
+        // borderBottomLeftRadius: '10px',
+        // borderBottomRightRadius: '10px',
+        // fontSize: '0.8em',
+        textAlign: 'left',
+        textDecoration: 'none !important',
     }
 
 
