@@ -46,6 +46,7 @@ class ItemPreview extends Component {
             <Link to='/products'
                 className="product-preview" 
                 style={styles.card}
+                
             >
 
                 <img className="product-img"

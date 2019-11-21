@@ -1,10 +1,14 @@
 import React, { Component } from 'react'
+import ImagePreview from './ImagePreview'
 
 import Footer from '../Footer'
+import ProductDetailsRightPanel from './ProductDetailsRightPanel';
 
 class ProductPage extends Component {
 
     render () {
+
+        console.log(this.props)
 
         return (
 
@@ -12,7 +16,19 @@ class ProductPage extends Component {
 
                 <div className="product-page-details-container" style={styles.detailsContainer}>
 
+                    <ImagePreview 
+                        
+                    />
 
+                    <ProductDetailsRightPanel 
+                        addToCart={this.props.addToCart}
+                    />
+
+                </div>
+
+                <div className="product-description" style={styles.containerBelowDetails}>
+
+                    
 
                 </div>
 
@@ -40,6 +56,12 @@ const styles = {
         display: 'flex',
         flexDirection: 'row'
         
+    },
+
+    containerBelowDetails: {
+        width: '100%',
+
+
     }
 
 }

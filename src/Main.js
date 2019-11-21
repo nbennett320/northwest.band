@@ -55,9 +55,6 @@ class Main extends Component {
 
     setTotalPrice = total => {
         let totalPrice = total
-        // console.log("items in cart: ")
-        // console.log(this.state.itemsInCart)
-        // console.log("total price: $" + totalPrice)
         this.setState({
             totalPrice: totalPrice,
         })
@@ -135,7 +132,7 @@ class Main extends Component {
                             render={(props) => <ProductPage 
                                 {...props} 
                                 setShowCart={this.setShowCart}
-                                addItemToCart={this.addItemToCart} 
+                                addItemToCart={this.addItemToCart}
                             />}
                         />
 
