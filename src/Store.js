@@ -204,7 +204,7 @@ class Store extends Component {
 
             <div className="merch" style={styles.main}>
 
-                <StoreHeader />
+                <StoreHeader textInPhoto="northwest merchies :)" />
 
                 {this.mapCatalog()}
 

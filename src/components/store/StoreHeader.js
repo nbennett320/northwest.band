@@ -59,7 +59,7 @@ class StoreHeader extends Component {
                     style={styles.headerImage}
                 >
                     <div style={styles.text}>
-                        northwest merchies :)
+                        {this.props.textInPhoto}
                     </div>
                 </div>
 

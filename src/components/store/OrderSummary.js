@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import DropIn from "braintree-web-drop-in-react"
 
 import SummaryListing from './SummaryListing'
+import StoreHeader from './StoreHeader'
 
 import '../../css/order-summary-page.css'
 
@@ -57,6 +58,8 @@ class OrderSummary extends Component {
 
             <div className="order-summary-page" style={styles.main}>
 
+                <StoreHeader textInPhoto="order summary: " />
+
                 <div className="content" style={styles.content}>
 
                     <h3>shipping: </h3>
@@ -111,14 +114,16 @@ const styles = {
         position: 'fixed',
         top: '0',
         backgroundColor: '#fafafa',
-        fontFamily: 'Arial, Helvetica, sans-serif',
+        fontFamily: '"Work Sans",sans-serif',
+        // fontWeight: '600',
+        // fontSize: 'auto',
     }, 
 
     content: {
         height: '100%',
         width: '75%',
         margin: 'auto',
-        marginTop: '15vh',
+        marginTop: '4vh',
         display: 'flex',
         flexDirection: 'column'
     },

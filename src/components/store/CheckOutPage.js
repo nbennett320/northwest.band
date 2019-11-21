@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 import CartListing from './CartListing'
 import CheckoutFooter from './CheckoutFooter'
+import StoreHeader from './StoreHeader'
 
 import '../../css/checkout.css'
 
@@ -68,9 +69,7 @@ class CheckOutPage extends Component {
 
             <div className="checkout" style={styles.main}>
 
-                <div className="checkout-title" style={styles.title}>
-                    checkout:
-                </div>
+                <StoreHeader textInPhoto="checkout:" />
 
                 <div className="checkout-items" style={styles.listing}>
 
@@ -99,7 +98,6 @@ const styles = {
         backgroundColor: '#f5f5f5',
         height: 'auto',
         width: '100%',
-        paddingTop: '8vh',
         paddingBottom: '8vh',
         margin: 'auto',
         //marginTop: '40px',

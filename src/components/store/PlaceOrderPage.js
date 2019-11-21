@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import StoreHeader from './StoreHeader'
 
 import validateEmail from '../../scripts/ValidateEmail'
 import validatePhone from '../../scripts/ValidatePhone'
@@ -136,6 +137,8 @@ class PlaceOrderPage extends Component {
 
             <div className="place-order-page" style={styles.main}>
 
+                <StoreHeader textInPhoto="shipping info: " />
+
                 <div style={styles.form}>
 
                     <span style={styles.txt1}> name </span>
@@ -236,7 +239,7 @@ const styles = {
     form: {
         width: '50%',
         margin: 'auto',
-        marginTop: '15vh',
+        marginTop: '4vh',
         display: 'flex',
         flexDirection: 'column'
     },
