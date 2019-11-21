@@ -206,6 +206,8 @@ class Store extends Component {
 
                 <StoreHeader textInPhoto="northwest merchies :)" />
 
+                {/* some sort of filtering toolbar here */}
+
                 {this.mapCatalog()}
 
                 <Footer />
