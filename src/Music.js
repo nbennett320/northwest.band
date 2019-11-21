@@ -125,8 +125,8 @@ class Music extends Component {
 
                 <div className="entry">
                     <h2 className="album-head">
-                        Area Code<br />
-                        July 15, 2018
+                        area code<br />
+                        july 15, 2018
                     </h2>
 
                     <div className="items">

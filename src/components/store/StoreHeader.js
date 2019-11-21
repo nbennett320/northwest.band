@@ -44,8 +44,8 @@ class StoreHeader extends Component {
                 margin: 'auto',
                 color: '#fff',
                 fontFamily: '"Work Sans",sans-serif',
-                fontWeight: '600',
-                fontSize: 'auto',
+                fontWeight: '800',
+                fontSize: '1.5em',
             }
         
         }

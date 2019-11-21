@@ -6,6 +6,7 @@ import Home from './Home'
 import Music from './Music'
 import Lyrics from './Lyrics'
 import Store from './Store'
+import ProductPage from './components/store/ProductPage'
 import Goodies from './Goodies'
 import ScrollToTop from './scripts/ScrollToTop'
 import CheckOutPage from './components/store/CheckOutPage'
@@ -124,6 +125,14 @@ class Main extends Component {
 
                         <Route path='/merch' 
                             render={(props) => <Store 
+                                {...props} 
+                                setShowCart={this.setShowCart}
+                                addItemToCart={this.addItemToCart} 
+                            />}
+                        />
+
+                        <Route path='/products' 
+                            render={(props) => <ProductPage 
                                 {...props} 
                                 setShowCart={this.setShowCart}
                                 addItemToCart={this.addItemToCart} 

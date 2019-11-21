@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 import '../../css/store.css'
 
@@ -42,7 +43,8 @@ class ItemPreview extends Component {
         
         return (
             
-            <div className="product-preview" 
+            <Link to='/products'
+                className="product-preview" 
                 style={styles.card}
             >
 
@@ -80,7 +82,7 @@ class ItemPreview extends Component {
 
                 </div>
 
-            </div>
+            </Link>
 
         )
 
@@ -98,32 +100,10 @@ const styles = {
         boxShadow: '0px 0px 8px 2px rgba(0,0,0,0.1)',
         height: 'auto',
         width: '70%',
-        // maxWidth: '33.3333333%',
-        // marginTop: 'auto',
-        // marginBottom: 'auto',
-        // marginLeft: 'auto',
-        // marginRight: 'auto', 
-        // borderRadius: '10px',
         display: 'flex',
         flexDirection: 'column',
         fontFamily: '"Work Sans",sans-serif',
         cursor: 'pointer',
-    },
-
-    cardHeader: {
-        // backgroundColor: '#242424',
-        backgroundColor: 'rgba(36, 36, 36, 0.8)',
-        // backgroundColor: '#fff',
-        color: '#fff',
-        fontSize: '0.8em',
-        width: '100%',
-        // borderTopLeftRadius: '10px',
-        // borderTopRightRadius: '10px',
-        textAlign: 'center',
-        marginLeft: 'auto',
-        marginRight: 'auto',
-        paddingTop: '10px',
-        paddingBottom: '10px',
     },
 
     previewCard: {
@@ -141,7 +121,6 @@ const styles = {
         marginLeft: '5%',
         marginRight: '5%',
         borderRadius: '',
-        // boxShadow: '0px 0px 4px 1px rgba(0,0,0,0.1)',
     },
 
     description: {
@@ -153,16 +132,9 @@ const styles = {
     },
 
     price: {
-        // backgroundColor: '#154d3a',
-        // backgroundColor: 'rgba(21, 77, 58, 0.9)',
         color: '#fff',
         paddingTop: '5px',
         paddingBottom: '5px',
-        // paddingLeft: '5%',
-        // paddingRight: '5%',
-        // borderBottomLeftRadius: '10px',
-        // borderBottomRightRadius: '10px',
-        // fontSize: '0.8em',
         textAlign: 'left',
         textDecoration: 'none !important',
     }
