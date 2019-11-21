@@ -23,18 +23,34 @@ class StoreHeader extends Component {
                 backgroundPosition: 'top',
                 backgroundRepeat: 'no-repeat',
                 backgroundSize: 'cover',
+            },
+
+            text: {
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                height: '100%',
+                margin: 'auto',
+                color: '#fff',
+                fontFamily: '"Work Sans",sans-serif',
+                fontWeight: '600',
+                fontSize: 'auto',
             }
         
         }
 
         return (
 
-            <div style={styles.main}>
+            <div style={styles.main} className="scroll-box-container">
 
                 <div
                     className="scroll-box" 
                     style={styles.headerImage}
-                />
+                >
+                    <div style={styles.text}>
+                        northwest merchies :)
+                    </div>
+                </div>
 
             </div>
 

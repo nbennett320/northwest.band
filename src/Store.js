@@ -8,7 +8,7 @@ class Store extends Component {
     items = {
 
         0: {
-            title: 'Northwest (HOT PINK) Suburban Dogs Tee',
+            title: 'northwest (hot pink) suburban dogs tee',
             defaultImg: `${require('./img/img_merch/img_500x500/hotpinksd.png')}`,
             hoverImg: `${require('./img/img_merch/img_500x500/hotpinksd.png')}`,
             altText: 'hot pink t-shirt with black suburban dogs logo',
@@ -24,7 +24,7 @@ class Store extends Component {
         },
 
         1: {
-            title: 'Northwest (ORANGE) Suburban Dogs Tee',
+            title: 'northwest (orange) suburban dogs tee',
             defaultImg: `${require('./img/img_merch/img_500x500/orangesd.png')}`,
             hoverImg: `${require('./img/img_merch/img_500x500/orangesd.png')}`,
             altText: 'bright orange t-shirt with black suburban dogs logo',
@@ -40,7 +40,7 @@ class Store extends Component {
         },
 
         2: {
-            title: 'Northwest (VINTAGE ROSE) Suburban Dogs Tee',
+            title: 'northwest (vintage rose) suburban dogs tee',
             defaultImg: `${require('./img/img_merch/img_500x500/pinksd.png')}`,
             hoverImg: `${require('./img/img_merch/img_500x500/pinksd.png')}`,
             altText: 'light pink t-shirt with black suburban dogs logo',
@@ -56,7 +56,7 @@ class Store extends Component {
         },
 
         3: {
-            title: 'Northwest (EGGSHELL) Suburban Dogs Tee',
+            title: 'northwest (eggshell) suburban dogs tee',
             defaultImg: `${require('./img/img_merch/img_500x500/whitesd.png')}`,
             hoverImg: `${require('./img/img_merch/img_500x500/whitesd.png')}`,
             altText: 'white (kinda eggshell-y) t-shirt with black suburban dogs logo',
@@ -72,7 +72,7 @@ class Store extends Component {
         },
 
         4: {
-            title: 'Northwest (YELLOW) Suburban Dogs Tee',
+            title: 'northwest (yellow) suburban dogs tee',
             defaultImg: `${require('./img/img_merch/img_500x500/yellowsd.png')}`,
             hoverImg: `${require('./img/img_merch/img_500x500/yellowsd.png')}`,
             altText: 'yellow t-shirt with black suburban dogs logo',
@@ -88,7 +88,7 @@ class Store extends Component {
         },
 
         5: {
-            title: 'Northwest (WHITE) E.T. Tee',
+            title: 'northwest (white) e.t. tee',
             defaultImg: `${require('./img/img_merch/img_500x500/et shirt.png')}`,
             hoverImg: `${require('./img/img_merch/img_500x500/et shirt.png')}`,
             altText: 'all white nw tee endorsed by everyone\'s favorite extra terrestrial',
@@ -104,7 +104,7 @@ class Store extends Component {
         },
 
         6: {
-            title: 'Northwest (YELLOW) E.T. Tee',
+            title: 'northwest (yellow) e.t. tee',
             defaultImg: `${require('./img/img_merch/img_500x500/yellow et.png')}`,
             hoverImg: `${require('./img/img_merch/img_500x500/yellow et.png')}`,
             altText: 'yellow nw tee endorsed by everyone\'s favorite extra terrestrial',
@@ -120,7 +120,7 @@ class Store extends Component {
         },
 
         7: {
-            title: 'Northwest (GREY) Suburban Dogs Hoodie',
+            title: 'northwest (grey) suburban dogs hoodie',
             defaultImg: `${require('./img/img_merch/img_500x500/grey hoodie.png')}`,
             hoverImg: `${require('./img/img_merch/img_500x500/grey hoodie.png')}`,
             altText: 'grey hoodie with black suburban dogs',
@@ -136,7 +136,7 @@ class Store extends Component {
         },
 
         8: {
-            title: 'Northwest (ORANGE) Suburban Dogs Hoodie',
+            title: 'northwest (orange) suburban dogs hoodie',
             defaultImg: `${require('./img/img_merch/img_500x500/orange hoodie.png')}`,
             hoverImg: `${require('./img/img_merch/img_500x500/orange hoodie.png')}`,
             altText: 'bright orange hoodie with black suburban dogs',
@@ -152,7 +152,7 @@ class Store extends Component {
         },
 
         9: {
-            title: 'Northwest (PINK) Suburban Dogs Hoodie',
+            title: 'northwest (pink) suburban dogs hoodie',
             defaultImg: `${require('./img/img_merch/img_500x500/pink hoodie.png')}`,
             hoverImg: `${require('./img/img_merch/img_500x500/pink hoodie.png')}`,
             altText: 'pink hoodie with black suburban dogs',

@@ -43,22 +43,24 @@ class ItemPreview extends Component {
         return (
             
             <div className="product-preview" style={styles.card}>
+
                 <div className="preview-header" style={styles.cardHeader}>{this.props.title}</div>
-                    <img className="product-img"
-                        src={this.state.previewImg}
-                        onMouseEnter={this.handleMouseEnter}
-                        onMouseLeave={this.handleMouseLeave}
-                        alt={this.props.altText}
-                        style={styles.previewImage}
-                    />
-                <p className="preview-description" style={styles.description}>{this.props.description}</p>
+
+                <img className="product-img"
+                    src={this.state.previewImg}
+                    onMouseEnter={this.handleMouseEnter}
+                    onMouseLeave={this.handleMouseLeave}
+                    alt={this.props.altText}
+                    style={styles.previewImage}
+                />
+
+                {/* <p className="preview-description" style={styles.description}>{this.props.description}</p> */}
+
                 <div className="price-preview" 
                     style={styles.price}
                     onClick={this.handleAddToCart}
                 >
-                    add to cart...............${this.props.price}
-                    <br />
-                    (COMING SOON)
+                    <div style={{padding: '10px 0'}}>add to cart...............${this.props.price}</div>
                 </div>
             </div>
 
@@ -75,8 +77,9 @@ const styles = {
         backgroundColor: 'rgba(255,255,255,0.8)',
         backdropFilter: 'blur(5px)',
         boxShadow: '0px 0px 8px 2px rgba(0,0,0,0.1)',
+        height: 'auto',
         width: '70%',
-        maxWidth: '400px',
+        maxWidth: '300px',
         marginTop: '5%',
         marginBottom: 'auto',
         marginLeft: 'auto',
@@ -84,21 +87,23 @@ const styles = {
         borderRadius: '10px',
         display: 'flex',
         flexDirection: 'column',
-        fontFamily: 'Arial, Helvetica, sans-serif',
+        fontFamily: '"Work Sans",sans-serif'
     },
 
     cardHeader: {
         // backgroundColor: '#242424',
         backgroundColor: 'rgba(36, 36, 36, 0.8)',
+        // backgroundColor: '#fff',
         color: '#fff',
+        fontSize: '0.8em',
         width: '100%',
         borderTopLeftRadius: '10px',
         borderTopRightRadius: '10px',
         textAlign: 'center',
         marginLeft: 'auto',
         marginRight: 'auto',
-        paddingTop: '5px',
-        paddingBottom: '5px',
+        paddingTop: '10px',
+        paddingBottom: '10px',
 
     },
 
@@ -109,7 +114,7 @@ const styles = {
         marginLeft: '5%',
         marginRight: '5%',
         borderRadius: '',
-        boxShadow: '0px 0px 4px 1px rgba(0,0,0,0.1)',
+        // boxShadow: '0px 0px 4px 1px rgba(0,0,0,0.1)',
     },
 
     description: {

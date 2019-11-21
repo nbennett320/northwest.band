@@ -63,7 +63,7 @@ class Main extends Component {
     }
 
     removeItem = itemNumber => {
-        // console.log("item num:" + itemNumber)
+        
         let items = this.state.itemsInCart
         
         if(items.length === 1) items.pop()

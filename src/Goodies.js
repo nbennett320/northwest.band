@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Footer from './components/Footer'
 
 import './css/goodies.css'
 
@@ -27,6 +28,8 @@ class Goodies extends Component {
                     </span> 
 
                 </div>
+
+                <Footer />
 
             </div>
 

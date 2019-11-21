@@ -12,11 +12,55 @@ class Music extends Component {
         return (
 
             <div className="music">
+
+                <div className="entry">
+                    <h2 className="album-head">
+                        suburban dogs<br />
+                        november 15, 2019
+                    </h2>
+    
+                    <div className="items">
+                        <img className="album-art" src={require('./img/music/subbie dogs text w canvas4.jpg')} alt="subbie dogs album art" />
+    
+                        <div className="streaming-logos">
+                            <a href="https://open.spotify.com/album/6mZfKbuHi4NLT1s393Pnun?si=F-HI9Dw9R8iYznxljM1ZTw">
+                                <img className="logo" src={require('./img/logos/spotify_50.png')} alt="spotify logo" />
+                            </a>
+    
+                            <a href="https://music.apple.com/us/album/suburban-dogs/1484159062">
+                                <img className="logo" src={require('./img/logos/US-UK_Apple_Music_Badge_RGB.png')} style={styles.iconBorders} alt="apple music logo" />
+                            </a>
+    
+                            <a href="https://music.amazon.com/albums/B07N2ZQ9LP?trackAsin=B07N3118SS&ref=dm_sh_f21d-0dbb-dmcp-d132-8cf60&musicTerritory=US&marketplaceId=ATVPDKIKX0DER">
+                                <img className="logo" src={require('./img/logos/amazonmusic_80_50.png')} alt="amazon music logo" />
+                            </a>
+    
+                            <a href="https://music.youtube.com/playlist?list=OLAK5uy_kauUBKraMB_Oo0rcVSbfFwIbEEm5P5EPw">
+                                <img className="logo" src={require('./img/logos/YouTubeMusic_50.png')} alt="youtube music logo" />
+                            </a>
+                        </div>
+                    </div>
+    
+                    <p className="song-list">dog</p>
+                    <p className="song-list">come around</p>
+                    <p className="song-list">new feel</p>
+                    <p className="song-list">(laying, next to)</p>
+                    <p className="song-list">uneasy</p>
+                    <p className="song-list">porter ave</p>
+                    <p className="song-list">half-asleep</p>
+                    <p className="song-list">buddy</p>
+                    <p className="song-list">crumb</p>
+                    <p className="song-list">(outside, sitting)</p>
+                    <p className="song-list">miss me</p>
+                    <p className="song-list">good for you</p>
+                    <p className="song-list">morgan ave</p>
+    
+                </div>
                 
                 <div className="entry">
                     <h2 className="album-head">
-                        Come Around<br />
-                        June 14, 2019
+                        come around<br />
+                        june 14, 2019
                     </h2>
     
                     <div className="items">
@@ -41,15 +85,15 @@ class Music extends Component {
                         </div>
                     </div>
     
-                    <p><Link to={`/come-around`} params={{songKey: 'comearound'}}  className="song-link">Come Around</Link></p>
+                    <p><Link to={`/come-around`} params={{songKey: 'comearound'}}  className="song-link">come around</Link></p>
     
                 </div>
 
 
                 <div className="entry">
                     <h2 className="album-head">
-                        New Feel<br />
-                        January 25, 2019
+                        new feel<br />
+                        january 25, 2019
                     </h2>
 
                     <div className="items">
@@ -74,7 +118,7 @@ class Music extends Component {
                         </div>
                     </div>
 
-                    <p><Link to={`/new-feel`} params={{songKey: 'newfeel'}}  className="song-link">New Feel</Link></p>
+                    <p><Link to={`/new-feel`} params={{songKey: 'newfeel'}}  className="song-link">new feel</Link></p>
 
                 </div>
 
@@ -107,16 +151,16 @@ class Music extends Component {
                         </div>
                     </div>
 
-                    <p className="song-list-p"><Link to={`/swmtn`} params={{songKey: 'swmtn'}} className="song-link">Stay W. Me 2nite</Link></p>
-                    <p className="song-list"> Out Past Curfew</p>
-                    <p className="song-list">(Loading Screen)</p>
-                    <p className="song-list-p"><Link to={`/lover`} params={{songKey: 'lover'}} className="song-link">Lover...</Link></p>
-                    <p className="song-list-p"><Link to={`/rendezvous`} params={{songKey: 'rendezvous'}} className="song-link">Rendezvous</Link></p>
-                    <p className="song-list-p"><Link to={`/flake`} params={{songKey: 'flake'}} className="song-link">Flake</Link></p>
-                    <p className="song-list">Summer Night</p>
-                    <p className="song-list-p"><Link to={`/fader`} params={{songKey: 'fader'}} className="song-link">Fader</Link></p>
-                    <p className="song-list-p"><Link to={`/quink`} params={{songKey: 'quink'}} className="song-link">Quink</Link></p>
-                    <p className="song-list">Dot Dot Dot</p>
+                    <p className="song-list-p"><Link to={`/swmtn`} params={{songKey: 'swmtn'}} className="song-link">stay w. me 2nite</Link></p>
+                    <p className="song-list">out past curfew</p>
+                    <p className="song-list">(loading screen)</p>
+                    <p className="song-list-p"><Link to={`/lover`} params={{songKey: 'lover'}} className="song-link">lover...</Link></p>
+                    <p className="song-list-p"><Link to={`/rendezvous`} params={{songKey: 'rendezvous'}} className="song-link">rendezvous</Link></p>
+                    <p className="song-list-p"><Link to={`/flake`} params={{songKey: 'flake'}} className="song-link">flake</Link></p>
+                    <p className="song-list">summer night</p>
+                    <p className="song-list-p"><Link to={`/fader`} params={{songKey: 'fader'}} className="song-link">fader</Link></p>
+                    <p className="song-list-p"><Link to={`/quink`} params={{songKey: 'quink'}} className="song-link">quink</Link></p>
+                    <p className="song-list">dot dot dot</p>
                     <p className="song-list">4431</p>
 
                 </div>
@@ -133,7 +177,7 @@ class Music extends Component {
 
 const styles = {
     iconBorders: {
-        borderRadius: '10px',
+        borderRadius: '6.5px',
     },
 }
 
