@@ -33,7 +33,7 @@ class Store extends Component {
     randomSDStyleImg = () => {
         const colors = [
             'eggshell',
-            'hotpink',
+            'hot-pink',
             'orange',
             'vintage-rose',
             'yellow'

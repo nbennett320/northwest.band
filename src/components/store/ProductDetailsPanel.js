@@ -18,12 +18,16 @@ class ProductDetailsPanel extends Component {
 
         let item = this.props.item
 
+        item.attributes.size = 'm'
+
         this.setState({
             item: item
         })
 
-        console.log(this.state.item)
+    }
 
+    componentWillReceiveProps () {
+        console.log("fard")
     }
 
     sizeOptions = [
@@ -50,6 +54,36 @@ class ProductDetailsPanel extends Component {
 
     }
 
+    putSizeObjectInValue = size => {
+        const options = this.sizeOptions
+
+        for(let i = 0; i < options.length; i++) {
+
+            if(options[i].value === size) {
+
+                return options[i]
+
+            }
+
+        }
+
+    }
+
+    putColorObjectInValue = color => {
+        const options = this.colorOptions()
+
+        for(let i = 0; i < options.length; i++) {
+
+            if(options[i].value === color) {
+
+                return options[i]
+
+            }
+
+        }
+
+    }
+
     placeDecimals = price => price.toFixed(2)
 
     handleAddToCart = () => this.props.addItemToCart(this.state.item)
@@ -67,8 +101,12 @@ class ProductDetailsPanel extends Component {
 
         item.attributes.color = newColor.value
 
+        this.props.setColorOnProductPage(newColor.value)
+
         this.setState({item: item})
     }
+
+    com
 
     render () {
 
@@ -85,7 +123,9 @@ class ProductDetailsPanel extends Component {
                 </h2>
 
                 <div className="select-container" style={styles.selectContainer} id="top-detail-panel-selector">
-                    <Select 
+                    <Select
+                        name="size-select"
+                        value={this.putSizeObjectInValue(this.state.item.attributes.size)}
                         options={this.sizeOptions}
                         placeholder="size"
                         onChange={this.changeSize}
@@ -93,7 +133,9 @@ class ProductDetailsPanel extends Component {
                 </div>
 
                 <div className="select-container" style={styles.selectContainer} id="middle-detail-panel-selector">
-                    <Select 
+                    <Select
+                        name="color-select"
+                        value={this.putColorObjectInValue(this.props.getColor)}
                         options={this.colorOptions()}
                         placeholder="color"
                         onChange={this.changeColor}
@@ -107,6 +149,14 @@ class ProductDetailsPanel extends Component {
                     <span>add to cart</span>
 
                 </button>
+
+                {/* <button className="panel-button" style={styles.buttonContainer} id="middle-detail-panel-selector"
+                    onClick={this.handleAddToCart}
+                >
+
+                    <span>checkout with google pay</span>
+
+                </button> */}
 
             </div>
 
