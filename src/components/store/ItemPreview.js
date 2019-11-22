@@ -11,6 +11,7 @@ class ItemPreview extends Component {
         this.state = {
             previewImg: this.props.defaultImg,
             isHovering: false,
+            itemDetails: {},
         }
 
     }
@@ -34,6 +35,28 @@ class ItemPreview extends Component {
         })
     }
 
+    setProductPage = () => {
+        let details = {
+            title: this.props.title,
+            altText: this.props.altText,
+            description: this.props.description,
+            attributes: {
+                category: this.props.attributes.category,
+                subcategory: this.props.attributes.subcategory,
+                model: this.props.attributes.model,
+                color: this.props.attributes.color,
+                size: this.props.attributes.size,
+            },
+            price: this.props.price
+        }
+
+        this.props.setItemDetails(details)
+
+        this.setState({
+            itemDetails: details
+        })
+    }
+
     getPreviewImg = () => {
         if(this.state.isHovering === true) return this.props.hoverImg
         else return this.props.defaultImg
@@ -43,9 +66,16 @@ class ItemPreview extends Component {
         
         return (
             
-            <Link to='/products'
+            <Link to={{
+                    pathname: `/products/${this.props.attributes.model}`,
+                }}
                 className="product-preview" 
                 style={styles.card}
+                onClick={this.setProductPage}
+                params={{ 
+                    model: this.props.attributes.model,
+                    itemDetails: this.state.itemDetails
+                }}
             >
 
                 <img className="product-img"
@@ -85,8 +115,6 @@ class ItemPreview extends Component {
     }
 
 }
-
-// good color #3d4246
 
 const styles = {
 

@@ -123,7 +123,7 @@ a{
 }
 
 /* phone */
-@media only screen and (max-width: 633px){
+@media only screen and (max-width: 633px) {
     body{
         justify-content: flex-start;
     }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 
 import Header from './components/Header'
 import Home from './Home'
@@ -23,6 +24,7 @@ class Main extends Component {
             showCart: false,
             numberOfItemsInCart: 0,
             itemsInCart: [],
+            // itemDetails: localStorage.getItem('lastDetails'),
             totalPrice: 0,
             orderInfo: {
                 name: '',
@@ -38,26 +40,37 @@ class Main extends Component {
 
     }
 
+    // componentDidMount () {
+    //     //let details = localStorage.getItem(lastDetail)
+    //     //if()
+
+    // }
+
     setShowCart = bool => {
+
         this.setState({
             showCart: bool,
         })
+
     }
 
     addItemToCart = item => {
-        const items = this.state.itemsInCart
+        let items = this.state.itemsInCart
+
+        console.log(item)
+
         items.push(item)
         this.setState({
             itemsInCart: items,
             numberOfItemsInCart: items.length
         })
+
+        console.log(this.state.itemsInCart)
+
     }
 
     setTotalPrice = total => {
         let totalPrice = total
-        // console.log("items in cart: ")
-        // console.log(this.state.itemsInCart)
-        // console.log("total price: $" + totalPrice)
         this.setState({
             totalPrice: totalPrice,
         })
@@ -74,6 +87,19 @@ class Main extends Component {
             itemsInCart: items,
             numberOfItemsInCart: items.length
         })
+
+    }
+
+    setItemDetails = item => {
+        // const details = this.state.itemDetails
+        // details.push(item)
+        this.setState({
+            itemDetails: item
+        })
+
+        // console.log("details:")
+        // console.log(this.state.itemDetails)
+
     }
 
     setFullAddress = fullAddress => this.setState({orderInfo: {fullAddress: fullAddress}})
@@ -127,16 +153,23 @@ class Main extends Component {
                             render={(props) => <Store 
                                 {...props} 
                                 setShowCart={this.setShowCart}
-                                addItemToCart={this.addItemToCart} 
+                                addItemToCart={this.addItemToCart}
+                                setItemDetails={this.setItemDetails}
                             />}
                         />
 
-                        <Route path='/products' 
+                        <Route path='/products/:model' 
                             render={(props) => <ProductPage 
                                 {...props} 
                                 setShowCart={this.setShowCart}
-                                addItemToCart={this.addItemToCart} 
+                                addItemToCart={this.addItemToCart}
+                                itemDetails={this.state.itemDetails}
                             />}
+                        />
+
+                        <Redirect 
+                            from='/products'
+                            to='/merch'
                         />
 
                         <Route path='/goodies' component={Goodies} />
