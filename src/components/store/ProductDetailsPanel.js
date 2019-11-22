@@ -24,8 +24,10 @@ class ProductDetailsPanel extends Component {
             item: item
         })
 
-        console.log(this.state.item)
+    }
 
+    componentWillReceiveProps () {
+        console.log("fard")
     }
 
     sizeOptions = [
@@ -59,7 +61,6 @@ class ProductDetailsPanel extends Component {
 
             if(options[i].value === size) {
 
-                console.log(options[i])
                 return options[i]
 
             }
@@ -71,13 +72,10 @@ class ProductDetailsPanel extends Component {
     putColorObjectInValue = color => {
         const options = this.colorOptions()
 
-        console.log(color)
-
         for(let i = 0; i < options.length; i++) {
 
             if(options[i].value === color) {
 
-                console.log(options[i])
                 return options[i]
 
             }
@@ -103,8 +101,12 @@ class ProductDetailsPanel extends Component {
 
         item.attributes.color = newColor.value
 
+        this.props.setColorOnProductPage(newColor.value)
+
         this.setState({item: item})
     }
+
+    com
 
     render () {
 
@@ -133,7 +135,7 @@ class ProductDetailsPanel extends Component {
                 <div className="select-container" style={styles.selectContainer} id="middle-detail-panel-selector">
                     <Select
                         name="color-select"
-                        defaultValue={this.putColorObjectInValue(this.state.item.attributes.color)}
+                        value={this.putColorObjectInValue(this.props.getColor)}
                         options={this.colorOptions()}
                         placeholder="color"
                         onChange={this.changeColor}
@@ -147,6 +149,14 @@ class ProductDetailsPanel extends Component {
                     <span>add to cart</span>
 
                 </button>
+
+                {/* <button className="panel-button" style={styles.buttonContainer} id="middle-detail-panel-selector"
+                    onClick={this.handleAddToCart}
+                >
+
+                    <span>checkout with google pay</span>
+
+                </button> */}
 
             </div>
 

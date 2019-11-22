@@ -25,40 +25,44 @@ class ProductPage extends Component {
                     availableColors: {},
                 },
                 price: null
-            }
+            },
         }
 
     }
 
-    // catch before all the stuff is like good to go or whatever
     componentWillMount () {
         const { model } = this.props.match.params
 
         this.setDefaultAttributesByModel(model)
+
+        // make shure cart is shown
+        this.props.setShowCart(true)
     }
 
     componentDidMount () {
         const { model } = this.props.match.params
 
-        this.setState({model: model})
+        this.setState({
+            model: model,
+            color: this.state.details.attributes.color
+        })
     }
 
     // if props are passed, assign attributes
     // .........
     // i guess i didnt need this function OWO 
-    // 
+    
     // assignAttributesByProps = () => {
-
+    //
     //     let newProperties = this.props.itemDetails
     //     this.setState({details: newProperties})
-
+    //
     // }
 
 
     // this function basically chooses default attributes based on the url entered 
     // by the user so shit isnt fudged up if they share a link or go directly to
     // the url of an item
-    // 
     // this will easily be replaced with a database as soon as im done being dumb as shit
     setDefaultAttributesByModel = model => {
         let defaultProperties = this.state.details
@@ -120,8 +124,8 @@ class ProductPage extends Component {
 
             case 'suburban-dogs-hoodie':
                 defaultProperties.title = 'northwest suburban dogs hoodie'
-                defaultProperties.altText = 'grey hoodie with black suburban dogs'
-                defaultProperties.description = 'grey hoodie with black suburban dogs'
+                defaultProperties.altText = 'hoodie with black suburban dogs'
+                defaultProperties.description = 'hoodie with black suburban dogs'
                 defaultProperties.attributes = {
                     category: 'sweatshirt',
                     subcategory: 'hoodie',
@@ -162,6 +166,18 @@ class ProductPage extends Component {
 
     }
 
+    setColorOnProductPage = newColor => {
+
+        let attributes = this.state.details.attributes
+
+        attributes.color = newColor
+        
+        this.setState({attributes})
+
+    }
+
+    getColor = () => this.state.details.attributes.color
+
     render () {
 
         return (
@@ -173,8 +189,10 @@ class ProductPage extends Component {
                     <div className="half-container">
 
                         <ImagePreview 
-                            color={this.state.details.attributes.color}
+                            color={this.getColor()}
+                            availableColors={this.state.details.attributes.availableColors}
                             model={this.state.model}
+                            setColorOnProductPage={this.setColorOnProductPage}
                         />
 
                     </div>
@@ -187,6 +205,8 @@ class ProductPage extends Component {
                             availableColors={this.state.details.attributes.availableColors}
                             item={this.state.details}
                             addItemToCart={this.props.addItemToCart}
+                            setColorOnProductPage={this.setColorOnProductPage}
+                            getColor={this.getColor()}
                         />
                     
                     </div>
@@ -195,7 +215,13 @@ class ProductPage extends Component {
 
                 <div className="product-description" style={styles.containerBelowDetails}>
 
-                    
+                    <p className="description-main-paragraph" style={styles.mainParagraph}>
+                        
+                        {this.getColor()} {this.state.details.description}
+
+                    </p>
+
+
 
                 </div>
 
@@ -226,18 +252,27 @@ const styles = {
     detailsContainer: {
         width: '100%',
         display: 'flex',
-        
     },
 
     containerBelowDetails: {
-        width: '100%',
-
-
+        width: '75%',
+        paddingTop: '40px',
+        paddingBottom: '40px',
+        marginLeft: '12.5%',
+        marginRight: '12.5%',
     },
 
-    sectionContainer: {
-        // width: '50%',
-    }
+    mainParagraph: {
+        width: '100%',
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        color: '#69727b',
+        fontFamily: '"Work Sans",sans-serif',
+        fontWeight: '400',
+        fontSize: '1em',
+    },
+
+
 
 }
 

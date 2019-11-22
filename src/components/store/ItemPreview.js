@@ -163,7 +163,6 @@ const styles = {
         textDecoration: 'none !important',
     }
 
-
 }
 
 export default ItemPreview

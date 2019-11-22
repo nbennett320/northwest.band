@@ -24,7 +24,7 @@ class Main extends Component {
             showCart: false,
             numberOfItemsInCart: 0,
             itemsInCart: [],
-            // itemDetails: localStorage.getItem('lastDetails'),
+            itemDetails: [],
             totalPrice: 0,
             orderInfo: {
                 name: '',
@@ -39,12 +39,6 @@ class Main extends Component {
         }
 
     }
-
-    // componentDidMount () {
-    //     //let details = localStorage.getItem(lastDetail)
-    //     //if()
-
-    // }
 
     setShowCart = bool => {
 
@@ -91,14 +85,10 @@ class Main extends Component {
     }
 
     setItemDetails = item => {
-        // const details = this.state.itemDetails
-        // details.push(item)
+        
         this.setState({
             itemDetails: item
         })
-
-        // console.log("details:")
-        // console.log(this.state.itemDetails)
 
     }
 
@@ -167,6 +157,8 @@ class Main extends Component {
                             />}
                         />
 
+                        {/* redirect from /products/ to /merch for cases where user tries
+                        to link there directly */}
                         <Redirect 
                             from='/products'
                             to='/merch'
