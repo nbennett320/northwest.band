@@ -24,7 +24,7 @@ class Main extends Component {
             showCart: false,
             numberOfItemsInCart: 0,
             itemsInCart: [],
-            itemDetails: localStorage.getItem('lastDetails'),
+            // itemDetails: localStorage.getItem('lastDetails'),
             totalPrice: 0,
             orderInfo: {
                 name: '',
@@ -40,11 +40,11 @@ class Main extends Component {
 
     }
 
-    componentDidMount () {
-        //let details = localStorage.getItem(lastDetail)
-        //if()
+    // componentDidMount () {
+    //     //let details = localStorage.getItem(lastDetail)
+    //     //if()
 
-    }
+    // }
 
     setShowCart = bool => {
 
@@ -55,12 +55,18 @@ class Main extends Component {
     }
 
     addItemToCart = item => {
-        const items = this.state.itemsInCart
+        let items = this.state.itemsInCart
+
+        console.log(item)
+
         items.push(item)
         this.setState({
             itemsInCart: items,
             numberOfItemsInCart: items.length
         })
+
+        console.log(this.state.itemsInCart)
+
     }
 
     setTotalPrice = total => {

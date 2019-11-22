@@ -54,6 +54,7 @@ class ImagePreview extends Component {
 
                 <img src={require(`../../img/img_merch/img_500x500/${this.getPathFromModel(this.props.model)}.png`)} 
                     alt="default image"
+                    style={styles.mainImage}
                 />
 
             </div>
@@ -67,7 +68,18 @@ class ImagePreview extends Component {
 const styles = {
 
     main: {
-        width: '50%'
+        width: '50%',
+        display: 'flex',
+        alignContent: 'center',
+        justifyContent: 'center',
+    },
+
+    mainImage: {
+        display: 'flex',
+        height: '75%',
+        width: '75%',
+        marginLeft: 'auto',
+        marginRight: 'auto',
     }
 
 }

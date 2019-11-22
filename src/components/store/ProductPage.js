@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import ImagePreview from './ImagePreview'
 import Footer from '../Footer'
-import ProductDetailsRightPanel from './ProductDetailsRightPanel';
+import ProductDetailsPanel from './ProductDetailsPanel';
+
+import '../../css/product-page.css'
 
 class ProductPage extends Component {
 
@@ -18,6 +20,7 @@ class ProductPage extends Component {
                     category: null,
                     subcategory: null,
                     model: null,
+                    size: null,
                     color: null,
                     availableColors: {},
                 },
@@ -32,16 +35,12 @@ class ProductPage extends Component {
         const { model } = this.props.match.params
 
         this.setDefaultAttributesByModel(model)
-
-        // this.assignAttributesByProps()
-
     }
 
     componentDidMount () {
         const { model } = this.props.match.params
 
         this.setState({model: model})
-        
     }
 
     // if props are passed, assign attributes
@@ -171,15 +170,26 @@ class ProductPage extends Component {
 
                 <div className="product-page-details-container" style={styles.detailsContainer}>
 
-                    <ImagePreview 
-                        color={this.state.details.attributes.color}
-                        model={this.state.model}
-                    />                    
+                    <div className="half-container">
 
-                    <ProductDetailsRightPanel
-                        title={this.state.details.title}
-                        addToCart={this.props.addToCart}
-                    />
+                        <ImagePreview 
+                            color={this.state.details.attributes.color}
+                            model={this.state.model}
+                        />
+
+                    </div>
+
+                    <div className="half-container">      
+
+                        <ProductDetailsPanel
+                            title={this.state.details.title}
+                            price={this.state.details.price}
+                            availableColors={this.state.details.attributes.availableColors}
+                            item={this.state.details}
+                            addItemToCart={this.props.addItemToCart}
+                        />
+                    
+                    </div>
 
                 </div>
 
@@ -202,16 +212,20 @@ class ProductPage extends Component {
 const styles = {
 
     main: {
+        top: '0',
+        position: 'absolute',
+        paddingTop: 'calc(5vh + 40px)',
+        marginTop: '5vh',
         height: '100%',
         width: '100%',
         display: 'flex',
         flexDirection: 'column',
+        backgroundColor: '#fff',
     },
 
     detailsContainer: {
         width: '100%',
         display: 'flex',
-        flexDirection: 'row'
         
     },
 
@@ -219,6 +233,10 @@ const styles = {
         width: '100%',
 
 
+    },
+
+    sectionContainer: {
+        // width: '50%',
     }
 
 }
