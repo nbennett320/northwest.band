@@ -32,10 +32,10 @@ class Store extends Component {
 
     randomSDStyleImg = () => {
         const colors = [
-            'white',
+            'eggshell',
             'hotpink',
             'orange',
-            'pink',
+            'vintage-rose',
             'yellow'
         ]
 
@@ -64,8 +64,8 @@ class Store extends Component {
             attributes: {
                 category: 'shirt',
                 subcategory: 'short-sleeve',
-                model: 'suburban-classic-tee',
-                color: '',
+                model: 'classic-tee',
+                color: 'black-on-white',
                 availableColors: {
                     0: 'white-on-black',
                     1: 'black-on-white',
@@ -79,7 +79,7 @@ class Store extends Component {
 
         1: {
             title: 'northwest suburban dogs t-shirt',
-            defaultImg: `${require(`./img/img_merch/img_500x500/whitesd.png`)}`,
+            defaultImg: `${require(`./img/img_merch/img_500x500/eggshellsd.png`)}`,
             hoverImg: `${require(`./img/img_merch/img_500x500/${this.randomSDStyleImg()}sd.png`)}`,
             altText: 't-shirt with black suburban dogs logo',
             description: 't-shirt with black suburban dogs logo',
@@ -91,7 +91,7 @@ class Store extends Component {
                 availableColors: {
                     0: 'hot-pink',
                     1: 'orange',
-                    2: 'vintage-rose',
+                    2: 'vintage-rose', 
                     3: 'eggshell',
                     4: 'yellow',
                 },
@@ -131,6 +131,11 @@ class Store extends Component {
                 subcategory: 'hoodie',
                 model: 'suburban-dogs-hoodie',
                 color: 'grey',
+                availableColors: {
+                    0: 'grey',
+                    1: 'orange',
+                    2: 'pink',
+                },
                 size: '',
             },
             price: 22
@@ -161,6 +166,7 @@ class Store extends Component {
                 price={items[i].price}
                 key={i * 2}
                 addItemToCart={this.props.addItemToCart}
+                setItemDetails={this.props.setItemDetails}
             />)
 
         }
@@ -195,8 +201,6 @@ const styles = {
 
     main: {
         backgroundColor: '#fafafa',
-        // paddingTop: '5vh',
-        // paddingBottom: '40px',
         display: 'flex',
         top: '0',
         position: 'absolute',

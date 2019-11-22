@@ -46,6 +46,7 @@ class StoreHeader extends Component {
                 fontFamily: '"Work Sans",sans-serif',
                 fontWeight: '800',
                 fontSize: '1.5em',
+                userSelect: 'none',
             }
         
         }
