@@ -27,8 +27,6 @@ class CartListing extends Component {
     
     render () {
 
-        console.log(this.props)
-
         return (
 
             <div className="cart-listing" style={styles.container}>
@@ -45,7 +43,7 @@ class CartListing extends Component {
                 <ul className="listing-detail" style={styles.details}>
 
                     <li className="detail-entry">size: {this.props.size}</li>
-                    <li className="detail-entry">solor: {this.props.color}</li>
+                    <li className="detail-entry">color: {this.props.color}</li>
 
                 </ul>
 

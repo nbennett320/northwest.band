@@ -20,6 +20,7 @@ class Main extends Component {
         super(props)
 
         this.state = {
+
             headerLink: 'http://www.instagram.com/northwest219',
             showCart: false,
             numberOfItemsInCart: 0,
@@ -36,6 +37,7 @@ class Main extends Component {
                 region: '',
                 fullAddress: '',
             }
+
         }
 
     }
@@ -50,8 +52,6 @@ class Main extends Component {
 
     addItemToCart = item => {
         let items = this.state.itemsInCart
-
-        // console.log(item)
 
         items.push(item)
         this.setState({

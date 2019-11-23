@@ -26,10 +26,6 @@ class ProductDetailsPanel extends Component {
 
     }
 
-    componentWillReceiveProps () {
-        console.log("fard")
-    }
-
     sizeOptions = [
         {value: 'xs', label: 'x-small'},
         {value: 's', label: 'small'},

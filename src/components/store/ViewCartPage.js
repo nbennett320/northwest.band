@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 
 import CartListing from './CartListing'
-import CheckoutFooter from './CheckoutFooter'
+import CartFooter from './CartFooter'
 import StoreHeader from './StoreHeader'
+import Footer from '../Footer'
 
 import '../../css/cart-page.css'
 
@@ -92,12 +93,14 @@ class ViewCartPage extends Component {
 
                 </div>
 
-                <CheckoutFooter 
+                <CartFooter 
                     itemsInCart={this.props.itemsInCart} 
                     totalPrice={this.props.totalPrice} 
                     setTotalPrice={this.props.setTotalPrice}
                     verifyOrderValidity={this.state.canPurchase}
                 />
+
+                <Footer />
 
             </div>
 
