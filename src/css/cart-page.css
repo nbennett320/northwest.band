@@ -1,0 +1,18 @@
+.cart-page-container {
+    height: calc(100% - 16vh) !important;
+}
+
+.price-label {
+    margin-left: auto;
+    margin-right: 80px;
+}
+
+/* phone */
+@media only screen and (max-width: 633px) {
+
+    .price-label {
+        margin-left: auto;
+        margin-right: 20px;
+    }
+
+}

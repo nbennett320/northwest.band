@@ -10,7 +10,7 @@ import Store from './Store'
 import ProductPage from './components/store/ProductPage'
 import Goodies from './Goodies'
 import ScrollToTop from './scripts/ScrollToTop'
-import CheckOutPage from './components/store/CheckOutPage'
+import ViewCartPage from './components/store/ViewCartPage'
 import PlaceOrderPage from './components/store/PlaceOrderPage';
 import OrderSummary from './components/store/OrderSummary'
 
@@ -51,7 +51,7 @@ class Main extends Component {
     addItemToCart = item => {
         let items = this.state.itemsInCart
 
-        console.log(item)
+        // console.log(item)
 
         items.push(item)
         this.setState({
@@ -166,8 +166,8 @@ class Main extends Component {
 
                         <Route path='/goodies' component={Goodies} />
 
-                        <Route path='/checkout' 
-                            render={(props) => <CheckOutPage 
+                        <Route path='/cart' 
+                            render={(props) => <ViewCartPage 
                                 {...props} 
                                 itemsInCart={this.state.itemsInCart}
                                 removeItem={this.removeItem}

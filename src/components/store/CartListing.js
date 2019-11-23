@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-import Select from 'react-select'
+import { Link } from 'react-router-dom'
+
+import '../../css/cart-listing.css'
 
 class CartListing extends Component {
 
@@ -25,24 +27,38 @@ class CartListing extends Component {
     
     render () {
 
+        console.log(this.props)
+
         return (
 
             <div className="cart-listing" style={styles.container}>
 
-                <div className="listing-title" style={styles.title}>{this.props.title}</div>
+                <Link to={`/products/${this.props.model}`}
+                    className="listing-title" 
+                    style={styles.title}
+                >
+                    
+                    {this.props.title}
+                
+                </Link>
 
-                <div style={styles.selector}>
-                    <Select options={this.sizeOptions}
-                        placeholder="Size"
-                        onChange={this.changeSize}
-                    />
-                </div>
+                <ul className="listing-detail" style={styles.details}>
+
+                    <li className="detail-entry">size: {this.props.size}</li>
+                    <li className="detail-entry">solor: {this.props.color}</li>
+
+                </ul>
+
+                
 
                 <div className="listing-price" style={styles.price}>${this.props.price}</div>
 
-                <div className="remove-from-cart-x" style={styles.x} onClick={this.handleClick}>
-                    <img src={require('../../img/store/x-icon-png-25.png')} alt="x icon"/>
-                </div>
+                
+                <img className="remove-from-cart-x"
+                    style={styles.x}
+                    onClick={this.handleClick}
+                    src={require('../../img/store/x-icon-png-25.png')} alt="x icon" 
+                />
 
             </div>
 
@@ -53,34 +69,54 @@ class CartListing extends Component {
 }
 
 const styles = {
-    container:{
+    container: {
         width: '80%',
-        height: 'auto',
+        height: '100px',
         marginLeft: 'auto',
         marginRight: 'auto',
-        marginTop: '20px',
-        marginBottom: '20px',
-        paddingTop: '7.5px',
-        paddingBottom: '7.5px',
+        // marginTop: '20px',
+        // marginBottom: '20px',
+        paddingTop: '12px',
+        paddingBottom: '12px',
         display: 'flex',
         flexDirection: 'row',
         alignContent: 'center',
-        backgroundColor: 'rgba(255,255,255,0.8)',
-        borderRadius: '10px',
+        backgroundColor: '#f5f5f5',
+        // borderRadius: '4px',
+        fontFamily: '"Work Sans",sans-serif',
+        fontWeight: '400',
+        fontSize: '1em',
+        borderBottomWidth: '1px',
+        borderBottomColor: 'hsl(0,0%,70%)',
+        borderBottomStyle: 'solid',
     },
 
     title: {
         marginLeft: '20px',
+        marginRight: '20px',
         marginTop: 'auto',
         marginBottom: 'auto',
+        width: '30%',
+    },
+
+    details: {
+        marginLeft: '20px',
+        marginRight: '20px',
+        marginTop: 'auto',
+        marginBottom: 'auto',
+        width: '30%',
+        color: '#69727b',
+        fontFamily: '"Work Sans",sans-serif',
+        fontWeight: '400',
+        fontSize: '0.9em',
     },
 
     price: {
-        marginLeft: '20px',
-        marginRight: 'auto',
-        marginTop: 'auto',
-        marginBottom: 'auto',
-        fontSize: '1.2em',
+        // marginLeft: '80px',
+        // marginRight: '20px',
+        // marginTop: 'auto',
+        // marginBottom: 'auto',
+        
     },
 
     selector: {
@@ -91,11 +127,12 @@ const styles = {
     },
 
     x: {
+        height: '20px',
+        width: '20px',
         marginLeft: '20px',
         marginRight: '20px',
         marginTop: 'auto',
         marginBottom: 'auto',
-        transform: 'scale(0.5)',
         cursor: 'pointer',
     },
 }

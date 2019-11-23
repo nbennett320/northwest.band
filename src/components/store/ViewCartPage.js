@@ -4,9 +4,9 @@ import CartListing from './CartListing'
 import CheckoutFooter from './CheckoutFooter'
 import StoreHeader from './StoreHeader'
 
-import '../../css/checkout.css'
+import '../../css/cart-page.css'
 
-class CheckOutPage extends Component {
+class ViewCartPage extends Component {
 
     constructor (props) { 
         super (props)
@@ -28,6 +28,9 @@ class CheckOutPage extends Component {
 
             listingComponentArr.push(<CartListing
                 title={itemDataArr[i].title}
+                size={itemDataArr[i].attributes.size}
+                color={itemDataArr[i].attributes.color}
+                model={itemDataArr[i].attributes.model}
                 thumbnail={itemDataArr[i].defaultImg}
                 altText={itemDataArr[i].altText}
                 price={itemDataArr[i].price}
@@ -67,9 +70,21 @@ class CheckOutPage extends Component {
 
         return (
 
-            <div className="checkout" style={styles.main}>
+            <div className="cart-page-container" style={styles.main}>
 
-                <StoreHeader textInPhoto="checkout:" />
+                <StoreHeader textInPhoto="your cart" />
+
+                <div className="head-of-cart" style={styles.cartTop}>
+
+                    <ul className="cart-labels" style={styles.cartLabels}>
+                        <li className="product-label" style={styles.productLabel}>product</li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li  className="price-label" style={styles.priceLabel}>price</li>
+                    </ul>
+
+                </div>
 
                 <div className="checkout-items" style={styles.listing}>
 
@@ -100,7 +115,6 @@ const styles = {
         width: '100%',
         paddingBottom: '8vh',
         margin: 'auto',
-        //marginTop: '40px',
         display: 'flex',
         flexDirection: 'row',
         alignContent: 'flex-start',
@@ -121,6 +135,34 @@ const styles = {
         fontSize: '1.5em',
     },
 
+    cartTop: {
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'flex-end',
+        width: '80%',
+        height: '50px',
+        marginLeft: '10%',
+        marginRight: '10%',
+        paddingTop: '20px',
+        paddingBottom: '20px',
+        alignContent: 'bottom',
+        color: '#3d4246',
+        fontFamily: '"Work Sans",sans-serif',
+        fontWeight: '400',
+        fontSize: '1em',
+        borderBottomWidth: '1px',
+        borderBottomColor: 'hsl(0,0%,70%)',
+        borderBottomStyle: 'solid',
+    },
+
+    cartLabels: {
+        listStyle: 'none',
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-evenly',
+        alignSelf: 'bottom',
+    },
+
     listing: {
         backgroundColor: '#f5f5f5',
         height: 'auto',
@@ -129,6 +171,16 @@ const styles = {
         overflowY: 'visible',
     },
 
+    productLabel: {
+        marginLeft: '20px',
+        marginRight: 'auto',
+    },
+
+    priceLabel: {
+        // marginLeft: 'auto',
+        // marginRight: '80px',
+    }
+
 }
 
-export default CheckOutPage
+export default ViewCartPage

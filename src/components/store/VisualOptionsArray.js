@@ -4,11 +4,6 @@ import '../../css/visual-options-array.css'
 
 class VisualOptionsArray extends Component {
 
-    constructor(props) {
-        super (props)
-
-    }
-
     handleMouseClick = id => this.props.setColorOnProductPage(id)
 
     optionIsSelected = elem => {

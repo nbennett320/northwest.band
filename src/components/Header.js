@@ -22,7 +22,7 @@ class Header extends Component {
     render () {
         let cart
         if(this.props.showCart === true) 
-            cart = <Link to='/checkout' > 
+            cart = <Link to='/cart' > 
                 <Cart numberOfItemsInCart={this.props.numberOfItemsInCart} /> 
             </Link>
 
