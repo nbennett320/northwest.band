@@ -7,6 +7,18 @@
     margin-right: 80px;
 }
 
+.return-to-store-panel-button {
+    background-color: hsl(0, 0%, 100%);
+    transition: all 100ms ease;
+    border-color: hsl(0,0%,80%);
+    text-decoration: none;
+}
+
+#return-to-store-only-detail-panel-selector {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
 /* phone */
 @media only screen and (max-width: 633px) {
 

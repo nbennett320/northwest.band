@@ -16,7 +16,7 @@ class CartListing extends Component {
 
     handleClick = () => {
 
-        const itemCartNumber = this.props.itemCartNumber
+        let itemCartNumber = this.props.itemCartNumber
         this.props.removeItem(itemCartNumber)
 
     }

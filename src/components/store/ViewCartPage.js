@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import { Link } from 'react-router-dom'
 import CartListing from './CartListing'
 import CartFooter from './CartFooter'
 import StoreHeader from './StoreHeader'
@@ -9,23 +9,14 @@ import '../../css/cart-page.css'
 
 class ViewCartPage extends Component {
 
-    constructor (props) { 
-        super (props)
-
-        this.state = {
-            canPurchase: false
-        }
-
-    }
-
     mapCartItems = () => { 
 
-        const itemDataArr = this.props.itemsInCart
-        const listingComponentArr = []
+        let itemDataArr = this.props.itemsInCart
+        let listingComponentArr = []
 
         console.log(itemDataArr)
 
-        for (let i = 0; i < itemDataArr.length; i++) {
+        for(let i = 0; i < itemDataArr.length; i++) {
 
             listingComponentArr.push(<CartListing
                 title={itemDataArr[i].title}
@@ -37,7 +28,10 @@ class ViewCartPage extends Component {
                 price={itemDataArr[i].price}
                 itemCartNumber={i}
                 removeItem={this.props.removeItem}
+                // verifyHasItems={this.verifyHasItems}
                 handleSizeChange={this.handleSizeChange}
+                key={i*2}
+                mapCartItems={this.mapCartItems}
             />
 
             )
@@ -49,22 +43,76 @@ class ViewCartPage extends Component {
     }
 
     handleSizeChange = (newSize, itemCartNumber) => {
-        const itemDataArr = this.props.itemsInCart
+        let itemDataArr = this.props.itemsInCart
         itemDataArr[itemCartNumber].attributes.size = newSize.value
-        this.verifyOrderValidity()
+    
     }
 
-    verifyOrderValidity = () => {
+    showCheckOut = () => {
 
-        let dummyCartArr = this.props.itemsInCart
-        let bool = true
+        let component
 
-        for(let i = 0; i < dummyCartArr.length; i++) {
-            if(dummyCartArr[i].attributes.size === '') bool = false
+        let cartHasItems = this.props.cartHasItems
+
+        if(cartHasItems) {
+
+            component = <div style={{height: 'auto', width: '100%',}}>
+
+                    <div className="head-of-cart" style={styles.cartTop}>
+
+                        <ul className="cart-labels" style={styles.cartLabels}>
+                            <li className="product-label" style={styles.productLabel}>product</li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li  className="price-label" style={styles.priceLabel}>price</li>
+                        </ul>
+
+                    </div>
+
+                    <div className="checkout-items" style={styles.listing}>
+
+                        {this.mapCartItems()}
+
+                    </div>
+
+                    <CartFooter 
+                        itemsInCart={this.props.itemsInCart} 
+                        totalPrice={this.props.totalPrice} 
+                        setTotalPrice={this.props.setTotalPrice}
+                    />
+
+                </div>
+
+        } else if(!cartHasItems) {
+
+            component = <div style={{height: 'auto', width: '100%',}}>
+
+                    <div className="head-of-cart" style={styles.cartTop}>
+
+                        <span style={styles.centerSpan}>
+
+                            no items in cart
+
+                        </span>
+
+                    </div>
+
+                    <Link to='/merch'
+                        className="return-to-store-panel-button" 
+                        style={styles.buttonContainer} 
+                        id="return-to-store-only-detail-panel-selector"
+                    >   
+
+                        <span>return to store</span>
+
+                    </Link>
+
+                </div>
+
         }
 
-        this.setState({canPurchase: bool})
-
+        return component
     }
 
     render() {
@@ -75,30 +123,8 @@ class ViewCartPage extends Component {
 
                 <StoreHeader textInPhoto="your cart" />
 
-                <div className="head-of-cart" style={styles.cartTop}>
-
-                    <ul className="cart-labels" style={styles.cartLabels}>
-                        <li className="product-label" style={styles.productLabel}>product</li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li  className="price-label" style={styles.priceLabel}>price</li>
-                    </ul>
-
-                </div>
-
-                <div className="checkout-items" style={styles.listing}>
-
-                    {this.mapCartItems()}
-
-                </div>
-
-                <CartFooter 
-                    itemsInCart={this.props.itemsInCart} 
-                    totalPrice={this.props.totalPrice} 
-                    setTotalPrice={this.props.setTotalPrice}
-                    verifyOrderValidity={this.state.canPurchase}
-                />
+                {/* return either checkout options or display no items in cart */}
+                {this.showCheckOut()}
 
                 <Footer />
 
@@ -182,7 +208,38 @@ const styles = {
     priceLabel: {
         // marginLeft: 'auto',
         // marginRight: '80px',
-    }
+    },
+
+    centerSpan: {
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        color: 'hsl(0,0%,60%)',
+        fontSize: 'larger',
+    },
+
+    buttonContainer: {
+        color: 'hsl(0, 0%, 50%)',
+        borderStyle: 'solid',
+        borderWidth: '1px',
+        borderRadius: '4px',
+        minHeight: '38px',
+        width: '40%',
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'center',
+        alignContent: 'center',
+        alignItems: 'center',
+        marginTop: '50px',
+        marginBottom: '50px',
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        padding: '2px 8px',
+        position: 'relative',
+        outline: '0 !important',
+        fontFamily: '"Work Sans",sans-serif',
+        fontWeight: '400',
+        fontSize: '1em',
+    },
 
 }
 

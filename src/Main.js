@@ -25,6 +25,7 @@ class Main extends Component {
             showCart: false,
             numberOfItemsInCart: 0,
             itemsInCart: [],
+            cartHasItems: false,
             itemDetails: [],
             totalPrice: 0,
             orderInfo: {
@@ -54,9 +55,13 @@ class Main extends Component {
         let items = this.state.itemsInCart
 
         items.push(item)
+
+        let cartHasItems = this.cartHasItems(items.length)
+
         this.setState({
             itemsInCart: items,
-            numberOfItemsInCart: items.length
+            numberOfItemsInCart: items.length,
+            cartHasItems: cartHasItems,
         })
 
         console.log(this.state.itemsInCart)
@@ -70,6 +75,18 @@ class Main extends Component {
         })
     }
 
+    cartHasItems = numOfItemsInCart => {
+
+        console.log(numOfItemsInCart)
+
+        if (numOfItemsInCart > 0) {
+
+            return true
+
+        } else return false
+
+    }
+
     removeItem = itemNumber => {
         
         let items = this.state.itemsInCart
@@ -77,12 +94,17 @@ class Main extends Component {
         if(items.length === 1) items.pop()
         else items.splice(itemNumber, 1)
 
+        let cartHasItems = this.cartHasItems(items.length)
+
         this.setState({
             itemsInCart: items,
-            numberOfItemsInCart: items.length
+            numberOfItemsInCart: items.length,
+            cartHasItems: cartHasItems,
         })
 
     }
+
+    getNumberOfItemsInCart = () => this.state.numberOfItemsInCart
 
     setItemDetails = item => {
         
@@ -170,6 +192,8 @@ class Main extends Component {
                             render={(props) => <ViewCartPage 
                                 {...props} 
                                 itemsInCart={this.state.itemsInCart}
+                                numberOfItemsInCart={this.getNumberOfItemsInCart()}
+                                cartHasItems={this.state.cartHasItems}
                                 removeItem={this.removeItem}
                                 totalPrice={this.state.totalPrice}
                                 setTotalPrice={this.setTotalPrice}
