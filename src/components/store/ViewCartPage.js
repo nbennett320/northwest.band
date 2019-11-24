@@ -18,7 +18,7 @@ class ViewCartPage extends Component {
 
     }
 
-    mapCartItems = () => {
+    mapCartItems = () => { 
 
         const itemDataArr = this.props.itemsInCart
         const listingComponentArr = []
