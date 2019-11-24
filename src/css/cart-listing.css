@@ -1,0 +1,31 @@
+.cart-listing {
+    /* transition: all 100ms ease; */
+}
+
+.listing-title {
+    color: #3d4246 !important;
+    text-decoration: none;
+}
+
+.listing-title:hover {
+    text-decoration: underline;
+}
+
+.listing-price {
+    margin: auto 20px auto 80px;
+    font-size: 1.2em;
+}
+
+.remove-from-cart-x {
+    opacity: 0.4 !important;
+}
+
+/* phone */
+@media only screen and (max-width: 633px) {
+
+    .listing-price {
+        margin: auto auto auto 40px;
+        font-size: 1.2em;
+    }
+
+}

@@ -151,8 +151,6 @@ class Store extends Component {
 
         const items = this.items
 
-        console.log(items)
-
         let catalog = []
 
         for (let i = 0; i < Object.keys(items).length; i++) {

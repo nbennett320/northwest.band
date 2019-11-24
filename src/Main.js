@@ -10,7 +10,7 @@ import Store from './Store'
 import ProductPage from './components/store/ProductPage'
 import Goodies from './Goodies'
 import ScrollToTop from './scripts/ScrollToTop'
-import CheckOutPage from './components/store/CheckOutPage'
+import ViewCartPage from './components/store/ViewCartPage'
 import PlaceOrderPage from './components/store/PlaceOrderPage';
 import OrderSummary from './components/store/OrderSummary'
 
@@ -20,10 +20,12 @@ class Main extends Component {
         super(props)
 
         this.state = {
+
             headerLink: 'http://www.instagram.com/northwest219',
             showCart: false,
             numberOfItemsInCart: 0,
             itemsInCart: [],
+            cartHasItems: false,
             itemDetails: [],
             totalPrice: 0,
             orderInfo: {
@@ -36,6 +38,7 @@ class Main extends Component {
                 region: '',
                 fullAddress: '',
             }
+
         }
 
     }
@@ -51,12 +54,14 @@ class Main extends Component {
     addItemToCart = item => {
         let items = this.state.itemsInCart
 
-        console.log(item)
-
         items.push(item)
+
+        let cartHasItems = this.cartHasItems(items.length)
+
         this.setState({
             itemsInCart: items,
-            numberOfItemsInCart: items.length
+            numberOfItemsInCart: items.length,
+            cartHasItems: cartHasItems,
         })
 
         console.log(this.state.itemsInCart)
@@ -70,6 +75,16 @@ class Main extends Component {
         })
     }
 
+    cartHasItems = numOfItemsInCart => {
+
+        if (numOfItemsInCart > 0) {
+
+            return true
+
+        } else return false
+
+    }
+
     removeItem = itemNumber => {
         
         let items = this.state.itemsInCart
@@ -77,12 +92,17 @@ class Main extends Component {
         if(items.length === 1) items.pop()
         else items.splice(itemNumber, 1)
 
+        let cartHasItems = this.cartHasItems(items.length)
+
         this.setState({
             itemsInCart: items,
-            numberOfItemsInCart: items.length
+            numberOfItemsInCart: items.length,
+            cartHasItems: cartHasItems,
         })
 
     }
+
+    getNumberOfItemsInCart = () => this.state.numberOfItemsInCart
 
     setItemDetails = item => {
         
@@ -166,10 +186,13 @@ class Main extends Component {
 
                         <Route path='/goodies' component={Goodies} />
 
-                        <Route path='/checkout' 
-                            render={(props) => <CheckOutPage 
-                                {...props} 
+                        <Route path='/cart' 
+                            render={(props) => <ViewCartPage 
+                                {...props}
                                 itemsInCart={this.state.itemsInCart}
+                                numberOfItemsInCart={this.getNumberOfItemsInCart()}
+                                cartHasItems={this.state.cartHasItems}
+                                setShowCart={this.setShowCart}
                                 removeItem={this.removeItem}
                                 totalPrice={this.state.totalPrice}
                                 setTotalPrice={this.setTotalPrice}

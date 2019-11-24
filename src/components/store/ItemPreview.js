@@ -119,18 +119,21 @@ class ItemPreview extends Component {
 const styles = {
 
     card: {
-        backgroundColor: 'rgba(255,255,255,0.8)',
+        backgroundColor: 'rgba(255,255,255,1)',
         backdropFilter: 'blur(5px)',
-        boxShadow: '0px 0px 8px 2px rgba(0,0,0,0.1)',
-        height: 'auto',
+        boxShadow: '0px 6px 6px 6px rgba(0,0,0,0.1)',
+        // height: 'calc(auto + 35px + 1en)',
         width: '70%',
         display: 'flex',
         flexDirection: 'column',
+        flexBasis: '100%',
         fontFamily: '"Work Sans",sans-serif',
         cursor: 'pointer',
     },
 
     previewCard: {
+        display: 'flex',
+        flexDirection: 'column',
         width: 'auto',
         paddingTop: '5px',
         paddingBottom: '5px',

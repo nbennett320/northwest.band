@@ -95,6 +95,7 @@ class PlaceOrderPage extends Component {
 
     // warning cant do state update to non rendered component is coming from => else this.setState
     validateAddress = warningString => {
+
         usps.verify({
             street1: this.state.street,
             city: this.state.city,
@@ -103,41 +104,33 @@ class PlaceOrderPage extends Component {
             if(err) return this.displayWarning(warningString)
             else this.setState({fullAddress: address})
         })
+        
     }
 
     linkToOrderSummary = () => {
+
+        let component = null
+
         if(this.validateCanSubmit()) {
-            // this.props.setFullAddress(this.state.fullAddress)
-            return '/order-summary'
-        } else return '/place-order'
+            
+            component = <Link to={'/order-summary'} 
+                    style={styles.button} 
+                >
+                    <div style={styles.submit}>submit</div>
+                </Link>
+
+        }
+
+        return component
     }
 
     render () {
-
-        const showSubmitButton = () => {
-            if(this.state.fullAddress !== '') return 'inherit'
-            else return 'none'
-        }
-
-        let submit = {
-            color: '#000',
-            backgroundColor: '#f0f0f0',
-            width: 'auto',
-            margin: 'auto',
-            padding: '10px',
-            border: '0',
-            borderBottomLeftRadius: '10px',
-            borderBottomRightRadius: '10px',
-            borderTopLeftRadius: '10px',
-            borderTopRightRadius: '10px',
-            display: showSubmitButton(),
-        }
 
         return (
 
             <div className="place-order-page" style={styles.main}>
 
-                <StoreHeader textInPhoto="shipping info: " />
+                <StoreHeader textInPhoto="shipping info" />
 
                 <div style={styles.form}>
 
@@ -158,7 +151,7 @@ class PlaceOrderPage extends Component {
                         value={this.state.email}
                         onChange={this.handleChange}
                     />
-                    {this.validateEmailInput("Please enter a valid email")}
+                    {this.validateEmailInput("enter a valid email (please)")}
 
                     <span style={styles.txt1}> phone number </span>
                     <input
@@ -168,7 +161,7 @@ class PlaceOrderPage extends Component {
                         value={this.state.phone}
                         onChange={this.handleChange}
                     />
-                    {this.validatePhoneInput("Please enter a valid phone number")}
+                    {this.validatePhoneInput("enter a valid phone number (please)")}
 
                     <span style={styles.txt1}> street address </span>
                     <input
@@ -207,11 +200,7 @@ class PlaceOrderPage extends Component {
                     />
                     {this.validateAddress("Please enter valid address parameters")}
 
-                    <Link to={this.linkToOrderSummary()} 
-                        style={styles.button} 
-                    >
-                        <div style={submit}>submit</div>
-                    </Link>
+                    {this.linkToOrderSummary()}
 
                 </div>
 
@@ -226,13 +215,15 @@ class PlaceOrderPage extends Component {
 const styles = {
 
     main: {
-        height: '100%',
         width: '100%',
+        height: 'auto',
+        minHeight: '100%',
         position: 'absolute',
         top: '0',
         backgroundColor: '#f5f5f5',
+        color: 'hsl(0,0%,50%)',
         fontFamily: '"Work Sans",sans-serif',
-        fontWeight: '600',
+        fontWeight: '400',
         fontSize: 'auto',
     },
 
@@ -240,6 +231,7 @@ const styles = {
         width: '50%',
         margin: 'auto',
         marginTop: '4vh',
+        marginBottom: '4vh',
         display: 'flex',
         flexDirection: 'column'
     },
@@ -250,12 +242,18 @@ const styles = {
 
     textBox: {
         padding: '10px',
-        border: '0',
-        borderBottomLeftRadius: '10px',
-        borderBottomRightRadius: '10px',
-        borderTopLeftRadius: '10px',
-        borderTopRightRadius: '10px',
+        color: 'hsl(0, 0%, 50%)',
+        borderStyle: 'solid',
+        borderWidth: '1px',
+        borderColor: 'hsl(0,0%,80%)',
+        borderBottomLeftRadius: '4px',
+        borderBottomRightRadius: '4px',
+        borderTopLeftRadius: '4px',
+        borderTopRightRadius: '4px',
         marginBottom: '15px',
+        fontFamily: '"Work Sans",sans-serif',
+        fontWeight: '400',
+        fontSize: 'auto',
     },
 
     button: {
@@ -264,13 +262,15 @@ const styles = {
         width: 'auto',
         margin: 'auto',
         padding: '10px',
-        border: '0',
-        borderBottomLeftRadius: '10px',
-        borderBottomRightRadius: '10px',
-        borderTopLeftRadius: '10px',
-        borderTopRightRadius: '10px',
+        color: 'hsl(0, 0%, 80%)',
+        borderStyle: 'solid',
+        borderWidth: '1px',
+        borderBottomLeftRadius: '4px',
+        borderBottomRightRadius: '4px',
+        borderTopLeftRadius: '4px',
+        borderTopRightRadius: '4px',
         fontFamily: '"Work Sans",sans-serif',
-        fontWeight: '300',
+        fontWeight: '400',
         fontSize: 'auto',
     },
 
@@ -279,6 +279,19 @@ const styles = {
         marginTop: '-7.5px',
         marginBottom: '15px',
     },
+
+    submit: {
+        color: '#000',
+        backgroundColor: '#f5f5f5',
+        width: 'auto',
+        margin: 'auto',
+        padding: '10px',
+        border: '0',
+        borderBottomLeftRadius: '4px',
+        borderBottomRightRadius: '4px',
+        borderTopLeftRadius: '4px',
+        borderTopRightRadius: '4px',
+    }
 
 }
 
