@@ -77,8 +77,6 @@ class Main extends Component {
 
     cartHasItems = numOfItemsInCart => {
 
-        console.log(numOfItemsInCart)
-
         if (numOfItemsInCart > 0) {
 
             return true
@@ -190,10 +188,11 @@ class Main extends Component {
 
                         <Route path='/cart' 
                             render={(props) => <ViewCartPage 
-                                {...props} 
+                                {...props}
                                 itemsInCart={this.state.itemsInCart}
                                 numberOfItemsInCart={this.getNumberOfItemsInCart()}
                                 cartHasItems={this.state.cartHasItems}
+                                setShowCart={this.setShowCart}
                                 removeItem={this.removeItem}
                                 totalPrice={this.state.totalPrice}
                                 setTotalPrice={this.setTotalPrice}

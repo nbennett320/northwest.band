@@ -9,6 +9,12 @@ import '../../css/cart-page.css'
 
 class ViewCartPage extends Component {
 
+    componentWillMount () {
+
+        this.props.setShowCart(true)
+
+    }
+
     mapCartItems = () => { 
 
         let itemDataArr = this.props.itemsInCart
@@ -28,7 +34,6 @@ class ViewCartPage extends Component {
                 price={itemDataArr[i].price}
                 itemCartNumber={i}
                 removeItem={this.props.removeItem}
-                // verifyHasItems={this.verifyHasItems}
                 handleSizeChange={this.handleSizeChange}
                 key={i*2}
                 mapCartItems={this.mapCartItems}
@@ -138,9 +143,9 @@ class ViewCartPage extends Component {
 
 const styles = {
     main: {
-        // backgroundColor: '#f2d880',
         backgroundColor: '#f5f5f5',
         height: 'auto',
+        minHeight: '100%',
         width: '100%',
         paddingBottom: '8vh',
         margin: 'auto',

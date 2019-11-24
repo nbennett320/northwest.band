@@ -244,6 +244,7 @@ const styles = {
         marginTop: '5vh',
         width: '100%',
         height: 'auto',
+        minHeight: '60%',
         display: 'flex',
         flexDirection: 'column',
         backgroundColor: '#fff',
