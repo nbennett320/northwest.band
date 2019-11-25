@@ -7,6 +7,12 @@ import './css/music.css'
 
 class Music extends Component {
 
+    componentWillMount () {
+
+        this.props.setHeaderLink('/')
+        
+    }
+
     render() {
 
         return (

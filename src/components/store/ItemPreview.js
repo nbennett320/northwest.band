@@ -121,7 +121,7 @@ const styles = {
     card: {
         backgroundColor: 'rgba(255,255,255,1)',
         backdropFilter: 'blur(5px)',
-        boxShadow: '0px 6px 6px 6px rgba(0,0,0,0.1)',
+        boxShadow: 'rgba(0, 0, 0, 0.1) 0px 0px 8px 2px',
         // height: 'calc(auto + 35px + 1en)',
         width: '70%',
         display: 'flex',

@@ -9,6 +9,12 @@ class Store extends Component {
         randomNum: null,
     }
 
+    componentWillMount () {
+
+        this.props.setHeaderLink('/')
+
+    }
+
     randomNum = max => Math.floor(Math.random() * Math.floor(max))
 
     randomETStyleImg = () => {

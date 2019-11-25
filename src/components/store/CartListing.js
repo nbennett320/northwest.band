@@ -72,15 +72,12 @@ const styles = {
         height: '100px',
         marginLeft: 'auto',
         marginRight: 'auto',
-        // marginTop: '20px',
-        // marginBottom: '20px',
         paddingTop: '12px',
         paddingBottom: '12px',
         display: 'flex',
         flexDirection: 'row',
         alignContent: 'center',
         backgroundColor: '#f5f5f5',
-        // borderRadius: '4px',
         fontFamily: '"Work Sans",sans-serif',
         fontWeight: '400',
         fontSize: '1em',
@@ -110,11 +107,10 @@ const styles = {
     },
 
     price: {
-        // marginLeft: '80px',
-        // marginRight: '20px',
-        // marginTop: 'auto',
-        // marginBottom: 'auto',
-        
+        color: '#69727b',
+        fontFamily: '"Work Sans",sans-serif',
+        fontWeight: '400',
+        fontSize: '1.0em',
     },
 
     selector: {

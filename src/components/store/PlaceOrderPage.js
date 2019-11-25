@@ -39,6 +39,12 @@ class PlaceOrderPage extends Component {
         }
     }
 
+    componentWillMount () {
+
+        this.props.setHeaderLink('/cart')
+        
+    }
+
     validateCanSubmit = () => {
         if(
             this.state.name === '' || 
@@ -104,7 +110,7 @@ class PlaceOrderPage extends Component {
             if(err) return this.displayWarning(warningString)
             else this.setState({fullAddress: address})
         })
-        
+
     }
 
     linkToOrderSummary = () => {
@@ -257,7 +263,7 @@ const styles = {
     },
 
     button: {
-        color: '#000',
+        color: '#69727b',
         backgroundColor: '#f7f7f7',
         width: 'auto',
         margin: 'auto',
@@ -281,7 +287,7 @@ const styles = {
     },
 
     submit: {
-        color: '#000',
+        color: '#69727b',
         backgroundColor: '#f5f5f5',
         width: 'auto',
         margin: 'auto',

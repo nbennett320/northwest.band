@@ -37,6 +37,8 @@ class ProductPage extends Component {
 
         // make shure cart is shown
         this.props.setShowCart(true)
+
+        this.props.setHeaderLink('/merch')
     }
 
     componentDidMount () {

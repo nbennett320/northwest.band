@@ -14,6 +14,12 @@ class OrderSummary extends Component {
         clientToken: null,
     }
 
+    componentWillMount () {
+
+        this.props.setHeaderLink('/cart')
+        
+    }
+
     // async componentDidMount() {
     //     const response = await fetch("localhost:3001/client_token")
     //     const clientToken = await response.json()
@@ -58,11 +64,11 @@ class OrderSummary extends Component {
 
             <div className="order-summary-page" style={styles.main}>
 
-                <StoreHeader textInPhoto="order summary: " />
+                <StoreHeader textInPhoto="order summary" />
 
                 <div className="content" style={styles.content}>
 
-                    <h3>shipping: </h3>
+                    <h3 style={styles.summaryHeader}>shipping: </h3>
 
                     <div className="itemSummaryContainer" style={styles.itemSummaryContainer}>
 
@@ -70,22 +76,29 @@ class OrderSummary extends Component {
 
                     </div>
 
-                    <h3>to: </h3>
+                    <h3 style={styles.summaryHeader}>to: </h3>
                     <div className="shipping-details" style={styles.shippingDetails}>
 
-                        <h4>name: </h4>
-                        {this.props.orderInfo.name}
-                        <h4>email: </h4>
-                        {this.props.orderInfo.email}
-                        <h4>phone: </h4>
-                        {this.props.orderInfo.phone}
-                        <h4>address: </h4>
-                        {this.props.orderInfo.fullAddress.street1} <br />
-                        {this.props.orderInfo.fullAddress.city}, {this.props.orderInfo.fullAddress.state} <br />
-                        {this.props.orderInfo.fullAddress.zip}-{this.props.orderInfo.fullAddress.zip4} <br />
+                        <span style={styles.summaryHeader}>
+                            name: 
+                            {this.props.orderInfo.name}
+                        </span>
+                        <span style={styles.summaryHeader}>
+                            email: 
+                            {this.props.orderInfo.email}
+                        </span>
+                        <span style={styles.summaryHeader}>
+                            phone: 
+                            {this.props.orderInfo.phone}
+                        </span>
+                        <span style={styles.summaryHeader}>address: 
+                            {this.props.orderInfo.fullAddress.street1} <br />
+                            {this.props.orderInfo.fullAddress.city}, {this.props.orderInfo.fullAddress.state} <br />
+                            {this.props.orderInfo.fullAddress.zip}-{this.props.orderInfo.fullAddress.zip4} <br />
+                        </span>
                     </div>
 
-                    <h3>total price: ${this.props.totalPrice}</h3>
+                    <h3 style={styles.summaryHeader}>total price: ${this.props.totalPrice}</h3>
 
                     {/* <DropIn 
                         options={{ authorization: this.state.clientToken }}
@@ -109,14 +122,15 @@ class OrderSummary extends Component {
 const styles = {
 
     main: {
-        height: '100%',
         width: '100%',
-        position: 'fixed',
+        height: 'auto',
+        minHeight: '100%',
+        position: 'absolute',
         top: '0',
-        backgroundColor: '#fafafa',
+        backgroundColor: '#f5f5f5',
         fontFamily: '"Work Sans",sans-serif',
-        // fontWeight: '600',
-        // fontSize: 'auto',
+        fontWeight: '400',
+        fontSize: 'auto',
     }, 
 
     content: {
@@ -134,6 +148,14 @@ const styles = {
         marginTop: '10px',
         marginBottom: '10px',
     },
+
+    summaryHeader: { 
+        fontFamily: '"Work Sans",sans-serif',
+        fontWeight: '400',
+        fontSize: 'auto',
+        marginTop: '20px',
+        marginBottom: '20px',
+    }, 
 
     shippingDetails: {
         display: 'flex',
