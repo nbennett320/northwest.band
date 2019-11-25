@@ -38,7 +38,7 @@ class SummaryListing extends Component {
 
 const styles = {
     container: {
-        width: '80%',
+        width: '100%',
         height: '100px',
         marginLeft: 'auto',
         marginRight: 'auto',

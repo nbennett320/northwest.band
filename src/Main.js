@@ -223,6 +223,7 @@ class Main extends Component {
                             render={(props) => <PlaceOrderPage
                                 {...props} 
                                 itemsInCart={this.state.itemsInCart}
+                                cartHasItems={this.state.cartHasItems}
                                 totalPrice={this.state.totalPrice}
                                 setFullAddress={this.setFullAddress}
                                 setOrderInfo={this.setOrderInfo}
@@ -230,10 +231,11 @@ class Main extends Component {
                             />} 
                         />
 
-                        <Route path='/order-summary' 
+                        <Route path='/order-summary'
                             render={(props) => <OrderSummary
                                 {...props} 
                                 itemsInCart={this.state.itemsInCart}
+                                cartHasItems={this.state.cartHasItems}
                                 totalPrice={this.state.totalPrice}
                                 fullAddress={this.state.orderInfo.fullAddress}
                                 orderInfo={this.state.orderInfo}

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import DropIn from "braintree-web-drop-in-react"
+import { Redirect } from 'react-router-dom'
 
 import SummaryListing from './SummaryListing'
 import StoreHeader from './StoreHeader'
@@ -60,6 +61,11 @@ class OrderSummary extends Component {
 
     render () {
 
+        if(!this.props.cartHasItems) return <Redirect 
+                to={'/merch'} 
+                push={true}
+            /> 
+
         return (
 
             <div className="order-summary-page" style={styles.main}>
@@ -80,18 +86,18 @@ class OrderSummary extends Component {
                     <div className="shipping-details" style={styles.shippingDetails}>
 
                         <span style={styles.summaryHeader}>
-                            name: 
+                            name: &nbsp;
                             {this.props.orderInfo.name}
                         </span>
                         <span style={styles.summaryHeader}>
-                            email: 
+                            email: &nbsp;
                             {this.props.orderInfo.email}
                         </span>
                         <span style={styles.summaryHeader}>
-                            phone: 
+                            phone: &nbsp;
                             {this.props.orderInfo.phone}
                         </span>
-                        <span style={styles.summaryHeader}>address: 
+                        <span style={styles.summaryHeader}>address: &nbsp;
                             {this.props.orderInfo.fullAddress.street1} <br />
                             {this.props.orderInfo.fullAddress.city}, {this.props.orderInfo.fullAddress.state} <br />
                             {this.props.orderInfo.fullAddress.zip}-{this.props.orderInfo.fullAddress.zip4} <br />
@@ -135,18 +141,22 @@ const styles = {
 
     content: {
         height: '100%',
-        width: '75%',
+        width: '80%',
         margin: 'auto',
         marginTop: '4vh',
+        marginBottom: '4vh',
         display: 'flex',
         flexDirection: 'column'
     },
 
     itemSummaryContainer: {
-        height: '30%',
-        overflowY: 'auto',
+        height: 'auto',
+        width: '100%',
         marginTop: '10px',
         marginBottom: '10px',
+        borderTopWidth: '1px',
+        borderTopColor: 'hsl(0,0%,70%)',
+        borderTopStyle: 'solid',
     },
 
     summaryHeader: { 

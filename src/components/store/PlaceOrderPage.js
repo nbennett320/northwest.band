@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 import StoreHeader from './StoreHeader'
 
 import validateEmail from '../../scripts/ValidateEmail'
@@ -131,6 +132,11 @@ class PlaceOrderPage extends Component {
     }
 
     render () {
+
+        if(!this.props.cartHasItems) return <Redirect 
+                to={'/merch'} 
+                push={true}
+            /> 
 
         return (
 

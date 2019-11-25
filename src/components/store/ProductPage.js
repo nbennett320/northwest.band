@@ -31,6 +31,7 @@ class ProductPage extends Component {
     }
 
     componentWillMount () {
+
         const { model } = this.props.match.params
 
         this.setDefaultAttributesByModel(model)
