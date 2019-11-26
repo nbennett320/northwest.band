@@ -7,6 +7,8 @@ import validateEmail from '../../scripts/ValidateEmail'
 import validatePhone from '../../scripts/ValidatePhone'
 import usps from '../../scripts/ValidateAddress'
 
+import '../../css/place-order-page.css'
+
 class PlaceOrderPage extends Component {
 
     constructor (props) {
@@ -121,9 +123,10 @@ class PlaceOrderPage extends Component {
         if(this.validateCanSubmit()) {
             
             component = <Link to={'/order-summary'} 
-                    style={styles.button} 
+                    style={styles.button}
+                    className="submit-order-button"
                 >
-                    <div style={styles.submit}>submit</div>
+                    submit
                 </Link>
 
         }
@@ -232,7 +235,7 @@ const styles = {
         minHeight: '100%',
         position: 'absolute',
         top: '0',
-        backgroundColor: '#f5f5f5',
+        backgroundColor: '#fff',
         color: 'hsl(0,0%,50%)',
         fontFamily: '"Work Sans",sans-serif',
         fontWeight: '400',
@@ -273,10 +276,10 @@ const styles = {
         backgroundColor: '#f7f7f7',
         width: 'auto',
         margin: 'auto',
-        padding: '10px',
-        color: 'hsl(0, 0%, 80%)',
+        padding: '10px 20px',
         borderStyle: 'solid',
         borderWidth: '1px',
+        borderColor: 'hsl(0,0%,80%)',
         borderBottomLeftRadius: '4px',
         borderBottomRightRadius: '4px',
         borderTopLeftRadius: '4px',
@@ -297,7 +300,7 @@ const styles = {
         backgroundColor: '#f5f5f5',
         width: 'auto',
         margin: 'auto',
-        padding: '10px',
+        padding: '10px 20px',
         border: '0',
         borderBottomLeftRadius: '4px',
         borderBottomRightRadius: '4px',

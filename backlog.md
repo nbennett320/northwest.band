@@ -17,6 +17,8 @@ TO-DO
 15. redo lyrics prolls
 17. make function to calculate shipping prices
 18. add "you might like" section
+19. fix width-wise margins on the friggin music page!!
+20. add map-box api to show location on order summary page
 
 DONE
 

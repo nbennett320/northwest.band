@@ -1,0 +1,7 @@
+.submit-order-button {
+    text-decoration: none;
+}
+
+.submit-order-button:hover {
+    text-decoration: underline;
+}

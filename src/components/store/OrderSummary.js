@@ -44,6 +44,7 @@ class OrderSummary extends Component {
             "amount": amount
         }
 
+        // only local testing on this machine
         // await fetch(`http://localhost:3001/purchase`, {
         await fetch(`http://192.168.86.25:3001/purchase`, {
             method: 'POST',
@@ -81,8 +82,24 @@ class OrderSummary extends Component {
                 push={true}
             />
 
-        if(!this.state.clientToken) return <div>
-                    <h1>Loading...</h1>
+        if(!this.state.clientToken) return <div style={{width: '100%'}}>
+                    <div style={{
+                            color: 'hsl(0,0%,70%)',
+                            textAlign: 'center',
+                            marginLeft: 'auto', 
+                            marginRight: 'auto',
+                        }}
+                    >
+                        loading
+                    </div>
+                    {/* loading spinner */}
+                    <div class="sk-folding-cube">
+                        <div class="sk-cube1 sk-cube"></div>
+                        <div class="sk-cube2 sk-cube"></div>
+                        <div class="sk-cube4 sk-cube"></div>
+                        <div class="sk-cube3 sk-cube"></div>
+                    </div>
+
                 </div>
 
         else return (
@@ -133,7 +150,13 @@ class OrderSummary extends Component {
                         onInstance={instance => (this.instance = instance)}
                     />
 
-                    <button onClick={this.buy.bind(this)}>buy</button>
+                    <button 
+                        onClick={this.buy.bind(this)}
+                        className="order-summary-buy-button"
+                        style={styles.button}
+                    >
+                        buy
+                    </button>
 
                 </div>
 
@@ -155,7 +178,7 @@ const styles = {
         minHeight: '100%',
         position: 'absolute',
         top: '0',
-        backgroundColor: '#f5f5f5',
+        backgroundColor: '#fff',
         fontFamily: '"Work Sans",sans-serif',
         fontWeight: '400',
         fontSize: 'auto',
@@ -197,23 +220,23 @@ const styles = {
         marginRight: '20px',
     },
 
-    paypal: {
-        height: '10%',
-        width: '100%',
-        position: 'fixed',
-        top: 'calc(100vh - 10%)',
-        borderTopLeftRadius: '10px',
-        borderTopRightRadius: '10px',
-        backgroundColor: 'rgb(255, 196, 57)',
-        display: 'flex',
-        cursor: 'pointer'
+    button: {
+        color: '#69727b',
+        backgroundColor: '#f7f7f7',
+        width: 'auto',
+        padding: '10px 20px',
+        cursor: 'select',
+        color: 'hsl(0, 0%, 50%)',
+        borderStyle: 'solid',
+        borderWidth: '1px',
+        borderBottomLeftRadius: '4px',
+        borderBottomRightRadius: '4px',
+        borderTopLeftRadius: '4px',
+        borderTopRightRadius: '4px',
+        fontFamily: '"Work Sans",sans-serif',
+        fontWeight: '400',
+        fontSize: 'auto',
     },
-
-    paypalImg: {
-        height: '100%',
-        marginLeft: 'auto',
-        marginRight: 'auto',
-    }
 
 }
 

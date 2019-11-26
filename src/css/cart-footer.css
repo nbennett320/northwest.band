@@ -8,9 +8,13 @@
     border-color: hsl(0,0%,80%);
     text-decoration: none;
     margin-right: calc(40px + 10% - 2em + 9px) !important;
-    /* justify-content: center !important;
-    align-content: center !important;
-    align-self: center; */
+}
+
+.cart-panel-button:hover {
+    background-color: hsl(0, 0%, 99%);
+    border-color: hsl(0,0%,70%);
+    cursor: pointer;
+    text-decoration: underline;
 }
 
 #cart-middle-detail-panel-selector {
