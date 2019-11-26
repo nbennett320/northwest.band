@@ -21,19 +21,24 @@ class OrderSummary extends Component {
         
     }
 
-    // async componentDidMount() {
-    //     const response = await fetch("localhost:3001/client_token")
-    //     const clientToken = await response.json()
+    async componentDidMount() {
+        const response = await fetch("http://localhost:3001/client_token", {method: 'GET'})
+        const clientToken = await response.text()
 
-    //     this.setState({
-    //         clientToken
-    //     })
-    // }
+        console.log(clientToken)
 
-    // async buy() {
-    //     const { nonce } = await this.instance.requestPaymentMethod()
-    //     await fetch(`localhost:3001/purchases/${nonce}`)
-    // }
+        this.setState({
+            clientToken
+        })
+    }
+
+    async buy() {
+        const { nonce } = await this.instance.requestPaymentMethod()
+        console.log(nonce)
+        await fetch(`http://localhost:3001/purchase/:${nonce}`, {method: 'POST'})
+
+
+    }
 
     printItems = () => {
 
@@ -64,9 +69,13 @@ class OrderSummary extends Component {
         if(!this.props.cartHasItems) return <Redirect 
                 to={'/merch'} 
                 push={true}
-            /> 
+            />
 
-        return (
+        if(!this.state.clientToken) return <div>
+                    <h1>Loading...</h1>
+                </div>
+
+        else return (
 
             <div className="order-summary-page" style={styles.main}>
 
@@ -106,12 +115,14 @@ class OrderSummary extends Component {
 
                     <h3 style={styles.summaryHeader}>total price: ${this.props.totalPrice}</h3>
 
-                    {/* <DropIn 
-                        options={{ authorization: this.state.clientToken }}
+                    <DropIn 
+                        options={{ 
+                            authorization: this.state.clientToken,
+                        }}
                         onInstance={instance => (this.instance = instance)}
                     />
 
-                    <button onClick={this.buy.bind(this)}>buy</button> */}
+                    <button onClick={this.buy.bind(this)}>buy</button>
 
                 </div>
 
