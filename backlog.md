@@ -11,15 +11,18 @@ TO-DO
 9. implement a reciept system (WIP)
 10. improve music routing
 11. add shiiiit to goodies page
-12. come up with something better fo the box shaddow thing on the merch page
 13. remove caps on lyrics
 14. make lyrics scrollable by album
 15. redo lyrics prolls
 17. make function to calculate shipping prices
 18. add "you might like" section
+20. add map-box api to show location on order summary page
+21. 
 
 DONE
 
 (11/19) add specific store page
 (11/19) better mobile styling
 (11/19) change font color of cart prices ..
+(11/19) come up with something better fo the box shaddow thing on the merch page
+(11/19) fix width-wise margins on the friggin music page!!

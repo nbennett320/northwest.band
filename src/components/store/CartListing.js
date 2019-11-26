@@ -77,7 +77,7 @@ const styles = {
         display: 'flex',
         flexDirection: 'row',
         alignContent: 'center',
-        backgroundColor: '#f5f5f5',
+        backgroundColor: '#fff',
         fontFamily: '"Work Sans",sans-serif',
         fontWeight: '400',
         fontSize: '1em',

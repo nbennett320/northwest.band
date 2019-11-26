@@ -145,7 +145,7 @@ class ViewCartPage extends Component {
 
 const styles = {
     main: {
-        backgroundColor: '#f5f5f5',
+        backgroundColor: '#fff',
         height: 'auto',
         minHeight: '100%',
         width: '100%',
@@ -200,7 +200,7 @@ const styles = {
     },
 
     listing: {
-        backgroundColor: '#f5f5f5',
+        backgroundColor: '#fff',
         height: 'auto',
         width: '100%',
         paddingBottom: '80px',

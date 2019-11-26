@@ -72,7 +72,7 @@ const styles = {
     foot: {
         width: '80%',
         height: '250px',
-        backgroundColor: '#f5f5f5',
+        backgroundColor: '#fff',
         marginLeft: 'auto',
         marginRight: 'auto',
         color: '#69727b',

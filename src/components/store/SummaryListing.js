@@ -47,7 +47,7 @@ const styles = {
         display: 'flex',
         flexDirection: 'row',
         alignContent: 'center',
-        backgroundColor: '#f5f5f5',
+        backgroundColor: '#fff',
         // borderRadius: '4px',
         fontFamily: '"Work Sans",sans-serif',
         fontWeight: '400',
