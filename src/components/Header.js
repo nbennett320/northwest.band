@@ -28,7 +28,7 @@ class Header extends Component {
 
         return (
             <div className="header" style={styles.main}>
-                <Link to='..'>
+                <Link to={this.props.headerLink}>
 
                     <img src={headerImg} 
                         id="headerImg" 
@@ -53,7 +53,7 @@ const styles = {
         height: '5vh',
         display: 'flex',
         justifyContent: 'center',
-        backgroundColor: 'rgba(255,255,255,0.9)',
+        backgroundColor: 'rgba(255,255,255,0.8)',
         margin: '0',
         padding: '20px 0 20px 0',
         position: 'fixed',
@@ -61,7 +61,7 @@ const styles = {
         zIndex: '50',
         // borderBottom: '1px solid #000',
         boxShadow: '0px 0px 8px 2px rgba(0,0,0,0.1)',
-        backdropFilter: 'blur(5px)'
+        backdropFilter: 'blur(10px)'
     },
 
     img: {

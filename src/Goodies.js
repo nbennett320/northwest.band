@@ -5,6 +5,12 @@ import './css/goodies.css'
 
 class Goodies extends Component {
 
+    componentWillMount () {
+
+        this.props.setHeaderLink('/')
+        
+    }
+
     render () {
 
         return (

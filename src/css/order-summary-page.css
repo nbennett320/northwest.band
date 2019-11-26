@@ -1,3 +1,11 @@
+.order-summary-page {
+    color: #69727b !important;
+    font-size: large;
+    font-family: "Work Sans", sans-serif;
+    font-weight: 400 !important;
+    text-decoration: none !important;
+}
+
 .paypal-button-container {
     height: 5%;
 }

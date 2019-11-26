@@ -31,12 +31,15 @@ class ProductPage extends Component {
     }
 
     componentWillMount () {
+
         const { model } = this.props.match.params
 
         this.setDefaultAttributesByModel(model)
 
         // make shure cart is shown
         this.props.setShowCart(true)
+
+        this.props.setHeaderLink('/merch')
     }
 
     componentDidMount () {

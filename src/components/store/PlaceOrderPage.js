@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 import StoreHeader from './StoreHeader'
 
 import validateEmail from '../../scripts/ValidateEmail'
@@ -37,6 +38,12 @@ class PlaceOrderPage extends Component {
                 this.state.fullAddress
             )
         }
+    }
+
+    componentWillMount () {
+
+        this.props.setHeaderLink('/cart')
+        
     }
 
     validateCanSubmit = () => {
@@ -104,7 +111,7 @@ class PlaceOrderPage extends Component {
             if(err) return this.displayWarning(warningString)
             else this.setState({fullAddress: address})
         })
-        
+
     }
 
     linkToOrderSummary = () => {
@@ -125,6 +132,11 @@ class PlaceOrderPage extends Component {
     }
 
     render () {
+
+        if(!this.props.cartHasItems) return <Redirect 
+                to={'/merch'} 
+                push={true}
+            /> 
 
         return (
 
@@ -257,7 +269,7 @@ const styles = {
     },
 
     button: {
-        color: '#000',
+        color: '#69727b',
         backgroundColor: '#f7f7f7',
         width: 'auto',
         margin: 'auto',
@@ -281,7 +293,7 @@ const styles = {
     },
 
     submit: {
-        color: '#000',
+        color: '#69727b',
         backgroundColor: '#f5f5f5',
         width: 'auto',
         margin: 'auto',

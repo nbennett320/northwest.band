@@ -21,7 +21,7 @@ class Main extends Component {
 
         this.state = {
 
-            headerLink: 'http://www.instagram.com/northwest219',
+            headerLink: '..',
             showCart: false,
             numberOfItemsInCart: 0,
             itemsInCart: [],
@@ -42,6 +42,8 @@ class Main extends Component {
         }
 
     }
+
+    setHeaderLink = link => this.setState({headerLink: link})
 
     setShowCart = bool => {
 
@@ -148,7 +150,17 @@ class Main extends Component {
 
                         <Route exact path='/' component={Home} />
 
-                        <Route path='/music' render={(props) => <Music {...props} />} />
+                        <Redirect 
+                            from='/home'
+                            to='/'
+                        />
+
+                        <Route path='/music' 
+                            render={(props) => <Music 
+                                {...props} 
+                                setHeaderLink={this.setHeaderLink}
+                            />}
+                        />
 
                         <Route path='/swmtn' render={(props) => <Lyrics {...props} songKey="swmtn" />} />
                         <Route path='/lover' render={(props) => <Lyrics {...props} songKey="lover" />} />
@@ -165,6 +177,7 @@ class Main extends Component {
                                 setShowCart={this.setShowCart}
                                 addItemToCart={this.addItemToCart}
                                 setItemDetails={this.setItemDetails}
+                                setHeaderLink={this.setHeaderLink}
                             />}
                         />
 
@@ -174,6 +187,7 @@ class Main extends Component {
                                 setShowCart={this.setShowCart}
                                 addItemToCart={this.addItemToCart}
                                 itemDetails={this.state.itemDetails}
+                                setHeaderLink={this.setHeaderLink}
                             />}
                         />
 
@@ -184,7 +198,12 @@ class Main extends Component {
                             to='/merch'
                         />
 
-                        <Route path='/goodies' component={Goodies} />
+                        <Route path='/goodies' 
+                            render={(props) => <Goodies 
+                                {...props} 
+                                setHeaderLink={this.setHeaderLink}
+                            />}
+                        />
 
                         <Route path='/cart' 
                             render={(props) => <ViewCartPage 
@@ -196,6 +215,7 @@ class Main extends Component {
                                 removeItem={this.removeItem}
                                 totalPrice={this.state.totalPrice}
                                 setTotalPrice={this.setTotalPrice}
+                                setHeaderLink={this.setHeaderLink}
                             />} 
                         />
 
@@ -203,19 +223,23 @@ class Main extends Component {
                             render={(props) => <PlaceOrderPage
                                 {...props} 
                                 itemsInCart={this.state.itemsInCart}
+                                cartHasItems={this.state.cartHasItems}
                                 totalPrice={this.state.totalPrice}
                                 setFullAddress={this.setFullAddress}
                                 setOrderInfo={this.setOrderInfo}
+                                setHeaderLink={this.setHeaderLink}
                             />} 
                         />
 
-                        <Route path='/order-summary' 
+                        <Route path='/order-summary'
                             render={(props) => <OrderSummary
                                 {...props} 
                                 itemsInCart={this.state.itemsInCart}
+                                cartHasItems={this.state.cartHasItems}
                                 totalPrice={this.state.totalPrice}
                                 fullAddress={this.state.orderInfo.fullAddress}
                                 orderInfo={this.state.orderInfo}
+                                setHeaderLink={this.setHeaderLink}
                             />} 
                         />
 

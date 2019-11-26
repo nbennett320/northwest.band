@@ -13,6 +13,8 @@ class ViewCartPage extends Component {
 
         this.props.setShowCart(true)
 
+        this.props.setHeaderLink('/merch')
+
     }
 
     mapCartItems = () => { 
