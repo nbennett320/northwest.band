@@ -12,6 +12,7 @@
     margin-left: auto;
     margin-right: auto;
     text-decoration: none;
+    cursor: pointer;
 } 
 
 .order-summary-buy-button:hover{

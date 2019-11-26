@@ -62,6 +62,11 @@ class Music extends Component {
                     <p className="song-list">morgan ave</p>
     
                 </div>
+
+                <div 
+                    className="bottom-bar-music"
+                    style={styles.bar}
+                />
                 
                 <div className="entry">
                     <h2 className="album-head">
@@ -70,7 +75,7 @@ class Music extends Component {
                     </h2>
     
                     <div className="items">
-                        <img className="album-art" src={require('./img/music/come around_500.png')} alt="come around single art" />
+                        <img className="album-art" src={require('./img/music/come around.jpg')} alt="come around single art" />
     
                         <div className="streaming-logos">
                             <a href="https://open.spotify.com/track/61e9nUYhpHncgnAAzfTbml?si=eyLGXNSfSXCpq3u0xdJ6Fw">
@@ -95,6 +100,11 @@ class Music extends Component {
     
                 </div>
 
+                <div 
+                    className="bottom-bar-music"
+                    style={styles.bar}
+                />
+
 
                 <div className="entry">
                     <h2 className="album-head">
@@ -103,7 +113,7 @@ class Music extends Component {
                     </h2>
 
                     <div className="items">
-                        <img className="album-art" src={require('./img/music/new_feel_single500x500.png')} alt="new feel single art" />
+                        <img className="album-art" src={require('./img/music/new feel single art.jpg')} alt="new feel single art" />
 
                         <div className="streaming-logos">
                             <a href="https://open.spotify.com/track/61e9nUYhpHncgnAAzfTbml?si=eyLGXNSfSXCpq3u0xdJ6Fw">
@@ -128,6 +138,11 @@ class Music extends Component {
 
                 </div>
 
+                <div 
+                    className="bottom-bar-music"
+                    style={styles.bar}
+                />
+
 
                 <div className="entry">
                     <h2 className="album-head">
@@ -136,7 +151,7 @@ class Music extends Component {
                     </h2>
 
                     <div className="items">
-                        <img className="album-art" src={require('./img/music/areacode_500.png')} alt="area code album art" />
+                        <img className="album-art" src={require('./img/music/areacode.png')} alt="area code album art" />
 
                         <div className="streaming-logos">
                             <a href="https://open.spotify.com/track/61e9nUYhpHncgnAAzfTbml?si=eyLGXNSfSXCpq3u0xdJ6Fw">
@@ -171,6 +186,11 @@ class Music extends Component {
 
                 </div>
 
+                <div 
+                    className="bottom-bar-music"
+                    style={styles.bar}
+                />
+
                 <Footer />
 
             </div>
@@ -182,9 +202,21 @@ class Music extends Component {
 }
 
 const styles = {
+
     iconBorders: {
-        borderRadius: '6.5px',
+        borderRadius: '10px',
     },
+
+    bar: {
+        width: '80%',
+        borderBottomWidth: '1px',
+        borderBottomColor: 'hsl(0,0%,0%)',
+        borderBottomStyle: 'solid',
+        marginTop: '25px',
+        marginBottom: '25px',
+        marginLeft: 'auto',
+        marginRight: 'auto',
+    }
 }
 
 export default Music
