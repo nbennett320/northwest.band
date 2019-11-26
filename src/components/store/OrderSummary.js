@@ -13,6 +13,7 @@ class OrderSummary extends Component {
 
     state = {
         clientToken: null,
+        totalPrice: null
     }
 
     componentWillMount () {
@@ -22,21 +23,32 @@ class OrderSummary extends Component {
     }
 
     async componentDidMount() {
-        const response = await fetch("http://localhost:3001/client_token", {method: 'GET'})
+
+        // const response = await fetch("http://localhost:3001/client_token", {method: 'GET'})
+        const response = await fetch("http://192.168.86.25:3001/client_token", {method: 'GET'})
         const clientToken = await response.text()
 
-        console.log(clientToken)
-
         this.setState({
-            clientToken
+            clientToken: clientToken,
+            totalPrice: this.getTotalPrice()
         })
+        
     }
 
     async buy() {
-        const { nonce } = await this.instance.requestPaymentMethod()
-        console.log(nonce)
-        await fetch(`http://localhost:3001/purchase/:${nonce}`, {method: 'POST'})
 
+        const { paymentMethodNonce } = await this.instance.requestPaymentMethod()
+        const { amount } = this.state.totalPrice
+        const body = {
+            "paymentMethodNonce": paymentMethodNonce,
+            "amount": amount
+        }
+
+        // await fetch(`http://localhost:3001/purchase`, {
+        await fetch(`http://192.168.86.25:3001/purchase`, {
+            method: 'POST',
+            body: JSON.stringify(body)
+        })
 
     }
 
@@ -61,8 +73,6 @@ class OrderSummary extends Component {
     }
 
     getTotalPrice = () => Number(this.props.totalPrice).toFixed(2)
-
-
 
     render () {
 
@@ -118,6 +128,7 @@ class OrderSummary extends Component {
                     <DropIn 
                         options={{ 
                             authorization: this.state.clientToken,
+                            // threeDSecure: true,
                         }}
                         onInstance={instance => (this.instance = instance)}
                     />
