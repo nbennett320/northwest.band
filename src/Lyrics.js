@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import LyricsComponent from './components/LyricsComponent'
 import Footer from './components/Footer'
 
 import './css/lyrics.css'
@@ -12,6 +12,12 @@ class Lyrics extends Component {
         this.state = {
             styles: ''
         }
+    }
+
+    componentWillMount () {
+
+        const { songKey } = this.props.match.params
+
     }
 
     resource = {
@@ -166,20 +172,11 @@ class Lyrics extends Component {
 
         return (
 
-            <div className='lyrics' style={this.getStyles(this.props.songKey)}>
+            <div className='lyrics' style={styles.main}>
                 
-                <div style={styles.head}>
-                    <h2 className='song-title' style={styles.title}>{song.title}</h2>
-                    <h2 className='song-date' style={styles.date}>{song.date}</h2>
-                </div>
+                <LyricsComponent
 
-                <div className='lyrics-body' style={styles.body}>
-                
-                    {this.renderLyrics(song.lyrics)}
-                
-                </div>
-
-                <img className='misc-img' src={require( `${song.image}` )} alt={song.altText} />
+                />
                 
                 <Footer />
                 
@@ -193,33 +190,13 @@ class Lyrics extends Component {
 
 const styles = {
     main: {
-        backgroundColor: '#e8e1b3',
-        display: 'flex',
-        width: '100% !important',
-        height: '100%',
-        flexDirection: 'column',
-        alignContent: 'center',
+        width: '100%',
+        height: 'auto',
+        maxHeight: '100%',
         paddingTop: 'calc(8vh + 30px)',
-        // letterSpacing: '1px',
     },
 
-    head: {
-        marginTop: '20px',
-        marginLeft: 'auto',
-        marginRight: 'auto',
-        alignText: 'left',
-        fontFamily: '"Work Sans",sans-serif',
-        fontWeight: '600',
-        fontSize: '2em',
-    },
-
-    title: {
-        color: '#000',
-    },
-
-    date: {
-        fontSize: '70%',
-    },
+    
 
     body: {
         width: 'auto',
@@ -227,7 +204,7 @@ const styles = {
         marginLeft: 'auto',
         marginRight: 'auto',
         fontFamily: '"Work Sans",sans-serif',
-        fontWeight: '1',
+        fontWeight: '400',
         fontSize: '70%',
     },
 
