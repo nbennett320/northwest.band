@@ -96,7 +96,7 @@ class Music extends Component {
                         </div>
                     </div>
     
-                    <p><Link to={`/come-around`} params={{songKey: 'comearound'}}  className="song-link">come around</Link></p>
+                    <p><Link to={`/songs/come-around`} params={{songKey: 'come-around'}}  className="song-link">come around</Link></p>
     
                 </div>
 
@@ -134,7 +134,7 @@ class Music extends Component {
                         </div>
                     </div>
 
-                    <p><Link to={`/new-feel`} params={{songKey: 'newfeel'}}  className="song-link">new feel</Link></p>
+                    <p><Link to={`/songs/new-feel`} params={{songKey: 'newfeel'}}  className="song-link">new feel</Link></p>
 
                 </div>
 
@@ -172,15 +172,15 @@ class Music extends Component {
                         </div>
                     </div>
 
-                    <p className="song-list-p"><Link to={`/swmtn`} params={{songKey: 'swmtn'}} className="song-link">stay w. me 2nite</Link></p>
+                    <p className="song-list-p"><Link to={{pathname:`/songs/swmtn`}} params={{songKey: 'swmtn'}} className="song-link">stay w. me 2nite</Link></p>
                     <p className="song-list">out past curfew</p>
                     <p className="song-list">(loading screen)</p>
-                    <p className="song-list-p"><Link to={`/lover`} params={{songKey: 'lover'}} className="song-link">lover...</Link></p>
-                    <p className="song-list-p"><Link to={`/rendezvous`} params={{songKey: 'rendezvous'}} className="song-link">rendezvous</Link></p>
-                    <p className="song-list-p"><Link to={`/flake`} params={{songKey: 'flake'}} className="song-link">flake</Link></p>
+                    <p className="song-list-p"><Link to={{pathname:`/songs/lover`}} params={{songKey: 'lover'}} className="song-link">lover...</Link></p>
+                    <p className="song-list-p"><Link to={`/songs/rendezvous`} params={{songKey: 'rendezvous'}} className="song-link">rendezvous</Link></p>
+                    <p className="song-list-p"><Link to={`/songs/flake`} params={{songKey: 'flake'}} className="song-link">flake</Link></p>
                     <p className="song-list">summer night</p>
-                    <p className="song-list-p"><Link to={`/fader`} params={{songKey: 'fader'}} className="song-link">fader</Link></p>
-                    <p className="song-list-p"><Link to={`/quink`} params={{songKey: 'quink'}} className="song-link">quink</Link></p>
+                    <p className="song-list-p"><Link to={`/songs/fader`} params={{songKey: 'fader'}} className="song-link">fader</Link></p>
+                    <p className="song-list-p"><Link to={`/songs/quink`} params={{songKey: 'quink'}} className="song-link">quink</Link></p>
                     <p className="song-list">dot dot dot</p>
                     <p className="song-list">4431</p>
 
