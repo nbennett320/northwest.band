@@ -21,6 +21,8 @@ class Lyrics extends Component {
 
         this.setState({song: this.resource[`${songKey}`]})
 
+        this.props.setHeaderLink('/music')
+
     }
 
     resource = {

@@ -192,7 +192,7 @@ a{
     }
     
     .song-link:hover{
-        font-size: 1.1em;
+        font-size: calc(1.4em * .7);
         margin-top: 0.2em;
         margin-bottom: 0.2em;
     }
