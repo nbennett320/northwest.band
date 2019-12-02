@@ -46,20 +46,24 @@ class Music extends Component {
                             </a>
                         </div>
                     </div>
+
+                    <ol>
     
-                    <p className="song-list">dog</p>
-                    <p className="song-list">come around</p>
-                    <p className="song-list">new feel</p>
-                    <p className="song-list">(laying, next to)</p>
-                    <p className="song-list">uneasy</p>
-                    <p className="song-list">porter ave</p>
-                    <p className="song-list">half-asleep</p>
-                    <p className="song-list">buddy</p>
-                    <p className="song-list">crumb</p>
-                    <p className="song-list">(outside, sitting)</p>
-                    <p className="song-list">miss me</p>
-                    <p className="song-list">good for you</p>
-                    <p className="song-list">morgan ave</p>
+                        <li className="song-list-p"><Link to={`/songs/dog`} params={{songKey: 'dog'}}  className="song-link">dog</Link></li>
+                        <li className="song-list-p"><Link to={`/songs/come-around`} params={{songKey: 'come-around'}} className="song-link">come around</Link></li>
+                        <li className="song-list-p"><Link to={`/songs/come-around`} params={{songKey: 'come-around'}} className="song-link">come around</Link></li>
+                        <li className="song-list">(laying, next to)</li>
+                        <li className="song-list-p"><Link to={`/songs/uneasy`} params={{songKey: 'uneasy'}} className="song-link">uneasy</Link></li>
+                        <li className="song-list-p"><Link to={`/songs/porter-ave`} params={{songKey: 'porter-ave'}} className="song-link">porter ave</Link></li>
+                        <li className="song-list">half-asleep</li>
+                        <li className="song-list-p"><Link to={`/songs/buddy`} params={{songKey: 'buddy'}} className="song-link">buddy</Link></li>
+                        <li className="song-list-p"><Link to={`/songs/crumb`} params={{songKey: 'crumb'}} className="song-link">crumb</Link></li>
+                        <li className="song-list">(outside, sitting)</li>
+                        <li className="song-list-p"><Link to={`/songs/miss-me`} params={{songKey: 'miss-me'}} className="song-link">miss me</Link></li>
+                        <li className="song-list-p"><Link to={`/songs/good-for-you`} params={{songKey: 'good-for-you'}} className="song-link">good for you</Link></li>
+                        <li className="song-list-p"><Link to={`/songs/morgan-ave`} params={{songKey: 'morgan-ave'}} className="song-link">morgan ave</Link></li>
+
+                    </ol>
     
                 </div>
 
@@ -95,9 +99,13 @@ class Music extends Component {
                             </a>
                         </div>
                     </div>
+
+                    <ol>
     
-                    <p><Link to={`/songs/come-around`} params={{songKey: 'come-around'}}  className="song-link">come around</Link></p>
+                        <li className="song-list-p"><Link to={`/songs/come-around`} params={{songKey: 'come-around'}}  className="song-link">come around</Link></li>
     
+                    </ol>
+
                 </div>
 
                 <div 
@@ -134,7 +142,11 @@ class Music extends Component {
                         </div>
                     </div>
 
-                    <p><Link to={`/songs/new-feel`} params={{songKey: 'newfeel'}}  className="song-link">new feel</Link></p>
+                    <ol>
+
+                        <li className="song-list-p"><Link to={`/songs/new-feel`} params={{songKey: 'newfeel'}}  className="song-link">new feel</Link></li>
+                    
+                    </ol>
 
                 </div>
 
@@ -172,17 +184,22 @@ class Music extends Component {
                         </div>
                     </div>
 
-                    <p className="song-list-p"><Link to={{pathname:`/songs/swmtn`}} params={{songKey: 'swmtn'}} className="song-link">stay w. me 2nite</Link></p>
-                    <p className="song-list">out past curfew</p>
-                    <p className="song-list">(loading screen)</p>
-                    <p className="song-list-p"><Link to={{pathname:`/songs/lover`}} params={{songKey: 'lover'}} className="song-link">lover...</Link></p>
-                    <p className="song-list-p"><Link to={`/songs/rendezvous`} params={{songKey: 'rendezvous'}} className="song-link">rendezvous</Link></p>
-                    <p className="song-list-p"><Link to={`/songs/flake`} params={{songKey: 'flake'}} className="song-link">flake</Link></p>
-                    <p className="song-list">summer night</p>
-                    <p className="song-list-p"><Link to={`/songs/fader`} params={{songKey: 'fader'}} className="song-link">fader</Link></p>
-                    <p className="song-list-p"><Link to={`/songs/quink`} params={{songKey: 'quink'}} className="song-link">quink</Link></p>
-                    <p className="song-list">dot dot dot</p>
-                    <p className="song-list">4431</p>
+                    <ol>
+
+                        <li className="song-list-p"><Link to={{pathname:`/songs/swmtn`}} params={{songKey: 'swmtn'}} className="song-link">stay w. me 2nite</Link></li>
+                        <li className="song-list">out past curfew</li>
+                        <li className="song-list">(loading screen)</li>
+                        <li className="song-list-p"><Link to={{pathname:`/songs/lover`}} params={{songKey: 'lover'}} className="song-link">lover...</Link></li>
+                        <li className="song-list-p"><Link to={`/songs/rendezvous`} params={{songKey: 'rendezvous'}} className="song-link">rendezvous</Link></li>
+                        <li className="song-list-p"><Link to={`/songs/flake`} params={{songKey: 'flake'}} className="song-link">flake</Link></li>
+                        <li className="song-list">summer night</li>
+                        <li className="song-list-p"><Link to={`/songs/fader`} params={{songKey: 'fader'}} className="song-link">fader</Link></li>
+                        <li className="song-list-p"><Link to={`/songs/quink`} params={{songKey: 'quink'}} className="song-link">quink</Link></li>
+                        <li className="song-list">dot dot dot</li>
+                        <li className="song-list">4431</li>
+
+                    </ol>
+                    
 
                 </div>
 

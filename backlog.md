@@ -9,11 +9,9 @@ TO-DO
 7. make a basic admin panel
 8. record all financial isshhhh
 9. implement a reciept system (WIP)
-10. improve music routing
 11. add shiiiit to goodies page
 13. remove caps on lyrics
 14. make lyrics scrollable by album
-15. redo lyrics prolls
 17. make function to calculate shipping prices
 18. add "you might like" section
 20. add map-box api to show location on order summary page
@@ -26,3 +24,7 @@ DONE
 (11/19) change font color of cart prices ..
 (11/19) come up with something better fo the box shaddow thing on the merch page
 (11/19) fix width-wise margins on the friggin music page!!
+(12/19) improve music routing
+(12/19) redo lyrics prolls
+(12/19) add beeper dog lyrincs
+(12/19) 

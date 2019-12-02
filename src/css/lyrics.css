@@ -10,8 +10,18 @@
     max-width: 70%;
     max-height: 70%;
     margin: 20px auto 20px auto;
+    border-style: none;
+    border-width: 0;
 }
 
 .lines {
-    font-size: 1.0em;
+    font-size: 1em;
+}
+
+@media only screen and (max-width: 633px) {
+
+    .lines {
+        font-size: small;
+    }
+
 }
