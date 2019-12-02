@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Redirect } from 'react-router-dom'
 import BuildLyricsPage from './BuildLyricsPage'
 import Footer from './components/Footer'
 
@@ -211,6 +212,8 @@ class Lyrics extends Component {
     }
 
     render () {
+
+        if(this.resource[`${this.songKey}`] === undefined) return <Redirect to='/music' />
 
         return (
 
