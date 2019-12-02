@@ -51,7 +51,6 @@ class Music extends Component {
     
                         <li className="song-list-p"><Link to={`/songs/dog`} params={{songKey: 'dog'}}  className="song-link">dog</Link></li>
                         <li className="song-list-p"><Link to={`/songs/come-around`} params={{songKey: 'come-around'}} className="song-link">come around</Link></li>
-                        <li className="song-list-p"><Link to={`/songs/come-around`} params={{songKey: 'come-around'}} className="song-link">come around</Link></li>
                         <li className="song-list">(laying, next to)</li>
                         <li className="song-list-p"><Link to={`/songs/uneasy`} params={{songKey: 'uneasy'}} className="song-link">uneasy</Link></li>
                         <li className="song-list-p"><Link to={`/songs/porter-ave`} params={{songKey: 'porter-ave'}} className="song-link">porter ave</Link></li>
