@@ -52,7 +52,6 @@ class LyricsHeader extends Component {
                 fontFamily: '"Work Sans",sans-serif',
                 fontWeight: '600',
                 userSelect: 'none',
-                
             }
         
         }

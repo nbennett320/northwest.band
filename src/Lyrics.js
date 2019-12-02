@@ -106,61 +106,6 @@ class Lyrics extends Component {
 
     }
 
-    getStyles = song => {
-
-        const areacode = {
-
-            backgroundColor: '#e8e1b3',
-            display: 'flex',
-            flexDirection: 'column',
-            alignContent: 'center',
-            paddingTop: 'calc(8vh + 30px)',
-            height: 'auto',
-
-        }
-
-        const newfeel = {
-
-            backgroundColor: '#accdff',
-            display: 'flex',
-            flexDirection: 'column',
-            alignContent: 'center',
-            paddingTop: 'calc(8vh + 30px)',
-            height: 'auto',
-        }
-
-        const comearound = {
-
-            backgroundColor: '#ffffe0',
-            display: 'flex',
-            flexDirection: 'column',
-            alignContent: 'center',
-            paddingTop: 'calc(8vh + 30px)',
-            height: 'auto',
-
-        }
-
-        switch (song) {
-            case 'fader':
-                return areacode
-            case 'flake':
-                return areacode
-            case 'lover':
-                return areacode
-            case 'quink':
-                return areacode
-            case 'rendezvous':
-                return areacode
-            case 'swmtn':
-                return areacode
-            case 'newfeel':
-                return newfeel
-            case 'comearound':
-                return comearound
-            default: console.log("not a song")
-        }
-    }
-
     render () {
 
         return (
@@ -182,16 +127,13 @@ class Lyrics extends Component {
 }
 
 const styles = {
+
     main: {
         width: '100%',
         height: 'auto',
         minHeight: '100%',
         paddingTop: '0',
     },
-
-    lines: {
-        fontSize: '2en',
-    }
 
 }
 

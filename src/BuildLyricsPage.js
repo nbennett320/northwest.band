@@ -3,18 +3,12 @@ import LyricsHeader from './components/LyricsHeader'
 
 class BuildLyricsPage extends Component {
 
-    constructor (props) {
-
-        super (props)
-
-    }
-
     renderLyrics = lyrics => {
         let stringArr = []
 
         for(let i = 0; i < lyrics.length; i++) {
             if(lyrics[i] !== ``){
-                stringArr.push( <div className="lines" style={styles.lines} key={i}>{lyrics[i]}</div> )
+                stringArr.push( <div className="lines" key={i}>{lyrics[i]}</div> )
             } else {
                 stringArr.push( <br key={i} /> )
             }
@@ -22,6 +16,27 @@ class BuildLyricsPage extends Component {
         }
 
         return stringArr
+    }
+
+    getBackgroundColor = album => {
+
+        let color
+
+        switch (album) {
+            case 'area code': 
+                color = '#e8e1b3'
+                break
+            case 'suburban dogs': 
+                color = '#accdff'
+                break
+            default: 
+                console.log("error in building lyrics styles")
+                color = '#fff'
+                break
+        }
+
+        return color
+
     }
 
     render () {
@@ -36,7 +51,18 @@ class BuildLyricsPage extends Component {
                     date={this.props.song.date}
                 />
 
-                <div className='lyrics-body' style={styles.body}>
+                <div className='lyrics-body' style={{
+                    width: 'auto',
+                    height: 'auto',
+                    marginTop: '20px',
+                    marginBottom: '20px',
+                    marginLeft: 'auto',
+                    marginRight: 'auto',
+                    fontFamily: '"Work Sans",sans-serif',
+                    fontWeight: '400',
+                    fontSize: '1em',
+                    backgroundColor: `${this.getBackgroundColor(this.props.song.album)}`
+                }}>
                 
                     {this.renderLyrics(this.props.song.lyrics)}
                 
@@ -76,16 +102,6 @@ const styles = {
         fontFamily: '"Work Sans",sans-serif',
         fontWeight: '600',
         fontSize: '2em',
-    },
-
-    body: {
-        width: 'auto',
-        height: 'auto',
-        marginLeft: 'auto',
-        marginRight: 'auto',
-        fontFamily: '"Work Sans",sans-serif',
-        fontWeight: '400',
-        fontSize: 'auto',
     },
 
 }
