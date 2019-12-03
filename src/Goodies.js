@@ -15,23 +15,75 @@ class Goodies extends Component {
 
         return (
             
-            <div className="goodies" style={styles.main}>
+            <div style={styles.main}>
 
                 <div className="goodies-entry">
                     
-                    <h2 className="goodie-head">
-                        <a href="../downloads/demos/areacode_Demos.zip" download>
-                            Area Code Demos
-                        </a>
-                    </h2>
+                    <div style={styles.items}>
 
-                    <img className="album-art-goodies" src={require('./img/music/areacodedemoart1.png')} alt="Area code demo art" />
+                        <h2 className="goodie-head">
+                            <a href={`${require('./downloads/demos/areacode_Demos.zip')}`} download>
+                                Area Code Demos
+                            </a>
+                        </h2>
 
-                    <span style={styles.span}>
-                        <a href="../downloads/demos/areacode_Demos.zip" download>
-                            (CLICK HERE TO DOWNLOAD)
+                        <a className="a-header-goodies" href={`${require('./downloads/demos/areacode_Demos.zip')}`}>
+                            <img className="album-art-goodies" src={require('./img/music/areacodedemoart1.png')} alt="Area code demo art" />
                         </a>
-                    </span> 
+
+                        <div className="goodies-description">
+
+                            this zip has a bunch of demo tracks from our first project,
+                            including stay w me 2nite, lover, fader, and quink (originally
+                            titled that_one_song, holy_banger, maybe1a2single3for4the5album,
+                            and BOPEO, respectively). there're also a bunch of other songs
+                            and cool things on there too if you wanna check them out.
+
+                        </div>
+
+                        <span className="goodies-span" style={styles.span}>
+                            <a href={`${require('./downloads/demos/areacode_Demos.zip')}`} download>
+                                (CLICK HERE TO DOWNLOAD)
+                            </a>
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <div 
+                    className="bottom-bar-goodies"
+                    style={styles.bar}
+                />
+
+                <div className="goodies-entry">
+                    
+                    <div style={styles.items}>
+
+                        <h2 className="goodie-head">
+                            <a href={`${require('./downloads/live/4431.m4a')}`} download>
+                                4431 live (july 2019)
+                            </a>
+                        </h2>
+
+                        <a className="a-header-goodies" href={`${require('./downloads/live/4431.m4a')}`}>
+                            <img className="album-art-goodies" src={require('./img/music/4431live2.png')} alt="4431 live art" />
+                        </a>
+
+                        <div className="goodies-description">
+
+                            this is a pretty decent recording of 4431 that one of us recorded
+                            on our phone
+
+                        </div>
+
+                        <span className="goodies-span" style={styles.span}>
+                            <a href={`${require('./downloads/live/4431.m4a')}`} download>
+                                (CLICK HERE TO DOWNLOAD)
+                            </a>
+                        </span>
+
+                    </div>
 
                 </div>
 
@@ -48,26 +100,47 @@ class Goodies extends Component {
 const styles = {
 
     main: {
-        backgroundColor: '#e597a1',
-        paddingTop: 'calc(8vh + 40px)',
-        margin: 'auto',
-        height: 'calc(100vh - 8vh - 40px)',
         width: '100%',
+        height: 'auto',
+        // minHeight: '100%',
+        margin: 'auto',
+        paddingTop: 'calc(8vh + 40px)',
+        display: 'flex',
+        flexDirection: 'column',
         top: '0',
         position: 'absolute',
+        backgroundColor: '#000',
+        letterSpacing: '1px',
+        textTransform: 'lowercase',
+    },
+
+    items: {
+        display: 'flex',
+        flexDirection: 'column',
+        position: 'relative',
     },
 
     span: {
         color: '#fff',
-        fontFamily: 'Arial, Helvetica, sans-serif',
-        marginLeft: 'auto',
-        marginRight: 'auto',
         marginTop: '5px',
-        marginBottom: '5px'
+        marginBottom: '5px',
+        fontFamily: '"Work Sans",sans-serif',
+        fontWeight: '400',
     },
 
     center: {
         marginLeft: 'auto'
+    },
+
+    bar: {
+        width: '80%',
+        borderBottomWidth: '1px',
+        borderBottomColor: 'hsl(0,0%,0%)',
+        borderBottomStyle: 'solid',
+        marginTop: '25px',
+        marginBottom: '25px',
+        marginLeft: 'auto',
+        marginRight: 'auto',
     }
 
 }

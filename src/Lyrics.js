@@ -213,7 +213,7 @@ class Lyrics extends Component {
 
     render () {
 
-        if(this.resource[`${this.songKey}`] === undefined) return <Redirect to='/music' />
+        // if(this.resource[`${this.songKey}`] === undefined) return <Redirect to='/music' />
 
         return (
 
