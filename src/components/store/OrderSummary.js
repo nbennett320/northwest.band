@@ -37,19 +37,50 @@ class OrderSummary extends Component {
 
     async buy() {
 
-        const { paymentMethodNonce } = await this.instance.requestPaymentMethod()
-        const { amount } = this.state.totalPrice
-        const body = {
-            "paymentMethodNonce": paymentMethodNonce,
-            "amount": amount
-        }
+        console.log(this.instance)
+
+        // const { nonce } = await this.instance.requestPaymentMethod()
+        // await fetch(`http://localhost:3001/purchase/${nonce}`, {method: 'GET'})
+
+
+        //console.log(nonce)
+
+        await this.instance.requestPaymentMethod(
+            (requestPaymentMethodErr, payload) => {
+                console.log(payload)
+                fetch('http://localhost:3001/purchase', {
+                    method: 'POST',
+                    body: {
+                        'paymentMethodNonce': payload.nonce,
+                        'amount': this.state.totalPrice
+                    }
+                }).then(result => {
+                    this.instance.teardown(teardown => {
+                        console.log(teardown)
+                        if(teardown) console.log("Could not tear down Drop-in UI!")
+                        else console.log("tore down")
+                    })
+
+                    if(result.success) console.log("success")
+                    else console.log(result)
+                })
+            }
+        )
+        
+        //console.log(paymentMethodNonce)
+
+        // const amount = this.state.totalPrice
+        // const body = {
+        //     "paymentMethodNonce": paymentMethodNonce,
+        //     "amount": amount
+        // }
 
         // only local testing on this machine
         // await fetch(`http://localhost:3001/purchase`, {
-        await fetch(`http://192.168.86.25:3001/purchase`, {
-            method: 'POST',
-            body: JSON.stringify(body)
-        })
+        // await fetch(`http://192.168.86.25:3001/purchase`, {
+        //     method: 'POST',
+        //     body: JSON.stringify(body)
+        // })
 
     }
 
@@ -93,11 +124,11 @@ class OrderSummary extends Component {
                         loading
                     </div>
                     {/* loading spinner */}
-                    <div class="sk-folding-cube">
-                        <div class="sk-cube1 sk-cube"></div>
-                        <div class="sk-cube2 sk-cube"></div>
-                        <div class="sk-cube4 sk-cube"></div>
-                        <div class="sk-cube3 sk-cube"></div>
+                    <div className="sk-folding-cube">
+                        <div className="sk-cube1 sk-cube"></div>
+                        <div className="sk-cube2 sk-cube"></div>
+                        <div className="sk-cube4 sk-cube"></div>
+                        <div className="sk-cube3 sk-cube"></div>
                     </div>
 
                 </div>
@@ -147,7 +178,7 @@ class OrderSummary extends Component {
                             authorization: this.state.clientToken,
                             // threeDSecure: true,
                         }}
-                        onInstance={instance => (this.instance = instance)}
+                        onInstance={instance => this.instance = instance}
                     />
 
                     <button 
