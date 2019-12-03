@@ -8,8 +8,8 @@ class Store extends Component {
 
     state = {
         randomNum: null,
-        filterScope: 'subcategory',
-        filterType: 'short-sleeve',
+        filterScope: 'none',
+        filterType: 'none',
     }
 
     componentWillMount () {
@@ -80,6 +80,7 @@ class Store extends Component {
                 category: 'shirt',
                 subcategory: 'short-sleeve',
                 model: 'classic-tee',
+                style: 'classic',
                 color: 'black-on-white',
                 availableColors: {
                     0: 'white-on-black',
@@ -102,6 +103,7 @@ class Store extends Component {
                 category: 'shirt',
                 subcategory: 'short-sleeve',
                 model: 'suburban-dogs-tee',
+                style: 'suburban-dogs',
                 color: 'eggshell',
                 availableColors: {
                     0: 'hot-pink',
@@ -125,6 +127,7 @@ class Store extends Component {
                 category: 'shirt',
                 subcategory: 'short-sleeve',
                 model: 'et-tee',
+                style: 'et',
                 color: 'white',
                 availableColors: {
                     0: 'white',
@@ -145,6 +148,7 @@ class Store extends Component {
                 category: 'sweatshirt',
                 subcategory: 'hoodie',
                 model: 'suburban-dogs-hoodie',
+                style: 'suburban-dogs',
                 color: 'grey',
                 availableColors: {
                     0: 'grey',
@@ -170,7 +174,7 @@ class Store extends Component {
 
         for(let i = 0; i < Object.keys(items).length; i++) {
 
-            if(items[i].props.attributes[scope] == filter) {
+            if(items[i].props.attributes[scope] === filter) {
 
                 catalog.push(items[i])
 
@@ -206,7 +210,8 @@ class Store extends Component {
 
         }
 
-        catalog = this.filterBy(catalog, filter)
+        if(this.state.filterType !== 'none' && 
+            this.state.filterScope !== 'none') catalog = this.filterBy(catalog, filter)
 
         return catalog
 
@@ -223,6 +228,7 @@ class Store extends Component {
                 <FilterStore 
                     setFilterScope={this.setFilterScope}
                     setFilterType={this.setFilterType}
+                    currentScope={this.state.filterScope}
                 />
 
                 {this.mapCatalog(this.state.filterType)}
