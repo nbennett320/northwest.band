@@ -1,17 +1,26 @@
 import React, { Component } from 'react'
 import ItemPreview from './components/store/ItemPreview'
 import StoreHeader from './components/store/StoreHeader'
+import FilterStore from './components/store/FilterStore'
 import Footer from './components/Footer'
 
 class Store extends Component {
 
     state = {
         randomNum: null,
+        filterScope: 'subcategory',
+        filterType: 'short-sleeve',
     }
 
     componentWillMount () {
 
         this.props.setHeaderLink('/')
+
+    }
+
+    componentDidMount() {
+
+        this.props.setShowCart(true)
 
     }
 
@@ -149,11 +158,33 @@ class Store extends Component {
 
     }
 
-    componentDidMount() {
-        this.props.setShowCart(true)
+    setFilterScope = scope => this.setState({filterScope: scope})
+
+    setFilterType = type => this.setState({filterType: type})
+
+    // filter items by subcategory or model
+    filterBy = (items, filter) => {
+
+        const scope = this.state.filterScope
+        let catalog = []
+
+        for(let i = 0; i < Object.keys(items).length; i++) {
+
+            if(items[i].props.attributes[scope] == filter) {
+
+                catalog.push(items[i])
+
+            }
+
+        }
+
+        return catalog
+
     }
 
-    mapCatalog = () => {
+    mapCatalog = filter => {
+
+        console.log(filter)
 
         const items = this.items
 
@@ -175,6 +206,8 @@ class Store extends Component {
 
         }
 
+        catalog = this.filterBy(catalog, filter)
+
         return catalog
 
     }
@@ -187,9 +220,12 @@ class Store extends Component {
 
                 <StoreHeader textInPhoto="northwest merchies :)" />
 
-                {/* some sort of filtering toolbar here */}
+                <FilterStore 
+                    setFilterScope={this.setFilterScope}
+                    setFilterType={this.setFilterType}
+                />
 
-                {this.mapCatalog()}
+                {this.mapCatalog(this.state.filterType)}
 
                 <Footer />
 
@@ -204,6 +240,9 @@ class Store extends Component {
 const styles = {
 
     main: {
+        width: '100%',
+        height: 'auto',
+        // minHeight: '100%',
         backgroundColor: '#fafafa',
         display: 'flex',
         top: '0',
