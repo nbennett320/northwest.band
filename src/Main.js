@@ -13,6 +13,7 @@ import ScrollToTop from './scripts/ScrollToTop'
 import ViewCartPage from './components/store/ViewCartPage'
 import PlaceOrderPage from './components/store/PlaceOrderPage';
 import OrderSummary from './components/store/OrderSummary'
+import { attribute } from 'postcss-selector-parser';
 
 class Main extends Component {
 
@@ -114,6 +115,16 @@ class Main extends Component {
 
     }
 
+    filterItemsByAttribute = attribute => {
+
+        let items = this.state.itemsInCart
+
+        let filteredItems = items.filter(item => item.attributes[attribute])
+
+        return filteredItems
+
+    }
+
     setFullAddress = fullAddress => this.setState({orderInfo: {fullAddress: fullAddress}})
 
     setOrderInfo = (name, email, phone, street, city, zip, region, fullAddress) => {
@@ -162,20 +173,27 @@ class Main extends Component {
                             />}
                         />
 
-                        <Route path='/swmtn' render={(props) => <Lyrics {...props} songKey="swmtn" />} />
-                        <Route path='/lover' render={(props) => <Lyrics {...props} songKey="lover" />} />
-                        <Route path='/rendezvous' render={(props) => <Lyrics {...props} songKey="rendezvous" />} />
-                        <Route path='/flake' render={(props) => <Lyrics {...props} songKey="flake" />} />
-                        <Route path='/fader' render={(props) => <Lyrics {...props} songKey="fader" />} />
-                        <Route path='/quink' render={(props) => <Lyrics {...props} songKey="quink" />} />
-                        <Route path='/new-feel' render={(props) => <Lyrics {...props} songKey="newfeel" />} />
-                        <Route path='/come-around' render={(props) => <Lyrics {...props} songKey="comearound" />} />
+                        <Route path='/songs/:songKey'
+                            render={(props) => <Lyrics 
+                                {...props} 
+                                setHeaderLink={this.setHeaderLink}
+                            />}
+                        
+                        />
+
+                        {/* redirect from /songs/ to /music for cases where user tries
+                        to link there directly */}
+                        <Redirect 
+                            from='/songs'
+                            to='/music'
+                        />
 
                         <Route path='/merch' 
                             render={(props) => <Store 
                                 {...props} 
                                 setShowCart={this.setShowCart}
                                 addItemToCart={this.addItemToCart}
+                                // filterItemsByAttribute={this.filterItemsByAttribute}
                                 setItemDetails={this.setItemDetails}
                                 setHeaderLink={this.setHeaderLink}
                             />}

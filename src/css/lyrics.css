@@ -7,11 +7,21 @@
 .misc-img {
     width: auto;
     height: auto;
-    max-width: 70%;
+    max-width: 70vw;
     max-height: 70%;
     margin: 20px auto 20px auto;
+    border-style: none;
+    border-width: 0;
 }
 
 .lines {
-    font-size: 1.4em;
+    font-size: normal;
+}
+
+@media only screen and (max-width: 633px) {
+
+    .lines {
+        font-size: normal;
+    }
+
 }

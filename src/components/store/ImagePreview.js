@@ -41,7 +41,6 @@ class ImagePreview extends Component {
                 remainder = `${color} hoodie`
                 break
             default:
-                console.log("error")
                 remainder = `classic-black-on-white`
                 break
 

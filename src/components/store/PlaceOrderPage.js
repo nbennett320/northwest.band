@@ -23,6 +23,7 @@ class PlaceOrderPage extends Component {
             zip: '',
             region: '',
             fullAddress: '',
+            funEndText: null,
         }
 
     }
@@ -46,6 +47,12 @@ class PlaceOrderPage extends Component {
 
         this.props.setHeaderLink('/cart')
         
+    }
+
+    componentDidMount () {
+
+        this.setState({funEndText: this.funEndText()})
+
     }
 
     validateCanSubmit = () => {
@@ -134,6 +141,23 @@ class PlaceOrderPage extends Component {
         return component
     }
 
+    randomNum = max => Math.floor(Math.random() * Math.floor(max))
+
+    funEndText = () => {
+        
+        const texts = [
+            "(please)",
+            "(pweaasee)",
+            "please", 
+            "pretty please",
+            "(pretty please)", 
+            "(plz)"
+        ]
+
+        return texts[this.randomNum(texts.length)]
+
+    }
+
     render () {
 
         if(!this.props.cartHasItems) return <Redirect 
@@ -166,7 +190,7 @@ class PlaceOrderPage extends Component {
                         value={this.state.email}
                         onChange={this.handleChange}
                     />
-                    {this.validateEmailInput("enter a valid email (please)")}
+                    {this.validateEmailInput(`enter a valid email ${this.state.funEndText}`)}
 
                     <span style={styles.txt1}> phone number </span>
                     <input
@@ -176,7 +200,7 @@ class PlaceOrderPage extends Component {
                         value={this.state.phone}
                         onChange={this.handleChange}
                     />
-                    {this.validatePhoneInput("enter a valid phone number (please)")}
+                    {this.validatePhoneInput(`enter a valid phone number ${this.state.funEndText}`)}
 
                     <span style={styles.txt1}> street address </span>
                     <input
@@ -213,7 +237,7 @@ class PlaceOrderPage extends Component {
                         value={this.state.zip}
                         onChange={this.handleChange}
                     />
-                    {this.validateAddress("Please enter valid address parameters")}
+                    {this.validateAddress(`enter a valid address ${this.state.funEndText}`)}
 
                     {this.linkToOrderSummary()}
 
