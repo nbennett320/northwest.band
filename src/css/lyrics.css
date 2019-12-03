@@ -15,7 +15,9 @@
 }
 
 .lines {
+    color: #fff;
     font-size: normal;
+    font-weight: 600;
 }
 
 @media only screen and (max-width: 633px) {
