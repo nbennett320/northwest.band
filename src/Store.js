@@ -188,8 +188,6 @@ class Store extends Component {
 
     mapCatalog = filter => {
 
-        console.log(filter)
-
         const items = this.items
 
         let catalog = []
@@ -216,6 +214,22 @@ class Store extends Component {
         return catalog
 
     }
+ 
+    makePretty = string => string.replace('-', ' ')
+
+    getStoreHeaderText = () => {
+
+        let text
+
+        if(this.state.filterScope === 'none' || 
+            this.state.filterType === 'none') text = "northwest merchies :)"
+        else if(this.state.filterScope === 'subcategory') text = "northwest " + this.makePretty(this.state.filterType) + "s"
+        else if(this.state.filterScope === 'style') text = this.makePretty(this.state.filterType) + " merch"
+        else text = "northwest merchies :)"
+
+        return text
+
+    }
 
     render() {
 
@@ -223,7 +237,7 @@ class Store extends Component {
 
             <div className="merch" style={styles.main}>
 
-                <StoreHeader textInPhoto="northwest merchies :)" />
+                <StoreHeader textInPhoto={this.getStoreHeaderText()} />
 
                 <FilterStore 
                     setFilterScope={this.setFilterScope}
