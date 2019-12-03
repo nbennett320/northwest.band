@@ -38,7 +38,7 @@ class BuildLyricsPage extends Component {
                 
                 </div>
 
-                <img className='misc-img' src={require( `${this.props.song.image}` )} alt={this.props.song.altText} />
+                
 
             </div>
 

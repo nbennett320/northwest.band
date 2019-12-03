@@ -190,25 +190,22 @@ class Lyrics extends Component {
 
     }
 
-    getBackgroundColor = album => {
+    getBackgroundImage = (album, key) => {
 
-        let color
-
+        let bg
+        
         switch (album) {
-            case 'area code': 
-                color = '#fffce6'
+
+            case 'area code':
+                bg = require(`./img/lyrics/area code/${key}.jpg`)
                 break
-            case 'suburban dogs': 
-                color = '#accdff'
+            case 'suburban dogs':
+                bg= require(`./img/lyrics/suburban dogs/${key}.jpg`)
                 break
-            default: 
-                console.log("error in building lyrics styles")
-                color = '#fff'
-                break
+
         }
 
-        return color
-
+        return bg
     }
 
     render () {
@@ -222,7 +219,10 @@ class Lyrics extends Component {
                 height: 'auto',
                 minHeight: '100%',
                 paddingTop: '0',
-                backgroundColor: `${this.getBackgroundColor(this.state.song.album)}`,
+                backgroundImage: `url(${this.getBackgroundImage(this.state.song.album, this.state.song.key)})`,
+                backgroundPosition: 'top',
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: 'cover',
             }}>
                 
                 <BuildLyricsPage

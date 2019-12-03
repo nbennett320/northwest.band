@@ -33,7 +33,7 @@ class LyricsHeader extends Component {
                 alignItems: 'center',
                 justifyContent: 'center',
                 margin: 'auto',
-                backgroundImage: `url("${this.state.headerImage}")`,
+                //backgroundImage: `url("${this.state.headerImage}")`,
                 backgroundPosition: 'top',
                 backgroundRepeat: 'no-repeat',
                 backgroundSize: 'cover',
@@ -50,7 +50,7 @@ class LyricsHeader extends Component {
                 alignText: 'left',
                 color: '#fff',
                 fontFamily: '"Work Sans",sans-serif',
-                fontWeight: '600',
+                fontWeight: '800',
                 userSelect: 'none',
             }
         
