@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import Select from 'react-select'
-import { throwStatement } from '@babel/types'
 
 class FilterStore extends Component {
 

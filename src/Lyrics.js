@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Redirect } from 'react-router-dom'
+// import { Redirect } from 'react-router-dom'
 import BuildLyricsPage from './BuildLyricsPage'
 import Footer from './components/Footer'
 
@@ -62,7 +62,7 @@ class Lyrics extends Component {
             title: 'Quink',
             date: 'July 15, 2018',
             album: 'area code',
-            lyrics: ["Wish I could trash sometimes","Not just delete some photos","From my timeline","My hindsight is below the average kind","","And if I get rid of my public posts","Would I seem less confident than most?","","           Fourty years ago relationships","Were not dependent on this shit","Insecure kids were separate","From the ones who had a better fit","Wonder how I'd be if I lived then","Would I find the one?","Would I have my friends?","I'd probably not be that different","But I'd probably have more confidence"],
+            lyrics: ["Wish I could trash my past sometimes","Not just delete some photos","From my timeline","My hindsight is below the average kind","","And if I get rid of my public posts","Would I seem less confident than most?","","           Fourty years ago relationships","Were not dependent on this shit","Insecure kids were separate","From the ones who had a better fit","Wonder how I'd be if I lived then","Would I find the one?","Would I have my friends?","I'd probably not be that different","But I'd probably have more confidence"],
             image: './img/misc/band1.png',
             altText: 'pic of blake hayden and noah',
             key: 'quink'
@@ -202,7 +202,9 @@ class Lyrics extends Component {
             case 'suburban dogs':
                 bg= require(`./img/lyrics/suburban dogs/${key}.jpg`)
                 break
-
+            default: 
+                console.log("error getting lyrics bg image")
+                break
         }
 
         return bg
