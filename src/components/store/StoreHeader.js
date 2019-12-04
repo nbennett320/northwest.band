@@ -15,7 +15,8 @@ class StoreHeader extends Component {
 
     randomNum = max => Math.floor(Math.random() * Math.floor(max))
 
-    randomImg = () => require(`../../img/store/store_header_imgs/${this.randomNum(7)}.jpg`)
+    // parameter is total number of pics
+    randomImg = () => require(`../../img/store/store_header_imgs/${this.randomNum(12)}.jpg`)
 
     render () {
 

@@ -1,17 +1,26 @@
 import React, { Component } from 'react'
 import ItemPreview from './components/store/ItemPreview'
 import StoreHeader from './components/store/StoreHeader'
+import FilterStore from './components/store/FilterStore'
 import Footer from './components/Footer'
 
 class Store extends Component {
 
     state = {
         randomNum: null,
+        filterScope: 'none',
+        filterType: 'none',
     }
 
     componentWillMount () {
 
         this.props.setHeaderLink('/')
+
+    }
+
+    componentDidMount() {
+
+        this.props.setShowCart(true)
 
     }
 
@@ -71,6 +80,7 @@ class Store extends Component {
                 category: 'shirt',
                 subcategory: 'short-sleeve',
                 model: 'classic-tee',
+                style: 'classic',
                 color: 'black-on-white',
                 availableColors: {
                     0: 'white-on-black',
@@ -93,6 +103,7 @@ class Store extends Component {
                 category: 'shirt',
                 subcategory: 'short-sleeve',
                 model: 'suburban-dogs-tee',
+                style: 'suburban-dogs',
                 color: 'eggshell',
                 availableColors: {
                     0: 'hot-pink',
@@ -116,6 +127,7 @@ class Store extends Component {
                 category: 'shirt',
                 subcategory: 'short-sleeve',
                 model: 'et-tee',
+                style: 'et',
                 color: 'white',
                 availableColors: {
                     0: 'white',
@@ -136,6 +148,7 @@ class Store extends Component {
                 category: 'sweatshirt',
                 subcategory: 'hoodie',
                 model: 'suburban-dogs-hoodie',
+                style: 'suburban-dogs',
                 color: 'grey',
                 availableColors: {
                     0: 'grey',
@@ -149,11 +162,31 @@ class Store extends Component {
 
     }
 
-    componentDidMount() {
-        this.props.setShowCart(true)
+    setFilterScope = scope => this.setState({filterScope: scope})
+
+    setFilterType = type => this.setState({filterType: type})
+
+    // filter items by subcategory or model
+    filterBy = (items, filter) => {
+
+        const scope = this.state.filterScope
+        let catalog = []
+
+        for(let i = 0; i < Object.keys(items).length; i++) {
+
+            if(items[i].props.attributes[scope] === filter) {
+
+                catalog.push(items[i])
+
+            }
+
+        }
+
+        return catalog
+
     }
 
-    mapCatalog = () => {
+    mapCatalog = filter => {
 
         const items = this.items
 
@@ -175,7 +208,26 @@ class Store extends Component {
 
         }
 
+        if(this.state.filterType !== 'none' && 
+            this.state.filterScope !== 'none') catalog = this.filterBy(catalog, filter)
+
         return catalog
+
+    }
+ 
+    makePretty = string => string.replace('-', ' ')
+
+    getStoreHeaderText = () => {
+
+        let text
+
+        if(this.state.filterScope === 'none' || 
+            this.state.filterType === 'none') text = "northwest merchies :)"
+        else if(this.state.filterScope === 'subcategory') text = "northwest " + this.makePretty(this.state.filterType) + "s"
+        else if(this.state.filterScope === 'style') text = this.makePretty(this.state.filterType) + " merch"
+        else text = "northwest merchies :)"
+
+        return text
 
     }
 
@@ -185,11 +237,15 @@ class Store extends Component {
 
             <div className="merch" style={styles.main}>
 
-                <StoreHeader textInPhoto="northwest merchies :)" />
+                <StoreHeader textInPhoto={this.getStoreHeaderText()} />
 
-                {/* some sort of filtering toolbar here */}
+                <FilterStore 
+                    setFilterScope={this.setFilterScope}
+                    setFilterType={this.setFilterType}
+                    currentScope={this.state.filterScope}
+                />
 
-                {this.mapCatalog()}
+                {this.mapCatalog(this.state.filterType)}
 
                 <Footer />
 
@@ -204,6 +260,9 @@ class Store extends Component {
 const styles = {
 
     main: {
+        width: '100%',
+        height: 'auto',
+        // minHeight: '100%',
         backgroundColor: '#fafafa',
         display: 'flex',
         top: '0',
