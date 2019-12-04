@@ -115,16 +115,6 @@ class Main extends Component {
 
     }
 
-    filterItemsByAttribute = attribute => {
-
-        let items = this.state.itemsInCart
-
-        let filteredItems = items.filter(item => item.attributes[attribute])
-
-        return filteredItems
-
-    }
-
     setFullAddress = fullAddress => this.setState({orderInfo: {fullAddress: fullAddress}})
 
     setOrderInfo = (name, email, phone, street, city, zip, region, fullAddress) => {
@@ -193,7 +183,6 @@ class Main extends Component {
                                 {...props} 
                                 setShowCart={this.setShowCart}
                                 addItemToCart={this.addItemToCart}
-                                // filterItemsByAttribute={this.filterItemsByAttribute}
                                 setItemDetails={this.setItemDetails}
                                 setHeaderLink={this.setHeaderLink}
                             />}

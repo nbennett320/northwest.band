@@ -122,7 +122,12 @@ const styles = {
         backgroundColor: 'rgba(255,255,255,1)',
         backdropFilter: 'blur(5px)',
         boxShadow: 'rgba(0, 0, 0, 0.1) 0px 0px 8px 2px',
-        // height: 'calc(auto + 35px + 1en)',
+        
+        // borderWidth: '0.5px',
+        // borderStyle: 'solid',
+        // borderColor: 'hsl(0,0%,80%)',
+        // borderCollapse: 'collapse !important',
+
         width: '70%',
         display: 'flex',
         flexDirection: 'column',

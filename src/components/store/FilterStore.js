@@ -75,16 +75,54 @@ class FilterStore extends Component {
 
     showSecondFilter = () => {
 
-        if(this.state.styleOptions !== null) return <div className="select-container" style={styles.selectContainer} id="store-filter-selector">
+        if(this.state.styleOptions !== null) return <div className="select-container" style={styles.filterTypeContainer} id="store-filter-selector">
 
                 <Select
                     name="secondary-filter-select"
                     options={this.state.styleOptions}
-                    placeholder="second filter"
+                    placeholder="filter type"
                     onChange={this.handleFilterChange}
+                    styles={{
+                        control: (provided) => ({
+                            ...provided,
+                            borderRadius: '0',
+                            borderLeftWidth: '0.5px',
+                            borderRightWidth: '0',
+                            // boxShadow: 'rgba(0, 0, 0, 0.1) 0px 0px 8px 2px',
+                    })}}
                 />
 
             </div>
+
+    }
+
+    checkCornerRadius = () => {
+
+        if (this.state.styleOptions !== null) return {
+            control: (provided) => ({
+                ...provided,
+                borderRadius: '0',
+                borderRightWidth: '0.5px',
+            })
+        
+        }
+
+        else return {
+            control: (provided) => ({
+                ...provided,
+                backgroundColor: '#fff',
+                borderRightWidth: '1px',
+                borderLeftWidth: '0',
+                borderBottomLeftRadius: '0',
+                borderTopLeftRadius: '0',
+            }),
+
+            container: (provided) => ({
+                ...provided,
+                borderBottomRightRadius: '0',
+            })
+            
+        }
 
     }
 
@@ -94,13 +132,14 @@ class FilterStore extends Component {
 
             <div className="store-filter" style={styles.main}>
 
-                <div className="select-container" style={styles.selectContainer} id="store-filter-selector">
+                <div className="select-container" style={styles.filterContainer} id="store-filter-selector">
 
                     <Select
                         name="filter-select"
                         options={this.filterOptions}
                         placeholder="filter"
                         onChange={this.setStyleOptions}
+                        styles={this.checkCornerRadius()}
                     />
 
                 </div>
@@ -119,16 +158,29 @@ const styles = {
 
     main: {
         width: '100%',
+        display: 'flex',
+        flexDirection: 'row',
     },
 
-    selectContainer: {
-        width: '75%',
-        marginLeft: 'auto',
+    filterContainer: {
+        width: '50%',
+        marginLeft: '0',
         marginRight: 'auto',
         fontFamily: '"Work Sans",sans-serif',
         fontWeight: '400', 
         fontSize: '1em',
+        backgroundColor: '#fff',
     },
+
+    filterTypeContainer: {
+        width: '50%',
+        marginLeft: 'auto',
+        marginRight: '0',
+        fontFamily: '"Work Sans",sans-serif',
+        fontWeight: '400', 
+        fontSize: '1em',
+        backgroundColor: '#fff',
+    }
 
 }
 
