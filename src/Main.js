@@ -13,7 +13,8 @@ import ScrollToTop from './scripts/ScrollToTop'
 import ViewCartPage from './components/store/ViewCartPage'
 import PlaceOrderPage from './components/store/PlaceOrderPage';
 import OrderSummary from './components/store/OrderSummary'
-import { attribute } from 'postcss-selector-parser';
+import Contact from './Contact'
+import Admin from './Admin'
 
 class Main extends Component {
 
@@ -246,6 +247,20 @@ class Main extends Component {
                                 totalPrice={this.state.totalPrice}
                                 fullAddress={this.state.orderInfo.fullAddress}
                                 orderInfo={this.state.orderInfo}
+                                setHeaderLink={this.setHeaderLink}
+                            />} 
+                        />
+
+                        <Route path='/contact'
+                            render={(props) => <Contact
+                                {...props} 
+                                setHeaderLink={this.setHeaderLink}
+                            />} 
+                        />
+
+                        <Route path='/admin'
+                            render={(props) => <Admin
+                                {...props} 
                                 setHeaderLink={this.setHeaderLink}
                             />} 
                         />

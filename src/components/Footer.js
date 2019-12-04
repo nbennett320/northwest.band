@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 import '../css/footer.css'
 
@@ -19,7 +20,7 @@ class Footer extends Component {
                     <li style={styles.spans}><a className="footer-list-entry" href="https://open.spotify.com/artist/0hscERxMRDZRqZIHjKbExD?si=FGhntveJTxKsk9KsoGFM0A">spotify</a></li>
                     <li style={styles.spans}><a className="footer-list-entry" href="https://music.apple.com/us/artist/northwest/1409175767">apple music</a></li>
                     <li style={styles.spans}><a className="footer-list-entry" href="https://www.youtube.com/channel/UCsAuRJv-BwMcLELAjNH46dQ">youtube</a></li>
-
+                    <li style={styles.spans}><Link to='/contact' className="footer-list-entry">contact</Link></li>
                 </ul>
 
                 <div style={styles.bottom}>&copy; 2020, northwest, 4431 records</div>
@@ -49,6 +50,7 @@ const styles = {
         width: 'auto',
         marginLeft: '10%',
         marginRight: 'auto',
+        marginBottom: '10px',
         fontWeight: '600',
         fontFamily: '"Work Sans",sans-serif'
     },

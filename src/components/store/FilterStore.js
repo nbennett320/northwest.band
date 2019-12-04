@@ -87,8 +87,28 @@ class FilterStore extends Component {
                             borderRadius: '0',
                             borderLeftWidth: '0.5px',
                             borderRightWidth: '0',
+                            borderBottomWidth: '0',
+                            borderColor: 'hsl(0,0%,80%) !important',
+                            boxShadow: '0 !important',
                             // boxShadow: 'rgba(0, 0, 0, 0.1) 0px 0px 8px 2px',
-                    })}}
+                        }),
+
+                        singleValue: (provided) => ({
+                            ...provided,
+                            color: 'hsl(0,0%,50%) !important'
+                        }), 
+
+                        menu: (provided) => ({
+                            ...provided,
+                            color: 'hsl(0,0%,50%) !important'
+                        }),
+
+                        input: (provided) => ({
+                            ...provided,
+                            color: 'hsl(0,0%,50%) !important'
+                        })
+
+                    }}
                 />
 
             </div>
@@ -101,7 +121,26 @@ class FilterStore extends Component {
             control: (provided) => ({
                 ...provided,
                 borderRadius: '0',
+                borderLeftWidth: '0',
                 borderRightWidth: '0.5px',
+                borderBottomWidth: '0',
+                borderColor: 'hsl(0,0%,80%) !important',
+                boxShadow: '0 !important',
+            }),
+
+            singleValue: (provided) => ({
+                ...provided,
+                color: 'hsl(0,0%,50%) !important'
+            }),
+
+            menu: (provided) => ({
+                ...provided,
+                color: 'hsl(0,0%,50%) !important'
+            }),
+
+            input: (provided) => ({
+                ...provided,
+                color: 'hsl(0,0%,50%) !important'
             })
         
         }
@@ -114,11 +153,29 @@ class FilterStore extends Component {
                 borderLeftWidth: '0',
                 borderBottomLeftRadius: '0',
                 borderTopLeftRadius: '0',
+                borderBottomWidth: '0',
+                borderColor: 'hsl(0,0%,80%) !important',
+                boxShadow: '0 !important',
             }),
 
             container: (provided) => ({
                 ...provided,
                 borderBottomRightRadius: '0',
+            }),
+
+            singleValue: (provided) => ({
+                ...provided,
+                color: 'hsl(0,0%,50%) !important'
+            }),
+
+            menu: (provided) => ({
+                ...provided,
+                color: 'hsl(0,0%,50%) !important'
+            }),
+
+            input: (provided) => ({
+                ...provided,
+                color: 'hsl(0,0%,50%) !important'
             })
             
         }
