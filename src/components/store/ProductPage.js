@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import ImagePreview from './ImagePreview'
 import Footer from '../Footer'
 import ProductDetailsPanel from './ProductDetailsPanel';
+import SuggestionBar from './SuggestionBar'
+import BuildCatalog from '../../Catalog'
 
 import '../../css/product-page.css'
 
@@ -21,6 +23,7 @@ class ProductPage extends Component {
                     subcategory: null,
                     model: null,
                     size: null,
+                    style: null,
                     color: null,
                     availableColors: {},
                 },
@@ -40,15 +43,18 @@ class ProductPage extends Component {
         this.props.setShowCart(true)
 
         this.props.setHeaderLink('/merch')
+
     }
 
     componentDidMount () {
+
         const { model } = this.props.match.params
 
         this.setState({
             model: model,
             color: this.state.details.attributes.color
         })
+
     }
 
     // if props are passed, assign attributes
@@ -80,6 +86,7 @@ class ProductPage extends Component {
                     category: 'shirt',
                     subcategory: 'short-sleeve',
                     model: 'classic-tee',
+                    style: 'classic',
                     color: 'black-on-white',
                     availableColors: {
                         0: 'white-on-black',
@@ -98,6 +105,7 @@ class ProductPage extends Component {
                     category: 'shirt',
                     subcategory: 'short-sleeve',
                     model: 'suburban-dogs-tee',
+                    style: 'suburban-dogs',
                     color: 'eggshell',
                     availableColors: {
                         0: 'hot-pink',
@@ -117,6 +125,7 @@ class ProductPage extends Component {
                     category: 'shirt',
                     subcategory: 'short-sleeve',
                     model: 'et-tee',
+                    style: 'et',
                     color: 'white',
                     availableColors: {
                         0: 'white',
@@ -133,6 +142,7 @@ class ProductPage extends Component {
                     category: 'sweatshirt',
                     subcategory: 'hoodie',
                     model: 'suburban-dogs-hoodie',
+                    style: 'suburban-dogs',
                     color: 'grey',
                     availableColors: {
                         0: 'grey',
@@ -151,6 +161,7 @@ class ProductPage extends Component {
                     category: 'shirt',
                     subcategory: 'short-sleeve',
                     model: 'classic-tee',
+                    style: 'classic',
                     color: 'black-on-white',
                     availableColors: {
                         0: 'white-on-black',
@@ -176,6 +187,32 @@ class ProductPage extends Component {
         attributes.color = newColor
         
         this.setState({attributes})
+
+    }
+
+    filterItemsForSuggestions = () => {
+
+        const items = BuildCatalog
+        const itemStyle = this.state.details.attributes.style
+        const itemSubcategory = this.state.details.attributes.subcategory
+
+        let suggestions = []
+
+        for(let i = 0; i < Object.keys(items).length; i++) {
+
+            if(items[i].attributes.style === itemStyle ||
+                items[i].attributes.subcategory === itemSubcategory
+            ) {
+
+                suggestions.push(items[i])
+
+            }
+
+        }
+
+        console.log(suggestions)
+
+        return suggestions
 
     }
 
@@ -224,9 +261,13 @@ class ProductPage extends Component {
 
                     </p>
 
-
-
                 </div>
+
+                <SuggestionBar
+                    filteredItems={this.filterItemsForSuggestions()}
+                    currentModel={this.props.match.params}
+                    setDefaultAttributesByModel={this.setDefaultAttributesByModel}
+                />
 
                 <Footer />
                 

@@ -4,6 +4,7 @@ import '../../css/visual-options-array.css'
 
 class VisualOptionsArray extends Component {
 
+
     handleMouseClick = id => this.props.setColorOnProductPage(id)
 
     optionIsSelected = elem => {
@@ -13,7 +14,11 @@ class VisualOptionsArray extends Component {
 
     }
 
-    buildArray = availableColors => {
+    buildArray = () => {
+
+        const availableColors = this.props.availableColors
+
+        console.log(availableColors)
 
         let arr = []
         let arrayImage
@@ -49,7 +54,7 @@ class VisualOptionsArray extends Component {
 
             <div className="visual-options-array-container" style={styles.main}>
 
-                {this.buildArray(this.props.availableColors)}
+                {this.buildArray()}
 
             </div>
 

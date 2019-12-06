@@ -125,6 +125,23 @@ class ProductDetailsPanel extends Component {
                         options={this.sizeOptions}
                         placeholder="size"
                         onChange={this.changeSize}
+                        styles={{
+                            singleValue: (provided) => ({
+                                ...provided,
+                                color: 'hsl(0,0%,50%) !important'
+                            }), 
+    
+                            menu: (provided) => ({
+                                ...provided,
+                                color: 'hsl(0,0%,50%) !important',
+                            }),
+    
+                            input: (provided) => ({
+                                ...provided,
+                                color: 'hsl(0,0%,50%) !important'
+                            })
+
+                        }}
                     />
                 </div>
 
@@ -135,6 +152,23 @@ class ProductDetailsPanel extends Component {
                         options={this.colorOptions()}
                         placeholder="color"
                         onChange={this.changeColor}
+                        styles={{
+                            singleValue: (provided) => ({
+                                ...provided,
+                                color: 'hsl(0,0%,50%) !important'
+                            }), 
+    
+                            menu: (provided) => ({
+                                ...provided,
+                                color: 'hsl(0,0%,50%) !important',
+                            }),
+    
+                            input: (provided) => ({
+                                ...provided,
+                                color: 'hsl(0,0%,50%) !important'
+                            })
+
+                        }}
                     />
                 </div>
 
@@ -145,14 +179,6 @@ class ProductDetailsPanel extends Component {
                     <span>add to cart</span>
 
                 </button>
-
-                {/* <button className="panel-button" style={styles.buttonContainer} id="middle-detail-panel-selector"
-                    onClick={this.handleAddToCart}
-                >
-
-                    <span>checkout with google pay</span>
-
-                </button> */}
 
             </div>
 

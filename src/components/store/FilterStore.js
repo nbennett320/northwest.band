@@ -100,7 +100,8 @@ class FilterStore extends Component {
 
                         menu: (provided) => ({
                             ...provided,
-                            color: 'hsl(0,0%,50%) !important'
+                            color: 'hsl(0,0%,50%) !important',
+                            zIndex: '20',
                         }),
 
                         input: (provided) => ({
@@ -135,7 +136,8 @@ class FilterStore extends Component {
 
             menu: (provided) => ({
                 ...provided,
-                color: 'hsl(0,0%,50%) !important'
+                color: 'hsl(0,0%,50%) !important',
+                zIndex: '20',
             }),
 
             input: (provided) => ({
@@ -170,7 +172,8 @@ class FilterStore extends Component {
 
             menu: (provided) => ({
                 ...provided,
-                color: 'hsl(0,0%,50%) !important'
+                color: 'hsl(0,0%,50%) !important',
+                zIndex: '20',
             }),
 
             input: (provided) => ({
@@ -216,6 +219,7 @@ const styles = {
         width: '100%',
         display: 'flex',
         flexDirection: 'row',
+        // zIndex: '20',
     },
 
     filterContainer: {
@@ -225,7 +229,7 @@ const styles = {
         fontFamily: '"Work Sans",sans-serif',
         fontWeight: '400', 
         fontSize: '1em',
-        backgroundColor: '#fff',
+        // backgroundColor: '#fff',
     },
 
     filterTypeContainer: {
