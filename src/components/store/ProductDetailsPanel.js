@@ -28,6 +28,7 @@ class ProductDetailsPanel extends Component {
 
     }
 
+    // yeah i have no idea why prev props are required
     componentDidUpdate (prevProps, prevState) {
 
         if (this.props.location !== prevState.location) {

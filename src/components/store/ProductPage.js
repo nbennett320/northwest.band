@@ -58,6 +58,7 @@ class ProductPage extends Component {
         
     }
 
+    // adjust item on page if user clicks suggestion page
     componentDidUpdate (prevProps) {
 
         if (this.props.location !== prevProps.location) {
@@ -345,8 +346,6 @@ const styles = {
         fontWeight: '400',
         fontSize: '1em',
     },
-
-
 
 }
 
