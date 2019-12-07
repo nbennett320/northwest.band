@@ -17,7 +17,7 @@ class ImagePreview extends Component {
         this.setState({color: color})
     }
 
-    // componentDidUpdate () {
+    // componentWillReceiveProps () {
     //     let color = this.props.getColor
     //     this.setState({color: color})
 

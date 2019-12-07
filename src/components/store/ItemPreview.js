@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
 import '../../css/store.css'
+import { throwStatement } from '@babel/types'
 
 class ItemPreview extends Component {
 
@@ -16,9 +17,10 @@ class ItemPreview extends Component {
 
     }
 
-    handleAddToCart = () => {
-        this.props.addItemToCart(this.props)
+    componentWillReceiveProps (nextProps) {
         
+        this.setState({previewImg: nextProps.defaultImg})
+
     }
 
     handleMouseEnter = () => {
@@ -35,33 +37,6 @@ class ItemPreview extends Component {
         })
     }
 
-    setProductPage = () => {
-        let details = {
-            title: this.props.title,
-            altText: this.props.altText,
-            description: this.props.description,
-            attributes: {
-                category: this.props.attributes.category,
-                subcategory: this.props.attributes.subcategory,
-                model: this.props.attributes.model,
-                color: this.props.attributes.color,
-                size: this.props.attributes.size,
-            },
-            price: this.props.price
-        }
-
-        this.props.setItemDetails(details)
-
-        this.setState({
-            itemDetails: details
-        })
-    }
-
-    getPreviewImg = () => {
-        if(this.state.isHovering === true) return this.props.hoverImg
-        else return this.props.defaultImg
-    }
-
     render () {
         
         return (
@@ -70,11 +45,17 @@ class ItemPreview extends Component {
                     pathname: `/products/${this.props.attributes.model}`,
                 }}
                 className="product-preview" 
-                style={styles.card}
-                onClick={this.setProductPage}
-                params={{ 
-                    model: this.props.attributes.model,
-                    itemDetails: this.state.itemDetails
+                style={{
+                    width: '70%',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    flexBasis: '100%',
+                    backgroundColor: 'rgba(255,255,255,1)',
+                    backdropFilter: 'blur(5px)',
+                    boxShadow: 'rgba(0, 0, 0, 0.07) 0px 0px 8px 2px',
+                    fontFamily: '"Work Sans",sans-serif',
+                    cursor: 'pointer',
+                    zIndex: `${10 + this.props.zIndex}`,
                 }}
             >
 
@@ -117,24 +98,6 @@ class ItemPreview extends Component {
 }
 
 const styles = {
-
-    card: {
-        backgroundColor: 'rgba(255,255,255,1)',
-        backdropFilter: 'blur(5px)',
-        boxShadow: 'rgba(0, 0, 0, 0.1) 0px 0px 8px 2px',
-        
-        // borderWidth: '0.5px',
-        // borderStyle: 'solid',
-        // borderColor: 'hsl(0,0%,80%)',
-        // borderCollapse: 'collapse !important',
-
-        width: '70%',
-        display: 'flex',
-        flexDirection: 'column',
-        flexBasis: '100%',
-        fontFamily: '"Work Sans",sans-serif',
-        cursor: 'pointer',
-    },
 
     previewCard: {
         display: 'flex',

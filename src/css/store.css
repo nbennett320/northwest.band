@@ -40,7 +40,7 @@
 
     .product-preview {
         text-decoration: none;
-        max-width: 50% !important;
+        min-width: 50% !important;
     }
 
     .product-preview:hover {

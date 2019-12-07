@@ -68,7 +68,7 @@ class Main extends Component {
             cartHasItems: cartHasItems,
         })
 
-        console.log(this.state.itemsInCart)
+        // console.log(this.state.itemsInCart)
 
     }
 

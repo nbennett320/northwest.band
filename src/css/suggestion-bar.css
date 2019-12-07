@@ -1,0 +1,38 @@
+.suggestion-bar > .product-preview {
+    text-decoration: none;
+    min-width: 33.3333333% !important;
+    box-shadow: none !important;
+}
+
+/* phone */
+@media only screen and (max-width: 633px) {
+
+    .suggestion-bar > .product-preview {
+        text-decoration: none;
+        min-width: 50% !important;
+    }
+
+}
+
+/* desktop */
+@media only screen and (min-width: 633px) {
+
+    .suggestion-bar::-webkit-scrollbar-track {
+        -webkit-box-shadow: none;
+        background-color: #fff;
+    }
+
+    .suggestion-bar::-webkit-scrollbar {
+        width: auto;
+        background-color: #fff;
+    }
+
+    .suggestion-bar::-webkit-scrollbar-thumb {
+        background-color: #000000;
+        width: auto;
+        height: 5px;
+        border-radius: 10px;
+    }
+
+}
+
