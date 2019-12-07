@@ -9,20 +9,39 @@ class ProductDetailsPanel extends Component {
         super (props)
 
         this.state = {
-            item: this.props.item
+            item: null,
+            location: null
         }
 
     }
 
-    componentDidMount () {
+    componentWillMount () {
 
         let item = this.props.item
 
         item.attributes.size = 'm'
 
         this.setState({
-            item: item
+            item: item,
+            location: this.props.location
         })
+
+    }
+
+    componentDidUpdate (prevProps, prevState) {
+
+        if (this.props.location !== prevState.location) {
+
+            let item = this.props.item
+
+            item.attributes.size = 'm'
+
+            this.setState({
+                item: item,
+                location: this.props.location
+            })
+
+        }
 
     }
 
@@ -66,6 +85,7 @@ class ProductDetailsPanel extends Component {
     }
 
     putColorObjectInValue = color => {
+
         const options = this.colorOptions()
 
         for(let i = 0; i < options.length; i++) {
@@ -85,6 +105,7 @@ class ProductDetailsPanel extends Component {
     handleAddToCart = () => this.props.addItemToCart(this.state.item)
 
     changeSize = newSize => {
+
         let item = this.state.item
 
         item.attributes.size = newSize.value
@@ -93,6 +114,7 @@ class ProductDetailsPanel extends Component {
     }
 
     changeColor = newColor => {
+
         let item = this.state.item
 
         item.attributes.color = newColor.value
@@ -101,8 +123,6 @@ class ProductDetailsPanel extends Component {
 
         this.setState({item: item})
     }
-
-    com
 
     render () {
 

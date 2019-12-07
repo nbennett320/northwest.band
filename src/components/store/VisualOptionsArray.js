@@ -18,7 +18,7 @@ class VisualOptionsArray extends Component {
 
         const availableColors = this.props.availableColors
 
-        console.log(availableColors)
+       //  console.log(availableColors)
 
         let arr = []
         let arrayImage

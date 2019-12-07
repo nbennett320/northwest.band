@@ -15,21 +15,6 @@ class SuggestionBar extends Component {
 
     }
 
-    componentDidMount () {
-
-        this.setState({suggestionList: this.getSuggestionsList()})
-
-    }
-
-    componentWillMount () {
-
-        const { currentModel } = this.props.currentModel
-
-        // this.props.setDefaultAttributesByModel(currentModel)
-
-    }
-
-
     getSuggestionsList = () => {
 
         const items = this.props.filteredItems
@@ -47,11 +32,10 @@ class SuggestionBar extends Component {
                     price={items[i].price}
                     key={i * 2}
                     zIndex={i}
+                    needsToUpdate={this.props.needsToUpdate}
                 />
             )
         }
-
-        console.log(suggestions)
 
         return suggestions
 
@@ -63,11 +47,11 @@ class SuggestionBar extends Component {
 
             <div className="suggestion-container" style={styles.main}>
 
-                <span style={styles.span}>you might also like:</span>
+                <span style={styles.span}>you might also like</span>
 
                 <div className="suggestion-bar" style={styles.suggestions}>
 
-                    {this.state.suggestionList}
+                    {this.getSuggestionsList()}
 
                 </div>
                 
