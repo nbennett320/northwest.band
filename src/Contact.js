@@ -82,49 +82,54 @@ class Contact extends Component {
 
                 <div style={styles.form}>
 
-                <span style={styles.txt1}> name </span>
-                <input
-                    type='text'
-                    name='name'
-                    style={styles.textBox}
-                    value={this.state.name}
-                    onChange={this.handleChange}
-                />
+                    <p style={{marginBottom: '2vh'}}>
+                        feel free to reach out for any general inquiries, booking,
+                        or just to say hi :)
+                    </p>
 
-                <span style={styles.txt1}> subject </span>
-                <input
-                    type='text'
-                    name='subject'
-                    style={styles.textBox}
-                    value={this.state.subject}
-                    onChange={this.handleChange}
-                />
+                    <span style={styles.txt1}> name </span>
+                    <input
+                        type='text'
+                        name='name'
+                        style={styles.textBox}
+                        value={this.state.name}
+                        onChange={this.handleChange}
+                    />
 
-                <span style={styles.txt1}> email </span>
-                <input
-                    type='text'
-                    name='email'
-                    style={styles.textBox}
-                    value={this.state.email}
-                    onChange={this.handleChange}
-                />
-                {this.validateEmailInput(`enter a valid email ${this.state.funEndText}`)}
+                    <span style={styles.txt1}> email </span>
+                    <input
+                        type='text'
+                        name='email'
+                        style={styles.textBox}
+                        value={this.state.email}
+                        onChange={this.handleChange}
+                    />
+                    {this.validateEmailInput(`enter a valid email ${this.state.funEndText}`)}
 
-                <span style={styles.txt1}> message </span>
-                <textarea
-                    type='text'
-                    name='message'
-                    rows="10"
-                    style={styles.bodyBox}
-                    value={this.state.message}
-                    onChange={this.handleChange}
-                />
+                    <span style={styles.txt1}> subject </span>
+                    <input
+                        type='text'
+                        name='subject'
+                        style={styles.textBox}
+                        value={this.state.subject}
+                        onChange={this.handleChange}
+                    />
 
-                <a href={`mailto:northwestband9@gmail.com?subject=${this.state.subject}&body=${this.generateBody()}`} 
-                    style={styles.button}
-                >
-                    submit
-                </a>
+                    <span style={styles.txt1}> message </span>
+                    <textarea
+                        type='text'
+                        name='message'
+                        rows="10"
+                        style={styles.bodyBox}
+                        value={this.state.message}
+                        onChange={this.handleChange}
+                    />
+
+                    <a href={`mailto:northwestband9@gmail.com?subject=${this.state.subject}&body=${this.generateBody()}`} 
+                        style={styles.button}
+                    >
+                        submit
+                    </a>
                 
                 </div>
 

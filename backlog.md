@@ -2,7 +2,6 @@ TO-DO
 
 1. CONNECT EXPRESS AND BRAINTREE
 2. connect products to a real database
-4. add contact page
 6. make sure orders work
 7. make a basic admin panel
 9. implement a reciept system (WIP)
@@ -29,7 +28,7 @@ DONE
 (12/19) add suggestion algorithm
 (12/19) record all financial isshhhh (brain tree)
 (12/19) add a filter tool bar to store page
-(12/19)
+(12/19) add contact page
 (12/19)
 (12/19)
 (12/19)

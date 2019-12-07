@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { matchPath } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import ImagePreview from './ImagePreview'
 import Footer from '../Footer'
 import ProductDetailsPanel from './ProductDetailsPanel';
@@ -143,21 +143,58 @@ class ProductPage extends Component {
                 defaultProperties.price = 12
                 break
 
-            case 'et-tee':
-                defaultProperties.title = 'northwest e.t. t-shirt'
-                defaultProperties.altText = 'nw tee endorsed by everyone\'s favorite extra terrestrial'
-                defaultProperties.description = 'nw tee endorsed by everyone\'s favorite extra terrestrial'
+            case 'leo-photo-shirt':
+                    defaultProperties.title = 'leo photo t-shirt'
+                    defaultProperties.altText = 't-shirt with a lil rascal named leo on it'
+                    defaultProperties.description = 't-shirt with a lil rascal named leo on it'
+                    defaultProperties.attributes = {
+                        category: 'shirt',
+                        subcategory: 'short-sleeve',
+                        model: 'leo-photo-shirt',
+                        style: 'suburban-dogs',
+                        color: 'white',
+                        availableColors: {
+                            0: 'white',
+                            1: 'orange',
+                            2: 'light-blue',
+                            3: 'black',
+                    }}
+                    defaultProperties.price = 14
+                    break
+
+            // case 'et-tee':
+            //     defaultProperties.title = 'northwest e.t. t-shirt'
+            //     defaultProperties.altText = 'nw tee endorsed by everyone\'s favorite extra terrestrial'
+            //     defaultProperties.description = 'nw tee endorsed by everyone\'s favorite extra terrestrial'
+            //     defaultProperties.attributes = {
+            //         category: 'shirt',
+            //         subcategory: 'short-sleeve',
+            //         model: 'et-tee',
+            //         style: 'et',
+            //         color: 'white',
+            //         availableColors: {
+            //             0: 'white',
+            //             1: 'yellow',
+            //     }}
+            //     defaultProperties.price = 12
+            //     break
+
+            case 'leo-photo-hoodie':
+                defaultProperties.title = 'leo photo hoodie'
+                defaultProperties.altText = 'hoodie with a lil rascal named leo on it'
+                defaultProperties.description = 'hoodie with a lil rascal named leo on it'
                 defaultProperties.attributes = {
-                    category: 'shirt',
-                    subcategory: 'short-sleeve',
-                    model: 'et-tee',
-                    style: 'et',
-                    color: 'white',
+                    category: 'sweatshirt',
+                    subcategory: 'hoodie',
+                    model: 'leo-photo-hoodie',
+                    style: 'suburban-dogs',
+                    color: 'grey',
                     availableColors: {
-                        0: 'white',
-                        1: 'yellow',
+                        0: 'grey',
+                        1: 'purple',
+                        2: 'black',
                 }}
-                defaultProperties.price = 12
+                defaultProperties.price = 24
                 break
 
             case 'suburban-dogs-hoodie':
@@ -177,6 +214,21 @@ class ProductPage extends Component {
                 }}
                 defaultProperties.price = 22
                 break
+
+            case 'suburban-dogs-cd':
+                    defaultProperties.title = 'suburban dogs cd'
+                    defaultProperties.altText = 'physical cd of northwest\'s suburban dogs with a lyrics booklet'
+                    defaultProperties.description = 'physical cd of northwest\'s suburban dogs with a lyrics booklet'
+                    defaultProperties.attributes = {
+                        category: 'misc',
+                        subcategory: 'music',
+                        model: 'suburban-dogs-cd',
+                        style: 'suburban-dogs',
+                        color: 'N/A',
+                        availableColors: {
+                    }}
+                    defaultProperties.price = 18
+                    break
 
             default:
                 console.log("error in ProductPage.js")
@@ -248,6 +300,13 @@ class ProductPage extends Component {
 
     setSuggestionBarNeedsUpdate = bool => this.setState({suggestionBarNeedsUpdate: bool})
 
+    descriptionColor = color => {
+
+        if(color !== 'N/A') return color
+        else return
+
+    }
+
     render () {
 
         return (
@@ -288,7 +347,7 @@ class ProductPage extends Component {
 
                     <p className="description-main-paragraph" style={styles.mainParagraph}>
                         
-                        {this.getColor()} {this.state.details.description}
+                        {this.descriptionColor()} {this.state.details.description}
 
                     </p>
 
@@ -298,6 +357,19 @@ class ProductPage extends Component {
                     filteredItems={this.filterItemsForSuggestions()}
                     setDefaultAttributesByModel={this.setDefaultAttributesByModel}
                 />
+                
+                <div style={styles.backToMerch}>
+
+                <Link to='/merch' 
+                    style={styles.button}
+                    className="button-back-to-merch"
+                >
+
+                    (back to merch page)
+
+                </Link>
+
+                </div>
 
                 <Footer />
                 
@@ -345,6 +417,34 @@ const styles = {
         fontFamily: '"Work Sans",sans-serif',
         fontWeight: '400',
         fontSize: '1em',
+    },
+
+    backToMerch: {
+        width: '100%',
+        marginTop: '20px',
+        marginBottom: '20px',
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        display: 'flex',
+        alignContent: 'center',
+    },
+
+    button: {
+        color: '#69727b',
+        backgroundColor: '#fff',
+        width: 'auto',
+        margin: 'auto',
+        padding: '10px 20px',
+        borderStyle: 'solid',
+        borderWidth: '1px',
+        borderColor: 'hsl(0,0%,80%)',
+        borderBottomLeftRadius: '4px',
+        borderBottomRightRadius: '4px',
+        borderTopLeftRadius: '4px',
+        borderTopRightRadius: '4px',
+        fontFamily: '"Work Sans",sans-serif',
+        fontWeight: '400',
+        fontSize: 'auto',
     },
 
 }
