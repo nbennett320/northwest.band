@@ -76,6 +76,7 @@ const styles = {
         paddingBottom: '12px',
         display: 'flex',
         flexDirection: 'row',
+        justifyContent: 'space-evenly',
         alignContent: 'center',
         backgroundColor: '#fff',
         fontFamily: '"Work Sans",sans-serif',
@@ -87,8 +88,8 @@ const styles = {
     },
 
     title: {
-        marginLeft: '20px',
-        marginRight: '20px',
+        marginLeft: '10px',
+        marginRight: '10px',
         marginTop: 'auto',
         marginBottom: 'auto',
         width: '30%',
@@ -96,7 +97,7 @@ const styles = {
 
     details: {
         marginLeft: '20px',
-        marginRight: '20px',
+        marginRight: '0px',
         marginTop: 'auto',
         marginBottom: 'auto',
         width: '30%',

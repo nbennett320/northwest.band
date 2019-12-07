@@ -13,17 +13,15 @@ class ImagePreview extends Component {
     }
 
     componentDidMount () {
+
         let color = this.props.color
         this.setState({color: color})
+
     }
 
-    // componentWillReceiveProps () {
-    //     let color = this.props.getColor
-    //     this.setState({color: color})
-
-    // }
-
+    // generate image path from model name
     getPathFromModel = (model, color) => {
+
         let remainder
 
         switch (model) {
@@ -37,9 +35,18 @@ class ImagePreview extends Component {
             case 'et-tee':
                 remainder = `${color}et`
                 break
+            case 'leo-photo-shirt':
+                remainder = `leo-tee-${color}`
+                break
+            case 'leo-photo-hoodie':
+                remainder = `leo-hoodie-${color}`
+                break
             case 'suburban-dogs-hoodie':
                 remainder = `${color} hoodie`
                 break
+            case 'suburban-dogs-cd':
+                    remainder = `suburban dogs cd cover art`
+                    break
             default:
                 remainder = `classic-black-on-white`
                 break
@@ -56,7 +63,7 @@ class ImagePreview extends Component {
 
             <div className="image-preview-contanier" styles={styles.main}>
 
-                <img src={require(`../../img/img_merch/img_500x500/${this.getPathFromModel(this.props.model, this.props.color)}.png`)} 
+                <img src={require(`../../img/img_merch/img_500x500/${this.getPathFromModel(this.props.model, this.props.color)}.jpg`)} 
                     alt="default image"
                     style={styles.mainImage}
                 />

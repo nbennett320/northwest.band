@@ -6,6 +6,14 @@
     width: 50%;
 }
 
+.button-back-to-merch {
+    text-decoration: none;
+}
+
+.button-back-to-merch:hover {
+    text-decoration: underline;
+}
+
 @media only screen and (max-width: 633px) {
 
     .product-page-details-container {

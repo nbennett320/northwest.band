@@ -68,8 +68,6 @@ class Main extends Component {
             cartHasItems: cartHasItems,
         })
 
-        // console.log(this.state.itemsInCart)
-
     }
 
     setTotalPrice = total => {
@@ -255,6 +253,7 @@ class Main extends Component {
                             render={(props) => <Contact
                                 {...props} 
                                 setHeaderLink={this.setHeaderLink}
+                                setShowCart={this.setShowCart}
                             />} 
                         />
 

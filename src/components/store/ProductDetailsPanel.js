@@ -28,6 +28,7 @@ class ProductDetailsPanel extends Component {
 
     }
 
+    // yeah i have no idea why prev props are required
     componentDidUpdate (prevProps, prevState) {
 
         if (this.props.location !== prevState.location) {
@@ -124,6 +125,70 @@ class ProductDetailsPanel extends Component {
         this.setState({item: item})
     }
 
+    renderSizeSelect = () => {
+
+        if(this.state.item.attributes.color !== 'N/A') return <div className="select-container" style={styles.selectContainer} id="top-detail-panel-selector">
+                <Select
+                    name="size-select"
+                    value={this.putSizeObjectInValue(this.state.item.attributes.size)}
+                    options={this.sizeOptions}
+                    placeholder="size"
+                    onChange={this.changeSize}
+                    styles={{
+                        singleValue: (provided) => ({
+                            ...provided,
+                            color: 'hsl(0,0%,50%) !important'
+                        }), 
+
+                        menu: (provided) => ({
+                            ...provided,
+                            color: 'hsl(0,0%,50%) !important',
+                        }),
+
+                        input: (provided) => ({
+                            ...provided,
+                            color: 'hsl(0,0%,50%) !important'
+                        })
+
+                    }}
+                />
+            </div>
+        else return
+
+    }
+
+    renderColorSelect = () => {
+
+        if(this.state.item.attributes.color !== 'N/A') return <div className="select-container" style={styles.selectContainer} id="middle-detail-panel-selector">
+                <Select
+                    name="color-select"
+                    value={this.putColorObjectInValue(this.props.getColor)}
+                    options={this.colorOptions()}
+                    placeholder="color"
+                    onChange={this.changeColor}
+                    styles={{
+                        singleValue: (provided) => ({
+                            ...provided,
+                            color: 'hsl(0,0%,50%) !important'
+                        }), 
+
+                        menu: (provided) => ({
+                            ...provided,
+                            color: 'hsl(0,0%,50%) !important',
+                        }),
+
+                        input: (provided) => ({
+                            ...provided,
+                            color: 'hsl(0,0%,50%) !important'
+                        })
+
+                    }}
+                />
+            </div>
+        else return
+
+    }
+
     render () {
 
         return (
@@ -138,59 +203,9 @@ class ProductDetailsPanel extends Component {
                     ${this.placeDecimals(this.props.price)}
                 </h2>
 
-                <div className="select-container" style={styles.selectContainer} id="top-detail-panel-selector">
-                    <Select
-                        name="size-select"
-                        value={this.putSizeObjectInValue(this.state.item.attributes.size)}
-                        options={this.sizeOptions}
-                        placeholder="size"
-                        onChange={this.changeSize}
-                        styles={{
-                            singleValue: (provided) => ({
-                                ...provided,
-                                color: 'hsl(0,0%,50%) !important'
-                            }), 
-    
-                            menu: (provided) => ({
-                                ...provided,
-                                color: 'hsl(0,0%,50%) !important',
-                            }),
-    
-                            input: (provided) => ({
-                                ...provided,
-                                color: 'hsl(0,0%,50%) !important'
-                            })
-
-                        }}
-                    />
-                </div>
-
-                <div className="select-container" style={styles.selectContainer} id="middle-detail-panel-selector">
-                    <Select
-                        name="color-select"
-                        value={this.putColorObjectInValue(this.props.getColor)}
-                        options={this.colorOptions()}
-                        placeholder="color"
-                        onChange={this.changeColor}
-                        styles={{
-                            singleValue: (provided) => ({
-                                ...provided,
-                                color: 'hsl(0,0%,50%) !important'
-                            }), 
-    
-                            menu: (provided) => ({
-                                ...provided,
-                                color: 'hsl(0,0%,50%) !important',
-                            }),
-    
-                            input: (provided) => ({
-                                ...provided,
-                                color: 'hsl(0,0%,50%) !important'
-                            })
-
-                        }}
-                    />
-                </div>
+                {this.renderSizeSelect()}
+                
+                {this.renderColorSelect()}
 
                 <button className="panel-button" style={styles.buttonContainer} id="middle-detail-panel-selector"
                     onClick={this.handleAddToCart}
