@@ -15,6 +15,7 @@ import PlaceOrderPage from './components/store/PlaceOrderPage';
 import OrderSummary from './components/store/OrderSummary'
 import Contact from './Contact'
 import Admin from './Admin'
+import NoMatch from './NoMatch'
 
 class Main extends Component {
 
@@ -155,6 +156,13 @@ class Main extends Component {
                             to='/'
                         />
 
+                        {/* redirect from /songs/ to /music for cases where user tries
+                        to link there directly */}
+                        <Redirect
+                            from='/music/:songKey'
+                            to='/songs/:songKey'
+                        />
+
                         <Route path='/music' 
                             render={(props) => <Music 
                                 {...props} 
@@ -170,12 +178,16 @@ class Main extends Component {
                         
                         />
 
+                        
+
                         {/* redirect from /songs/ to /music for cases where user tries
                         to link there directly */}
                         <Redirect 
                             from='/songs'
                             to='/music'
                         />
+
+                        
 
                         <Route path='/merch' 
                             render={(props) => <Store 
@@ -185,6 +197,13 @@ class Main extends Component {
                                 setItemDetails={this.setItemDetails}
                                 setHeaderLink={this.setHeaderLink}
                             />}
+                        />
+
+                        {/* redirect from /merch/* to /merch for cases where user tries
+                        to link there directly */}
+                        <Redirect 
+                            from='/merch/*'
+                            to='/merch'
                         />
 
                         <Route path='/products/:model' 
@@ -201,6 +220,13 @@ class Main extends Component {
                         to link there directly */}
                         <Redirect 
                             from='/products'
+                            to='/merch'
+                        />
+
+                        {/* redirect from /products/* to /merch for cases where user tries
+                        to link there directly */}
+                        <Redirect 
+                            from='/products/*'
                             to='/merch'
                         />
 
@@ -259,6 +285,14 @@ class Main extends Component {
 
                         <Route path='/admin'
                             render={(props) => <Admin
+                                {...props} 
+                                setHeaderLink={this.setHeaderLink}
+                            />} 
+                        />
+
+                        {/* catch all unknown routes (error 404) */}
+                        <Route path='/*'
+                            render={(props) => <NoMatch
                                 {...props} 
                                 setHeaderLink={this.setHeaderLink}
                             />} 

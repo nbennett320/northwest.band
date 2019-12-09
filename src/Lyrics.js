@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// import { Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 import BuildLyricsPage from './BuildLyricsPage'
 import Footer from './components/Footer'
 
@@ -20,7 +20,9 @@ class Lyrics extends Component {
 
         const { songKey } = this.props.match.params
 
-        this.setState({song: this.resource[`${songKey}`]})
+        this.setState({
+            song: this.resource[`${songKey}`],
+        })
 
         this.props.setHeaderLink('/music')
 
@@ -210,10 +212,12 @@ class Lyrics extends Component {
         return bg
     }
 
+    urlParamsMatch = p => Object.keys(this.resource).includes(p.songKey)
+
     render () {
 
-        // if(this.resource[`${this.songKey}`] === undefined) return <Redirect to='/music' />
-
+        if(!this.urlParamsMatch(this.props.match.params)) return <Redirect to='/music' />
+        
         return (
 
             <div className='lyrics' style={{
