@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
+import { Helmet } from 'react-helmet'
 import BuildLyricsPage from './BuildLyricsPage'
 import Footer from './components/Footer'
 
@@ -230,6 +231,37 @@ class Lyrics extends Component {
                 backgroundRepeat: 'no-repeat',
                 backgroundSize: 'cover',
             }}>
+
+                <Helmet>
+
+                    <meta charset="utf-8" />
+                    <meta name="keywords" 
+                        content="
+                            northwest, 
+                            northwest the band, 
+                            northwest band,
+                            music, 
+                            band, 
+                            merch, 
+                            merchandise, 
+                            clothing, 
+                            screen print, 
+                            band tees, 
+                        "
+                    />
+                    <link rel="canonical" href="http://northwest.band" />
+
+                    <meta name="author" content="Noah Bennett" />
+
+                    <meta name="description" content={`
+                        Lyrics for "${this.state.song.title}" by Northwest.
+                    `} />
+                    <meta name="robots" content="index" />
+                    <meta name="url" content={`http://northwest.band/songs/${this.state.songKey}`} />
+
+                    <title>northwest the band | {this.state.song.title.toLowerCase()} lyrics</title>
+
+                </Helmet>
                 
                 <BuildLyricsPage
                     song={this.state.song}

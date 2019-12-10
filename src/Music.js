@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import { Helmet } from 'react-helmet'
 
 import Footer from './components/Footer'
 
@@ -18,6 +19,37 @@ class Music extends Component {
         return (
 
             <div className="music">
+
+                <Helmet>
+
+                    <meta charset="utf-8" />
+                    <meta name="keywords" 
+                        content="
+                            northwest, 
+                            northwest the band, 
+                            northwest band,
+                            music, 
+                            band, 
+                            lyrics, 
+                            219, 
+                            indie, 
+                            rock, 
+                            songs, 
+                        "
+                    />
+                    <link rel="canonical" href="http://northwest.band" />
+
+                    <meta name="author" content="Noah Bennett" />
+
+                    <meta name="description" content="
+                        A list of Northwest's entire discography and respective lyrics.
+                    " />
+                    <meta name="robots" content="index" />
+                    <meta name="url" content="http://northwest.band" />
+
+                    <title>northwest the band | music, lyrics, and artwork</title>
+
+                </Helmet>
 
                 <div className="entry">
                     <h2 className="album-head">

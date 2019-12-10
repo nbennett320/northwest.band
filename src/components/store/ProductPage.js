@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import { Helmet } from 'react-helmet'
 import ImagePreview from './ImagePreview'
 import Footer from '../Footer'
 import ProductDetailsPanel from './ProductDetailsPanel';
@@ -313,6 +314,37 @@ class ProductPage extends Component {
 
             <div className="product-page-container" style={styles.main}>
 
+                <Helmet>
+
+                    <meta charset="utf-8" />
+                    <meta name="keywords" 
+                        content="
+                            northwest, 
+                            northwest the band, 
+                            northwest band,
+                            music, 
+                            band, 
+                            merch, 
+                            merchandise, 
+                            clothing, 
+                            screen print, 
+                            band tees, 
+                        "
+                    />
+                    <link rel="canonical" href="http://northwest.band" />
+
+                    <meta name="author" content="Noah Bennett" />
+
+                    <meta name="description" content={`
+                        A ${this.state.details.attributes.color} ${this.state.details.description}.
+                    `} />
+                    <meta name="robots" content="index" />
+                    <meta name="url" content={`http://northwest.band/products/${this.state.model}`} />
+
+                    <title>northwest the band | {this.state.details.title}</title>
+
+                </Helmet>
+
                 <div className="product-page-details-container" style={styles.detailsContainer}>
 
                     <div className="half-container">
@@ -347,7 +379,7 @@ class ProductPage extends Component {
 
                     <p className="description-main-paragraph" style={styles.mainParagraph}>
                         
-                        {this.descriptionColor()} {this.state.details.description}
+                        {this.descriptionColor(this.getColor())} {this.state.details.description}
 
                     </p>
 

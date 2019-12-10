@@ -9,7 +9,8 @@ TO-DO
 14. make lyrics scrollable by album
 17. make function to calculate shipping prices
 20. add map-box api to show location on order summary page
-21. 
+21. make a site map
+
 
 DONE
 
@@ -29,7 +30,7 @@ DONE
 (12/19) record all financial isshhhh (brain tree)
 (12/19) add a filter tool bar to store page
 (12/19) add contact page
-(12/19)
+(12/19) add react helmets
 (12/19)
 (12/19)
 (12/19)

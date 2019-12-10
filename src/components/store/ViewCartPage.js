@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import { Helmet } from 'react-helmet'
 import CartListing from './CartListing'
 import CartFooter from './CartFooter'
 import StoreHeader from './StoreHeader'
@@ -127,6 +128,38 @@ class ViewCartPage extends Component {
         return (
 
             <div className="cart-page-container" style={styles.main}>
+
+                <Helmet>
+
+                    <meta charset="utf-8" />
+                    <meta name="keywords" 
+                        content="
+                            northwest, 
+                            northwest the band, 
+                            northwest band,
+                            north west, 
+                            band, 
+                            nwi, 
+                            219, 
+                            contact, 
+                            email, 
+                            goodies, 
+                            art
+                        "
+                    />
+                    <link rel="canonical" href="http://northwest.band" />
+
+                    <meta name="author" content="Noah Bennett" />
+
+                    <meta name="description" content="
+                        
+                    " />
+                    <meta name="robots" content="noindex" />
+                    <meta name="url" content="http://northwest.band/cart" />
+
+                    <title>northwest the band | cart </title>
+
+                </Helmet>
 
                 <StoreHeader textInPhoto="your cart" />
 

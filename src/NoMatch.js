@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import { Helmet } from 'react-helmet'
 import StoreHeader from './components/store/StoreHeader'
 import Footer from './components/Footer'
 
@@ -13,18 +14,50 @@ class NoMatch extends Component {
 
             <div style={styles.main}>
 
+                <Helmet>
+
+                    <meta charset="utf-8" />
+                    <meta name="keywords" 
+                        content="
+                            northwest, 
+                            northwest the band, 
+                            northwest band,
+                            north west, 
+                            band, 
+                            nwi, 
+                            219, 
+                            the region, 
+                            northwest indiana, 
+                            chicago, 
+                            indie
+                        "
+                    />
+                    <link rel="canonical" href="http://northwest.band" />
+
+                    <meta name="author" content="Noah Bennett" />
+
+                    <meta name="description" content="
+                        Northwest shirts, hoodies, physical music and more.
+                    " />
+                    <meta name="robots" content="index" />
+                    <meta name="url" content="http://northwest.band/merch" />
+
+                    <title>northwest the band | 404... LOL </title>
+
+                </Helmet>
+
                 <StoreHeader textInPhoto={"404... (summ wrong lolz)"} />
 
                 <p style={styles.paragraph}>
                     yeah... sorry looks like the link is wrong... whoops
                 </p>
 
-                <Link to='/merch' 
+                <Link to='/' 
                     style={styles.button}
                     className="button-back-to-home-404"
                 >
 
-                    (back to merch page)
+                    (back to home page)
 
                 </Link>
 

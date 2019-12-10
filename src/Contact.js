@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Helmet } from 'react-helmet'
 import validateEmail from './scripts/ValidateEmail'
 import StoreHeader from './components/store/StoreHeader'
 import Footer from './components/Footer'
@@ -77,6 +78,38 @@ class Contact extends Component {
         return (
 
             <div className="contact-page" style={styles.main}>
+
+                <Helmet>
+
+                    <meta charset="utf-8" />
+                    <meta name="keywords" 
+                        content="
+                            northwest, 
+                            northwest the band, 
+                            northwest band,
+                            north west, 
+                            band, 
+                            nwi, 
+                            219, 
+                            contact, 
+                            email, 
+                            goodies, 
+                            art
+                        "
+                    />
+                    <link rel="canonical" href="http://northwest.band" />
+
+                    <meta name="author" content="Noah Bennett" />
+
+                    <meta name="description" content="
+                        Reach out for general inquiries, booking, or just to say hi.
+                    " />
+                    <meta name="robots" content="index" />
+                    <meta name="url" content="http://northwest.band/contact" />
+
+                    <title>northwest the band | contact </title>
+
+                </Helmet>
 
                 <StoreHeader textInPhoto={"contact"} />
 

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Helmet } from 'react-helmet'
 import ItemPreview from './components/store/ItemPreview'
 import StoreHeader from './components/store/StoreHeader'
 import FilterStore from './components/store/FilterStore'
@@ -98,6 +99,37 @@ class Store extends Component {
         return (
 
             <div className="merch" style={styles.main}>
+
+                <Helmet>
+
+                    <meta charset="utf-8" />
+                    <meta name="keywords" 
+                        content="
+                            northwest, 
+                            northwest the band, 
+                            northwest band,
+                            music, 
+                            band, 
+                            merch, 
+                            merchandise, 
+                            clothing, 
+                            screen print, 
+                            band tees, 
+                        "
+                    />
+                    <link rel="canonical" href="http://northwest.band" />
+
+                    <meta name="author" content="Noah Bennett" />
+
+                    <meta name="description" content="
+                        Northwest shirts, hoodies, physical music and more.
+                    " />
+                    <meta name="robots" content="index" />
+                    <meta name="url" content="http://northwest.band/merch" />
+
+                    <title>northwest the band | shirts, hoodies, and more</title>
+
+                </Helmet>
 
                 <StoreHeader textInPhoto={this.getStoreHeaderText()} />
 

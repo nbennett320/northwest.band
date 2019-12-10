@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import DropIn from "braintree-web-drop-in-react"
 import { Redirect } from 'react-router-dom'
+import { Helmet } from 'react-helmet'
 
 import SummaryListing from './SummaryListing'
 import StoreHeader from './StoreHeader'
@@ -136,6 +137,38 @@ class OrderSummary extends Component {
         else return (
 
             <div className="order-summary-page" style={styles.main}>
+
+                <Helmet>
+
+                    <meta charset="utf-8" />
+                    <meta name="keywords" 
+                        content="
+                            northwest, 
+                            northwest the band, 
+                            northwest band,
+                            north west, 
+                            band, 
+                            nwi, 
+                            219, 
+                            contact, 
+                            email, 
+                            goodies, 
+                            art
+                        "
+                    />
+                    <link rel="canonical" href="http://northwest.band" />
+
+                    <meta name="author" content="Noah Bennett" />
+
+                    <meta name="description" content="
+                        
+                    " />
+                    <meta name="robots" content="noindex" />
+                    <meta name="url" content="http://northwest.band/order-summary" />
+
+                    <title>northwest the band | place order </title>
+
+                </Helmet>
 
                 <StoreHeader textInPhoto="order summary" />
 
