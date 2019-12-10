@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { Redirect } from 'react-router-dom'
+import { Helmet } from 'react-helmet'
 import StoreHeader from './StoreHeader'
 
 import validateEmail from '../../scripts/ValidateEmail'
@@ -168,6 +169,38 @@ class PlaceOrderPage extends Component {
         return (
 
             <div className="place-order-page" style={styles.main}>
+
+                <Helmet>
+
+                    <meta charset="utf-8" />
+                    <meta name="keywords" 
+                        content="
+                            northwest, 
+                            northwest the band, 
+                            northwest band,
+                            north west, 
+                            band, 
+                            nwi, 
+                            219, 
+                            contact, 
+                            email, 
+                            goodies, 
+                            art
+                        "
+                    />
+                    <link rel="canonical" href="http://northwest.band" />
+
+                    <meta name="author" content="Noah Bennett" />
+
+                    <meta name="description" content="
+                        
+                    " />
+                    <meta name="robots" content="noindex" />
+                    <meta name="url" content="http://northwest.band/place-order" />
+
+                    <title>northwest the band | place order </title>
+
+                </Helmet>
 
                 <StoreHeader textInPhoto="shipping info" />
 

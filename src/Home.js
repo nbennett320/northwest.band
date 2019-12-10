@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import { Helmet } from 'react-helmet'
 
 import './css/home.css'
 
@@ -86,6 +87,39 @@ class Home extends Component {
         return (
 
             <div className="home">
+
+                <Helmet>
+
+                    <meta charset="utf-8" />
+                    <meta name="keywords" 
+                        content="
+                            northwest, 
+                            northwest the band, 
+                            northwest band,
+                            north west, 
+                            band, 
+                            nwi, 
+                            219, 
+                            the region, 
+                            northwest indiana, 
+                            chicago, 
+                            indie
+                        "
+                    />
+                    <link rel="canonical" href="http://northwest.band" />
+
+                    <meta name="author" content="Noah Bennett" />
+
+                    <meta name="description" content="
+                        Northwest is an indie band from Northwest Indiana, started before the summer of 2017.
+                    " />
+                    <meta name="robots" content="index" />
+                    <meta name="url" content="http://northwest.band" />
+
+                    <title>northwest the band | music, merch, and cool stuff</title>
+
+                </Helmet>
+
                 <div className="cloud_wrapper">
                     <div className="clouds" id="cloud1" style={styles.clouds.music}>
                         <Link to='/music/'>
