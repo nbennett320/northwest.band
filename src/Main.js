@@ -17,12 +17,21 @@ import Contact from './Contact'
 import Admin from './Admin'
 import NoMatch from './NoMatch'
 
+import './css/App.css'
+
+// query device size
+const mql = window.matchMedia(`(max-width: 633px)`)
+const vpWidth = window.innerWidth
+const vpHeight = window.innerHeight
+
 class Main extends Component {
 
     constructor(props) {
         super(props)
-
         this.state = {
+            vpWidth,
+            vpHeight,
+            isMobile: mql.matches,
 
             headerLink: '..',
             showCart: false,
@@ -41,19 +50,15 @@ class Main extends Component {
                 region: '',
                 fullAddress: '',
             }
-
         }
-
     }
 
     setHeaderLink = link => this.setState({headerLink: link})
 
     setShowCart = bool => {
-
         this.setState({
             showCart: bool,
         })
-
     }
 
     addItemToCart = item => {
@@ -79,46 +84,34 @@ class Main extends Component {
     }
 
     cartHasItems = numOfItemsInCart => {
-
         if (numOfItemsInCart > 0) {
-
             return true
-
         } else return false
-
     }
 
     removeItem = itemNumber => {
-        
         let items = this.state.itemsInCart
-        
         if(items.length === 1) items.pop()
         else items.splice(itemNumber, 1)
-
         let cartHasItems = this.cartHasItems(items.length)
-
         this.setState({
             itemsInCart: items,
             numberOfItemsInCart: items.length,
             cartHasItems: cartHasItems,
         })
-
     }
 
     getNumberOfItemsInCart = () => this.state.numberOfItemsInCart
 
     setItemDetails = item => {
-        
         this.setState({
             itemDetails: item
         })
-
     }
 
     setFullAddress = fullAddress => this.setState({orderInfo: {fullAddress: fullAddress}})
 
     setOrderInfo = (name, email, phone, street, city, zip, region, fullAddress) => {
-
         this.setState({
             orderInfo: {
                 name: name,
@@ -131,14 +124,12 @@ class Main extends Component {
                 fullAddress: fullAddress,
             }
         })
-
     }
 
     render() {
         return (
             <Router>
                 <ScrollToTop>
-
                     <Header
                         headerLink={this.state.headerLink}
                         showCart={this.state.showCart}
@@ -147,8 +138,17 @@ class Main extends Component {
                     />
 
                     <Switch>
-
-                        <Route exact path='/' component={Home} />
+                        <Route exact path='/'
+                            render={props => <Home
+                                {...props}
+                                device={{
+                                    vpWidth: this.state.vpWidth,
+                                    vpHeight: this.state.vpHeight,
+                                    isMobile: this.state.isMobile,
+                                }}
+                                isMobile={this.state.isMobile}
+                            />}
+                        />
 
                         <Redirect 
                             from='/home'
@@ -177,16 +177,12 @@ class Main extends Component {
                         
                         />
 
-                        
-
                         {/* redirect from /songs/ to /music for cases where user tries
                         to link there directly */}
                         <Redirect 
                             from='/songs'
                             to='/music'
                         />
-
-                        
 
                         <Route path='/merch' 
                             render={(props) => <Store 
@@ -298,14 +294,10 @@ class Main extends Component {
                         />
 
                     </Switch>
-
                 </ScrollToTop>
-                
             </Router>
         )
-
     }
-
 }
 
 export default Main
