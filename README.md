@@ -1,22 +1,21 @@
-## Available Scripts
+# Northwest.band
+This repository contains source code for [northwest.band](https://northwest.band). 
+<br />
 
-In the project directory, you can run:
+<!-- ## Why open source?
+As stated in the GLPv2, licenses for most software are designed to take away your freedom to share and change it. (write more later) -->
+
+## Development
+
+### `git clone git@github.com:nbennett320/northwest.band.git`
+Clone the repository to your computer.<br />
+
+### `yarn install`
+Install dependencies. <br />
 
 ### `yarn start`
-
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+Start a development server on [http://localhost:3000](http://localhost:3000).<br />
 
 ### `yarn build`
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
+Build/minifies the site for production. Files are built to the `build` folder.<br />
