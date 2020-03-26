@@ -70,7 +70,7 @@ const styles = {
         alignItems: 'center',
         position: 'absolute',
         top: '0',
-        width: '100vw',
+        width: '100%',
         height: 'auto',
         paddingTop: 'calc(8vh + 40px)',
         paddingBottom: '40px',
