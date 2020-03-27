@@ -3,9 +3,9 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { Redirect } from 'react-router-dom'
 
 import Header from './components/Header'
-import Home from './Home'
+import Home from './pages/home/Home'
 import Music from './pages/music/Music'
-import Lyrics from './Lyrics'
+import Lyrics from './pages/music/Lyrics'
 import Store from './Store'
 import ProductPage from './components/store/ProductPage'
 import Goodies from './Goodies'
@@ -25,7 +25,6 @@ const vpWidth = window.innerWidth
 const vpHeight = window.innerHeight
 
 class Main extends Component {
-
     constructor(props) {
         super(props)
         this.state = {
@@ -157,8 +156,8 @@ class Main extends Component {
                         {/* redirect from /songs/ to /music for cases where user tries
                         to link there directly */}
                         <Redirect
-                            from='/music/:songKey'
-                            to='/songs/:songKey'
+                            from='/music/:key'
+                            to='/songs/:key'
                         />
 
                         <Route path='/music' 
@@ -173,7 +172,7 @@ class Main extends Component {
                             />}
                         />
 
-                        <Route path='/songs/:songKey'
+                        <Route path='/songs/:key'
                             render={(props) => <Lyrics 
                                 {...props} 
                                 setHeaderLink={this.setHeaderLink}

@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { Helmet } from 'react-helmet'
-import Cloud from './components/Cloud'
-import Footer from './components/Footer'
+import Cloud from './Cloud'
+import Footer from '../../components/Footer'
 
-import './css/home.css'
+import '../../css/home.css'
 
 class Home extends Component {
     render() {

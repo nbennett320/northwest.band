@@ -29,7 +29,7 @@ class Album extends Component {
             <div style={styles.main}>
                 <ThemeProvider theme={theme}>
                     <Typography variant="h4" color='secondary'> {title.toLowerCase()} </Typography>
-                    <Typography variant="subtitle1" color='secondary'> {date} </Typography>
+                    <Typography variant="subtitle1" color='secondary'> {date.toLowerCase()} </Typography>
 
                     <img src={img} 
                         alt={`album art for northwest's ${title}.`} 

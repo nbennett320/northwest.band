@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
 import Album from './Album'
 import Footer from '../../components/Footer'
@@ -10,7 +9,6 @@ import AreaCodeArt from '../../img/music/areacode.png'
 import '../../css/music.css'
 
 class Music extends Component {
-
     componentDidMount () {
         this.props.setHeaderLink('/')
     }
@@ -90,13 +88,13 @@ const helmet = <Helmet>
             songs, 
         "
     />
-    <link rel="canonical" href="http://northwest.band" />
+    <link rel="canonical" href="http://northwest.band/music" />
     <meta name="author" content="Noah Bennett" />
     <meta name="description" content="
         A list of Northwest's entire discography and respective lyrics.
     " />
     <meta name="robots" content="index" />
-    <meta name="url" content="http://northwest.band" />
+    <meta name="url" content="http://northwest.band/music" />
     <title>northwest the band | music, lyrics, and artwork</title>
 </Helmet>
 
