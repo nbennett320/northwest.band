@@ -18,7 +18,7 @@ class Cloud extends Component {
                 style={{
                     ...stylesProp.cloud,
                     ...isMobile ? {} : {...styles.desktop.cloud},
-                    backgroundImage: `url(${require('../' + images.cloud)})`
+                    backgroundImage: `url(${require('../../' + images.cloud)})`
                 }}
             >
                 <Link to={`${link}`}>
@@ -29,11 +29,11 @@ class Cloud extends Component {
                                 ? {
                                     ...stylesProp.text.hover,
                                     ...styles.text,
-                                    backgroundImage: `url(${require('../' + images.text.hover)})`
+                                    backgroundImage: `url(${require('../../' + images.text.hover)})`
                                 } : {
                                     ...stylesProp.text.main,
                                     ...styles.text,
-                                    backgroundImage: `url(${require('../' + images.text.main)})`
+                                    backgroundImage: `url(${require('../../' + images.text.main)})`
                                 }
                         }
                     />

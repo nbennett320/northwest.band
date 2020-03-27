@@ -26,13 +26,12 @@ class Lyrics extends Component {
         const { match } = this.props
         const { key } = match.params
         const song = this.getSongFromKey(key)
-        console.log(`../../img/lyrics/${song["album"].toLowerCase()}/${key}.jpg`)
         const url = require(`../../img/lyrics/${song["album"].toLowerCase()}/${key}.jpg`)
         const helmet = (
             <Helmet>
                 {helmetBase}
                 <meta name="url" content={`http://northwest.band/songs/${key}`} />
-                <title>northwest the band | {song.title} lyrics </title>
+                <title>northwest the band | {song.title.toLowerCase()} lyrics </title>
                 <meta name="description" content={`
                     Lyrics for "${song.title}" by Northwest.
                 `} />
