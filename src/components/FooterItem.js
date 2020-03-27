@@ -8,7 +8,6 @@ class FooterItem extends Component {
     linkIsInternal = link => typeof(link) === 'string'
 
     render() {
-        console.log(typeof(this.props.link))
         const { Icon, label, link } = this.props
         return(
             <li style={styles.li}>

@@ -41,7 +41,7 @@ class Lyrics extends Component {
             key: 'fader'
         },
 
-        'flake':{
+        'flake': {
             title: 'Flake',
             date: 'July 15, 2018',
             album: 'area code',
@@ -51,7 +51,7 @@ class Lyrics extends Component {
             key: 'flake'
         },
 
-        'lover':{
+        'lover': {
             title: 'Lover',
             date: 'July 15, 2018',
             album: 'area code',
@@ -61,7 +61,7 @@ class Lyrics extends Component {
             key: 'lover'
         },
 
-        'quink':{
+        'quink': {
             title: 'Quink',
             date: 'July 15, 2018',
             album: 'area code',
@@ -71,7 +71,7 @@ class Lyrics extends Component {
             key: 'quink'
         },
 
-        'rendezvous':{
+        'rendezvous': {
             title: 'Rendezvous',
             date: 'July 15, 2018',
             album: 'area code',
@@ -81,7 +81,7 @@ class Lyrics extends Component {
             key: 'rendezvous'
         },
 
-        'swmtn':{
+        'swmtn': {
             title: 'Stay W. Me 2nite',
             date: 'July 15, 2018',
             album: 'area code',
@@ -91,7 +91,7 @@ class Lyrics extends Component {
             key: 'swmtn'
         },
 
-        'new-feel':{
+        'new-feel': {
             title: 'New Feel',
             date: 'January 25, 2019',
             album: 'suburban dogs',
@@ -101,7 +101,7 @@ class Lyrics extends Component {
             key: 'new-feel'
         },
 
-        'come-around':{
+        'come-around': {
             title: 'Come Around',
             date: 'June 14, 2019',
             album: 'suburban dogs',
@@ -189,8 +189,7 @@ class Lyrics extends Component {
             image: './img/misc/band6.jpg',
             altText: 'we all jam',
             key: 'morgan-ave'
-        },
-
+        }
     }
 
     getBackgroundImage = (album, key) => {

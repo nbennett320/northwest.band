@@ -8,20 +8,18 @@ import {
 import FooterItem from './FooterItem'
 import InstagramIcon from '@material-ui/icons/Instagram'
 import TwitterIcon from '@material-ui/icons/Twitter'
-import SpotifyIcon from './Icons/SpotifyIcon'
-import AppleMusicIcon from './Icons/AppleMusicIcon'
+import SpotifyIcon from './icons/SpotifyIcon'
+import AppleMusicIcon from './icons/AppleMusicIcon'
 import YouTubeIcon from '@material-ui/icons/YouTube'
 import AlternateEmailIcon from '@material-ui/icons/AlternateEmail'
 import MenuBookIcon from '@material-ui/icons/MenuBook'
-import BitcoinIcon from './Icons/BitcoinIcon'
+import BitcoinIcon from './icons/BitcoinIcon'
 import GitHubIcon from '@material-ui/icons/GitHub'
 
 import '../css/components/footer.css'
 
 class Footer extends Component {
-
     render() {
-
         const theme = createMuiTheme({
             palette: {
                 primary: {
@@ -85,7 +83,6 @@ class Footer extends Component {
                                 </Link>
                             </Typography>
                         }
-                        classNames={['underline-on-hover']}
                     />
                     
                     <FooterItem 

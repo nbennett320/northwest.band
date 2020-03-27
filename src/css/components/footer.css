@@ -1,11 +1,7 @@
+.underline-on-hover{
+    text-decoration: none !important;
+}
+
 .underline-on-hover:hover {
     text-decoration: underline !important;
-}
-
-.footer-list-entry {
-    text-decoration: none;
-}
-
-.footer-list-entry:hover {
-    text-decoration: underline;
 }

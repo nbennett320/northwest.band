@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom'
 
 import Header from './components/Header'
 import Home from './Home'
-import Music from './Music'
+import Music from './pages/music/Music'
 import Lyrics from './Lyrics'
 import Store from './Store'
 import ProductPage from './components/store/ProductPage'
@@ -146,7 +146,6 @@ class Main extends Component {
                                     vpHeight: this.state.vpHeight,
                                     isMobile: this.state.isMobile,
                                 }}
-                                isMobile={this.state.isMobile}
                             />}
                         />
 
@@ -165,6 +164,11 @@ class Main extends Component {
                         <Route path='/music' 
                             render={(props) => <Music 
                                 {...props} 
+                                device={{
+                                    vpWidth: this.state.vpWidth,
+                                    vpHeight: this.state.vpHeight,
+                                    isMobile: this.state.isMobile,
+                                }}
                                 setHeaderLink={this.setHeaderLink}
                             />}
                         />
