@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Typography } from '@material-ui/core'
 
 export default class LyricsBody extends Component {
-    printLyrics = () => {
+    listLyrics = () => {
         const { lyrics } = this.props.song
         return lyrics.map((el, i) => (
             <span key={i}> {el.toLowerCase()} <br /> </span>
@@ -13,7 +13,7 @@ export default class LyricsBody extends Component {
         return (
             <div style={styles.main}>
                 <Typography variant="body2" color="secondary">
-                    {this.printLyrics()}
+                    {this.listLyrics()}
                 </Typography>
             </div>
         )

@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet'
 import LyricsHeader from './LyricsHeader'
 import LyricsBody from './LyricsBody'
 import Footer from '../../components/Footer'
-import songs from './Songs.json'
+import songs from '../../data/Songs.json'
 
 class Lyrics extends Component {
     componentDidMount() {

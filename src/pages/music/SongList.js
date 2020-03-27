@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Typography } from '@material-ui/core'
 import { Link } from 'react-router-dom'
-import songs from './Songs.json'
+import songs from '../../data/Songs.json'
 
 export default class SongList extends Component {
     render() {
