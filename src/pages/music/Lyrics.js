@@ -47,7 +47,7 @@ class Lyrics extends Component {
                     <LyricsBody song={song} />
                 </div>
 
-                <Footer />
+                <Footer location={this.props.location} />
             </div>
         )
     }
@@ -59,6 +59,7 @@ const styles = {
         height: 'auto',
         minHeight: '100%',
         display: 'flex',
+        flexDirection: 'column',
         position: 'absolute',
         top: '0',
         paddingTop: '0',

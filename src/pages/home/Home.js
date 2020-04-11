@@ -56,7 +56,7 @@ class Home extends Component {
                     isMobile={this.props.device.isMobile}
                 />
 
-                <Footer />
+                <Footer location={this.props.location} />
             </div>
         )
     }

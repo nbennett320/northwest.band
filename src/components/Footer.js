@@ -7,6 +7,7 @@ import {
 } from '@material-ui/core/styles'
 import FooterItem from './FooterItem'
 import FooterBottom from './FooterBottom'
+import Share from './Share'
 import InstagramIcon from '@material-ui/icons/Instagram'
 import TwitterIcon from '@material-ui/icons/Twitter'
 import SpotifyIcon from './icons/SpotifyIcon'
@@ -109,6 +110,8 @@ class Footer extends Component {
                         label='github'
                         link='https://github.com/nbennett320/northwest.band'
                     />
+
+                    <Share location={this.props.location} />
 
                     <FooterBottom />
                 </ThemeProvider>               

@@ -1,34 +1,7 @@
 import React, { Component } from 'react'
-import { 
-    Typography,
-    Popover
-} from '@material-ui/core'
+import { Typography } from '@material-ui/core'
 
-class FooterBottom extends Component {
-    state = {
-        isOpen: false,
-        anchor: undefined,
-    }
-
-    copyToClipboard = e => {
-        navigator.clipboard.writeText(e.target.innerText)
-        this.handleOpen(e.target)
-    }
-
-    handleOpen = target => {
-        this.setState({
-            isOpen: true,
-            anchor: target
-        })
-    }
-
-    handleClose = () => {
-        this.setState({
-            isOpen: false,
-            anchor: undefined
-        })
-    }
-
+export default class FooterBottom extends Component {
     render() {
         return (
             <div style={styles.main}>
@@ -41,28 +14,6 @@ class FooterBottom extends Component {
                 > 
                     1NJQyoov5RSJq9YPbzNktN6oVguf2Anav4
                 </Typography>
-                <Popover 
-                    open={this.state.isOpen}
-                    anchorEl={this.state.anchor}
-                    onClose={this.handleClose}
-                    anchorOrigin={{
-                        vertical: 'bottom',
-                        horizontal: 'center',
-                    }}
-                    transformOrigin={{
-                        vertical: 'top',
-                        horizontal: 'center',
-                    }}
-                    classes={{
-                        root: styles.popup
-                    }}
-                >
-                    <div style={styles.popupContent}>
-                        <Typography variant="caption" color="secondary"> 
-                            copied '1NJQyoov5RSJq9YPbzNktN6oVguf2Anav4' to clipboard
-                        </Typography>
-                    </div>
-                </Popover>
             </div>
         )
     }
@@ -83,5 +34,3 @@ const styles = {
         margin: '0 auto',
     }
 }
-
-export default FooterBottom

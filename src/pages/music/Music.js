@@ -11,6 +11,7 @@ class Music extends Component {
         this.props.setHeaderLink('/')
     }
 
+
     listEntries = () => (
         Object.keys(albums).map(i => {
             const album = albums[i]
@@ -37,7 +38,7 @@ class Music extends Component {
                     {this.listEntries()}
                 </div>
 
-                <Footer />
+                <Footer location={this.props.location} />
             </div>
         )
     }
