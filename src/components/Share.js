@@ -3,7 +3,6 @@ import ShareIcon from '@material-ui/icons/Share'
 import { 
     Typography,
     IconButton,
-    Popover
 } from '@material-ui/core'
 
 class Share extends Component {

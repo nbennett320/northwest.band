@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
 import '../../css/store.css'
-import { throwStatement } from '@babel/types'
 
 class ItemPreview extends Component {
 

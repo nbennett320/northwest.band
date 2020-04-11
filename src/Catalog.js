@@ -67,7 +67,7 @@ const BuildCatalog = {
 
     0: {
         title: 'northwest classic t-shirt',
-        defaultImg: `${require(`./img/img_merch/img_500x500/classic-black-on-white.jpg`)}`,
+        //defaultImg: `${require(`./img/img_merch/img_500x500/classic-black-on-white.jpg`)}`,
         hoverImg: `${require(`./img/img_merch/img_500x500/classic-${randomClassicStyleImg()}.jpg`)}`,
         altText: 't-shirt with classic nw box logo',
         description: 't-shirt with classic nw box logo',
@@ -90,7 +90,7 @@ const BuildCatalog = {
 
     1: {
         title: 'northwest suburban dogs t-shirt',
-        defaultImg: `${require(`./img/img_merch/img_500x500/eggshellsd.jpg`)}`,
+        // defaultImg: `${require(`./img/img_merch/img_500x500/eggshellsd.jpg`)}`,
         hoverImg: `${require(`./img/img_merch/img_500x500/${randomSDStyleImg()}sd.jpg`)}`,
         altText: 't-shirt with black suburban dogs logo',
         description: 't-shirt with black suburban dogs logo',
@@ -135,7 +135,7 @@ const BuildCatalog = {
 
     2: {
         title: 'leo photo t-shirt',
-        defaultImg: `${require('./img/img_merch/img_500x500/leo-tee-white.jpg')}`,
+        //defaultImg: `${require('./img/img_merch/img_500x500/leo-tee-white.jpg')}`,
         hoverImg: `${require(`./img/img_merch/img_500x500/leo-tee-${randomLeoTeeStyleImg()}.jpg`)}`,
         altText: 't-shirt with a lil rascal named leo on it',
         description: 't-shirt with a lil rascal named leo on it',
@@ -158,7 +158,7 @@ const BuildCatalog = {
 
     3: {
         title: 'leo photo hoodie',
-        defaultImg: `${require('./img/img_merch/img_500x500/leo-hoodie-grey.jpg')}`,
+        //defaultImg: `${require('./img/img_merch/img_500x500/leo-hoodie-grey.jpg')}`,
         hoverImg: `${require(`./img/img_merch/img_500x500/leo-hoodie-${randomLeoPhotoHoodieStyleImg()}.jpg`)}`,
         altText: 'hoodie with a lil rascal named leo on it',
         description: 'hoodie with a lil rascal named leo on it',
@@ -180,7 +180,7 @@ const BuildCatalog = {
 
     4: {
         title: 'northwest suburban dogs hoodie',
-        defaultImg: `${require('./img/img_merch/img_500x500/grey hoodie.jpg')}`,
+        //defaultImg: `${require('./img/img_merch/img_500x500/grey hoodie.jpg')}`,
         hoverImg: `${require(`./img/img_merch/img_500x500/${randomSDHoodieStyleImg()} hoodie.jpg`)}`,
         altText: 'grey hoodie with black suburban dogs',
         description: 'grey hoodie with black suburban dogs',
@@ -202,7 +202,7 @@ const BuildCatalog = {
 
     5: {
         title: 'suburban dogs cd',
-        defaultImg: `${require('./img/img_merch/img_500x500/suburban dogs cd cover art.jpg')}`,
+        //defaultImg: `${require('./img/img_merch/img_500x500/suburban dogs cd cover art.jpg')}`,
         hoverImg: `${require(`./img/img_merch/img_500x500/suburban dogs cd back art.jpg`)}`,
         altText: 'physical cd of northwest\'s suburban dogs with a lyrics booklet',
         description: 'physical cd of northwest\'s suburban dogs with a lyrics booklet',

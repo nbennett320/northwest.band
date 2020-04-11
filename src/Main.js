@@ -5,12 +5,12 @@ import Header from './components/Header'
 import Home from './pages/home/Home'
 import Music from './pages/music/Music'
 import Lyrics from './pages/music/Lyrics'
-import Store from './Store'
-import ProductPage from './components/store/ProductPage'
+import Merch from './pages/merch/Merch'
+// import ProductPage from './components/store/ProductPage'
 import Goodies from './Goodies'
 import ScrollToTop from './scripts/ScrollToTop'
 import ViewCartPage from './components/store/ViewCartPage'
-import PlaceOrderPage from './components/store/PlaceOrderPage';
+import PlaceOrderPage from './components/store/PlaceOrderPage'
 import OrderSummary from './components/store/OrderSummary'
 import Contact from './Contact'
 import Admin from './Admin'
@@ -187,12 +187,13 @@ class Main extends Component {
                         />
 
                         <Route path='/merch' 
-                            render={(props) => <Store 
-                                {...props} 
-                                setShowCart={this.setShowCart}
-                                addItemToCart={this.addItemToCart}
-                                setItemDetails={this.setItemDetails}
+                            render={(props) => <Merch 
+                                {...props}
                                 setHeaderLink={this.setHeaderLink}
+                                // setShowCart={this.setShowCart}
+                                // addItemToCart={this.addItemToCart}
+                                // setItemDetails={this.setItemDetails}
+                                // setHeaderLink={this.setHeaderLink}
                             />}
                         />
 
@@ -203,7 +204,7 @@ class Main extends Component {
                             to='/merch'
                         />
 
-                        <Route path='/products/:model' 
+                        {/* <Route path='/products/:model' 
                             render={(props) => <ProductPage 
                                 {...props} 
                                 setShowCart={this.setShowCart}
@@ -211,7 +212,7 @@ class Main extends Component {
                                 itemDetails={this.state.itemDetails}
                                 setHeaderLink={this.setHeaderLink}
                             />}
-                        />
+                        /> */}
 
                         {/* redirect from /products/ to /merch for cases where user tries
                         to link there directly */}
