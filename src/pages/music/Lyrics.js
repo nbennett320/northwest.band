@@ -27,16 +27,7 @@ class Lyrics extends Component {
         const { key } = match.params
         const song = this.getSongFromKey(key)
         const url = require(`../../img/lyrics/${song["album"].toLowerCase()}/${key}.jpg`)
-        const helmet = (
-            <Helmet>
-                {helmetBase}
-                <meta name="url" content={`http://northwest.band/songs/${key}`} />
-                <title>northwest the band | {song.title.toLowerCase()} lyrics </title>
-                <meta name="description" content={`
-                    Lyrics for "${song.title}" by Northwest.
-                `} />
-            </Helmet>
-        )
+        const helmet = makeHelmet(key, song)
 
         return (
             <div style={{
@@ -82,27 +73,34 @@ const styles = {
     }
 }
 
-const helmetBase = [
-    (<meta charset="utf-8" />),
-    (<meta name="keywords" 
-        content="
-            northwest, 
-            northwest the band, 
-            northwest band,
-            music, 
-            band, 
-            merch, 
-            merchandise, 
-            clothing, 
-            screen print, 
-            band tees, 
-        "
-    />),
-    (<link rel="canonical" href="http://northwest.band/music" />),
-    (<meta name="author" content="Noah Bennett" />),
-    (<meta name="robots" content="index" />)
-]
+const makeKey = title => title.replace(/\s/g,'-').replace(/[.()]/g,'').toLowerCase()
 
-const makeKey = title => title.replace(/\s/g,'-').replace(/[\.\(\)]/g,'').toLowerCase()
+const makeHelmet = (key, song) => (
+    <Helmet>
+        <meta charset="utf-8" />
+        <meta name="keywords" 
+            content="
+                northwest, 
+                northwest the band, 
+                northwest band,
+                music, 
+                band, 
+                merch, 
+                merchandise, 
+                clothing, 
+                screen print, 
+                band tees, 
+            "
+        />
+        <link rel="canonical" href="http://northwest.band/music" />
+        <meta name="author" content="Noah Bennett" />
+        <meta name="robots" content="index" />
+        <meta name="url" content={`http://northwest.band/songs/${key}`} />
+        <title>northwest the band | {song.title.toLowerCase()} lyrics </title>
+        <meta name="description" content={`
+            Lyrics for "${song.title}" by Northwest.
+        `} />
+    </Helmet>
+)
 
 export default Lyrics

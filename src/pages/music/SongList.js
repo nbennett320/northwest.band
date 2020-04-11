@@ -33,4 +33,4 @@ export default class SongList extends Component {
     }
 }
 
-const makeKey = title => title.replace(/\s/g,'-').replace(/[\.\(\)]/g,'').toLowerCase()
+const makeKey = title => title.replace(/\s/g,'-').replace(/[.()]/g,'').toLowerCase()

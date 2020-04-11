@@ -6,6 +6,7 @@ import {
     ThemeProvider 
 } from '@material-ui/core/styles'
 import FooterItem from './FooterItem'
+import FooterBottom from './FooterBottom'
 import InstagramIcon from '@material-ui/icons/Instagram'
 import TwitterIcon from '@material-ui/icons/Twitter'
 import SpotifyIcon from './icons/SpotifyIcon'
@@ -13,7 +14,6 @@ import AppleMusicIcon from './icons/AppleMusicIcon'
 import YouTubeIcon from '@material-ui/icons/YouTube'
 import AlternateEmailIcon from '@material-ui/icons/AlternateEmail'
 import MenuBookIcon from '@material-ui/icons/MenuBook'
-import BitcoinIcon from './icons/BitcoinIcon'
 import GitHubIcon from '@material-ui/icons/GitHub'
 
 import '../css/components/footer.css'
@@ -108,26 +108,10 @@ class Footer extends Component {
                         Icon={<GitHubIcon color='secondary' />}
                         label='github'
                         link='https://github.com/nbennett320/northwest.band'
-                    />  
-
-                    <FooterItem 
-                        Icon={<BitcoinIcon color='secondary' />}
-                        label='1NJQyoov5RSJq9YPbzNktN6oVguf2Anav4'
-                        link={
-                            <Typography
-                                variant='subtitle2'
-                                color='inherit'
-                                style={styles.linkItem}
-                            >
-                                1NJQyoov5RSJq9YPbzNktN6oVguf2Anav4 
-                            </Typography>
-                        }
                     />
-                </ThemeProvider>
 
-                <div style={styles.bottom}>
-                    <Typography variant="caption"> &copy; 2020, northwest, 4431 records </Typography>
-                </div>
+                    <FooterBottom />
+                </ThemeProvider>               
             </div>
         )
     }
@@ -153,14 +137,6 @@ const styles = {
         width: 'auto',
         marginLeft: '10%',
         marginRight: 'auto',
-    },
-    
-    bottom: {
-        width: '100%',
-        marginLeft: 'auto',
-        marginRight: 'auto',
-        marginTop: '20px',
-        textAlign: 'center',
     }
 }
 
