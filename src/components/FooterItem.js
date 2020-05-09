@@ -4,9 +4,8 @@ import {
   Link,
 } from '@material-ui/core'
 
-class FooterItem extends Component {
+export default class FooterItem extends Component {
   linkIsInternal = link => typeof(link) === 'string'
-
   render() {
     const { Icon, label, link } = this.props
     return(
@@ -41,5 +40,3 @@ const styles = {
     marginRight: 'auto',
   }
 }
-
-export default FooterItem

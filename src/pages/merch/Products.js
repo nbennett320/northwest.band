@@ -6,6 +6,8 @@ class Products extends Component {
   makeCatalog = filter => {
     const clothing = products["clothing"]
     const other = products["other"]
+
+    // map clothing to array of jsx
     const clothingArr = Object.keys(clothing).map(i => {
       const product = clothing[i]
       return (
@@ -21,6 +23,7 @@ class Products extends Component {
       )
     })
 
+    // map other stuff to array of jsx
     const otherArr = Object.keys(other).map(i => {
       const product = other[i]
       return (

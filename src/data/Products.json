@@ -3,7 +3,7 @@
     "0": {
       "title": "northwest classic t-shirt",
       "price": 12.00,
-      "image": "/img/img_merch/img_500x500/classic-`",
+      "image": "classic-",
       "description": "t-shirt with classic nw box logo",
       "attributes": {
         "type": "clothing",
@@ -29,7 +29,7 @@
     "1": {
       "title": "northwest suburban dogs t-shirt",
       "price": 12.00,
-      "image": "/img/img_merch/img_500x500/sd-tee-",
+      "image": "sd-tee-",
       "description": "t-shirt with black suburban dogs logo",
       "attributes": {
         "type": "clothing",
@@ -56,7 +56,7 @@
     "2": {
       "title": "leo photo t-shirt",
       "price": 14.00,
-      "image": "/img/img_merch/img_500x500/leo-tee-",
+      "image": "leo-tee-",
       "description": "t-shirt with a lil rascal named leo on it",
       "attributes": {
         "type": "clothing",
@@ -82,7 +82,7 @@
     "3": {
       "title": "leo photo hoodie",
       "price": 24.00,
-      "image": "/img/img_merch/img_500x500/leo-hoodie-",
+      "image": "leo-hoodie-",
       "description": "hoodie with a lil rascal named leo on it",
       "attributes": {
         "type": "clothing",
@@ -107,7 +107,7 @@
     "4": {
       "title": "northwest suburban dogs hoodie",
       "price": 22.00,
-      "image": "/img/img_merch/img_500x500/sd-hoodie-",
+      "image": "sd-hoodie-",
       "description": "hoodie with black suburban dogs logo",
       "attributes": {
         "type": "clothing",
@@ -134,7 +134,7 @@
     "0": {
       "title": "suburban dogs cd",
       "price": 28.00,
-      "image": "/img/img_merch/img_500x500/suburban dogs cd back art",
+      "image": "suburban dogs cd back art",
       "description": "physical cd of northwest\"s suburban dogs with a lyrics booklet",
       "attributes": {
         "type": "other",

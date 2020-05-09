@@ -1,23 +1,27 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import ProductListingText from './ProductListingText'
+import ProductImage from './ProductImage'
 
 class ProductListing extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      image: undefined,
+      image: '',
       isHovering: false,
     }
   }
-
+  
   componentDidUpdate(prevProps, prevState) {
-    const { imageSrc, attributes } = this.props
-    const { colors } = attributes
-    console.log(`../..${imageSrc}${colors[randomNum(colors.length)]}.jpg`)
-    if(this.state.isHovering !== prevState.isHovering) {
+    if(this.props !== prevProps) {
+      const { imageSrc, attributes } = this.props
+      const { colors } = attributes
+      const path = '../../img/img_merch/img_500x500/'
+      const image = `${imageSrc}${colors[randomNum(colors.length)]}.jpg`
+      console.log("path: ", path)
+      console.log("image: ", image)
       this.setState({
-        image: `../..${imageSrc}${colors[randomNum(colors.length)]}.jpg`
+        image: path + image
       })
     }
   }
@@ -35,11 +39,15 @@ class ProductListing extends Component {
   }
 
   render() {
-    const { title, price, description, attributes, zIndex } = this.props
+    const { 
+      title, 
+      price, 
+      description, 
+      attributes, 
+      zIndex,
+    } = this.props
     const model = attributes["model"]
-    console.log(this.props)
     const { image, isHovering } = this.state
-    console.log(this.state)
     
     return (
       <Link to={`/products/${makeKey(model)}`}
@@ -52,12 +60,12 @@ class ProductListing extends Component {
             : {filter: 'none'}
         }}
       >
-        <img src={image ? require(image) : ''}
-          onMouseEnter={this.handleMouseEnter}
-          onMouseLeave={this.handleMouseLeave}
-          alt={description}
-          style={styles.image}
-        />
+        {image && <ProductImage 
+          img={image}
+          description={description}
+          handleMouseEnter={this.handleMouseEnter}
+          handleMouseLeave={this.handleMouseLeave}
+        />}
 
         <ProductListingText 
           title={title}
@@ -82,13 +90,7 @@ const styles = {
     backgroundColor: 'rgba(255,255,255,1)',
     boxShadow: 'rgba(0, 0, 0, 0.07) 0px 0px 8px 2px',
     cursor: 'pointer',
-  },
-
-  image: {
-    width: '90%',
-    margin: '5%',
-    borderRadius: '0',
-  },
+  }
 }
 
 export default ProductListing

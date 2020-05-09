@@ -16,7 +16,6 @@ import YouTubeIcon from '@material-ui/icons/YouTube'
 import AlternateEmailIcon from '@material-ui/icons/AlternateEmail'
 import MenuBookIcon from '@material-ui/icons/MenuBook'
 import GitHubIcon from '@material-ui/icons/GitHub'
-
 import '../css/components/footer.css'
 
 class Footer extends Component {

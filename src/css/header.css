@@ -1,17 +1,17 @@
 .header {
-    -webkit-backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 #headerImg:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 img {
-    opacity: 100% !important;
+  opacity: 100% !important;
 }
 
 @media only screen and (max-width: 633px) {
-    #headerImg:hover {
-        transform: scale(1.0);
-    }
+  #headerImg:hover {
+    transform: scale(1.0);
+  }
 }

@@ -15,7 +15,6 @@ import OrderSummary from './components/store/OrderSummary'
 import Contact from './Contact'
 import Admin from './Admin'
 import NoMatch from './NoMatch'
-
 import './css/App.css'
 
 // query device size

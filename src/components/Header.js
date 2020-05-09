@@ -1,53 +1,44 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-
+import Cart from './Cart'
+import HeaderLogo from '../img/nwStarLogoBlack_407x128.png'
 import '../css/header.css'
 
-import headerImg from '../img/nwStarLogoBlack_407x128.png'
-import Cart from './Cart'
-
 class Header extends Component {
-
-  constructor (props) {
-    super (props)
-    this.state = {
-      showCart: this.props.showCart
-    }
-  }
-
   handleHeaderClick = () => {
     this.props.setShowCart(false)
   }
 
   render () {
-    let cart
-    if(this.props.showCart === true) 
-      cart = <Link to='/cart' > 
-        <Cart numberOfItemsInCart={this.props.numberOfItemsInCart} /> 
-      </Link>
+    const { 
+			showCart, 
+			numberOfItemsInCart,
+			headerLink
+		} = this.props
 
     return (
       <div className="header" style={styles.main}>
-        <Link to={this.props.headerLink}>
-
-          <img src={headerImg} 
-            id="headerImg" 
+        <Link to={headerLink}
+					style={styles.link}
+				>
+          <img src={HeaderLogo} 
+            id="header-mg" 
             style={styles.img} 
             alt="northwest header"
             onClick={this.handleHeaderClick}
           />
-
         </Link>
 
-        {cart}
-        
+				{showCart && <Link to='/cart' > 
+						<Cart numberOfItemsInCart={numberOfItemsInCart} /> 
+					</Link>
+				}
       </div>
     )
   }
 }
 
 const styles = {
-
   main: {
     width: '100%',
     height: '5vh',
@@ -59,20 +50,25 @@ const styles = {
     position: 'fixed',
     top: '0',
     zIndex: '50',
-    // borderBottom: '1px solid #000',
     boxShadow: '0px 0px 8px 2px rgba(0,0,0,0.1)',
     backdropFilter: 'blur(10px)'
-  },
+	},
 
+	link: {
+		width: 'auto',
+		maxWidth: '633px',
+		display: 'flex',
+    justifyContent: 'center',
+	},
+	
   img: {
+		height: '100%',
     width: 'auto',
     maxWidth: '633px',
-    height: '-webkit-fill-available',
     marginLeft: 'auto',
     marginRight: 'auto',
     zIndex: '51'
   }
-
 }
 
 export default Header
