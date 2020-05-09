@@ -1,17 +1,17 @@
 @import url('https://fonts.googleapis.com/css?family=Work+Sans:400,600,800&display=swap');
 
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 html, body {
-    margin: 0;
-    height: 100%;
+  margin: 0;
+  height: 100%;
 }
 
 #crawl {
-    visibility: hidden !important;
-    color: #fff !important;
+  visibility: hidden !important;
+  color: #fff !important;
 }
 

@@ -3,34 +3,34 @@ import StoreHeader from './components/store/StoreHeader'
 
 class Admin extends Component {
 
-    render () {
+  render () {
 
-        return (
+    return (
 
-            <div className="admin-login" style={styles.main}>
+      <div className="admin-login" style={styles.main}>
 
-                <StoreHeader textInPhoto={"admin"} />
+        <StoreHeader textInPhoto={"admin"} />
 
-            </div>
+      </div>
 
-        )
+    )
 
-    }
+  }
 
 }
 
 const styles = {
 
-    main: {
-        width: '100%',
-        height: 'auto',
-        minHeight: '100%',
-        backgroundColor: '#fafafa',
-        display: 'flex',
-        top: '0',
-        position: 'absolute',
-        flexDirection: 'column',
-    }
+  main: {
+    width: '100%',
+    height: 'auto',
+    minHeight: '100%',
+    backgroundColor: '#fafafa',
+    display: 'flex',
+    top: '0',
+    position: 'absolute',
+    flexDirection: 'column',
+  }
 
 }
 
