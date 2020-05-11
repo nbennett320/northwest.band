@@ -4,6 +4,7 @@ import products from '../../data/Products.json'
 
 class Products extends Component {
   makeCatalog = filter => {
+    const { device } = this.props
     const clothing = products["clothing"]
     const other = products["other"]
 
@@ -14,11 +15,18 @@ class Products extends Component {
         <ProductListing 
           title={product["title"]}
           price={product["price"]}
-          imageSrc={product["image"]}
+          image={require(`../../img/merch/500/${product["image"]}${product.attributes.colors[randomNum(product.attributes.colors.length)]}.jpg`)}
           description={product["description"]}
           attributes={product["attributes"]}
           zIndex={i}
           key={i}
+          scale={() => (
+            device.vpWidth > 1920 
+              ? "lg"
+              : device.isMobile 
+                ? "sm"
+                : "m"
+          )}
         />
       )
     })
@@ -30,16 +38,22 @@ class Products extends Component {
         <ProductListing 
           title={product["title"]}
           price={product["price"]}
-          imageSrc={product["image"]}
+          image={require(`../../img/merch/500/${product["image"]}${product.attributes.colors[randomNum(product.attributes.colors.length)]}.jpg`)}
           description={product["description"]}
           attributes={product["attributes"]}
           zIndex={i + clothingArr.length}
           key={i + clothingArr.length}
+          scale={() => (
+            device.vpWidth > 1920 
+              ? "lg"
+              : device.isMobile 
+                ? "sm"
+                : "m"
+          )}
         />
       )
     })
 
-    console.log([...clothingArr, ...otherArr])
     return [...clothingArr, ...otherArr]
   }
 
@@ -52,15 +66,15 @@ class Products extends Component {
   }
 }
 
+const randomNum = max => Math.floor(Math.random() * Math.floor(max))
+
 const styles = {
   main: {
     width: '100%',
     display: 'flex',
     flexDirection: 'row',
     flexFlow: 'wrap',
-    position: 'absolute',
-    top: '0',
-    paddingTop: 'calc(5vh + 40px)'
+    paddingTop: '0'
   }
 }
 

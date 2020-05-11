@@ -27,7 +27,7 @@ class VisualOptionsArray extends Component {
             if(this.optionIsSelected(availableColors[i])) className="array-option-image selected-option"
             else className="array-option-image"
 
-            arrayImage = <img src={require(`../../img/img_merch/img_300x300/${this.props.getPathFromModel(this.props.model, availableColors[i])}.jpg`)} 
+            //arrayImage = <img src={require(`../../img/img_merch/img_300x300/${this.props.getPathFromModel(this.props.model, availableColors[i])}.jpg`)} 
                     alt={`${availableColors[i]} color option`}
                     className={className}
                     style={styles.arrayImage}

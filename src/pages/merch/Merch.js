@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Helmet } from 'react-helmet'
-import Header from './Header'
+import StoreHeader from './StoreHeader'
 import Products from './Products'
 import Footer from '../../components/Footer'
 
@@ -18,16 +18,27 @@ class Merch extends Component {
   }
 
   render() {
+    const { device } = this.props
+    console.log(device)
     return (
       <div style={styles.main}>
         {helmet}
 
-        <Header 
+        <StoreHeader 
           filter={this.state.filteredBy} 
           numItemsInCart={this.state.numItemsInCart}
+          scale={() => (
+            device.vpWidth > 1920 
+              ? "lg"
+              : device.isMobile 
+                ? "sm"
+                : "m"
+          )}
         />
 
-        <Products />
+        <Products 
+          device={device}
+        />
 
         <Footer />
       </div>
@@ -65,7 +76,10 @@ const helmet = (
 
 const styles = {
   main: {
-
+    display: 'flex',
+    flexDirection: 'column',
+    position: 'absolute',
+    top: '0',
   }
 }
 

@@ -1,28 +1,13 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import ProductListingText from './ProductListingText'
-import ProductImage from './ProductImage'
+import ProductListingImage from './ProductListingImage'
 
 class ProductListing extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      image: '',
       isHovering: false,
-    }
-  }
-  
-  componentDidUpdate(prevProps, prevState) {
-    if(this.props !== prevProps) {
-      const { imageSrc, attributes } = this.props
-      const { colors } = attributes
-      const path = '../../img/img_merch/img_500x500/'
-      const image = `${imageSrc}${colors[randomNum(colors.length)]}.jpg`
-      console.log("path: ", path)
-      console.log("image: ", image)
-      this.setState({
-        image: path + image
-      })
     }
   }
 
@@ -39,35 +24,36 @@ class ProductListing extends Component {
   }
 
   render() {
-    const { 
-      title, 
-      price, 
-      description, 
-      attributes, 
+    const {
+      title,
+      price,
+      description,
+      attributes,
+      image,
       zIndex,
+      scale
     } = this.props
-    const model = attributes["model"]
-    const { image, isHovering } = this.state
-    
+    const { model } = attributes
+    const { isHovering } = this.state
     return (
       <Link to={`/products/${makeKey(model)}`}
-        className="product-preview" 
+        className="product-preview"
         style={{
-          ...styles.main,
+          ...styles[`${scale()}`].main,
           zIndex: `${10 + zIndex}`,
-          ...isHovering 
-            ? {filter: 'brightness(1.075)'}
-            : {filter: 'none'}
+          ...isHovering
+            ? { filter: 'brightness(1.075)' }
+            : { filter: 'none' }
         }}
+        onMouseEnter={this.handleMouseEnter}
+        onMouseLeave={this.handleMouseLeave}
       >
-        {image && <ProductImage 
+        <ProductListingImage
           img={image}
           description={description}
-          handleMouseEnter={this.handleMouseEnter}
-          handleMouseLeave={this.handleMouseLeave}
-        />}
+        />
 
-        <ProductListingText 
+        <ProductListingText
           title={title}
           price={price}
           isHovering={this.state.isHovering}
@@ -77,19 +63,47 @@ class ProductListing extends Component {
   }
 }
 
-const makeKey = model => model.replace(/\s/g,'-').toLowerCase()
-
-const randomNum = max => Math.floor(Math.random() * Math.floor(max))
+const makeKey = model => model.replace(/\s/g, '-').toLowerCase()
 
 const styles = {
-  main: {
-    maxWidth: '33.333333%',
+  m: {
+    main: {
+      maxWidth: '33.333333%',
+      display: 'flex',
+      flexDirection: 'column',
+      flexBasis: '100%',
+      backgroundColor: 'rgba(255,255,255,1)',
+      boxShadow: 'rgba(0, 0, 0, 0.07) 0px 0px 8px 2px',
+      cursor: 'pointer',
+      textDecoration: 'none',
+      color: 'rgba(0, 0, 0, 0.87)'
+    }
+  },
+
+  sm: {
+    main: {
+      maxWidth: '50%',
+      display: 'flex',
+      flexDirection: 'column',
+      flexBasis: '100%',
+      backgroundColor: 'rgba(255,255,255,1)',
+      boxShadow: 'rgba(0, 0, 0, 0.07) 0px 0px 8px 2px',
+      cursor: 'pointer',
+      textDecoration: 'none',
+      color: 'rgba(0, 0, 0, 0.87)'
+    }
+  },
+
+  lg: {
+    maxWidth: '20%',
     display: 'flex',
     flexDirection: 'column',
     flexBasis: '100%',
     backgroundColor: 'rgba(255,255,255,1)',
     boxShadow: 'rgba(0, 0, 0, 0.07) 0px 0px 8px 2px',
     cursor: 'pointer',
+    textDecoration: 'none',
+    color: 'rgba(0, 0, 0, 0.87)'
   }
 }
 

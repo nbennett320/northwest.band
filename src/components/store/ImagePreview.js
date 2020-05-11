@@ -63,10 +63,10 @@ class ImagePreview extends Component {
 
             <div className="image-preview-contanier" styles={styles.main}>
 
-                <img src={require(`../../img/img_merch/img_500x500/${this.getPathFromModel(this.props.model, this.props.color)}.jpg`)} 
+                {/* <img src={require(`../../img/img_merch/img_500x500/${this.getPathFromModel(this.props.model, this.props.color)}.jpg`)} 
                     alt="default image"
                     style={styles.mainImage}
-                />
+                /> */}
 
                 {/* array of all options */}
                 <VisualOptionsArray 

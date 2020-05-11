@@ -1,17 +1,13 @@
 import React, { Component } from 'react'
 
-export default class ProductImage extends Component {
+export default class ProductListingImage extends Component {
   render() {
     const {
       img,
-      description,
-      handleMouseEnter,
-      handleMouseLeave
+      description
     } = this.props
     return (
-      <img src={require(img)}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
+      <img src={img}
         alt={description}
         style={styles.image}
       />

@@ -21,19 +21,19 @@ class Album extends Component {
         },
       },
     })
-    const styles = this.props.device.isMobile 
-      ? stylesOb.mobile
-      : stylesOb.main
+    const style = this.props.device.isMobile 
+      ? styles.mobile
+      : styles.main
     
     return (
-      <div style={styles.main}>
+      <div style={style.main}>
         <ThemeProvider theme={theme}>
           <Typography variant="h4" color='secondary'> {title.toLowerCase()} </Typography>
           <Typography variant="subtitle1" color='secondary'> {date.toLowerCase()} </Typography>
 
           <img src={img} 
             alt={`album art for northwest's ${title}.`} 
-            style={styles.cover}
+            style={style.cover}
           />
 
           <SongList album={title} />
@@ -43,7 +43,7 @@ class Album extends Component {
   }
 }
 
-const stylesOb = {
+const styles = {
   main: {
     main: {
       maxWidth: 'calc(500px * .7)',

@@ -28,9 +28,11 @@ export default class Header extends Component {
 
   render() {
     const { text } = this.state
+    const { scale } = this.props
+    console.log(scale())
     return (
       <div style={{
-        ...styles.main,
+        ...styles[`${scale()}`].main,
         backgroundImage: `url('${this.state.image}')`,
       }}>
         <Typography variant="h3">
@@ -44,11 +46,33 @@ export default class Header extends Component {
 const randomNum = max => Math.floor(Math.random() * Math.floor(max))
 
 const styles = {
-  main: {
-    width: '100%',
-    height: 'calc(250px + 5vh)',
-    backgroundPosition: 'top',
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover',
+  m: {
+    main: {
+      width: '100%',
+      height: 'calc(250px + 5vh)',
+      backgroundPosition: 'top',
+      backgroundRepeat: 'no-repeat',
+      backgroundSize: 'cover',
+    }
+  },
+  
+  sm: {
+    main: {
+      width: '100%',
+      height: 'calc(250px)',
+      backgroundPosition: 'top',
+      backgroundRepeat: 'no-repeat',
+      backgroundSize: 'cover',
+    }
+  },
+
+  lg: {
+    main: {
+      width: '100%',
+      height: 'calc(250px + 10vh)',
+      backgroundPosition: 'top',
+      backgroundRepeat: 'no-repeat',
+      backgroundSize: 'cover',
+    }
   }
 }

@@ -91,7 +91,7 @@
         "model": "leo photo hoodie",
         "style": "suburban dogs",
         "colors": [
-          "gray",
+          "grey",
           "purple",
           "black"
         ],
@@ -116,7 +116,7 @@
         "model": "suburban dogs hoodie",
         "style": "suburban dogs",
         "colors": [
-          "gray",
+          "grey",
           "orange",
           "pink"
         ],
@@ -134,7 +134,7 @@
     "0": {
       "title": "suburban dogs cd",
       "price": 28.00,
-      "image": "suburban dogs cd back art",
+      "image": "suburban dogs cd cover art",
       "description": "physical cd of northwest\"s suburban dogs with a lyrics booklet",
       "attributes": {
         "type": "other",
@@ -142,7 +142,7 @@
         "subcategory": "cd",
         "model": "suburban dogs cd",
         "style": "suburban dogs",
-        "colors": [],
+        "colors": [""],
         "sizes": []
       }
     }
