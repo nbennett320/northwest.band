@@ -53,7 +53,8 @@ class Products extends Component {
         />
       )
     })
-
+    
+    // spread and return components
     return [...clothingArr, ...otherArr]
   }
 

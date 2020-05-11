@@ -19,7 +19,6 @@ class Merch extends Component {
 
   render() {
     const { device } = this.props
-    console.log(device)
     return (
       <div style={styles.main}>
         {helmet}

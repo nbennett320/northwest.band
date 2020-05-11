@@ -49,7 +49,7 @@ const styles = {
     padding: '20px 0 20px 0',
     position: 'fixed',
     top: '0',
-    zIndex: '50',
+    zIndex: '5000',
     boxShadow: '0px 0px 8px 2px rgba(0,0,0,0.1)',
     backdropFilter: 'blur(10px)'
 	},
@@ -67,7 +67,7 @@ const styles = {
     maxWidth: '633px',
     marginLeft: 'auto',
     marginRight: 'auto',
-    zIndex: '51'
+    zIndex: '5001'
   }
 }
 

@@ -11,7 +11,6 @@ export default class Header extends Component {
   }
 
   componentDidUpdate (prevProps) {
-    console.log("awdaw")
     if(this.props !== prevProps) {
       this.setState({
         image: this.getImage(),
@@ -29,12 +28,12 @@ export default class Header extends Component {
   render() {
     const { text } = this.state
     const { scale } = this.props
-    console.log(scale())
     return (
       <div style={{
         ...styles[`${scale()}`].main,
         backgroundImage: `url('${this.state.image}')`,
       }}>
+        <HeaderIcons />
         <Typography variant="h3">
           {text}
         </Typography>
