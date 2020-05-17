@@ -204,7 +204,20 @@ class Main extends Component {
               to='/merch'
             />
 
-            <Route path='/products/:model' 
+            <Route path='/products/:model/:color' 
+              render={(props) => <ProductPage 
+                {...props} 
+                setShowCart={this.setShowCart}
+                setHeaderLink={this.setHeaderLink}
+                device={{
+                  vpWidth: this.state.vpWidth,
+                  vpHeight: this.state.vpHeight,
+                  isMobile: this.state.isMobile,
+                }}
+              />}
+            />
+
+            <Route path='/products/:model/' 
               render={(props) => <ProductPage 
                 {...props} 
                 setShowCart={this.setShowCart}

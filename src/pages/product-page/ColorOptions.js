@@ -1,25 +1,37 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 export default class ColorOptions extends Component {
-  isSelected = (el, model) => (
-    el.attributes.model === model
-  )
+  isSelected = (el) => {
+    const { selectedColor } = this.props.item
+    return el === selectedColor
+  }
 
   render() {
-    const { colors, model } = this.props
+    const { 
+      item,
+      colors, 
+      model,
+      match
+    } = this.props
+    console.log("color options: ", this.props)
     return (
       <span style={styles.main}>
-        {colors.map((el, i) => (
-          <img key={i}
-            //src={}
-            //alt={}
-            style={{
-              ...styles.image,
-              ...this.isSelected(el, model)
-                ? styles.selected
-                : {}
-            }}
-          />
+        {colors.map((color, i) => (
+          <Link to={`/products/${model}/${color}`}>
+            <img key={i}
+              src={require(`../../img/merch/500/${item.image}${color}.jpg`)}
+              alt={`${color} ${model}`}
+              onMouseEnter={() => this.props.setColor(color)}
+              onMouseLeave={() => this.props.setColor(match.params.color)}
+              style={{
+                ...styles.image,
+                ...this.isSelected(color)
+                  ? styles.selected
+                  : {}
+              }}
+            />
+          </Link>
         ))}
       </span>
     )

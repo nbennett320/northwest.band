@@ -17,9 +17,12 @@ export default class ProductPage extends Component {
   componentDidMount() {
     const { match } = this.props
     const product = this.getProduct(match.params.model)
+    const color = product.attributes.colors.includes(match.params.color)
+      ? match.params.color
+      : product.attributes.colors[0]
     const item = {
       ...product,
-      selectedColor: product.attributes.colors[0]
+      selectedColor: color
     }
     console.log(item)
     if(item) 
@@ -55,9 +58,19 @@ export default class ProductPage extends Component {
       : false
   }
 
+  setColor = color => {
+    const item = {
+      ...this.state.item,
+      selectedColor: color
+    }
+    this.setState({
+      item: item
+    })
+  }
+
   render() {
-    const { device } = this.props
-    const { item } = this.state
+    const { match, device } = this.props
+    const { item, model } = this.state
     const info = item && {
       title: item.title,
       color: item.selectedColor,
@@ -72,6 +85,9 @@ export default class ProductPage extends Component {
 
         <ProductOverview
           item={item}
+          model={model}
+          setColor={this.setColor}
+          match={match}
           device={device}
           scale={() => (
             device.vpWidth > 1920 
@@ -122,7 +138,11 @@ const helmet = info => (
 
 const styles = {
   main: {
+    minHeight: '100vh',
+    width: '100%',
     display: 'flex',
-    flexDirection: 'column'
+    flexDirection: 'column',
+    position: 'absolute',
+    top: 'calc(5vh + 40px)'
   }
 }

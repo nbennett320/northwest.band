@@ -6,6 +6,8 @@ export default class ProductOverview extends Component {
   render() {
     const { 
       item,
+      model,
+      match,
       device 
     } = this.props
     return (
@@ -13,13 +15,19 @@ export default class ProductOverview extends Component {
         ? styles.mobile.main 
         : styles.main.main
       }>
-        <ImagePreview 
-          item={item}
-          style={device.isMobile 
+        <div style={device.isMobile 
             ? styles.mobile.box 
             : styles.main.box
           }
-        />
+        >
+          <ImagePreview 
+            item={item}
+            model={model}
+            setColor={this.props.setColor}
+            match={match}
+          />
+        </div>
+        
 
         <ProductOptions 
           style={device.isMobile 
