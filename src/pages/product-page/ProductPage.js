@@ -20,9 +20,13 @@ export default class ProductPage extends Component {
     const color = product.attributes.colors.includes(match.params.color)
       ? match.params.color
       : product.attributes.colors[0]
+    // color defaults to first listing in the 
+    // Products.json file if nothing defined in url params,
+    // size defaults to "medium"
     const item = {
       ...product,
-      selectedColor: color
+      selectedColor: color,
+      selectedSize: "medium"
     }
     console.log(item)
     if(item) 
@@ -68,6 +72,20 @@ export default class ProductPage extends Component {
     })
   }
 
+  setSize = size => {
+    const item = {
+      ...this.state.item,
+      selectedSize: size
+    }
+    this.setState({
+      item: item
+    })
+  }
+
+  setURL = url => {
+    this.props.history.push(url)
+  }
+
   render() {
     const { match, device } = this.props
     const { item, model } = this.state
@@ -87,6 +105,8 @@ export default class ProductPage extends Component {
           item={item}
           model={model}
           setColor={this.setColor}
+          setSize={this.setSize}
+          setURL={this.setURL}
           match={match}
           device={device}
           scale={() => (

@@ -27,14 +27,22 @@ export default class ProductOverview extends Component {
             match={match}
           />
         </div>
-        
 
-        <ProductOptions 
-          style={device.isMobile 
+        <div style={device.isMobile 
             ? styles.mobile.box 
             : styles.main.box
           }
-        />
+        >
+          <ProductOptions 
+            item={item}
+            model={model}
+            setColor={this.props.setColor}
+            setSize={this.props.setSize}
+            setURL={this.props.setURL}
+            match={match}
+            device={device}
+          />
+        </div>
       </div>
     )
   }

@@ -18,9 +18,10 @@ export default class ColorOptions extends Component {
     return (
       <span style={styles.main}>
         {colors.map((color, i) => (
-          <Link to={`/products/${model}/${color}`}>
-            <img key={i}
-              src={require(`../../img/merch/500/${item.image}${color}.jpg`)}
+          <Link to={`/products/${model}/${color}`}
+            key={i}
+          >
+            <img src={require(`../../img/merch/500/${item.image}${color}.jpg`)}
               alt={`${color} ${model}`}
               onMouseEnter={() => this.props.setColor(color)}
               onMouseLeave={() => this.props.setColor(match.params.color)}
