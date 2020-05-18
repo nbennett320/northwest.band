@@ -11,7 +11,6 @@ import CartPage from './pages/cart-page/CartPage'
 import Goodies from './pages/goodies/Goodies'
 import ScrollToTop from './scripts/ScrollToTop'
 import Contact from './pages/contact/Contact'
-import Admin from './Admin'
 import NoMatch from './NoMatch'
 import './css/main.css'
 import './css/classes.css'
@@ -277,19 +276,19 @@ class Main extends Component {
               />} 
             /> */}
 
-            <Route path='/contact'
+            {/* <Route path='/contact'
               render={(props) => <Contact
                 {...props} 
                 setHeaderLink={this.setHeaderLink}
               />} 
-            />
+            /> */}
 
-            <Route path='/admin'
+            {/* <Route path='/admin'
               render={(props) => <Admin
                 {...props} 
                 setHeaderLink={this.setHeaderLink}
               />} 
-            />
+            /> */}
 
             {/* catch all unknown routes (error 404) */}
             <Route path='/*'
