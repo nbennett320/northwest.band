@@ -7,12 +7,14 @@ import Music from './pages/music/Music'
 import Lyrics from './pages/music/Lyrics'
 import Merch from './pages/merch/Merch'
 import ProductPage from './pages/product-page/ProductPage'
+import CartPage from './pages/cart-page/CartPage'
 import Goodies from './Goodies'
 import ScrollToTop from './scripts/ScrollToTop'
 import Contact from './Contact'
 import Admin from './Admin'
 import NoMatch from './NoMatch'
 import './css/main.css'
+import './css/classes.css'
 
 // query device size
 const mql = window.matchMedia(`(max-width: 633px)`)
@@ -54,7 +56,7 @@ class Main extends Component {
     console.log(this.state.cart)
   }
 
-  removeItemsFromCart = item => {
+  removeItemFromCart = item => {
     let { cart } = this.state
     for(let i = 0; i < cart.length; i++) {
       if(cart[i].instanceCode === item.instanceCode) {
@@ -213,6 +215,21 @@ class Main extends Component {
             <Redirect 
               from='/products/*'
               to='/merch'
+            />
+
+            <Route path='/cart' 
+              render={(props) => <CartPage 
+                {...props} 
+                setHeaderLink={this.setHeaderLink}
+                cart={cart}
+                addItemToCart={this.addItemToCart}
+                removeItemFromCart={this.removeItemFromCart}
+                device={{
+                  vpWidth: vpWidth,
+                  vpHeight: vpHeight,
+                  isMobile: isMobile,
+                }}
+              />}
             />
 
             <Route path='/goodies' 

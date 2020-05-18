@@ -3,29 +3,22 @@ import {
   Typography
 } from '@material-ui/core'
 
-export default class StoreHeader extends Component {
+export default class CartHeader extends Component {
   state = {
     image: undefined,
-    text: undefined
   }
 
   componentDidUpdate (prevProps) {
     if(this.props !== prevProps) {
       this.setState({
         image: this.getImage(),
-        text: this.getText()
       })
     }
   }
 
   getImage = () => require(`../../img/store/store_header_imgs/${randomNum(12)}.jpg`)
 
-  getText = () => {
-
-  }
-
   render() {
-    const { text } = this.state
     const { scale } = this.props
     return (
       <div style={{
@@ -33,7 +26,7 @@ export default class StoreHeader extends Component {
         backgroundImage: `url('${this.state.image}')`,
       }}>
         <Typography variant="h3">
-          {text}
+          cart
         </Typography>
       </div>
     )

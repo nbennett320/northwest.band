@@ -1,30 +1,22 @@
 import React, { Component } from 'react'
 import { Helmet } from 'react-helmet'
-import StoreHeader from './StoreHeader'
-import Products from './Products'
+import CartHeader from './CartHeader'
+import ListArea from './ListArea'
 import Footer from '../../components/Footer'
 
-class Merch extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      showFilters: false,
-      filteredBy: undefined,
-    }
-  }
-
-  componentDidMount () {
-    this.props.setHeaderLink('/')
+class CartPage extends Component {
+  componentDidMount() {
+    this.props.setHeaderLink('/merch')
   }
 
   render() {
-    const { device } = this.props
+    const { cart, device } = this.props
+    console.log(this.props)
     return (
       <div style={styles.main}>
         {helmet}
-
-        <StoreHeader 
-          filter={this.state.filteredBy} 
+        
+        <CartHeader 
           scale={() => (
             device.vpWidth > 1920 
               ? "lg"
@@ -34,10 +26,13 @@ class Merch extends Component {
           )}
         />
 
-        <Products 
+        <ListArea 
+          cart={cart}
+          addItemToCart={this.props.addItemToCart}
+          removeItemFromCart={this.props.removeItemFromCart}
           device={device}
         />
-
+        
         <Footer />
       </div>
     )
@@ -66,14 +61,16 @@ const helmet = (
     <meta name="description" content="
       Northwest shirts, hoodies, physical music and more.
     " />
-    <meta name="robots" content="index" />
+    <meta name="robots" content="noindex" />
     <meta name="url" content="http://northwest.band/merch" />
-    <title>northwest the band | shirts, hoodies, and more</title>
+    <title>northwest the band | cart</title>
   </Helmet>
 )
 
 const styles = {
   main: {
+    width: '100%',
+    minHeight: '100vh',
     display: 'flex',
     flexDirection: 'column',
     position: 'absolute',
@@ -81,4 +78,4 @@ const styles = {
   }
 }
 
-export default Merch
+export default CartPage

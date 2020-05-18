@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { Typography } from '@material-ui/core'
 import ProductListing from '../merch/ProductListing'
 import products from '../../data/Products.json'
-import '../../css/classes.css'
 
 export default class SuggestionBar extends Component {
   makeSuggestions = () => {
