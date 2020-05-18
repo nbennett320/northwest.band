@@ -1,18 +1,14 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import Cart from './Cart'
+import CartButton from './CartButton'
 import HeaderLogo from '../img/nwStarLogoBlack_407x128.png'
-import '../css/header.css'
+import '../css/components/header.css'
 
 class Header extends Component {
-  handleHeaderClick = () => {
-    this.props.setShowCart(false)
-  }
-
   render () {
     const { 
+      cart,
 			showCart, 
-			numberOfItemsInCart,
 			headerLink
 		} = this.props
 
@@ -22,15 +18,14 @@ class Header extends Component {
 					style={styles.link}
 				>
           <img src={HeaderLogo} 
-            id="header-mg" 
+            id="header-image" 
             style={styles.img} 
             alt="northwest header"
-            onClick={this.handleHeaderClick}
           />
         </Link>
 
 				{showCart && <Link to='/cart' > 
-						<Cart numberOfItemsInCart={numberOfItemsInCart} /> 
+						<CartButton cart={cart} /> 
 					</Link>
 				}
       </div>

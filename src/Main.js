@@ -9,13 +9,10 @@ import Merch from './pages/merch/Merch'
 import ProductPage from './pages/product-page/ProductPage'
 import Goodies from './Goodies'
 import ScrollToTop from './scripts/ScrollToTop'
-import ViewCartPage from './components/store/ViewCartPage'
-import PlaceOrderPage from './components/store/PlaceOrderPage'
-import OrderSummary from './components/store/OrderSummary'
 import Contact from './Contact'
 import Admin from './Admin'
 import NoMatch from './NoMatch'
-import './css/App.css'
+import './css/main.css'
 
 // query device size
 const mql = window.matchMedia(`(max-width: 633px)`)
@@ -40,20 +37,12 @@ class Main extends Component {
     console.log(cart)
   }
 
-  setHeaderLink = link => this.setState({headerLink: link})
-
-  setShowCart = bool => {
-    this.setState({
-      showCart: bool,
-    })
-  }
-
-  // item as parameter
-  addItemToCart = i => {
-    // 4 digit code to easily access and remove items
+  addItemToCart = (itemAdded, match) => {
+    // add match object and 4 digit code to easily access and remove items
     const item = {
-      ...i,
-      instanceCode: (Math.random()*0xFFFFFF<<0).toString(16).substring(0,4)
+      ...itemAdded,
+      instanceCode: (Math.random()*0xFFFFFF<<0).toString(16).substring(0,4),
+      match
     }
     let items = this.state.cart
     items.push(item)
@@ -80,25 +69,36 @@ class Main extends Component {
     })
   }
 
+  setHeaderLink = link => 
+    this.setState({headerLink: link})
+
   render() {
+    const {
+      cart,
+      showCart,
+      headerLink,
+      vpWidth,
+      vpHeight,
+      isMobile
+    } = this.state
     return (
       <Router>
         <ScrollToTop>
           <Header
-            headerLink={this.state.headerLink}
-            showCart={this.state.showCart}
-            setShowCart={this.setShowCart}
-            numberOfItemsInCart={this.state.numberOfItemsInCart}
+            cart={cart}
+            showCart={showCart}
+            headerLink={headerLink}
           />
 
           <Switch>
             <Route exact path='/'
               render={props => <Home
                 {...props}
+                setHeaderLink={this.setHeaderLink}
                 device={{
-                  vpWidth: this.state.vpWidth,
-                  vpHeight: this.state.vpHeight,
-                  isMobile: this.state.isMobile,
+                  vpWidth: vpWidth,
+                  vpHeight: vpHeight,
+                  isMobile: isMobile,
                 }}
               />}
             />
@@ -118,12 +118,12 @@ class Main extends Component {
             <Route path='/music' 
               render={(props) => <Music 
                 {...props} 
-                device={{
-                  vpWidth: this.state.vpWidth,
-                  vpHeight: this.state.vpHeight,
-                  isMobile: this.state.isMobile,
-                }}
                 setHeaderLink={this.setHeaderLink}
+                device={{
+                  vpWidth: vpWidth,
+                  vpHeight: vpHeight,
+                  isMobile: isMobile,
+                }}
               />}
             />
 
@@ -147,15 +147,29 @@ class Main extends Component {
                 {...props}
                 setHeaderLink={this.setHeaderLink}
                 device={{
-                  vpWidth: this.state.vpWidth,
-                  vpHeight: this.state.vpHeight,
-                  isMobile: this.state.isMobile,
+                  vpWidth: vpWidth,
+                  vpHeight: vpHeight,
+                  isMobile: isMobile,
                 }}
               />}
             />
 
+            {/* redirect from /merch/ to /products/ for cases where user tries
+            to go to a certain item's page directly */}
+            <Redirect 
+              from='/merch/:model/:color'
+              to='/products/:model/:color'
+            />
+
+            {/* redirect from /merch/ to /products/ for cases where user tries
+            to go to a certain item's page directly (without specifying color) */}
+            <Redirect 
+              from='/merch/:model/'
+              to='/products/:model/'
+            />
+
             {/* redirect from /merch/* to /merch for cases where user tries
-            to link there directly */}
+            to go to impropper page directly */}
             <Redirect 
               from='/merch/*'
               to='/merch'
@@ -167,9 +181,9 @@ class Main extends Component {
                 setHeaderLink={this.setHeaderLink}
                 addItemToCart={this.addItemToCart}
                 device={{
-                  vpWidth: this.state.vpWidth,
-                  vpHeight: this.state.vpHeight,
-                  isMobile: this.state.isMobile,
+                  vpWidth: vpWidth,
+                  vpHeight: vpHeight,
+                  isMobile: isMobile,
                 }}
               />}
             />
@@ -180,9 +194,9 @@ class Main extends Component {
                 setHeaderLink={this.setHeaderLink}
                 addItemToCart={this.addItemToCart}
                 device={{
-                  vpWidth: this.state.vpWidth,
-                  vpHeight: this.state.vpHeight,
-                  isMobile: this.state.isMobile,
+                  vpWidth: vpWidth,
+                  vpHeight: vpHeight,
+                  isMobile: isMobile,
                 }}
               />}
             />
@@ -208,13 +222,13 @@ class Main extends Component {
               />}
             />
 
-            <Route path='/cart' 
+            {/* <Route path='/cart' 
               render={(props) => <ViewCartPage 
                 {...props}
                 itemsInCart={this.state.itemsInCart}
                 numberOfItemsInCart={this.getNumberOfItemsInCart()}
                 cartHasItems={this.state.cartHasItems}
-                setShowCart={this.setShowCart}
+                
                 removeItem={this.removeItem}
                 totalPrice={this.state.totalPrice}
                 setTotalPrice={this.setTotalPrice}
@@ -244,13 +258,12 @@ class Main extends Component {
                 orderInfo={this.state.orderInfo}
                 setHeaderLink={this.setHeaderLink}
               />} 
-            />
+            /> */}
 
             <Route path='/contact'
               render={(props) => <Contact
                 {...props} 
                 setHeaderLink={this.setHeaderLink}
-                setShowCart={this.setShowCart}
               />} 
             />
 
@@ -268,7 +281,6 @@ class Main extends Component {
                 setHeaderLink={this.setHeaderLink}
               />} 
             />
-
           </Switch>
         </ScrollToTop>
       </Router>

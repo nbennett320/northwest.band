@@ -16,6 +16,10 @@ export default class ProductPage extends Component {
     }
   }
 
+  componentDidMount () {
+    this.props.setHeaderLink('/merch')
+  }
+
   componentDidMount() {
     const { match } = this.props
     const product = this.getProduct(match.params.model)
@@ -39,12 +43,11 @@ export default class ProductPage extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    const { match, location } = this.props
+    const { match } = this.props
     if(this.props !== prevProps) {
       // handle route changed
       this.setState({
         model: match.params.model,
-        
       })
     }
   }

@@ -2,11 +2,15 @@ import React, { Component } from 'react'
 import { Helmet } from 'react-helmet'
 import Cloud from './Cloud'
 import Footer from '../../components/Footer'
-
 import '../../css/home.css'
 
 class Home extends Component {
+  componentDidMount () {
+    this.props.setHeaderLink('/')
+  }
+  
   render() {
+    const { device } = this.props
     return (
       <div style={styles.main}>
         {helmet}
@@ -23,7 +27,7 @@ class Home extends Component {
               hover: 'img/home/text/music_sprites_hover_500_164.png'
             }
           }}
-          isMobile={this.props.device.isMobile}
+          isMobile={device.isMobile}
         />
 
         <Cloud link='/merch'
@@ -38,7 +42,7 @@ class Home extends Component {
               hover: 'img/home/text/merch_hoversprites1500x145.png'
             }
           }}
-          isMobile={this.props.device.isMobile}
+          isMobile={device.isMobile}
         />
 
         <Cloud link='/goodies'
@@ -53,7 +57,7 @@ class Home extends Component {
               hover: 'img/home/text/goodies_hoversprites1500x308.png'
             }
           }}
-          isMobile={this.props.device.isMobile}
+          isMobile={device.isMobile}
         />
 
         <Footer location={this.props.location} />

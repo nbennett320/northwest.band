@@ -35,6 +35,7 @@ export default class Actions extends Component {
 
         {item && <AddToCart 
           item={item}
+          match={match}
           device={device}
           addItemToCart={this.props.addItemToCart}
         />}

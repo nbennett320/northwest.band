@@ -3,12 +3,12 @@ import { Button } from '@material-ui/core'
 
 export default class AddToCart extends Component {
   handleClick = e => {
-    const { item } = this.props
-    this.props.addItemToCart(item)
+    const { item, match } = this.props
+    this.props.addItemToCart(item, match)
   }
 
   render() {
-    const { item, device } = this.props
+    const { device } = this.props
     return (
       <div style={{
         ...device.isMobile

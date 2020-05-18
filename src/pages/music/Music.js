@@ -3,14 +3,12 @@ import { Helmet } from 'react-helmet'
 import Album from './Album'
 import Footer from '../../components/Footer'
 import albums from '../../data/Albums.json'
-
 import '../../css/music.css'
 
 class Music extends Component {
   componentDidMount () {
     this.props.setHeaderLink('/')
   }
-
 
   listEntries = () => (
     Object.keys(albums).map(i => {
