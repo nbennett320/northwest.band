@@ -9,10 +9,13 @@ export default class ImagePreview extends Component {
       model, 
       match 
     } = this.props
+    const selectedColor = item.selectedColor 
+      ? item.selectedColor
+      : item.attributes.colors[0]
     return (
       <div style={styles.main}>
         {item && <Image 
-          path={require(`../../img/merch/500/${item.image}${item.selectedColor}.jpg`)}
+          path={require(`../../img/merch/500/${item.image}${selectedColor}.jpg`)}
           alt={item.description}
         />}
         {item && <ColorOptions 

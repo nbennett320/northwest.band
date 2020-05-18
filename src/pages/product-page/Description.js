@@ -14,7 +14,7 @@ export default class Description extends Component {
   }
 }
 
-const aOrAn = word => isVowel(word[0]) 
+const aOrAn = word => isVowel(word[0])
   ? "an" 
   : "a"
 

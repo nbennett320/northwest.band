@@ -24,7 +24,10 @@ export default class ColorOptions extends Component {
             <img src={require(`../../img/merch/500/${item.image}${color}.jpg`)}
               alt={`${color} ${model}`}
               onMouseEnter={() => this.props.setColor(color)}
-              onMouseLeave={() => this.props.setColor(match.params.color)}
+              onMouseLeave={() => match.params.color 
+                ? this.props.setColor(match.params.color)
+                : this.props.setColor(item.attributes.colors[0])
+              }
               style={{
                 ...styles.image,
                 ...this.isSelected(color)

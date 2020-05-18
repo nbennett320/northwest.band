@@ -12,9 +12,10 @@ export default class ProductOverview extends Component {
     } = this.props
     return (
       <div style={device.isMobile 
-        ? styles.mobile.main 
-        : styles.main.main
-      }>
+          ? styles.mobile.main 
+          : styles.main.main
+        }
+      >
         <div style={device.isMobile 
             ? styles.mobile.box 
             : styles.main.box

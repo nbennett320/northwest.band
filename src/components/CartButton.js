@@ -41,7 +41,7 @@ const styles = {
       badge: {
         right: -3,
         top: 13,
-        border: `2px solid ${theme.palette.background.paper}`,
+        border: `2px solid rgba(255,255,255,0.8)`,
         padding: '0 4px',
       }
     }),

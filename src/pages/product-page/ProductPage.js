@@ -23,15 +23,18 @@ export default class ProductPage extends Component {
   componentDidMount() {
     const { match } = this.props
     const product = this.getProduct(match.params.model)
-    const color = product.attributes.colors.includes(match.params.color)
+    console.log("product", product)
+    //const urlHasColor = product.attributes.colors.includes(match.params.color)
+    const selectedColor = product.attributes.colors.includes(match.params.color)
       ? match.params.color
       : product.attributes.colors[0]
+    console.log("selected color:" , selectedColor)
     // color defaults to first listing in the 
     // Products.json file if nothing defined in url params,
     // size defaults to "medium"
     const item = {
       ...product,
-      selectedColor: color,
+      selectedColor: selectedColor,
       selectedSize: "medium"
     }
     console.log(item)
@@ -55,13 +58,18 @@ export default class ProductPage extends Component {
   // there's def a better way to do this LOL
   getProduct = model => {
     let match
+    console.log("model:", model)
     Object.values(products).forEach((el, i) => {
+      console.log(el)
       Object.values(el).forEach((product, j) => {
-        if(product.attributes.model.includes(reverseKey(model))) {
-          match = product
+        console.log(product)
+        if(product.attributes.model.includes(reverseKey(model)) 
+          || product.attributes.model.includes(model)) {
+            match = product
         }
       })
     })
+    console.log("match", match)
     return match 
       ? match
       : false
@@ -107,7 +115,7 @@ export default class ProductPage extends Component {
       <div style={styles.main}>
         {item && helmet(info)}
 
-        <ProductOverview
+        {item && <ProductOverview
           item={item}
           model={model}
           setColor={this.setColor}
@@ -123,12 +131,12 @@ export default class ProductPage extends Component {
                 ? "sm"
                 : "m"
           )}
-        />
+        />}
 
         <Divider />
-        <ProductDetails 
+        {item && <ProductDetails 
           item={item}
-        />
+        />}
 
         {/* <SuggestionBar 
           item={item} 
