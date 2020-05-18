@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { Helmet } from 'react-helmet'
-import validateEmail from './scripts/ValidateEmail'
+import validateEmail from '../../scripts/ValidateEmail'
 import StoreHeader from './components/store/StoreHeader'
-import Footer from './components/Footer'
+import Footer from '../../components/Footer'
 
 class Contact extends Component {
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Helmet } from 'react-helmet'
-import Footer from './components/Footer'
+import Footer from '../../components/Footer'
 
 import './css/goodies.css'
 
