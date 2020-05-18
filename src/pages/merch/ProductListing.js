@@ -35,9 +35,10 @@ class ProductListing extends Component {
     } = this.props
     const { model } = attributes
     const { isHovering } = this.state
+    
     return (
       <Link to={`/products/${makeKey(model)}`}
-        className="product-preview"
+        className={["product-preview", this.props.className ? this.props.className : ''].join(' ')}
         style={{
           ...styles[`${scale()}`].main,
           zIndex: `${10 + zIndex}`,
@@ -95,15 +96,17 @@ const styles = {
   },
 
   lg: {
-    maxWidth: '20%',
-    display: 'flex',
-    flexDirection: 'column',
-    flexBasis: '100%',
-    backgroundColor: 'rgba(255,255,255,1)',
-    boxShadow: 'rgba(0, 0, 0, 0.07) 0px 0px 8px 2px',
-    cursor: 'pointer',
-    textDecoration: 'none',
-    color: 'rgba(0, 0, 0, 0.87)'
+    main: {
+      maxWidth: '20%',
+      display: 'flex',
+      flexDirection: 'column',
+      flexBasis: '100%',
+      backgroundColor: 'rgba(255,255,255,1)',
+      boxShadow: 'rgba(0, 0, 0, 0.07) 0px 0px 8px 2px',
+      cursor: 'pointer',
+      textDecoration: 'none',
+      color: 'rgba(0, 0, 0, 0.87)'
+    }
   }
 }
 

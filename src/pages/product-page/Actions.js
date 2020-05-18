@@ -2,8 +2,9 @@ import React, { Component } from 'react'
 import Title from './Title'
 import Selectors from './Selectors'
 import NativeSelectors from './Selectors.Native'
+import AddToCart from './AddToCart'
 
-export default class ProductOptions extends Component {
+export default class Actions extends Component {
   render() {
     const { 
       item, 
@@ -31,6 +32,12 @@ export default class ProductOptions extends Component {
             setURL={this.props.setURL}
           />
         }
+
+        {item && <AddToCart 
+          item={item}
+          device={device}
+          addItemToCart={this.props.addItemToCart}
+        />}
       </div>
     )
   }

@@ -2,8 +2,7 @@ import React, { Component } from 'react'
 import {
   FormControl,
   InputLabel,
-  Select,
-  MenuItem
+  Select
 } from '@material-ui/core'
 
 export default class Selectors extends Component {
@@ -24,14 +23,15 @@ export default class Selectors extends Component {
       <div style={styles.main}>
         {item.attributes.colors.length > 0 &&
           <div style={styles.form}>
-            <FormControl variant="outlined">
+            <FormControl variant="outlined"
+              style={styles.selector}
+            >
               <InputLabel> color </InputLabel>
               <Select
                 native
                 value={item.selectedColor}
                 onChange={this.handleChangeColor}
                 label={"color"}
-                style={styles.selector}
               >
                 {item.attributes.colors.map((color, i) => (
                   <option 
@@ -48,14 +48,15 @@ export default class Selectors extends Component {
         
         {item.attributes.sizes.length > 0 && 
           <div style={styles.form}>
-            <FormControl variant="outlined">
+            <FormControl variant="outlined"
+              style={styles.selector}
+            >
               <InputLabel> size </InputLabel>
               <Select
                 native
                 value={item.selectedSize}
                 onChange={this.handleChangeSize}
                 label={"size"}
-                style={styles.selector}
               >
                 {item.attributes.sizes.map((size, i) => (
                   <option 
@@ -77,7 +78,7 @@ export default class Selectors extends Component {
 const styles = {
   main: {
     padding: '20px 0',
-    width: '33.333%',
+    width: '66.666%',
     margin: '0 auto',
     display: 'flex',
     flexDirection: 'column',

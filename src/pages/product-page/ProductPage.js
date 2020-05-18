@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import { Helmet } from 'react-helmet'
+import { Divider } from '@material-ui/core'
 import ProductOverview from './ProductOverview'
 import ProductDetails from './ProductDetails'
 import Footer from '../../components/Footer'
 import products from '../../data/Products.json'
+import SuggestionBar from './SuggestionBar'
 
 export default class ProductPage extends Component {
   constructor(props) {
@@ -82,6 +84,7 @@ export default class ProductPage extends Component {
     })
   }
 
+  // push url into history when color updates
   setURL = url => {
     this.props.history.push(url)
   }
@@ -107,6 +110,7 @@ export default class ProductPage extends Component {
           setColor={this.setColor}
           setSize={this.setSize}
           setURL={this.setURL}
+          addItemToCart={this.props.addItemToCart}
           match={match}
           device={device}
           scale={() => (
@@ -118,7 +122,15 @@ export default class ProductPage extends Component {
           )}
         />
 
-        <ProductDetails />
+        <Divider />
+        <ProductDetails 
+          item={item}
+        />
+
+        {/* <SuggestionBar 
+          item={item} 
+          device={device}
+        /> */}
 
         <Footer />
       </div>

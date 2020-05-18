@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import ImagePreview from './ImagePreview'
-import ProductOptions from './ProductOptions'
+import Actions from './Actions'
 
 export default class ProductOverview extends Component {
   render() {
@@ -33,12 +33,13 @@ export default class ProductOverview extends Component {
             : styles.main.box
           }
         >
-          <ProductOptions 
+          <Actions 
             item={item}
             model={model}
             setColor={this.props.setColor}
             setSize={this.props.setSize}
             setURL={this.props.setURL}
+            addItemToCart={this.props.addItemToCart}
             match={match}
             device={device}
           />

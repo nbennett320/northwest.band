@@ -26,28 +26,18 @@ class Main extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      cart: [],
+      showCart: false,
+      headerLink: '..',
       vpWidth,
       vpHeight,
-      isMobile: mql.matches,
-
-      headerLink: '..',
-      showCart: false,
-      numberOfItemsInCart: 0,
-      itemsInCart: [],
-      cartHasItems: false,
-      itemDetails: [],
-      totalPrice: 0,
-      orderInfo: {
-        name: '',
-        email: '',
-        phone: '',
-        street: '',
-        city: '',
-        zip: '',
-        region: '',
-        fullAddress: '',
-      }
+      isMobile: mql.matches
     }
+  }
+
+  componentDidMount() {
+    const cart = localStorage.getItem("cart")
+    console.log(cart)
   }
 
   setHeaderLink = link => this.setState({headerLink: link})
@@ -58,68 +48,35 @@ class Main extends Component {
     })
   }
 
-  addItemToCart = item => {
-    let items = this.state.itemsInCart
-
+  // item as parameter
+  addItemToCart = i => {
+    // 4 digit code to easily access and remove items
+    const item = {
+      ...i,
+      instanceCode: (Math.random()*0xFFFFFF<<0).toString(16).substring(0,4)
+    }
+    let items = this.state.cart
     items.push(item)
-
-    let cartHasItems = this.cartHasItems(items.length)
-
+    localStorage.setItem("cart", items)
     this.setState({
-      itemsInCart: items,
-      numberOfItemsInCart: items.length,
-      cartHasItems: cartHasItems,
+      cart: items,
+      showCart: items.length > 0
     })
-
+    console.log(this.state.cart)
   }
 
-  setTotalPrice = total => {
-    let totalPrice = total
-    this.setState({
-      totalPrice: totalPrice,
-    })
-  }
-
-  cartHasItems = numOfItemsInCart => {
-    if (numOfItemsInCart > 0) {
-      return true
-    } else return false
-  }
-
-  removeItem = itemNumber => {
-    let items = this.state.itemsInCart
-    if(items.length === 1) items.pop()
-    else items.splice(itemNumber, 1)
-    let cartHasItems = this.cartHasItems(items.length)
-    this.setState({
-      itemsInCart: items,
-      numberOfItemsInCart: items.length,
-      cartHasItems: cartHasItems,
-    })
-  }
-
-  getNumberOfItemsInCart = () => this.state.numberOfItemsInCart
-
-  setItemDetails = item => {
-    this.setState({
-      itemDetails: item
-    })
-  }
-
-  setFullAddress = fullAddress => this.setState({orderInfo: {fullAddress: fullAddress}})
-
-  setOrderInfo = (name, email, phone, street, city, zip, region, fullAddress) => {
-    this.setState({
-      orderInfo: {
-        name: name,
-        email: email,
-        phone: phone,
-        street: street,
-        city: city,
-        zip: zip,
-        region: region,
-        fullAddress: fullAddress,
+  removeItemsFromCart = item => {
+    let { cart } = this.state
+    for(let i = 0; i < cart.length; i++) {
+      if(cart[i].instanceCode === item.instanceCode) {
+        cart.splice(i, 1)
+        break
       }
+    }
+    localStorage.setItem("cart", cart)
+    this.setState({
+      cart: cart,
+      showCart: cart.length > 0
     })
   }
 
@@ -207,8 +164,8 @@ class Main extends Component {
             <Route path='/products/:model/:color' 
               render={(props) => <ProductPage 
                 {...props} 
-                setShowCart={this.setShowCart}
                 setHeaderLink={this.setHeaderLink}
+                addItemToCart={this.addItemToCart}
                 device={{
                   vpWidth: this.state.vpWidth,
                   vpHeight: this.state.vpHeight,
@@ -220,8 +177,8 @@ class Main extends Component {
             <Route path='/products/:model/' 
               render={(props) => <ProductPage 
                 {...props} 
-                setShowCart={this.setShowCart}
                 setHeaderLink={this.setHeaderLink}
+                addItemToCart={this.addItemToCart}
                 device={{
                   vpWidth: this.state.vpWidth,
                   vpHeight: this.state.vpHeight,
