@@ -4,6 +4,7 @@ import CartHeader from './CartHeader'
 import ListArea from './ListArea'
 import NoItems from './NoItems'
 import Footer from '../../components/Footer'
+import Summary from './Summary'
 
 class CartPage extends Component {
   componentDidMount() {
@@ -37,6 +38,9 @@ class CartPage extends Component {
           : <NoItems history={history} />
         }
         
+        {cart.length > 0 && <Summary
+          cart={cart}
+        />} 
         
         <Footer />
       </div>

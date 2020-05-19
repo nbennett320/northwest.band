@@ -22,6 +22,7 @@ export default class CartItem extends Component {
           <ItemInfo 
           color={item.selectedColor}
           size={item.selectedSize}
+          price={item.price}
         />
         </div>
 

@@ -7,7 +7,7 @@ import RemoveItem from './RemoveItem'
 export default class CartItem extends Component {
   render() {
     const { item } = this.props
-    console.log(item)
+    console.log("cart item", item)
     return (
       <span style={styles.main}>
         <div style={styles.image}>
@@ -22,6 +22,7 @@ export default class CartItem extends Component {
           <ItemInfo 
             color={item.selectedColor}
             size={item.selectedSize}
+            price={item.price}
           />
         </div>
 
