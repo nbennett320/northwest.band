@@ -8,7 +8,8 @@ export default class SpotifyIcon extends Component {
       <Icon color={this.props.color ? this.props.color : 'primary'}>
         <img src={SpotifySvg} 
           height='100%' 
-          width='100%'  
+          width='100%'
+          alt={"spotify icon"} 
         />
       </Icon>
     )

@@ -70,8 +70,9 @@ class Main extends Component {
     })
   }
 
-  setHeaderLink = link => 
+  setHeaderLink = link => {
     this.setState({headerLink: link})
+  }
 
   render() {
     const {

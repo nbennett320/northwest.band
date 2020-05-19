@@ -16,11 +16,8 @@ export default class ProductPage extends Component {
     }
   }
 
-  componentDidMount () {
-    this.props.setHeaderLink('/merch')
-  }
-
   componentDidMount() {
+    this.props.setHeaderLink('/merch')
     const { match } = this.props
     const product = this.getProduct(match.params.model)
     console.log("product", product)

@@ -9,13 +9,10 @@ export default class StoreHeader extends Component {
     text: undefined
   }
 
-  componentDidUpdate (prevProps) {
-    if(this.props !== prevProps) {
-      this.setState({
-        image: this.getImage(),
-        text: this.getText()
-      })
-    }
+  componentDidMount() {
+    this.setState({
+      image: this.getImage(),
+    })
   }
 
   getImage = () => require(`../../img/store/store_header_imgs/${randomNum(12)}.jpg`)

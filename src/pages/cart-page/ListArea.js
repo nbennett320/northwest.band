@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import CartItem from './CartItem'
+import CartItemNative from './CartItem.Native'
 import { Divider } from '@material-ui/core'
 
 export default class ListArea extends Component {
@@ -9,12 +10,19 @@ export default class ListArea extends Component {
       <div style={styles.main}>
         {Object.values(cart).map((item, i) => (
           <div key={i} style={styles.item}>
-            <CartItem 
-              item={item} 
-              addItemToCart={this.props.addItemToCart}
-              removeItemFromCart={this.props.removeItemFromCart}
-              device={device}
-            />
+            {device.isMobile 
+              ? <CartItemNative
+                item={item} 
+                addItemToCart={this.props.addItemToCart}
+                removeItemFromCart={this.props.removeItemFromCart}
+                device={device}
+              />
+              : <CartItem 
+                item={item} 
+                addItemToCart={this.props.addItemToCart}
+                removeItemFromCart={this.props.removeItemFromCart}
+                device={device}
+              />}
             <Divider />
           </div>
         ))}

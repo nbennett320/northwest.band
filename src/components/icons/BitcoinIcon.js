@@ -9,6 +9,7 @@ export default class BitcoinIcon extends Component {
         <img src={BitcoinSvg} 
           height='100%' 
           width='100%'  
+          alt={"bitcoin icon"} 
         />
       </Icon>
     )

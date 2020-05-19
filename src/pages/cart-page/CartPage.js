@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Helmet } from 'react-helmet'
 import CartHeader from './CartHeader'
 import ListArea from './ListArea'
+import NoItems from './NoItems'
 import Footer from '../../components/Footer'
 
 class CartPage extends Component {
@@ -10,7 +11,7 @@ class CartPage extends Component {
   }
 
   render() {
-    const { cart, device } = this.props
+    const { cart, device, history } = this.props
     console.log(this.props)
     return (
       <div style={styles.main}>
@@ -26,12 +27,16 @@ class CartPage extends Component {
           )}
         />
 
-        <ListArea 
-          cart={cart}
-          addItemToCart={this.props.addItemToCart}
-          removeItemFromCart={this.props.removeItemFromCart}
-          device={device}
-        />
+        {cart.length > 0 
+          ? <ListArea 
+            cart={cart}
+            addItemToCart={this.props.addItemToCart}
+            removeItemFromCart={this.props.removeItemFromCart}
+            device={device}
+          /> 
+          : <NoItems history={history} />
+        }
+        
         
         <Footer />
       </div>

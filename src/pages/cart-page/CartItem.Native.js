@@ -16,13 +16,13 @@ export default class CartItem extends Component {
             description={item.attributes.description}
           />
         </div>
-
+        
         <div style={styles.box}>
           <ItemTitle title={item.title}/>
           <ItemInfo 
-            color={item.selectedColor}
-            size={item.selectedSize}
-          />
+          color={item.selectedColor}
+          size={item.selectedSize}
+        />
         </div>
 
         <RemoveItem 
@@ -36,12 +36,12 @@ export default class CartItem extends Component {
 
 const styles = {
   main: {
-    width: '90%',
+    width: '100%',
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
     margin: '0 auto',
-    padding: '4px 0',
+    padding: '20px 0',
   },
 
   image: {
@@ -53,7 +53,8 @@ const styles = {
     width: 'auto',
     display: 'flex',
     flexDirection: 'column',
+    // justifySelf: 'flex-start',
     justifyContent: 'center',
-    marginLeft: '40px',
-  },
+    marginLeft: '20px'
+  }
 }

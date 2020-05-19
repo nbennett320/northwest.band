@@ -23,6 +23,6 @@ export default class ItemInfo extends Component {
 
 const styles = {
   main: {
-    width: '100%'
+    width: '100%',
   }
 }

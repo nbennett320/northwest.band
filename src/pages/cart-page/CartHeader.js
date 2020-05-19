@@ -8,12 +8,10 @@ export default class CartHeader extends Component {
     image: undefined,
   }
 
-  componentDidUpdate (prevProps) {
-    if(this.props !== prevProps) {
-      this.setState({
-        image: this.getImage(),
-      })
-    }
+  componentDidMount() {
+    this.setState({
+      image: this.getImage(),
+    })
   }
 
   getImage = () => require(`../../img/store/store_header_imgs/${randomNum(12)}.jpg`)

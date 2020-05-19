@@ -3,7 +3,6 @@ import { Helmet } from 'react-helmet'
 import { Typography, Button } from '@material-ui/core'
 import ImageBlock from './components/ImageBlock'
 import Footer from './components/Footer'
-import './css/404.css'
 
 export default class NoMatch extends Component {
   componentDidMount() {
@@ -38,7 +37,7 @@ export default class NoMatch extends Component {
             <br />
             <br />
             <div style={{textAlign: 'center'}}>
-              that's awkward &#128077; 
+              that's awkward <span role="img" aria-label="thumbs up emoji"> &#128077; </span> 
             </div>
           </Typography>
           
