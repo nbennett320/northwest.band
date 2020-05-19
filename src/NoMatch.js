@@ -1,32 +1,57 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
-import StoreHeader from './components/store/StoreHeader'
+import { Typography, Button } from '@material-ui/core'
+import ImageBlock from './components/ImageBlock'
 import Footer from './components/Footer'
-
 import './css/404.css'
 
-class NoMatch extends Component {
+export default class NoMatch extends Component {
+  componentDidMount() {
+    this.props.setHeaderLink('/')
+  }
+
+  handleClick = () => {
+    this.props.history.push('/')
+  }
+
 	render() {
+    const { device } = this.props
 		return (
 			<div style={styles.main}>
 				{helmet}
-				<StoreHeader textInPhoto={"404... (summ wrong lolz)"} />
+				<ImageBlock
+          text={"error 404.. sum wrong lol"}
+          scale={() => (
+            device.vpWidth > 1920 
+              ? "lg"
+              : device.isMobile 
+                ? "sm"
+                : "m"
+          )}
+        />
 
-				<p style={styles.paragraph}>
-					yeah... sorry looks like the link is wrong... whoops
-				</p>
-
-				<Link to='/' 
-					style={styles.button}
-					className="button-back-to-home-404"
-				>
-
-					(back to home page)
-
-				</Link>
-
-				<Footer />
+        <div style={styles.container}>
+          <Typography variant="body1"
+            style={styles.text}
+          >
+            i guess the link you tried doesn't exist or is broken
+            <br />
+            <br />
+            <div style={{textAlign: 'center'}}>
+              that's awkward &#128077; 
+            </div>
+          </Typography>
+          
+          <div style={styles.button}>
+            <Button variant="outlined"
+              onClick={this.handleClick}
+              style={{textTransform: 'lowercase'}}
+            >
+              back to homepage
+            </Button>
+          </div>
+        </div>
+        <Footer />
 			</div>
 		)
 	}
@@ -72,37 +97,23 @@ const styles = {
 		position: 'absolute',
 		flexDirection: 'column',
 		alignContent: 'flex-start',
-	},
+  },
+  
+  container: {
+    width: '80%',
+    margin: '0 auto',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center'
+  },
 
-	paragraph: {
-		width: '80%',
-		marginLeft: '10%',
-		marginRight: 'auto',
-		marginTop: '40px',
-		marginBottom: '40px',
-		fontFamily: '"Work Sans",sans-serif',
-		fontWeight: '400',
-		fontSize: '1.0em',
-		textAlign: 'center',
-	},
+  text: {
+    paddingTop: '20px',
+    margin: '0 auto',
+  },
 
-	button: {
-		color: '#69727b',
-		backgroundColor: '#fff',
-		width: 'auto',
-		margin: '40px auto',
-		padding: '10px 20px',
-		borderStyle: 'solid',
-		borderWidth: '1px',
-		borderColor: 'hsl(0,0%,80%)',
-		borderBottomLeftRadius: '4px',
-		borderBottomRightRadius: '4px',
-		borderTopLeftRadius: '4px',
-		borderTopRightRadius: '4px',
-		fontFamily: '"Work Sans",sans-serif',
-		fontWeight: '400',
-		fontSize: 'auto',
-	}
+  button: {
+    padding: '40px',
+    margin: '0 auto',
+  }
 }
-
-export default NoMatch

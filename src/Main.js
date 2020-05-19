@@ -295,6 +295,11 @@ class Main extends Component {
               render={(props) => <NoMatch
                 {...props} 
                 setHeaderLink={this.setHeaderLink}
+                device={{
+                  vpWidth: vpWidth,
+                  vpHeight: vpHeight,
+                  isMobile: isMobile,
+                }}
               />} 
             />
           </Switch>
