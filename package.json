@@ -5,10 +5,7 @@
   "dependencies": {
     "@material-ui/core": "^4.9.7",
     "@material-ui/icons": "^4.9.1",
-    "braintree": "^2.21.0",
-    "braintree-web-drop-in-react": "^1.1.0",
     "nodemailer": "^6.3.1",
-    "paypal-checkout": "^4.0.296",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",

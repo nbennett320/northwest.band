@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
-export default class Cloud extends Component {
-  constructor(props) {
+export default class AnimatedImage extends Component {
+  constructor(props) { 
     super(props)
     this.state = {
-      isHovering: false,
+      isHovering: false
     }
   }
 
@@ -15,19 +15,20 @@ export default class Cloud extends Component {
     const { 
       link, 
       stylesProp, 
-      images, 
-      isMobile 
+      images,
+      ids
     } = this.props
     return (
-      <div className="cloud"
+      <div className="animated-image"
+        id={`${ids.image}`}
         style={{
-          ...stylesProp.cloud,
-          ...isMobile ? {} : {...styles.desktop.cloud},
-          backgroundImage: `url(${require('../../' + images.cloud)})`
+          ...styles.main,
+          ...stylesProp.image,
+          backgroundImage: `url(${require('../../' + images.image)})`
         }}
       >
         <Link to={`${link}`}>
-          <div
+          <div id={`${ids.text}`}
             onMouseEnter={this.toggleHover}
             onMouseLeave={this.toggleHover}
             style={this.state.isHovering 
@@ -49,10 +50,8 @@ export default class Cloud extends Component {
 }
 
 const styles = {
-  desktop: {
-    cloud: {
-      margin: '20px auto',
-    },
+  main: {
+    margin: '0 auto',
   },
 
   text: {

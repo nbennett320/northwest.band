@@ -236,6 +236,11 @@ class Main extends Component {
               render={(props) => <Goodies 
                 {...props} 
                 setHeaderLink={this.setHeaderLink}
+                device={{
+                  vpWidth: vpWidth,
+                  vpHeight: vpHeight,
+                  isMobile: isMobile,
+                }}
               />}
             />
 
