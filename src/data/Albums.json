@@ -1,0 +1,22 @@
+{
+  "0": {
+    "title": "Area Code",
+    "date": "July 15, 2018",
+    "length": 11,
+    "art": "areacode.png"
+  },
+
+  "1": {
+    "title": "Suburban Dogs",
+    "date": "November 15, 2019",
+    "length": 13,
+    "art": "subbie dogs text w canvas4.jpg"
+  },
+
+  "2": {
+    "title": "Apathy",
+    "date": "January 25, 2020",
+    "length": 1,
+    "art": "apathy2.png"
+  }
+}

@@ -1,0 +1,11 @@
+.header {
+  -webkit-backdrop-filter: blur(10px);
+}
+
+#header-image:hover {
+  transform: scale(1.05) !important;
+}
+
+#header-image {
+  opacity: 100% !important;
+}

@@ -1,84 +1,145 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-
-import '../css/footer.css'
+import { Typography } from '@material-ui/core'
+import { 
+  createMuiTheme, 
+  ThemeProvider 
+} from '@material-ui/core/styles'
+import FooterItem from './FooterItem'
+import FooterBottom from './FooterBottom'
+import Share from './Share'
+import InstagramIcon from '@material-ui/icons/Instagram'
+import TwitterIcon from '@material-ui/icons/Twitter'
+import SpotifyIcon from './icons/SpotifyIcon'
+import AppleMusicIcon from './icons/AppleMusicIcon'
+import YouTubeIcon from '@material-ui/icons/YouTube'
+import AlternateEmailIcon from '@material-ui/icons/AlternateEmail'
+import MenuBookIcon from '@material-ui/icons/MenuBook'
+import GitHubIcon from '@material-ui/icons/GitHub'
+import '../css/components/footer.css'
 
 class Footer extends Component {
+  render() {
+    const theme = createMuiTheme({
+      palette: {
+        primary: {
+          main: '#000',
+        },
+        secondary: {
+          main: '#fff',
+        },
+      },
+    })
 
-    render() {
+    return (
+      <div style={styles.footer}>
+        <ThemeProvider theme={theme}>
+          <Typography variant='h6' style={styles.header}> hit us up!! </Typography>
 
-        return (
+          <FooterItem 
+            Icon={<InstagramIcon color='secondary' />}
+            label='instagram'
+            link='https://www.instagram.com/northwest219/'
+          />
 
-            <div style={styles.footer}>
+          <FooterItem 
+            Icon={<TwitterIcon color='secondary' /> }
+            label='twitter'
+            link='https://twitter.com/northwest219'
+          />
 
-                <div style={styles.footerHeader}>hit us up!!</div>
+          <FooterItem 
+            Icon={<SpotifyIcon color='secondary' />}
+            label='spotify'
+            link='https://open.spotify.com/artist/0hscERxMRDZRqZIHjKbExD?si=FGhntveJTxKsk9KsoGFM0A'
+          />
 
-                <ul style={styles.links}>
+          <FooterItem 
+            Icon={<AppleMusicIcon color='secondary' />}
+            label='apple music'
+            link='https://music.apple.com/us/artist/northwest/1409175767'
+          />
 
-                <li style={styles.spans}><a className="footer-list-entry" href="https://www.instagram.com/northwest219/">instagram</a></li>
-                    <li style={styles.spans}><a className="footer-list-entry" href="https://twitter.com/northwest219">twitter</a></li>
-                    <li style={styles.spans}><a className="footer-list-entry" href="https://open.spotify.com/artist/0hscERxMRDZRqZIHjKbExD?si=FGhntveJTxKsk9KsoGFM0A">spotify</a></li>
-                    <li style={styles.spans}><a className="footer-list-entry" href="https://music.apple.com/us/artist/northwest/1409175767">apple music</a></li>
-                    <li style={styles.spans}><a className="footer-list-entry" href="https://www.youtube.com/channel/UCsAuRJv-BwMcLELAjNH46dQ">youtube</a></li>
-                    <li style={styles.spans}><Link to='/contact' className="footer-list-entry">contact</Link></li>
-                </ul>
+          <FooterItem 
+            Icon={<YouTubeIcon color='secondary' />}
+            label='youtube'
+            link='https://www.youtube.com/channel/UCsAuRJv-BwMcLELAjNH46dQ'
+          />
 
-                <div style={styles.bottom}>&copy; 2020, northwest, 4431 records</div>
+          <FooterItem 
+            Icon={<AlternateEmailIcon color='secondary' />}
+            label='contact'
+            link={
+              <Typography 
+                variant='subtitle2'
+                color='inherit'
+                style={styles.linkItem}
+              >
+                <Link to='/contact' 
+                  className='underline-on-hover' 
+                  style={{color: 'rgba(255,255,255,0.82)'}}
+                >
+                  contact 
+                </Link>
+              </Typography>
+            }
+          />
+          
+          <FooterItem 
+            Icon={<MenuBookIcon color='secondary' />}
+            label='about'
+            link={
+              <Typography
+                variant='subtitle2'
+                color='inherit'
+                style={styles.linkItem}
+              >
+                <Link to='/about' 
+                  className='underline-on-hover' 
+                  style={{color: 'rgba(255,255,255,0.82)'}}
+                > 
+                  about 
+                </Link>
+              </Typography>
+            }
+          />
 
-            </div>
+          <FooterItem 
+            Icon={<GitHubIcon color='secondary' />}
+            label='github'
+            link='https://github.com/nbennett320/northwest.band'
+          />
 
-        )
+          <Share location={this.props.location} />
 
-    }
-
+          <FooterBottom />
+        </ThemeProvider>               
+      </div>
+    )
+  }
 }
 
 const styles = {
+  footer: {
+    width: '100%',
+    height: 'auto',
+    position: 'absolute',
+    padding: '40px 0',
+    backgroundColor: '#000', 
+    color: '#fff',
+    top: '100%',
+  },
 
-    footer: {
-        width: '100%',
-        height: 'auto',
-        // marginTop: '40px',
-        position: 'absolute',
-        padding: '50px 0 50px 0',
-        backgroundColor: '#000', 
-        color: '#fff',
-        top: '100%',
-    },
+  linkItem: {
+    display: 'flex',
+    flexDirection: 'row',
+  },
 
-    footerHeader: {
-        width: 'auto',
-        marginLeft: '10%',
-        marginRight: 'auto',
-        marginBottom: '10px',
-        fontWeight: '600',
-        fontFamily: '"Work Sans",sans-serif'
-    },
-
-    links: {
-        width: 'auto',
-        marginLeft: '10%',
-        marginRight: 'auto',
-        fontWeight: '300',
-        fontFamily: '"Work Sans",sans-serif'
-    },
-
-    spans: {
-        listStyleType: 'none',
-        paddingTop: '10px',
-        paddingBottom: '10px',
-    },
-    
-    bottom: {
-        width: 'auto',
-        marginLeft: 'auto',
-        marginRight: 'auto',
-        marginTop: '20px',
-        textAlign: 'center',
-        fontSize: '0.8em',
-        fontFamily: '"Work Sans",sans-serif'
-    }
-
+  header: {
+    width: 'auto',
+    marginLeft: '10%',
+    marginRight: 'auto',
+  }
 }
 
 export default Footer

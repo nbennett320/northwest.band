@@ -1,78 +1,69 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-
-import '../css/header.css'
-
-import headerImg from '../img/nwStarLogoBlack_407x128.png'
-import Cart from './Cart'
+import CartButton from './CartButton'
+import HeaderLogo from '../img/nwStarLogoBlack_407x128.png'
+import '../css/components/header.css'
 
 class Header extends Component {
+  render () {
+    const { 
+      cart,
+			showCart, 
+			headerLink
+		} = this.props
 
-    constructor (props) {
-        super (props)
-        this.state = {
-            showCart: this.props.showCart
-        }
-    }
+    return (
+      <div className="header" style={styles.main}>
+        <Link to={headerLink}
+					style={styles.link}
+				>
+          <img src={HeaderLogo} 
+            id="header-image" 
+            style={styles.img} 
+            alt="northwest header"
+          />
+        </Link>
 
-    handleHeaderClick = () => {
-        this.props.setShowCart(false)
-    }
-
-    render () {
-        let cart
-        if(this.props.showCart === true) 
-            cart = <Link to='/cart' > 
-                <Cart numberOfItemsInCart={this.props.numberOfItemsInCart} /> 
-            </Link>
-
-        return (
-            <div className="header" style={styles.main}>
-                <Link to={this.props.headerLink}>
-
-                    <img src={headerImg} 
-                        id="headerImg" 
-                        style={styles.img} 
-                        alt="northwest header"
-                        onClick={this.handleHeaderClick}
-                    />
-
-                </Link>
-
-                {cart}
-                
-            </div>
-        )
-    }
+				{showCart && <Link to='/cart' > 
+						<CartButton cart={cart} /> 
+					</Link>
+				}
+      </div>
+    )
+  }
 }
 
 const styles = {
+  main: {
+    width: '100%',
+    height: '5vh',
+    display: 'flex',
+    justifyContent: 'center',
+    backgroundColor: 'rgba(255,255,255,0.8)',
+    margin: '0',
+    padding: '20px 0 20px 0',
+    position: 'fixed',
+    top: '0',
+    zIndex: '5000',
+    boxShadow: '0px 0px 8px 2px rgba(0,0,0,0.1)',
+    backdropFilter: 'blur(10px)'
+	},
 
-    main: {
-        width: '100%',
-        height: '5vh',
-        display: 'flex',
-        justifyContent: 'center',
-        backgroundColor: 'rgba(255,255,255,0.8)',
-        margin: '0',
-        padding: '20px 0 20px 0',
-        position: 'fixed',
-        top: '0',
-        zIndex: '50',
-        // borderBottom: '1px solid #000',
-        boxShadow: '0px 0px 8px 2px rgba(0,0,0,0.1)',
-        backdropFilter: 'blur(10px)'
-    },
-
-    img: {
-        width: 'auto',
-        maxWidth: '633px',
-        height: '-webkit-fill-available',
-        marginLeft: 'auto',
-        marginRight: 'auto',
-        zIndex: '51'
-    }
-
+	link: {
+		width: 'auto',
+		maxWidth: '633px',
+		display: 'flex',
+    justifyContent: 'center',
+	},
+	
+  img: {
+		height: '100%',
+    width: 'auto',
+    maxWidth: '633px',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    zIndex: '5001'
+  }
 }
 
 export default Header
