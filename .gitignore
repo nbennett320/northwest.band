@@ -23,6 +23,7 @@ build.tar.gz
 # old images
 /src/img/img_merch/old/*
 /src/img/gimp/*
+/misc/other/*
 
 ## logs
 npm-debug.log*
