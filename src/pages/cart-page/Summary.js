@@ -28,7 +28,7 @@ const styles = {
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    margin: '0 auto',
+    margin: '0 0 0 5%',
     padding: '4px 0'
   }
 }

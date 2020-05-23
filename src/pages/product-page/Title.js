@@ -32,7 +32,7 @@ const styles = {
   
   mobile: {
     title: {
-      padding: '40px 60px',
+      padding: '40px 50px',
       margin: '0 auto'
     }
   }

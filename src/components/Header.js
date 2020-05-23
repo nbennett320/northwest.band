@@ -36,6 +36,7 @@ class Header extends Component {
 const styles = {
   main: {
     width: '100%',
+    maxWidth: '100vw',
     height: '5vh',
     display: 'flex',
     justifyContent: 'center',
@@ -50,7 +51,7 @@ const styles = {
 	},
 
 	link: {
-		width: 'auto',
+		width: '33%',
 		maxWidth: '633px',
 		display: 'flex',
     justifyContent: 'center',
