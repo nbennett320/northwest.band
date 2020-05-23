@@ -1,24 +1,44 @@
 import React, { Component } from 'react'
 import { Helmet } from 'react-helmet'
-import CartHeader from './CartHeader'
-import ListArea from './ListArea'
-import NoItems from './NoItems'
+import DropIn from 'braintree-web-drop-in-react'
+import CheckoutHeader from './CheckoutHeader'
 import Footer from '../../components/Footer'
-import Summary from './Summary'
+import { Button } from '@material-ui/core'
 
-class CartPage extends Component {
-  componentDidMount() {
-    this.props.setHeaderLink('/merch')
+const server = "localhost:3001"
+
+export default class CheckoutPage extends Component {
+  instance
+  state = {
+    clientToken: null,
+  }
+
+  async componentDidMount() {
+    this.props.setHeaderLink('/cart')
+
+    // get token
+    const res = await fetch(`${server}/client_token`)
+    const clientToken = await res.json()
+
+    this.setState({ clientToken })
+  }
+
+  async buy() {
+    const { nonce } = await this.instance.requestPaymentMethod()
+    await fetch(`${server}/purchase/${nonce}`)
   }
 
   render() {
     const { cart, device, history } = this.props
     console.log(this.props)
-    return (
+    if(!this.state.clientToken) 
+      return (
+        <div> loading </div>
+      )
+    else return (
       <div style={styles.main}>
         {helmet}
-        
-        <CartHeader 
+        <CheckoutHeader 
           scale={() => (
             device.vpWidth > 1920 
               ? "lg"
@@ -28,20 +48,18 @@ class CartPage extends Component {
           )}
         />
 
-        {cart.length > 0 
-          ? <ListArea 
-            cart={cart}
-            addItemToCart={this.props.addItemToCart}
-            removeItemFromCart={this.props.removeItemFromCart}
-            device={device}
-          /> 
-          : <NoItems history={history} />
-        }
-        
-        {cart.length > 0 && <Summary
-          history={history}
-          cart={cart}
-        />} 
+        <DropIn
+          options={{
+            authorization: this.state.clientToken 
+          }}
+          onInstance={instance => this.instance = instance}
+        />
+
+        <Button onClick={this.buy}
+          variant="outlined"
+        >
+          buy
+        </Button>
         
         <Footer />
       </div>
@@ -73,7 +91,7 @@ const helmet = (
     " />
     <meta name="robots" content="noindex" />
     <meta name="url" content="http://northwest.band/merch" />
-    <title>northwest the band | cart</title>
+    <title>northwest the band | checkout</title>
   </Helmet>
 )
 
@@ -87,5 +105,3 @@ const styles = {
     top: '0',
   }
 }
-
-export default CartPage

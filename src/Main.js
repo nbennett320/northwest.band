@@ -8,6 +8,7 @@ import Lyrics from './pages/music/Lyrics'
 import Merch from './pages/merch/Merch'
 import ProductPage from './pages/product-page/ProductPage'
 import CartPage from './pages/cart-page/CartPage'
+import CheckoutPage from './pages/checkout-page/CheckoutPage'
 import Goodies from './pages/goodies/Goodies'
 import Demos from './pages/demos/Demos'
 import Contact from './pages/contact/Contact'
@@ -264,6 +265,19 @@ class Main extends Component {
                 setHeaderLink={this.setHeaderLink}
               />}
             /> */}
+
+            <Route path='/checkout' 
+              render={(props) => <CheckoutPage 
+                {...props} 
+                setHeaderLink={this.setHeaderLink}
+                cart={cart}
+                device={{
+                  vpWidth: vpWidth,
+                  vpHeight: vpHeight,
+                  isMobile: isMobile,
+                }}
+              />}
+            />
 
             {/* <Route path='/cart' 
               render={(props) => <ViewCartPage 
