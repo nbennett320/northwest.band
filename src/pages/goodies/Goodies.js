@@ -10,46 +10,50 @@ export default class Goodies extends Component {
   }
 
   render() {
-    const { device } = this.props
     return (
       <div style={styles.main}>
         {helmet}
 
-        <AnimatedImage
-          ids={{
-            image: "demo-animation",
-            text: "demo-text-animation"
-          }}
-          stylesProp={{
-            image: styles.image.demos, 
-            text: styles.text.demos
-          }}
-          images={{
-            image: 'img/goodies/image/demos-image.png',
-            text: {
-              main: 'img/goodies/text/demos-text.png',
-              hover: 'img/goodies/text/demos-text.png'
-            }
-          }}
-        />
+        <div style={styles.container}>
+          <AnimatedImage
+            link='/demos'
+            ids={{
+              image: "demo-animation",
+              text: "demo-text-animation"
+            }}
+            stylesProp={{
+              image: styles.image.demos, 
+              text: styles.text.demos
+            }}
+            images={{
+              image: 'img/goodies/image/demos-image.png',
+              text: {
+                main: 'img/goodies/text/demos-text.png',
+              }
+            }}
+          />
+        </div>
 
-        <AnimatedImage
-          ids={{
-            image: "vault-animation",
-            text: "vault-text-animation"
-          }}
-          stylesProp={{
-            image: styles.image.vault, 
-            text: styles.text.vault
-          }}
-          images={{
-            image: 'img/goodies/image/vault-image.png',
-            text: {
-              main: 'img/goodies/text/vault-text.png',
-              hover: 'img/goodies/text/vault-text.png'
-            }
-          }}
-        />
+        <div style={styles.container}>
+          <AnimatedImage
+            link='/vault'
+            ids={{
+              image: "vault-animation",
+              text: "vault-text-animation"
+            }}
+            stylesProp={{
+              image: styles.image.vault, 
+              text: styles.text.vault
+            }}
+            images={{
+              image: 'img/goodies/image/vault-image.png',
+              text: {
+                main: 'img/goodies/text/vault-text.png',
+                hover: 'img/goodies/text/vault-text.png'
+              }
+            }}
+          />
+        </div>
 
         <Footer />
       </div>
@@ -114,6 +118,10 @@ const styles = {
     }
   },
 
+  container: {
+    marginTop: '20px'
+  },
+
   text: {
     demos: {
       main: {
@@ -123,15 +131,6 @@ const styles = {
         transform: 'scale(0.5)',
         animation: 'demosText 1.2s steps(3) infinite',
       },
-
-      hover: {
-        width: '500px',
-        height: '118px',
-        top: '80px',
-        transform: 'scale(0.6)',
-        cursor: 'pointer',
-        animation: 'demosTextHover 0.6s steps(3) infinite',
-      }
     },
 
     vault: {
@@ -142,15 +141,6 @@ const styles = {
         transform: 'scale(0.5)',
         animation: 'vaultText 0.8s steps(3) infinite',
       },
-
-      hover: {
-        width: '500px',
-        height: '115px',
-        top: '90px',
-        transform: 'scale(0.6)',
-        cursor: 'pointer',
-        animation: 'vaultTextHover 0.5s steps(3) infinite',
-      }
     }
   }
 }

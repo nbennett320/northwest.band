@@ -37,7 +37,6 @@
 #vault-animation {
   background-repeat: no-repeat !important;
   background-position-y: 20px;
-  margin: 0 !important;
   padding-bottom: 40px;
   align-self: center !important;
 }
@@ -50,6 +49,6 @@
 @media only screen and (max-width: 633px) {
   .animated-image {
     transform: scale(0.6);
-    margin: -15% -20px;
+    margin: -15% -60px !important;
   }
 }

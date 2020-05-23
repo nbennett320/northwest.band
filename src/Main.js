@@ -9,8 +9,9 @@ import Merch from './pages/merch/Merch'
 import ProductPage from './pages/product-page/ProductPage'
 import CartPage from './pages/cart-page/CartPage'
 import Goodies from './pages/goodies/Goodies'
-import ScrollToTop from './scripts/ScrollToTop'
+import Demos from './pages/demos/Demos'
 import Contact from './pages/contact/Contact'
+import ScrollToTop from './scripts/ScrollToTop'
 import NoMatch from './NoMatch'
 import './css/main.css'
 import './css/classes.css'
@@ -236,11 +237,31 @@ class Main extends Component {
               render={(props) => <Goodies 
                 {...props} 
                 setHeaderLink={this.setHeaderLink}
+              />}
+            />
+
+            {/* catch any additional param errors */}
+            <Redirect 
+              from='/goodies/*'
+              to='/goodies'
+            />
+
+            <Route path='/demos' 
+              render={(props) => <Demos 
+                {...props} 
+                setHeaderLink={this.setHeaderLink}
                 device={{
                   vpWidth: vpWidth,
                   vpHeight: vpHeight,
                   isMobile: isMobile,
                 }}
+              />}
+            />
+
+            <Route path='/vault' 
+              render={(props) => <Goodies 
+                {...props} 
+                setHeaderLink={this.setHeaderLink}
               />}
             />
 

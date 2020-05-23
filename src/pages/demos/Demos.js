@@ -1,26 +1,26 @@
 import React, { Component } from 'react'
 import { Helmet } from 'react-helmet'
-import Album from './Album'
+import Entry from './Entry'
 import Footer from '../../components/Footer'
-import albums from '../../data/Albums.json'
-import '../../css/music.css'
+import goodies from '../../data/Goodies.json'
 
-export default class Music extends Component {
+export default class Demos extends Component {
   componentDidMount () {
-    this.props.setHeaderLink('/')
+    this.props.setHeaderLink('/goodies')
   }
 
   listEntries = () => (
-    Object.keys(albums).map(i => {
-      const album = albums[i]
+    Object.keys(goodies).map(i => {
+      const entry = goodies[i]
+      console.log("entry", entry)
       return (
-        <div key={i} 
+        <div key={i}
           style={styles.entry}
         >
-          <Album 
-            title={`${album["title"]}`}
-            date={`${album["date"]}`}
-            img={require(`../../img/music/${album["art"]}`)}
+          <Entry 
+            name={entry.name}
+            img={require(`../../img/music/goodies/${entry.art}`)}
+            content={entry.description}
             device={this.props.device}
           />
         </div>
@@ -64,7 +64,7 @@ const styles = {
 
   list: {
     display: 'flex',
-    flexDirection: 'column-reverse'
+    flexDirection: 'column'
   }
 }
 
@@ -77,19 +77,21 @@ const helmet = <Helmet>
       northwest band,
       music, 
       band, 
-      lyrics, 
-      219, 
       indie, 
       rock, 
-      songs, 
+      songs,
+      demos,
+      live,
+      songs,
+      covers
     "
   />
   <link rel="canonical" href="http://northwest.band/music" />
   <meta name="author" content="Noah Bennett" />
   <meta name="description" content="
-    A list of Northwest's entire discography and respective lyrics.
+    Demos, live versions, and covers by Northwest.
   " />
   <meta name="robots" content="index" />
   <meta name="url" content="http://northwest.band/music" />
-  <title>northwest the band | music, lyrics, and artwork</title>
+  <title> northwest the band | demos, live versions, and covers </title>
 </Helmet>
