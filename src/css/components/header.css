@@ -9,3 +9,13 @@
 #header-image {
   opacity: 100% !important;
 }
+
+@media only screen and (max-width: 633px) {
+  #header-image {
+    transform: scale(1.4) !important;
+  }
+
+  #header-image:hover {
+    transform: scale(1.4) !important;
+  }
+}

@@ -57,8 +57,9 @@ const styles = {
 	},
 	
   img: {
+    objectFit: 'contain',
 		height: '100%',
-    width: 'auto',
+    width: '100%',
     maxWidth: '633px',
     marginLeft: 'auto',
     marginRight: 'auto',

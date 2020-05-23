@@ -258,12 +258,12 @@ class Main extends Component {
               />}
             />
 
-            <Route path='/vault' 
+            {/* <Route path='/vault' 
               render={(props) => <Goodies 
                 {...props} 
                 setHeaderLink={this.setHeaderLink}
               />}
-            />
+            /> */}
 
             {/* <Route path='/cart' 
               render={(props) => <ViewCartPage 
