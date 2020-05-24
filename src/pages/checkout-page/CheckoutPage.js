@@ -4,8 +4,7 @@ import DropIn from 'braintree-web-drop-in-react'
 import CheckoutHeader from './CheckoutHeader'
 import Footer from '../../components/Footer'
 import { Button } from '@material-ui/core'
-
-const server = "localhost:3001"
+import server from '../../server'
 
 export default class CheckoutPage extends Component {
   instance
@@ -17,24 +16,31 @@ export default class CheckoutPage extends Component {
     this.props.setHeaderLink('/cart')
 
     // get token
-    const res = await fetch(`${server}/client_token`)
-    const clientToken = await res.json()
-
-    this.setState({ clientToken })
+    const res = await fetch(`${server}/client_token`, {method: 'GET'})
+    const clientToken = await res.text()
+    this.setState({ clientToken: clientToken })
   }
 
   async buy() {
+    const { amount } = this.props.transaction
     const { nonce } = await this.instance.requestPaymentMethod()
-    await fetch(`${server}/purchase/${nonce}`)
+    await fetch(`${server}/purchase/${nonce}/${amount}`, {
+      method: 'POST', 
+      body: {
+        nonce: nonce,
+        amount: amount
+      }
+    })
   }
 
   render() {
     const { cart, device, history } = this.props
     console.log(this.props)
-    if(!this.state.clientToken) 
+    if(!this.state.clientToken) {
       return (
         <div> loading </div>
       )
+    }
     else return (
       <div style={styles.main}>
         {helmet}
@@ -48,14 +54,16 @@ export default class CheckoutPage extends Component {
           )}
         />
 
-        <DropIn
-          options={{
-            authorization: this.state.clientToken 
-          }}
-          onInstance={instance => this.instance = instance}
-        />
+        <div>
+          <DropIn
+            options={{
+              authorization: this.state.clientToken 
+            }}
+            onInstance={instance => this.instance = instance}
+          />
+        </div>
 
-        <Button onClick={this.buy}
+        <Button onClick={this.buy.bind(this)}
           variant="outlined"
         >
           buy

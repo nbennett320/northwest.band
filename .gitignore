@@ -10,6 +10,7 @@
 /build
 build.zip
 build.tar.gz
+src/server.js
 
 ## misc
 .DS_Store

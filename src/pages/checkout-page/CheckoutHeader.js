@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Typography } from '@material-ui/core'
 
 export default class CheckoutHeader extends Component {
   state = {
@@ -20,11 +19,7 @@ export default class CheckoutHeader extends Component {
       <div style={{
         ...styles[`${scale()}`].main,
         backgroundImage: `url('${this.state.image}')`,
-      }}>
-        <Typography variant="h3">
-          cart
-        </Typography>
-      </div>
+      }}></div>
     )
   }
 }
