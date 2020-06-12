@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { Redirect } from 'react-router-dom'
-import Header from './components/Header'
+import Header from './components/header/Header'
 import Home from './pages/home/Home'
 import Music from './pages/music/Music'
 import Lyrics from './pages/music/Lyrics'

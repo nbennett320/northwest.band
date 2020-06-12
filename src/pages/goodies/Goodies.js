@@ -1,6 +1,16 @@
-// import React, { Component } from 'react'
-// import { Helmet } from 'react-helmet'
-// import Footer from '../../components/Footer'
+import React, { Component } from 'react'
+import { Helmet } from 'react-helmet'
+import Footer from '../../components/footer/Footer'
+
+export default class Goodies extends Component {
+  render() {
+    return (
+      <div>
+        
+      </div>
+    )
+  }
+}
 
 // import '../../css/goodies.css'
 

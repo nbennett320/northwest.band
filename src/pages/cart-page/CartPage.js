@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet'
 import CartHeader from './CartHeader'
 import ListArea from './ListArea'
 import NoItems from './NoItems'
-import Footer from '../../components/Footer'
+import Footer from '../../components/footer/Footer'
 import Summary from './Summary'
 
 class CartPage extends Component {

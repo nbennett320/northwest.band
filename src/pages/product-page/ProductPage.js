@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet'
 import { Divider } from '@material-ui/core'
 import ProductOverview from './ProductOverview'
 import ProductDetails from './ProductDetails'
-import Footer from '../../components/Footer'
+import Footer from '../../components/footer/Footer'
 import products from '../../data/Products.json'
 import SuggestionBar from './SuggestionBar'
 

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Helmet } from 'react-helmet'
 import StoreHeader from './StoreHeader'
 import Products from './Products'
-import Footer from '../../components/Footer'
+import Footer from '../../components/footer/Footer'
 
 class Merch extends Component {
   constructor(props) {

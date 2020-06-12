@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Helmet } from 'react-helmet'
 import Album from './Album'
-import Footer from '../../components/Footer'
+import Footer from '../../components/footer/Footer'
 import albums from '../../data/Albums.json'
 import '../../css/music.css'
 

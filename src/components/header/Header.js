@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import CartButton from './CartButton'
-import HeaderLogo from '../img/nwStarLogoBlack_407x128.png'
-import '../css/components/header.css'
+import HeaderLogo from '../../img/nwStarLogoBlack_407x128.png'
+import BlmBar from './BlmBar'
+import '../../css/components/header.css'
 
 class Header extends Component {
   render () {
@@ -14,6 +15,7 @@ class Header extends Component {
 
     return (
       <div className="header" style={styles.main}>
+        <BlmBar />
         <Link to={headerLink}
 					style={styles.link}
 				>
