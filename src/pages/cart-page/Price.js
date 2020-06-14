@@ -3,6 +3,10 @@ import PriceSection from './PriceSection'
 import { Button } from '@material-ui/core'
 
 export default class Price extends Component {
+  handleClick = () => {
+    this.props.history.push('/checkout')
+  }
+
   getSubtotal = () => {
     const { cart } = this.props
     let sum = 0
@@ -57,6 +61,6 @@ const styles = {
 
   button: {
     width: '100%',
-    padding: '10px 20px'
+    padding: '10px 0px'
   }
 }

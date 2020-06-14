@@ -1,31 +1,50 @@
 import React, { Component } from 'react'
 import { Helmet } from 'react-helmet'
-import CartHeader from './CartHeader'
-import ListArea from './ListArea'
-import NoItems from './NoItems'
+import DropIn from 'braintree-web-drop-in-react'
+import CheckoutHeader from './CheckoutHeader'
 import Footer from '../../components/footer/Footer'
-import Summary from './Summary'
+import { Button } from '@material-ui/core'
+import server from '../../server'
 
-class CartPage extends Component {
-  componentDidMount() {
-    this.props.setHeaderLink('/merch')
+export default class CheckoutPage extends Component {
+  instance
+  state = {
+    clientToken: null,
+  }
 
-    const hasShownBlmPanel = localStorage.getItem("hasShownBlmPanel")
-    // uses boolean as string
-    if(hasShownBlmPanel === "false") {
-      this.props.setDestination({from: this.props.match.path})
-      this.props.history.push('/blm')
-    }
+  async componentDidMount() {
+    this.props.setHeaderLink('/cart')
+
+    // get token
+    const res = await fetch(`${server}/client_token`, {method: 'GET'})
+    const clientToken = await res.text()
+    this.setState({ clientToken: clientToken })
+  }
+
+  async buy() {
+    const { amount } = this.props.transaction
+    const { nonce } = await this.instance.requestPaymentMethod()
+    await fetch(`${server}/purchase/${nonce}/${amount}`, {
+      method: 'POST', 
+      body: {
+        nonce: nonce,
+        amount: amount
+      }
+    })
   }
 
   render() {
     const { cart, device, history } = this.props
     console.log(this.props)
-    return (
+    if(!this.state.clientToken) {
+      return (
+        <div> loading </div>
+      )
+    }
+    else return (
       <div style={styles.main}>
         {helmet}
-        
-        <CartHeader 
+        <CheckoutHeader 
           scale={() => (
             device.vpWidth > 1920 
               ? "lg"
@@ -35,20 +54,20 @@ class CartPage extends Component {
           )}
         />
 
-        {cart.length > 0 
-          ? <ListArea 
-            cart={cart}
-            addItemToCart={this.props.addItemToCart}
-            removeItemFromCart={this.props.removeItemFromCart}
-            device={device}
-          /> 
-          : <NoItems history={history} />
-        }
-        
-        {cart.length > 0 && <Summary
-          history={history}
-          cart={cart}
-        />} 
+        <div>
+          <DropIn
+            options={{
+              authorization: this.state.clientToken 
+            }}
+            onInstance={instance => this.instance = instance}
+          />
+        </div>
+
+        <Button onClick={this.buy.bind(this)}
+          variant="outlined"
+        >
+          buy
+        </Button>
         
         <Footer />
       </div>
@@ -80,7 +99,7 @@ const helmet = (
     " />
     <meta name="robots" content="noindex" />
     <meta name="url" content="http://northwest.band/merch" />
-    <title>northwest the band | cart</title>
+    <title>northwest the band | checkout</title>
   </Helmet>
 )
 
@@ -94,5 +113,3 @@ const styles = {
     top: '0',
   }
 }
-
-export default CartPage

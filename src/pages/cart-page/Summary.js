@@ -7,7 +7,7 @@ import Price from './Price'
 
 export default class Summary extends Component {
   render() {
-    const { cart } = this.props
+    const { cart, history } = this.props
     return (
       <span style={styles.main}>
         <Typography variant="h6">
@@ -16,6 +16,7 @@ export default class Summary extends Component {
 
         <Price 
           cart={cart}
+          history={history}
         />
       </span>
     )
@@ -28,7 +29,7 @@ const styles = {
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    margin: '0 auto',
+    margin: '0 0 0 5%',
     padding: '4px 0'
   }
 }

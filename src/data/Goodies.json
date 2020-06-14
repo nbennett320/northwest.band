@@ -1,0 +1,25 @@
+{
+  "0": {
+    "name": "Area Code Demos",
+    "description": "demo tracks from our first project, including stay w me tonight, lover, quink (originally called \"that one song\", \"holy banger\", and \"maybe1a2single3for4the5album\"), as well as a bunch of others",
+    "art": "areacodedemoart1.png"
+  },
+
+  "1": {
+    "name": "4431 live (july 2019)",
+    "description": "4431 recorded july 2019",
+    "art": "4431live2.png"
+  },
+
+  "2": {
+    "name": "The Hill",
+    "description": "demo of a song that almost made it on suburban dogs",
+    "art": "thehill.jpg"
+  },
+
+  "3": {
+    "name": "demo 17",
+    "description": "cover of demo 17 (a demo by Brockhampton)",
+    "art": "demo17.jpg"
+  }
+}

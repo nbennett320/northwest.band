@@ -162,7 +162,7 @@ const styles = {
         left: '15px',
         transform: 'scale(0.6)',
         cursor: 'pointer',
-        animation: 'goodiesTextHover 0.5s steps(3) infinite',
+        animation: 'goodiesTextHover 0.6s steps(3) infinite',
       }
     },
   }

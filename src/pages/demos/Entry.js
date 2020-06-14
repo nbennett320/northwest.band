@@ -7,11 +7,15 @@ import {
   ThemeProvider 
 } from '@material-ui/core/styles'
 import Artwork from './Artwork'
-import SongList from './SongList'
+import Description from './Description'
 
-export default class Album extends Component {
+export default class Entry extends Component {
   render() {
-    const { title, date, img } = this.props
+    const { 
+      name,
+      img,
+      content
+    } = this.props
     const theme = createMuiTheme({
       palette: {
         primary: {
@@ -29,16 +33,23 @@ export default class Album extends Component {
     return (
       <div style={style.main}>
         <ThemeProvider theme={theme}>
-          <Typography variant="h4" color='secondary'> {title.toLowerCase()} </Typography>
-          <Typography variant="subtitle1" color='secondary'> {date.toLowerCase()} </Typography>
+          <Typography 
+            variant="h5" 
+            color='secondary'
+          > 
+            {name.toLowerCase()} 
+          </Typography>
 
           <Artwork
             img={img}
-            name={title}
+            name={name}
             device={this.props.device}
           />
 
-          <SongList album={title} />
+          <Description 
+            content={content}
+            device={this.props.device}
+          />
         </ThemeProvider>
       </div>
     )

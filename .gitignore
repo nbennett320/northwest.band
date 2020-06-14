@@ -1,30 +1,33 @@
-# dependencies
+## dependencies
 /node_modules
 /.pnp
 .pnp.js
 
-# testing
+## testing
 /coverage
 
-# production
+## production
 /build
 build.zip
 build.tar.gz
+src/server.js
 
-# misc
+## misc
 .DS_Store
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
 .vscode
+# downloads (files too big lol)
+/src/downloads/*
+# old images
+/src/img/img_merch/old/*
+/src/img/gimp/*
+/misc/other/*
 
+## logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-#downloads
-/src/downloads/*
-
-#old images
-/src/img/img_merch/old/*

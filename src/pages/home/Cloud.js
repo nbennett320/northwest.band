@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
-class Cloud extends Component {
+export default class Cloud extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -12,7 +12,12 @@ class Cloud extends Component {
   toggleHover = () => this.setState({isHovering: !this.state.isHovering})
 
   render() {
-    const { link, stylesProp, images, isMobile } = this.props
+    const { 
+      link, 
+      stylesProp, 
+      images, 
+      isMobile 
+    } = this.props
     return (
       <div className="cloud"
         style={{
@@ -55,5 +60,3 @@ const styles = {
     zIndex: '15',
   }
 }
-
-export default Cloud

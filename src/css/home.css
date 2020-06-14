@@ -25,7 +25,7 @@
   100% { background-position: -2000px; }
 }
 
-@keyframes merchHoverText {
+@keyframes merchTextHover {
   100% { background-position: -1000px; }
 }
 
@@ -37,7 +37,7 @@
   100% { background-position: -6500px; }
 }
 
-@keyframes playGoodiesHover{
+@keyframes goodiesTextHover {
   100% { background-position: -1500px; }
 }
 

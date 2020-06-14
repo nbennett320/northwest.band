@@ -1,24 +1,20 @@
 {
   "name": "northwest.band",
-  "version": "0.1.0",
+  "version": "0.6.9",
+  "license": "GPL v3",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.9.7",
     "@material-ui/icons": "^4.9.1",
-    "braintree": "^2.21.0",
-    "braintree-web-drop-in-react": "^1.1.0",
-    "nodemailer": "^6.3.1",
-    "paypal-checkout": "^4.0.296",
+    "braintree-web-drop-in-react": "^1.1.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
     "react-router": "^5.0.1",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
-    "react-select": "^3.0.4",
     "react-universal-component": "^4.0.0",
-    "styled-components": "^4.3.2",
-    "usps-webtools": "^1.0.3"
+    "styled-components": "^4.3.2"
   },
   "scripts": {
     "start": "react-scripts start",

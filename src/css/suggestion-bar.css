@@ -6,17 +6,14 @@
 
 /* phone */
 @media only screen and (max-width: 633px) {
-
   .suggestion-bar > .product-preview {
     text-decoration: none;
     min-width: 50% !important;
   }
-
 }
 
 /* desktop */
 @media only screen and (min-width: 633px) {
-
   .suggestion-bar::-webkit-scrollbar-track {
     -webkit-box-shadow: none;
     background-color: #fff;
@@ -33,6 +30,5 @@
     height: 5px;
     border-radius: 10px;
   }
-
 }
 

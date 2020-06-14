@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class CartHeader extends Component {
+export default class CheckoutHeader extends Component {
   state = {
     image: undefined,
   }
