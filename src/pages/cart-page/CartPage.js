@@ -9,6 +9,13 @@ import Summary from './Summary'
 class CartPage extends Component {
   componentDidMount() {
     this.props.setHeaderLink('/merch')
+
+    const hasShownBlmPanel = localStorage.getItem("hasShownBlmPanel")
+    // uses boolean as string
+    if(hasShownBlmPanel === "false") {
+      this.props.setDestination({from: this.props.match.path})
+      this.props.history.push('/blm')
+    }
   }
 
   render() {

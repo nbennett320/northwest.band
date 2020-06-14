@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { Redirect } from 'react-router-dom'
 import Header from './components/header/Header'
+import BlmPanel from './pages/on-launch/BlmPanel'
 import Home from './pages/home/Home'
 import Music from './pages/music/Music'
 import Lyrics from './pages/music/Lyrics'
@@ -20,6 +21,10 @@ const mql = window.matchMedia(`(max-width: 633px)`)
 const vpWidth = window.innerWidth
 const vpHeight = window.innerHeight
 
+if(!localStorage.getItem("hasShownBlmPanel")) {
+  localStorage.setItem("hasShownBlmPanel", "false")
+}
+
 class Main extends Component {
   constructor(props) {
     super(props)
@@ -29,13 +34,27 @@ class Main extends Component {
       headerLink: '..',
       vpWidth,
       vpHeight,
-      isMobile: mql.matches
+      isMobile: mql.matches,
+      from: {
+        path: ''
+      }
     }
   }
 
   componentDidMount() {
     const cart = localStorage.getItem("cart")
     console.log(cart)
+  }
+
+  setDestination = props => {
+    console.log("hey")
+    localStorage.setItem("hasShownBlmPanel", "true")
+    this.setState({
+      from: {
+        ...this.state.from,
+        path: props.from
+      }
+    })
   }
 
   addItemToCart = (itemAdded, match) => {
@@ -81,7 +100,8 @@ class Main extends Component {
       headerLink,
       vpWidth,
       vpHeight,
-      isMobile
+      isMobile,
+      from
     } = this.state
     return (
       <Router>
@@ -93,6 +113,13 @@ class Main extends Component {
           />
 
           <Switch>
+            <Route exact path='/blm'
+              render={props => <BlmPanel 
+                {...props}
+                from={from}
+              />}
+            />
+
             <Route exact path='/'
               render={props => <Home
                 {...props}
@@ -102,10 +129,11 @@ class Main extends Component {
                   vpHeight: vpHeight,
                   isMobile: isMobile,
                 }}
+                setDestination={this.setDestination}
               />}
             />
 
-            <Redirect 
+            <Redirect
               from='/home'
               to='/'
             />

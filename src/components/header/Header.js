@@ -15,7 +15,6 @@ class Header extends Component {
 
     return (
       <div className="header" style={styles.main}>
-        <BlmBar />
         <Link to={headerLink}
 					style={styles.link}
 				>

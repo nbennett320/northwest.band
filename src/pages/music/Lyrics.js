@@ -8,6 +8,13 @@ import songs from '../../data/Songs.json'
 class Lyrics extends Component {
   componentDidMount() {
     this.props.setHeaderLink('/music')
+
+    const hasShownBlmPanel = localStorage.getItem("hasShownBlmPanel")
+    // uses boolean as string
+    if(hasShownBlmPanel === "false") {
+      this.props.setDestination({from: this.props.match.path})
+      this.props.history.push('/blm')
+    }
   }
 
   getSongFromKey = key => {
