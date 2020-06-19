@@ -27,10 +27,10 @@ class Home extends Component {
             text: styles.text.music
           }}
           images={{
-            cloud: 'img/home/clouds/nwcloud1sprites_364_1500.png',
+            cloud: 'assets/img/home/clouds/nwcloud1sprites_364_1500.png',
             text: {
-              main: 'img/home/text/music_sprites2_cropped.png',
-              hover: 'img/home/text/music_sprites_hover_500_164.png'
+              main: 'assets/img/home/text/music_sprites2_cropped.png',
+              hover: 'assets/img/home/text/music_sprites_hover_500_164.png'
             }
           }}
           isMobile={device.isMobile}
@@ -42,10 +42,10 @@ class Home extends Component {
             text: styles.text.merch
           }}
           images={{
-            cloud: 'img/home/clouds/nwcloud2sprites_364_1500_2.png',
+            cloud: 'assets/img/home/clouds/nwcloud2sprites_364_1500_2.png',
             text: {
-              main: 'img/home/text/merchsprites2000x198.png',
-              hover: 'img/home/text/merch_hoversprites1500x145.png'
+              main: 'assets/img/home/text/merchsprites2000x198.png',
+              hover: 'assets/img/home/text/merch_hoversprites1500x145.png'
             }
           }}
           isMobile={device.isMobile}
@@ -57,10 +57,10 @@ class Home extends Component {
             text: styles.text.goodies
           }}
           images={{
-            cloud: 'img/home/clouds/nwcloud4sprites_462_2000.png',
+            cloud: 'assets/img/home/clouds/nwcloud4sprites_462_2000.png',
             text: {
-              main: 'img/home/text/goodiessprites6500x292.png',
-              hover: 'img/home/text/goodies_hoversprites1500x308.png'
+              main: 'assets/img/home/text/goodiessprites6500x292.png',
+              hover: 'assets/img/home/text/goodies_hoversprites1500x308.png'
             }
           }}
           isMobile={device.isMobile}

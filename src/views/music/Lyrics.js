@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet'
 import LyricsHeader from './LyricsHeader'
 import LyricsBody from './LyricsBody'
 import Footer from '../../components/footer/Footer'
-import songs from '../../data/Songs.json'
+import songs from '../../assets/data/Songs.json'
 
 class Lyrics extends Component {
   componentDidMount() {
@@ -33,7 +33,7 @@ class Lyrics extends Component {
     const { match } = this.props
     const { key } = match.params
     const song = this.getSongFromKey(key)
-    const url = require(`../../img/lyrics/${song["album"].toLowerCase()}/${key}.jpg`)
+    const url = require(`../../assets/img/lyrics/${song["album"].toLowerCase()}/${key}.jpg`)
     const helmet = makeHelmet(key, song)
 
     return (

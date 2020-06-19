@@ -10,7 +10,7 @@
 /build
 build.zip
 build.tar.gz
-src/server.js
+src/server.config.js
 
 ## misc
 .DS_Store
@@ -20,10 +20,10 @@ src/server.js
 .env.production.local
 .vscode
 # downloads (files too big lol)
-/src/downloads/*
+/src/assets/downloads/*
 # old images
-/src/img/img_merch/old/*
-/src/img/gimp/*
+/src/assets/img/img_merch/old/*
+/src/assets/img/gimp/*
 /misc/other/*
 
 ## logs

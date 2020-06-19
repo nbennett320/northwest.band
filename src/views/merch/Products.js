@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import ProductListing from './ProductListing'
-import products from '../../data/Products.json'
+import products from '../../assets/data/Products.json'
 
 class Products extends Component {
   makeCatalog = filter => {
@@ -15,7 +15,7 @@ class Products extends Component {
         <ProductListing 
           title={product["title"]}
           price={product["price"]}
-          image={require(`../../img/merch/500/${product["image"]}${product.attributes.colors[randomNum(product.attributes.colors.length)]}.jpg`)}
+          image={require(`../../assets/img/merch/500/${product["image"]}${product.attributes.colors[randomNum(product.attributes.colors.length)]}.jpg`)}
           description={product["description"]}
           attributes={product["attributes"]}
           zIndex={i}
@@ -38,7 +38,7 @@ class Products extends Component {
         <ProductListing 
           title={product["title"]}
           price={product["price"]}
-          image={require(`../../img/merch/500/${product["image"]}${product.attributes.colors[randomNum(product.attributes.colors.length)]}.jpg`)}
+          image={require(`../../assets/img/merch/500/${product["image"]}${product.attributes.colors[randomNum(product.attributes.colors.length)]}.jpg`)}
           description={product["description"]}
           attributes={product["attributes"]}
           zIndex={i + clothingArr.length}

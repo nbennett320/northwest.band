@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Helmet } from 'react-helmet'
 import Album from './Album'
 import Footer from '../../components/footer/Footer'
-import albums from '../../data/Albums.json'
+import albums from '../../assets/data/Albums.json'
 import '../../css/music.css'
 
 export default class Music extends Component {
@@ -27,7 +27,7 @@ export default class Music extends Component {
           <Album 
             title={`${album["title"]}`}
             date={`${album["date"]}`}
-            img={require(`../../img/music/${album["art"]}`)}
+            img={require(`../../assets/img/music/${album["art"]}`)}
             device={this.props.device}
           />
         </div>

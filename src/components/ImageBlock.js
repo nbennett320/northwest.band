@@ -16,7 +16,7 @@ export default class ImageBlock extends Component {
     }
   }
 
-  getImage = () => require(`../img/store/store_header_imgs/${randomNum(12)}.jpg`)
+  getImage = () => require(`../assets/img/store/store_header_imgs/${randomNum(12)}.jpg`)
 
   render() {
     const { image } = this.state

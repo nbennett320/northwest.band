@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Helmet } from 'react-helmet'
 import Entry from './Entry'
 import Footer from '../../components/footer/Footer'
-import goodies from '../../data/Goodies.json'
+import goodies from '../../assets/data/Goodies.json'
 
 export default class Demos extends Component {
   componentDidMount () {
@@ -19,7 +19,7 @@ export default class Demos extends Component {
         >
           <Entry 
             name={entry.name}
-            img={require(`../../img/music/goodies/${entry.art}`)}
+            img={require(`../../assets/img/music/goodies/${entry.art}`)}
             content={entry.description}
             device={this.props.device}
           />

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Icon } from '@material-ui/core'
-import BitcoinSvg from '../../img/logos/bitcoin3.svg'
+import BitcoinSvg from '../../assets/img/logos/bitcoin3.svg'
 
 export default class BitcoinIcon extends Component {
   render() {

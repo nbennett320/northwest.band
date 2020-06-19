@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import CartButton from './CartButton'
-import HeaderLogo from '../../img/nwStarLogoBlack_407x128.png'
-import BlmBar from './BlmBar'
+import HeaderLogo from '../../assets/img/nwStarLogoBlack_407x128.png'
+// import BlmBar from './BlmBar'
 import '../../css/components/header.css'
 
 class Header extends Component {

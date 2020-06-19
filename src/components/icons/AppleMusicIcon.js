@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Icon } from '@material-ui/core'
-import AppleMusicSvg from '../../img/logos/Apple_Music_Icon_wht.svg'
+import AppleMusicSvg from '../../assets/img/logos/Apple_Music_Icon_wht.svg'
 
 export default class AppleMusicIcon extends Component {
   render() {

@@ -15,7 +15,7 @@ export default class ImagePreview extends Component {
     return (
       <div style={styles.main}>
         {item && <Image 
-          path={require(`../../img/merch/500/${item.image}${selectedColor}.jpg`)}
+          path={require(`../../assets/img/merch/500/${item.image}${selectedColor}.jpg`)}
           alt={item.description}
         />}
         {item && <ColorOptions 

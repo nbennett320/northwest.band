@@ -4,7 +4,7 @@ import DropIn from 'braintree-web-drop-in-react'
 import CheckoutHeader from './CheckoutHeader'
 import Footer from '../../components/footer/Footer'
 import { Button } from '@material-ui/core'
-import server from '../../server'
+import server from '../../server.config'
 
 export default class CheckoutPage extends Component {
   instance

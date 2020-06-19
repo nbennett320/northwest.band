@@ -21,7 +21,7 @@ export default class ColorOptions extends Component {
           <Link to={`/products/${model}/${color}`}
             key={i}
           >
-            <img src={require(`../../img/merch/500/${item.image}${color}.jpg`)}
+            <img src={require(`../../assets/img/merch/500/${item.image}${color}.jpg`)}
               alt={`${color} ${model}`}
               onMouseEnter={() => this.props.setColor(color)}
               onMouseLeave={() => match.params.color 

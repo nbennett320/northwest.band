@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Icon } from '@material-ui/core'
-import SpotifySvg from '../../img/logos/Spotify_Icon_RGB_White.svg'
+import SpotifySvg from '../../assets/img/logos/Spotify_Icon_RGB_White.svg'
 
 export default class SpotifyIcon extends Component {
   render() {

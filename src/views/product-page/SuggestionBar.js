@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Typography } from '@material-ui/core'
 import ProductListing from '../merch/ProductListing'
-import products from '../../data/Products.json'
+import products from '../../assets/data/Products.json'
 
 export default class SuggestionBar extends Component {
   makeSuggestions = () => {
@@ -19,7 +19,7 @@ export default class SuggestionBar extends Component {
             className="no-box-shadow"
             title={product["title"]}
             price={product["price"]}
-            image={require(`../../img/merch/500/${product["image"]}${product.attributes.colors[randomNum(product.attributes.colors.length)]}.jpg`)}
+            image={require(`../../assets/img/merch/500/${product["image"]}${product.attributes.colors[randomNum(product.attributes.colors.length)]}.jpg`)}
             description={product["description"]}
             attributes={product["attributes"]}
             zIndex={i}
@@ -45,7 +45,7 @@ export default class SuggestionBar extends Component {
             className="no-box-shadow"
             title={product["title"]}
             price={product["price"]}
-            image={require(`../../img/merch/500/${product["image"]}${product.attributes.colors[randomNum(product.attributes.colors.length)]}.jpg`)}
+            image={require(`../../assets/img/merch/500/${product["image"]}${product.attributes.colors[randomNum(product.attributes.colors.length)]}.jpg`)}
             description={product["description"]}
             attributes={product["attributes"]}
             zIndex={i + clothingArr.length}

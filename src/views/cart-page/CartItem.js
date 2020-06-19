@@ -12,7 +12,7 @@ export default class CartItem extends Component {
       <span style={styles.main}>
         <div style={styles.image}>
           <CartImage 
-            image={require(`../../img/merch/500/${item.image}${item.selectedColor}.jpg`)}
+            image={require(`../../assets/img/merch/500/${item.image}${item.selectedColor}.jpg`)}
             description={item.attributes.description}
           />
         </div>

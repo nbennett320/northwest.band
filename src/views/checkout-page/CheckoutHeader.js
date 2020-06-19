@@ -11,7 +11,7 @@ export default class CheckoutHeader extends Component {
     })
   }
 
-  getImage = () => require(`../../img/store/store_header_imgs/${randomNum(12)}.jpg`)
+  getImage = () => require(`../../assets/img/store/store_header_imgs/${randomNum(12)}.jpg`)
 
   render() {
     const { scale } = this.props

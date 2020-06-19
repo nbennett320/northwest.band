@@ -1,8 +1,12 @@
 import React, { Component } from 'react'
+import {
+  Typography
+} from '@material-ui/core'
 
-export default class CartHeader extends Component {
+export default class StoreHeader extends Component {
   state = {
     image: undefined,
+    text: undefined
   }
 
   componentDidMount() {
@@ -11,15 +15,24 @@ export default class CartHeader extends Component {
     })
   }
 
-  getImage = () => require(`../../img/store/store_header_imgs/${randomNum(12)}.jpg`)
+  getImage = () => require(`../../assets/img/store/store_header_imgs/${randomNum(12)}.jpg`)
+
+  getText = () => {
+
+  }
 
   render() {
+    const { text } = this.state
     const { scale } = this.props
     return (
       <div style={{
         ...styles[`${scale()}`].main,
         backgroundImage: `url('${this.state.image}')`,
-      }}></div>
+      }}>
+        <Typography variant="h3">
+          {text}
+        </Typography>
+      </div>
     )
   }
 }
