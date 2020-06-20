@@ -13,6 +13,11 @@ export default class CheckoutPage extends Component {
   }
 
   async componentDidMount() {
+    const { cart } = this.props
+    console.log(this.props.history)
+    if(cart.length < 1) {
+      this.props.history.push('/cart')
+    }
     this.props.setHeaderLink('/cart')
 
     // get token
