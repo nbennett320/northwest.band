@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Helmet } from 'react-helmet'
 import AnimatedImage from './AnimatedImage'
+import AnimatedStyles from './AnimatedStyles'
 import Footer from '../../components/footer/Footer'
 import '../../css/goodies.css'
 
@@ -11,7 +12,9 @@ export default class Goodies extends Component {
 
   render() {
     return (
-      <div style={styles.main}>
+      <div style={styles.main}
+        className="view padding-for-header"
+      >
         {helmet}
 
         <div style={styles.container}>
@@ -26,9 +29,9 @@ export default class Goodies extends Component {
               text: styles.text.demos
             }}
             images={{
-              image: 'img/goodies/image/demos-image.png',
+              image: 'image/demos-image.png',
               text: {
-                main: 'img/goodies/text/demos-text.png',
+                main: 'text/demos-text.png',
               }
             }}
           />
@@ -46,10 +49,10 @@ export default class Goodies extends Component {
               text: styles.text.vault
             }}
             images={{
-              image: 'img/goodies/image/vault-image.png',
+              image: 'image/vault-image.png',
               text: {
-                main: 'img/goodies/text/vault-text.png',
-                hover: 'img/goodies/text/vault-text.png'
+                main: 'text/vault-text.png',
+                hover: 'text/vault-text.png'
               }
             }}
           />
@@ -92,55 +95,8 @@ const helmet = (
 
 const styles = {
   main: {
-    minHeight: '100vh',
-    width: '100%',
-    display: 'flex',
-    flexDirection: 'column',
-    position: 'absolute',
-    top: '0',
     backgroundColor: '#000',
-    padding: '0',
-    paddingTop: 'calc(5vh + 40px)',
     paddingBottom: '0',
   },
-
-  image: {
-    demos: {
-      width: '300px',
-      height: '295px',
-      animation: 'demos 0.8s steps(3) infinite',
-    },
-
-    vault: {
-      width: '500px',
-      height: '295px',
-      animation: 'vault 0.8s steps(3) infinite'
-    }
-  },
-
-  container: {
-    marginTop: '20px'
-  },
-
-  text: {
-    demos: {
-      main: {
-        width: '500px',
-        height: '118px',
-        top: '20px',
-        transform: 'scale(0.5)',
-        animation: 'demosText 1.2s steps(3) infinite',
-      },
-    },
-
-    vault: {
-      main: {
-        width: '500px',
-        height: '115px',
-        top: '70px',
-        transform: 'scale(0.5)',
-        animation: 'vaultText 0.8s steps(3) infinite',
-      },
-    }
-  }
+  ...AnimatedStyles
 }

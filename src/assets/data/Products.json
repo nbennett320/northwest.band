@@ -63,7 +63,7 @@
         "category": "shirt",
         "subcategory": "short-sleeve",
         "model": "leo photo shirt",
-        "style": "suburban dogs",
+        "style": "suburban-dogs",
         "colors": [
           "white",
           "orange",
@@ -89,7 +89,7 @@
         "category": "sweatshirt",
         "subcategory": "hoodie",
         "model": "leo photo hoodie",
-        "style": "suburban dogs",
+        "style": "suburban-dogs",
         "colors": [
           "grey",
           "purple",
@@ -141,7 +141,23 @@
         "category": "music",
         "subcategory": "cd",
         "model": "suburban dogs cd",
-        "style": "suburban dogs",
+        "style": "suburban-dogs",
+        "colors": [""],
+        "sizes": []
+      }
+    },
+
+    "1": {
+      "title": "area code cd",
+      "price": 28.00,
+      "image": "area code cd cover art",
+      "description": "physical cd of northwest\"s area code with a lyrics booklet",
+      "attributes": {
+        "type": "other",
+        "category": "music",
+        "subcategory": "cd",
+        "model": "area code cd",
+        "style": "classic",
         "colors": [""],
         "sizes": []
       }

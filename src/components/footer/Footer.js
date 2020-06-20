@@ -85,7 +85,7 @@ class Footer extends Component {
             }
           />
           
-          <FooterItem 
+          {/* <FooterItem 
             Icon={<MenuBookIcon color='secondary' />}
             label='about'
             link={
@@ -102,7 +102,7 @@ class Footer extends Component {
                 </Link>
               </Typography>
             }
-          />
+          /> */}
 
           <FooterItem 
             Icon={<GitHubIcon color='secondary' />}

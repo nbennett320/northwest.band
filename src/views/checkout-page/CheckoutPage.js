@@ -42,7 +42,7 @@ export default class CheckoutPage extends Component {
       )
     }
     else return (
-      <div style={styles.main}>
+      <div className="view">
         {helmet}
         <CheckoutHeader 
           scale={() => (
@@ -102,14 +102,3 @@ const helmet = (
     <title>northwest the band | checkout</title>
   </Helmet>
 )
-
-const styles = {
-  main: {
-    width: '100%',
-    minHeight: '100vh',
-    display: 'flex',
-    flexDirection: 'column',
-    position: 'absolute',
-    top: '0',
-  }
-}

@@ -29,7 +29,9 @@ export default class Demos extends Component {
 
   render() {
     return (
-      <div style={styles.main}>
+      <div style={styles.main}
+        className="view padding-for-header"
+      >
         {helmet}
 
         <div style={styles.list}>
@@ -44,15 +46,6 @@ export default class Demos extends Component {
 
 const styles = {
   main: {
-    width: '100%',
-    height: 'auto',
-    paddingTop: 'calc(8vh + 40px)',
-    paddingBottom: '2vh',
-    margin: '0',
-    display: 'flex',
-    flexDirection: 'column',
-    top: '0',
-    position: 'absolute',
     backgroundColor: '#000',
     letterSpacing: '1px',
   },
