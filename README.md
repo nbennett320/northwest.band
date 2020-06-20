@@ -1,28 +1,27 @@
-# Northwest.band
-Source code for [northwest.band](https://northwest.band).
+# northwest.band
+source code for [northwest.band](https://northwest.band).
 <br />
 
-<!-- ## Why open source?
-As stated in the GLPv2, licenses for most software are designed to take away your freedom to share and change it. (write more later) -->
+## why open source?
+most software licenses are designed to take away your freedom to view, share, and change it. furthermore, the lack of transparency for software enables the vast majority of softwares and their respective proprietors to exploit users by collecting and comodifying their data -- this practice often referred to as [big data collection](https://en.wikipedia.org/wiki/Big_data) or [surveillance capitalism](https://en.wikipedia.org/wiki/Surveillance_capitalism). free and open-source software is not a guarantee to privacy or internet safety, but neither can cannot exist without transparency. although open-sourcing this project is a microscopic contribution to the realm of free and open-source software, i wanted to do my part to show my appreciation for these communities and allow any curious on-lookers to read and learn about what's going on behind the scenes on the site.
 
-## Development
-
+## development
 ### `git clone git@github.com:nbennett320/northwest.band.git`
-Clone the repository to your computer
+clone the repository to your computer
 <br />
 
 ### `make`
-Run Makefile -- installs yarn and grabs the downloads folder because it's too big for GitHub (lol) 
+run makefile -- installs yarn and grabs the downloads folder because it's too big for github (lol) 
 <br />
 
 ### `yarn install`
-Install dependencies
+install dependencies
 <br />
 
 ### `yarn start`
-Start a development server on [http://localhost:3000](http://localhost:3000)<br />
+start a development server on [http://localhost:3000](http://localhost:3000)<br />
 
 ### `yarn build`
 
-Build/minifies the site for production. Files are built to the `build` folder
+build/minifies the site for production. files are built to the `build` folder
 <br />

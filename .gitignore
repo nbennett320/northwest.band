@@ -3,6 +3,11 @@
 /.pnp
 .pnp.js
 
+## cached
+/public/precach*
+/public/static
+/public/asset-manifest.json
+
 ## testing
 /coverage
 
@@ -19,8 +24,10 @@ src/server.config.js
 .env.test.local
 .env.production.local
 .vscode
+
 # downloads (files too big lol)
 /src/assets/downloads/*
+
 # old images
 /src/assets/img/img_merch/old/*
 /src/assets/img/gimp/*
@@ -30,4 +37,3 @@ src/server.config.js
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-

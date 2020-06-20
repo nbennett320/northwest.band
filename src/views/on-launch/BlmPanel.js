@@ -7,7 +7,7 @@ export default class BlmPanel extends Component {
   render() {
     const { from } = this.props
     return (
-      <div style={styles.main}>
+      <div className="view" style={styles.main}>
         <Typography variant="body2" style={styles.text}>
           Black lives matter. &nbsp;
         </Typography>
@@ -33,7 +33,7 @@ export default class BlmPanel extends Component {
               bottom: '20px',
             }}
           >
-            Continue to page. 
+            Continue to page 
           </Typography>
         </Link>
       </div>
@@ -49,8 +49,6 @@ const styles = {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    position: 'absolute',
-    top: '0',
     backgroundColor: '#000',
     zIndex: '5050',
     overflowX: 'hidden',

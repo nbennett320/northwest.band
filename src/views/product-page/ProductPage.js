@@ -116,7 +116,7 @@ export default class ProductPage extends Component {
     console.log(this.props)
     console.log(this.state)
     return (
-      <div style={styles.main}>
+      <div className="view padding-for-header">
         {item && helmet(info)}
 
         {item && <ProductOverview
@@ -182,14 +182,3 @@ const helmet = info => (
       <title> northwest the band | {info.title} </title>
   </Helmet>
 )
-
-const styles = {
-  main: {
-    minHeight: '100vh',
-    width: '100%',
-    display: 'flex',
-    flexDirection: 'column',
-    position: 'absolute',
-    top: 'calc(5vh + 40px)'
-  }
-}

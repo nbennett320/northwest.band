@@ -22,7 +22,7 @@ class CartPage extends Component {
     const { cart, device, history } = this.props
     console.log(this.props)
     return (
-      <div style={styles.main}>
+      <div className="view">
         {helmet}
         
         <CartHeader 
@@ -83,16 +83,5 @@ const helmet = (
     <title>northwest the band | cart</title>
   </Helmet>
 )
-
-const styles = {
-  main: {
-    width: '100%',
-    minHeight: '100vh',
-    display: 'flex',
-    flexDirection: 'column',
-    position: 'absolute',
-    top: '0',
-  }
-}
 
 export default CartPage

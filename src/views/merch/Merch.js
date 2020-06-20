@@ -27,7 +27,7 @@ class Merch extends Component {
   render() {
     const { device } = this.props
     return (
-      <div style={styles.main}>
+      <div className="view">
         {helmet}
 
         <StoreHeader 
@@ -78,14 +78,5 @@ const helmet = (
     <title>northwest the band | shirts, hoodies, and more</title>
   </Helmet>
 )
-
-const styles = {
-  main: {
-    display: 'flex',
-    flexDirection: 'column',
-    position: 'absolute',
-    top: '0',
-  }
-}
 
 export default Merch

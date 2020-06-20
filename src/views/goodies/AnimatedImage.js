@@ -18,7 +18,7 @@ export default class AnimatedImage extends Component {
           style={{
             ...styles.main,
             ...stylesProp.image,
-            backgroundImage: `url(${require('../../' + images.image)})`
+            backgroundImage: `url(${require('../../assets/img/goodies/' + images.image)})`
           }}
         >
 
@@ -26,7 +26,7 @@ export default class AnimatedImage extends Component {
           style={{
             ...stylesProp.text.main,
             ...styles.text,
-            backgroundImage: `url(${require('../../' + images.text.main)})`
+            backgroundImage: `url(${require('../../assets/img/goodies/' + images.text.main)})`
           }}
         />
         </div>

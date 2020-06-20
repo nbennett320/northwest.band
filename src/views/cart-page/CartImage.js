@@ -6,6 +6,7 @@ export default class CartImage extends Component {
       image,
       description,
     } = this.props
+    console.log(image)
     return (
       <img src={image}
         style={styles.image}

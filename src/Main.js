@@ -16,7 +16,6 @@ import Contact from './views/contact/Contact'
 import ScrollToTop from './scripts/ScrollToTop'
 import NoMatch from './NoMatch'
 import './css/main.css'
-import './css/classes.css'
 
 // query device size
 const mql = window.matchMedia(`(max-width: 633px)`)
