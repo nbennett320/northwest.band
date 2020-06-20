@@ -43,8 +43,14 @@ class Main extends Component {
   }
 
   componentDidMount() {
-    const cart = localStorage.getItem("cart")
-    console.log(cart)
+    const cart = JSON.parse(localStorage.getItem("cart"))
+    if(cart) {
+      this.setState({
+        cart: cart,
+        showCart: cart.length > 0
+      })
+    }
+    console.log(this.state.cart)
   }
 
   setDestination = props => {
@@ -67,7 +73,7 @@ class Main extends Component {
     }
     let items = this.state.cart
     items.push(item)
-    localStorage.setItem("cart", items)
+    localStorage.setItem("cart", JSON.stringify(items))
     this.setState({
       cart: items,
       showCart: items.length > 0
@@ -83,7 +89,7 @@ class Main extends Component {
         break
       }
     }
-    localStorage.setItem("cart", cart)
+    localStorage.setItem("cart", JSON.stringify(cart))
     this.setState({
       cart: cart,
       showCart: cart.length > 0
@@ -216,6 +222,7 @@ class Main extends Component {
                   vpHeight: vpHeight,
                   isMobile: isMobile,
                 }}
+                setDestination={this.setDestination}
               />}
             />
 
@@ -229,6 +236,7 @@ class Main extends Component {
                   vpHeight: vpHeight,
                   isMobile: isMobile,
                 }}
+                setDestination={this.setDestination}
               />}
             />
 
@@ -258,6 +266,7 @@ class Main extends Component {
                   vpHeight: vpHeight,
                   isMobile: isMobile,
                 }}
+                setDestination={this.setDestination}
               />}
             />
 
@@ -265,6 +274,7 @@ class Main extends Component {
               render={(props) => <Goodies 
                 {...props} 
                 setHeaderLink={this.setHeaderLink}
+                setDestination={this.setDestination}
               />}
             />
 
@@ -283,6 +293,7 @@ class Main extends Component {
                   vpHeight: vpHeight,
                   isMobile: isMobile,
                 }}
+                setDestination={this.setDestination}
               />}
             />
 
@@ -303,6 +314,7 @@ class Main extends Component {
                   vpHeight: vpHeight,
                   isMobile: isMobile,
                 }}
+                setDestination={this.setDestination}
               />}
             />
 
