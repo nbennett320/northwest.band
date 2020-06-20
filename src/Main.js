@@ -14,7 +14,7 @@ import Goodies from './views/goodies/Goodies'
 import Demos from './views/demos/Demos'
 import Contact from './views/contact/Contact'
 import ScrollToTop from './scripts/ScrollToTop'
-import NoMatch from './NoMatch'
+import NoMatch from './views/no-match/NoMatch'
 import './css/main.css'
 
 // query device size
