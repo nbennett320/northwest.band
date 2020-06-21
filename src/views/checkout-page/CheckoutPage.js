@@ -1,52 +1,15 @@
 import React, { Component } from 'react'
 import { Helmet } from 'react-helmet'
-import DropIn from 'braintree-web-drop-in-react'
 import CheckoutHeader from './CheckoutHeader'
+import BraintreeCard from './BraintreeCard'
 import Footer from '../../components/footer/Footer'
-import { Button } from '@material-ui/core'
-import server from '../../server.config'
 
 export default class CheckoutPage extends Component {
-  instance
-  state = {
-    clientToken: null,
-  }
-
-  async componentDidMount() {
-    const { cart } = this.props
-    console.log(this.props.history)
-    if(cart.length < 1) {
-      this.props.history.push('/cart')
-    }
-    this.props.setHeaderLink('/cart')
-
-    // get token
-    const res = await fetch(`${server}/client_token`, {method: 'GET'})
-    const clientToken = await res.text()
-    this.setState({ clientToken: clientToken })
-  }
-
-  async buy() {
-    const { amount } = this.props.transaction
-    const { nonce } = await this.instance.requestPaymentMethod()
-    await fetch(`${server}/purchase/${nonce}/${amount}`, {
-      method: 'POST', 
-      body: {
-        nonce: nonce,
-        amount: amount
-      }
-    })
-  }
 
   render() {
     const { cart, device, history } = this.props
-    console.log(this.props)
-    if(!this.state.clientToken) {
-      return (
-        <div> loading </div>
-      )
-    }
-    else return (
+    
+    return (
       <div className="view">
         {helmet}
         <CheckoutHeader 
@@ -59,22 +22,12 @@ export default class CheckoutPage extends Component {
           )}
         />
 
-        <div>
-          <DropIn
-            options={{
-              authorization: this.state.clientToken 
-            }}
-            onInstance={instance => this.instance = instance}
-          />
-        </div>
-
-        <Button onClick={this.buy.bind(this)}
-          variant="outlined"
-        >
-          buy
-        </Button>
+        <BraintreeCard 
+          cart={cart}
+          
+        />
         
-        <Footer />
+        <Footer location={this.props.location} />
       </div>
     )
   }

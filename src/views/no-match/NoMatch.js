@@ -70,8 +70,7 @@ const helmet = (
 				219, 
 				the region, 
 				northwest indiana, 
-				chicago, 
-				indie
+				chicago
 			"
 		/>
 		<link rel="canonical" href="http://northwest.band" />
