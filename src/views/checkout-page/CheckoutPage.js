@@ -5,9 +5,16 @@ import BraintreeCard from './BraintreeCard'
 import Footer from '../../components/footer/Footer'
 
 export default class CheckoutPage extends Component {
+  componentDidMount() {
+    const { cart } = this.props
+    if(cart.length < 1) {
+      this.props.history.push('/cart')
+    }
+    this.props.setHeaderLink('/cart')
+  }
 
   render() {
-    const { cart, device, history } = this.props
+    const { cart, device } = this.props
     
     return (
       <div className="view">
