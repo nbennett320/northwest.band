@@ -147,7 +147,7 @@ export default class ProductPage extends Component {
           device={device}
         /> */}
 
-        <Footer />
+        <Footer location={this.props.location} />
       </div>
     )
   }
