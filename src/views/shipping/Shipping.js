@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import ShippingHeader from './ShippingHeader'
+import Form from './Form'
 
 export default class Shipping extends Component {
   componentDidMount() {
