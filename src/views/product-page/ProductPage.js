@@ -41,7 +41,7 @@ export default class ProductPage extends Component {
       })
     console.log(this.state)
 
-    const hasShownBlmPanel = localStorage.getItem("hasShownBlmPanel")
+    const hasShownBlmPanel = sessionStorage.getItem("hasShownBlmPanel")
     // uses boolean as string
     if(hasShownBlmPanel === "false") {
       this.props.setDestination({from: this.props.match.path})

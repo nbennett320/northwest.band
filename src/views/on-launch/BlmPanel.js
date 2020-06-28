@@ -20,7 +20,7 @@ export default class BlmPanel extends Component {
         <Link to={`${from.path !== '/blm' 
           ? from.path 
           : () => {
-            localStorage.setItem("hasShownBlmPanel", "true")
+            sessionStorage.setItem("hasShownBlmPanel", "true")
             return '/blm'
         }}`}
           style={styles.bottomLink}

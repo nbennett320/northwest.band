@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
+import { Helmet } from 'react-helmet'
 import ShippingHeader from './ShippingHeader'
 import Form from './Form'
+import Footer from '../../components/footer/Footer'
 
 export default class Shipping extends Component {
   componentDidMount() {
@@ -12,6 +14,7 @@ export default class Shipping extends Component {
   }
 
   render() {
+    const { device } = this.props
     return (
       <div className="view">
         {helmet}
