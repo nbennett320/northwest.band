@@ -8,7 +8,7 @@ import '../../css/home.css'
 class Home extends Component {
   componentDidMount() {
     this.props.setHeaderLink('/')
-    const hasShownBlmPanel = localStorage.getItem("hasShownBlmPanel")
+    const hasShownBlmPanel = sessionStorage.getItem("hasShownBlmPanel")
     // uses boolean as string
     if(hasShownBlmPanel === "false") {
       this.props.setDestination({from: this.props.match.path})
@@ -100,13 +100,13 @@ const helmet = (
         the region, 
         northwest indiana, 
         chicago, 
-        indie
+        rock and roll
       "
     />
     <link rel="canonical" href="http://northwest.band" />
     <meta name="author" content="Noah Bennett" />
     <meta name="description" content="
-      Northwest is an indie band from Northwest Indiana, started before the summer of 2017.
+      Northwest is a rock and roll band from Northwest Indiana, started before the summer of 2017.
     " />
     <meta name="robots" content="index" />
     <meta name="url" content="http://northwest.band" />

@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { Helmet } from 'react-helmet'
 import { Typography, Button } from '@material-ui/core'
-import ImageBlock from './components/ImageBlock'
-import Footer from './components/footer/Footer'
+import ImageBlock from '../../components/ImageBlock'
+import Footer from '../../components/footer/Footer'
 
 export default class NoMatch extends Component {
   componentDidMount() {
@@ -70,8 +70,7 @@ const helmet = (
 				219, 
 				the region, 
 				northwest indiana, 
-				chicago, 
-				indie
+				chicago
 			"
 		/>
 		<link rel="canonical" href="http://northwest.band" />

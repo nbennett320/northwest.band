@@ -9,7 +9,7 @@ export default class Music extends Component {
   componentDidMount () {
     this.props.setHeaderLink('/')
     
-    const hasShownBlmPanel = localStorage.getItem("hasShownBlmPanel")
+    const hasShownBlmPanel = sessionStorage.getItem("hasShownBlmPanel")
     // uses boolean as string
     if(hasShownBlmPanel === "false") {
       this.props.setDestination({from: this.props.match.path})
@@ -79,11 +79,10 @@ const helmet = <Helmet>
       northwest band,
       music, 
       band, 
-      lyrics, 
-      219, 
-      indie, 
-      rock, 
+      lyrics,
       songs, 
+      artwork,
+      album
     "
   />
   <link rel="canonical" href="http://northwest.band/music" />

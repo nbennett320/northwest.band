@@ -16,7 +16,7 @@ class Merch extends Component {
   componentDidMount () {
     this.props.setHeaderLink('/')
 
-    const hasShownBlmPanel = localStorage.getItem("hasShownBlmPanel")
+    const hasShownBlmPanel = sessionStorage.getItem("hasShownBlmPanel")
     // uses boolean as string
     if(hasShownBlmPanel === "false") {
       this.props.setDestination({from: this.props.match.path})
@@ -45,7 +45,7 @@ class Merch extends Component {
           device={device}
         />
 
-        <Footer />
+        <Footer location={this.props.location} />
       </div>
     )
   }

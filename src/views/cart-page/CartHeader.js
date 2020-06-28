@@ -19,7 +19,7 @@ export default class CartHeader extends Component {
       <div style={{
         ...styles[`${scale()}`].main,
         backgroundImage: `url('${this.state.image}')`,
-      }}></div>
+      }}/>
     )
   }
 }

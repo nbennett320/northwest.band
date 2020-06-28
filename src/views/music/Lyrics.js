@@ -9,7 +9,7 @@ class Lyrics extends Component {
   componentDidMount() {
     this.props.setHeaderLink('/music')
 
-    const hasShownBlmPanel = localStorage.getItem("hasShownBlmPanel")
+    const hasShownBlmPanel = sessionStorage.getItem("hasShownBlmPanel")
     // uses boolean as string
     if(hasShownBlmPanel === "false") {
       this.props.setDestination({from: this.props.match.path})
@@ -93,11 +93,10 @@ const makeHelmet = (key, song) => (
         northwest band,
         music, 
         band, 
-        merch, 
-        merchandise, 
-        clothing, 
-        screen print, 
-        band tees, 
+        lyrics,
+        songs,
+        artwork,
+        album
       "
     />
     <link rel="canonical" href="http://northwest.band/music" />

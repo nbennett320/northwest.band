@@ -9,12 +9,13 @@ import Lyrics from './views/music/Lyrics'
 import Merch from './views/merch/Merch'
 import ProductPage from './views/product-page/ProductPage'
 import CartPage from './views/cart-page/CartPage'
+import Shipping from './views/shipping/Shipping'
 import CheckoutPage from './views/checkout-page/CheckoutPage'
 import Goodies from './views/goodies/Goodies'
 import Demos from './views/demos/Demos'
 import Contact from './views/contact/Contact'
 import ScrollToTop from './scripts/ScrollToTop'
-import NoMatch from './NoMatch'
+import NoMatch from './views/no-match/NoMatch'
 import './css/main.css'
 
 // query device size
@@ -22,8 +23,8 @@ const mql = window.matchMedia(`(max-width: 633px)`)
 const vpWidth = window.innerWidth
 const vpHeight = window.innerHeight
 
-if(!localStorage.getItem("hasShownBlmPanel")) {
-  localStorage.setItem("hasShownBlmPanel", "false")
+if(!sessionStorage.getItem("hasShownBlmPanel")) {
+  sessionStorage.setItem("hasShownBlmPanel", "false")
 }
 
 class Main extends Component {
@@ -55,7 +56,7 @@ class Main extends Component {
 
   setDestination = props => {
     console.log("hey")
-    localStorage.setItem("hasShownBlmPanel", "true")
+    sessionStorage.setItem("hasShownBlmPanel", "true")
     this.setState({
       from: {
         ...this.state.from,
@@ -270,6 +271,33 @@ class Main extends Component {
               />}
             />
 
+            <Route path='/shipping'
+              render={(props) => <Shipping 
+                {...props}
+                setHeaderLink={this.setHeaderLink}
+                device={{
+                  vpWidth: vpWidth,
+                  vpHeight: vpHeight,
+                  isMobile: isMobile,
+                }}
+                setDestination={this.setDestination}
+              />}
+            />
+
+            <Route path='/checkout' 
+              render={(props) => <CheckoutPage 
+                {...props} 
+                setHeaderLink={this.setHeaderLink}
+                cart={cart}
+                device={{
+                  vpWidth: vpWidth,
+                  vpHeight: vpHeight,
+                  isMobile: isMobile,
+                }}
+                setDestination={this.setDestination}
+              />}
+            />
+
             <Route path='/goodies' 
               render={(props) => <Goodies 
                 {...props} 
@@ -303,20 +331,6 @@ class Main extends Component {
                 setHeaderLink={this.setHeaderLink}
               />}
             /> */}
-
-            <Route path='/checkout' 
-              render={(props) => <CheckoutPage 
-                {...props} 
-                setHeaderLink={this.setHeaderLink}
-                cart={cart}
-                device={{
-                  vpWidth: vpWidth,
-                  vpHeight: vpHeight,
-                  isMobile: isMobile,
-                }}
-                setDestination={this.setDestination}
-              />}
-            />
 
             {/* <Route path='/cart' 
               render={(props) => <ViewCartPage 
