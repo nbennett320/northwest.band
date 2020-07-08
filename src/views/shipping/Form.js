@@ -40,6 +40,13 @@ export default class Form extends Component {
         />
 
         <TextField 
+          label="city"
+          helperText={cityText[Math.floor(Math.random() * cityText.length)]}
+          required
+          style={styles.textEntry}
+        />
+
+        <TextField 
           label="zip"
           helperText={zipText[Math.floor(Math.random() * zipText.length)]}
           required
@@ -92,6 +99,11 @@ const streetText = [
   "what's your (valid street) address?",
   "where do you live..?",
   "enter your street address"
+]
+
+const cityText = [
+  "what city do you live in?",
+  "enter your city",
 ]
 
 const zipText = [
