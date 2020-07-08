@@ -5,10 +5,6 @@ import Form from './Form'
 import Footer from '../../components/footer/Footer'
 
 export default class Shipping extends Component {
-  state = {
-    isValid: false
-  }
-
   componentDidMount() {
     const { cart } = this.props
     if(cart.length < 1) {

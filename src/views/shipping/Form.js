@@ -1,11 +1,21 @@
 import React, { Component } from 'react'
 import {
   TextField,
+  Button
 } from '@material-ui/core'
 import StateSelect from './StateSelect'
 import StateSelectNative from './StateSelect.Native'
 
 export default class Form extends Component {
+  state = {
+    isFilled: false,
+    
+  }
+
+  handleSubmit = () => {
+
+  }
+
   handleChangeState = e => {
     console.log(e.target.value)
   }
@@ -54,9 +64,16 @@ export default class Form extends Component {
         />
 
         {device.isMobile
-          ? <StateSelectNative handleChangeState={this.handleChangeState} />
-          : <StateSelect handleChangeState={this.handleChangeState} />
+          ? <StateSelectNative handleChangeState={this.props.handleChangeState} />
+          : <StateSelect handleChangeState={this.props.handleChangeState} />
         }
+
+        <Button variant="outlined"
+          onClick={this.props.handle}
+          style={styles.submitButton}
+        >
+          proceed to checkout
+        </Button>
       </div>
     )
   }
@@ -81,6 +98,10 @@ const styles = {
   },
   textEntry: {
     marginBottom: '10px'
+  },
+  submitButton: {
+    width: '80%',
+    margin: '10px auto',
   }
 }
 
