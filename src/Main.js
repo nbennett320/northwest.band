@@ -14,7 +14,7 @@ import CheckoutPage from './views/checkout-page/CheckoutPage'
 import Goodies from './views/goodies/Goodies'
 import Demos from './views/demos/Demos'
 import Contact from './views/contact/Contact'
-import ScrollToTop from './scripts/ScrollToTop'
+import ScrollToTop from './util/ScrollToTop'
 import NoMatch from './views/no-match/NoMatch'
 import './css/main.css'
 
@@ -275,6 +275,7 @@ class Main extends Component {
               render={(props) => <Shipping 
                 {...props}
                 setHeaderLink={this.setHeaderLink}
+                cart={cart}
                 device={{
                   vpWidth: vpWidth,
                   vpHeight: vpHeight,

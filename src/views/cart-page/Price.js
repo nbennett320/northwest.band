@@ -7,7 +7,7 @@ import GetTotal from '../../scripts/GetTotal'
 
 export default class Price extends Component {
   handleClick = () => {
-    this.props.history.push('/checkout')
+    this.props.history.push('/shipping')
   }
 
   getPrice = () => {
@@ -44,11 +44,9 @@ export default class Price extends Component {
             onClick={this.handleClick}
             style={{textTransform: 'lowercase'}}
           >
-            checkout
+            continue to shipping
           </Button>
         </div>
-        
-
       </div>
     )
   }
