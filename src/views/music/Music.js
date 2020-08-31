@@ -10,7 +10,7 @@ export default class Music extends Component {
     albums: {}
   }
 
-  componentDidMount () {
+  componentDidMount() {
     this.props.setHeaderLink('/')
     
     const hasShownBlmPanel = localStorage.getItem("hasShownBlmPanel")

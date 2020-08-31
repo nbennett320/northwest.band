@@ -2,17 +2,38 @@ import React, { Component } from 'react'
 import { Helmet } from 'react-helmet'
 import Entry from './Entry'
 import Footer from '../../components/footer/Footer'
-import goodies from '../../assets/data/Goodies.json'
+import server from '../../server.config'
 
 export default class Demos extends Component {
-  componentDidMount () {
-    this.props.setHeaderLink('/goodies')
+  state = {
+    goodies: {}
   }
 
-  listEntries = () => (
-    Object.keys(goodies).map(i => {
+  componentDidMount () {
+    this.props.setHeaderLink('/goodies')
+
+    const hasShownBlmPanel = localStorage.getItem("hasShownBlmPanel")
+    // uses boolean as string
+    if(hasShownBlmPanel === "false") {
+      this.props.setDestination({from: this.props.match.path})
+      this.props.history.push('/blm')
+    }
+
+    this.getGoodiesList()
+  }
+
+  getGoodiesList = async () => {
+    const goodies = await fetch(`${server}/goodies`,
+    {
+      method: 'GET'
+    }).then(res => res.json())
+    this.setState({ goodies })
+  }
+
+  listEntries = () => {
+    const { goodies } = this.state
+    return Object.keys(goodies).map(i => {
       const entry = goodies[i]
-      console.log("entry", entry)
       return (
         <div key={i}
           style={styles.entry}
@@ -25,7 +46,7 @@ export default class Demos extends Component {
           />
         </div>
     )}) 
-  )
+  }
 
   render() {
     return (

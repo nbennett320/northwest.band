@@ -1,12 +1,33 @@
 import React, { Component } from 'react'
 import { Typography } from '@material-ui/core'
 import { Link } from 'react-router-dom'
-import songs from '../../assets/data/Songs.json'
+import server from '../../server.config'
 
 export default class SongList extends Component {
+  state = {
+    album: {}
+  }
+
+  componentDidMount() {
+    this.getSongList()
+  }
+
+  // get all songs in album
+  getSongList = async () => {
+    const { album } = this.props
+    const songList = await fetch(`${server}/songs/album/${album}`,
+      {
+        method: 'GET'
+      }).then(res => res.json())
+    this.setState({
+      album: songList
+    })
+  }
+
   render() {
-    const album = songs[`${this.props.album}`]
-    return (
+    const { album } = this.state
+    return Object.keys(album).length > 0 
+      ? (
       <ol>
         {Object.keys(album).map(song => (
           <li key={song}>
@@ -29,7 +50,9 @@ export default class SongList extends Component {
           </li>
         ))}
       </ol>
-    )
+    ) : <div style={{display: 'none'}}>
+      ( loading )
+    </div>
   }
 }
 

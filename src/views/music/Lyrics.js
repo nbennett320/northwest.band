@@ -6,11 +6,8 @@ import Footer from '../../components/footer/Footer'
 import server from '../../server.config'
 
 class Lyrics extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      song: {}
-    }
+  state = {
+    song: {}
   }
 
   componentDidMount() {
@@ -42,7 +39,8 @@ class Lyrics extends Component {
     const { match } = this.props
     const { key } = match.params
     const helmet = makeHelmet(key, song)
-    return Object.keys(song).length > 0 ? (
+    return Object.keys(song).length > 0 
+      ? (
       <div style={{
           ...styles.main,
           backgroundImage: `url('${require(`../../assets/img/lyrics/${song["album"].toLowerCase()}/${key}.jpg`)}')`
@@ -112,7 +110,7 @@ const makeHelmet = (key, song) => (
     <meta name="author" content="Noah Bennett" />
     <meta name="robots" content="index" />
     <meta name="url" content={`http://northwest.band/songs/${key}`} />
-    <title>northwest the band | lyrics </title>
+    <title>northwest the band | {Object.keys(song).length > 0 ? song.title.toLowerCase() : ''} lyrics </title>
     <meta name="description" content={`
       Lyrics for "${song.title}" by Northwest.
     `} />
