@@ -2,10 +2,14 @@ import React, { Component } from 'react'
 import { Helmet } from 'react-helmet'
 import Album from './Album'
 import Footer from '../../components/footer/Footer'
-import albums from '../../assets/data/Albums.json'
+import server from '../../server.config'
 import '../../css/music.css'
 
 export default class Music extends Component {
+  state = {
+    albums: {}
+  }
+
   componentDidMount () {
     this.props.setHeaderLink('/')
     
@@ -15,10 +19,21 @@ export default class Music extends Component {
       this.props.setDestination({from: this.props.match.path})
       this.props.history.push('/blm')
     }
+
+    this.getAlbums()
   }
 
-  listEntries = () => (
-    Object.keys(albums).map(i => {
+  getAlbums = async () => {
+    const albums = await fetch(`${server}/albums`,
+      {
+        method: 'GET'
+      }).then(res => res.json())
+    this.setState({ albums })
+  }
+
+  listEntries = () => {
+    const { albums } = this.state
+    return Object.keys(albums).map(i => {
       const album = albums[i]
       return (
         <div key={i} 
@@ -31,11 +46,12 @@ export default class Music extends Component {
             device={this.props.device}
           />
         </div>
-    )}) 
-  )
+    )})}
 
   render() {
-    return (
+    const { albums } = this.state
+    return Object.keys(albums).length > 0 
+      ? (
       <div style={styles.main}
         className="view padding-for-header" 
       >
@@ -47,7 +63,9 @@ export default class Music extends Component {
 
         <Footer location={this.props.location} />
       </div>
-    )
+    ) : <div style={styles.hidden}>
+      ( loading )
+    </div>
   }
 }
 
@@ -58,15 +76,16 @@ const styles = {
     backgroundColor: '#000',
     letterSpacing: '1px',
   },
-
   entry: {
     width: '100%',
     paddingBottom: '40px'
   },
-
   list: {
     display: 'flex',
     flexDirection: 'column-reverse'
+  },
+  hidden: {
+    display: 'none'
   }
 }
 
