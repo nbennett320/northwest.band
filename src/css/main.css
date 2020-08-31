@@ -26,6 +26,9 @@ html, body {
   padding-top: calc(8vh + 40px);
 }
 
+/* may not be needed but hides contents for crawlers 
+  (this might be outdated af idk i need to do some more research) 
+*/
 .crawl {
   visibility: hidden !important;
   color: #fff !important;
