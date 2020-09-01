@@ -35,7 +35,7 @@ class Products extends Component {
         <ProductListing 
           title={product["title"]}
           price={product["price"]}
-          image={require(`../../assets/img/merch/500/${product["image"]}${product.attributes.colors[randomNum(product.attributes.colors.length)]}.jpg`)}
+          image={`${server}/assets/img/merch/500/${product["image"]}${product.attributes.colors[randomNum(product.attributes.colors.length)]}.jpg`}
           description={product["description"]}
           attributes={product["attributes"]}
           zIndex={i}
@@ -58,7 +58,7 @@ class Products extends Component {
         <ProductListing 
           title={product["title"]}
           price={product["price"]}
-          image={require(`../../assets/img/merch/500/${product["image"]}${product.attributes.colors[randomNum(product.attributes.colors.length)]}.jpg`)}
+          image={`${server}/assets/img/merch/500/${product["image"]}${product.attributes.colors[randomNum(product.attributes.colors.length)]}.jpg`}
           description={product["description"]}
           attributes={product["attributes"]}
           zIndex={i + clothingArr.length}

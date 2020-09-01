@@ -36,14 +36,14 @@ class Lyrics extends Component {
   
   render() {
     const { song } = this.state
-    const { match } = this.props
+    const { match, location, device } = this.props
     const { key } = match.params
     const helmet = makeHelmet(key, song)
     return Object.keys(song).length > 0 
       ? (
       <div style={{
           ...styles.main,
-          backgroundImage: `url('${require(`../../assets/img/lyrics/${song["album"].toLowerCase()}/${key}.jpg`)}')`
+          backgroundImage: `url(${server}/assets/img/lyrics/${song["album"].replace(/\s+/g, '-').toLowerCase()}/${key}.jpg)`
         }}
       >
         {helmet}
@@ -58,7 +58,10 @@ class Lyrics extends Component {
           <LyricsBody song={song} />
         </div>
 
-        <Footer location={this.props.location} />
+        <Footer 
+          location={location} 
+          device={device}
+        />
       </div>
     ) : <div style={styles.hidden}>
         ( loading )

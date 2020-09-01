@@ -14,8 +14,11 @@ export default class CheckoutPage extends Component {
   }
 
   render() {
-    const { cart, device } = this.props
-    
+    const { 
+      cart, 
+      device, 
+      location 
+    } = this.props
     return (
       <div className="view">
         {helmet}
@@ -34,7 +37,10 @@ export default class CheckoutPage extends Component {
           
         />
         
-        <Footer location={this.props.location} />
+        <Footer 
+          location={location} 
+          device={device}
+        />
       </div>
     )
   }

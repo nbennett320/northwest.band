@@ -49,6 +49,7 @@ export default class Demos extends Component {
   }
 
   render() {
+    const { device, location } = this.props
     return (
       <div style={styles.main}
         className="view padding-for-header"
@@ -59,7 +60,10 @@ export default class Demos extends Component {
           {this.listEntries()}
         </div>
 
-        <Footer location={this.props.location} />
+        <Footer 
+          location={location} 
+          device={device}
+        />
       </div>
     )
   }

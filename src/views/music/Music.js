@@ -50,6 +50,7 @@ export default class Music extends Component {
 
   render() {
     const { albums } = this.state
+    const { device, location } = this.props
     return Object.keys(albums).length > 0 
       ? (
       <div style={styles.main}
@@ -61,7 +62,10 @@ export default class Music extends Component {
           {this.listEntries()}
         </div>
 
-        <Footer location={this.props.location} />
+        <Footer 
+          location={location} 
+          device={device}
+        />
       </div>
     ) : <div style={styles.hidden}>
       ( loading )

@@ -1,24 +1,13 @@
 import React, { Component } from 'react'
+import server from '../../server.config'
 
 export default class CheckoutHeader extends Component {
-  state = {
-    image: undefined,
-  }
-
-  componentDidMount() {
-    this.setState({
-      image: this.getImage(),
-    })
-  }
-
-  getImage = () => require(`../../assets/img/store/store_header_imgs/${randomNum(12)}.jpg`)
-
   render() {
     const { scale } = this.props
     return (
       <div style={{
         ...styles[`${scale()}`].main,
-        backgroundImage: `url('${this.state.image}')`,
+        backgroundImage: `url('${server}/assets/img/store/store_header_imgs/${randomNum(12)}.jpg')`,
       }}/>
     )
   }

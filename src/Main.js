@@ -13,7 +13,7 @@ import Shipping from './views/shipping/Shipping'
 import CheckoutPage from './views/checkout-page/CheckoutPage'
 import Goodies from './views/goodies/Goodies'
 import Demos from './views/demos/Demos'
-import Contact from './views/contact/Contact'
+// import Contact from './views/contact/Contact'
 import ScrollToTop from './scripts/ScrollToTop'
 import NoMatch from './views/no-match/NoMatch'
 import './css/main.css'
@@ -158,6 +158,11 @@ class Main extends Component {
                 {...props} 
                 setHeaderLink={this.setHeaderLink}
                 setDestination={this.setDestination}
+                device={{
+                  vpWidth: vpWidth,
+                  vpHeight: vpHeight,
+                  isMobile: isMobile,
+                }}
               />}
             
             />
@@ -292,6 +297,11 @@ class Main extends Component {
                 {...props} 
                 setHeaderLink={this.setHeaderLink}
                 setDestination={this.setDestination}
+                device={{
+                  vpWidth: vpWidth,
+                  vpHeight: vpHeight,
+                  isMobile: isMobile,
+                }}
               />}
             />
 

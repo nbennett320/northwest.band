@@ -14,7 +14,7 @@ export default class Shipping extends Component {
   }
 
   render() {
-    const { device } = this.props
+    const { device, location } = this.props
     return (
       <div className="view">
         {helmet}
@@ -32,7 +32,10 @@ export default class Shipping extends Component {
         
         />
 
-        <Footer location={this.props.location} />
+        <Footer 
+          location={location} 
+          device={device}
+        />
       </div>
     )
   }

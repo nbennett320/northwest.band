@@ -2,22 +2,9 @@ import React, { Component } from 'react'
 import {
   Typography
 } from '@material-ui/core'
+import server from '../server.config'
 
 export default class ImageBlock extends Component {
-  state = {
-    image: undefined
-  }
-
-  componentDidUpdate(prevProps) {
-    if(this.props !== prevProps) {
-      this.setState({
-        image: this.getImage(),
-      })
-    }
-  }
-
-  getImage = () => require(`../assets/img/store/store_header_imgs/${randomNum(12)}.jpg`)
-
   render() {
     const { image } = this.state
     const { text, scale } = this.props
@@ -25,7 +12,7 @@ export default class ImageBlock extends Component {
       <div style={{
         ...styles.image,
         ...styles[`${scale()}`],
-        backgroundImage: `url('${image}')`,
+        backgroundImage: `url('${server}/assets/img/store/store_header_imgs/${randomNum(12)}.jpg')`,
       }}>
         <Typography 
           variant="h5"

@@ -25,7 +25,7 @@ class Merch extends Component {
   }
 
   render() {
-    const { device } = this.props
+    const { device, location } = this.props
     return (
       <div className="view">
         {helmet}
@@ -45,7 +45,10 @@ class Merch extends Component {
           device={device}
         />
 
-        <Footer location={this.props.location} />
+        <Footer 
+          location={location} 
+          device={device}
+        />
       </div>
     )
   }

@@ -6,9 +6,14 @@ import {
 } from '@material-ui/core'
 
 class Share extends Component {
-  handleClick = e => {
-    const loc = `https://northwest.band${this.props.location.pathname}`
-    navigator.clipboard.writeText(loc)
+  handleClick = async () => {
+    const { pathname } = this.props.location
+    const loc = `https://northwest.band${pathname}`
+    try {
+      navigator.share(loc)
+    } catch {
+      console.warn("is this really a mobile browser?")
+    }
   }
 
   render() {

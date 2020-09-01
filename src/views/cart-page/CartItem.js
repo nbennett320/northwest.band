@@ -3,6 +3,7 @@ import CartImage from './CartImage'
 import ItemTitle from './ItemTitle'
 import ItemInfo from './ItemInfo'
 import RemoveItem from './RemoveItem'
+import server from '../../server.config'
 
 export default class CartItem extends Component {
   render() {
@@ -12,7 +13,7 @@ export default class CartItem extends Component {
       <span style={styles.main}>
         <div style={styles.image}>
           <CartImage 
-            image={require(`../../assets/img/merch/500/${item.image}${item.selectedColor}.jpg`)}
+            image={`${server}/assets/img/merch/500/${item.image}${item.selectedColor}.jpg`}
             description={item.attributes.description}
           />
         </div>

@@ -50,9 +50,11 @@ export default class SongList extends Component {
           </li>
         ))}
       </ol>
-    ) : <div style={{display: 'none'}}>
-      ( loading )
-    </div>
+    ) : (
+      <div style={{display: 'none'}}>
+        ( loading )
+      </div>
+    )
   }
 }
 

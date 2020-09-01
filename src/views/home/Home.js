@@ -17,7 +17,7 @@ class Home extends Component {
   }
  
   render() {
-    const { device } = this.props
+    const { device, location } = this.props
     return (
       <div style={styles.main}
         className="view padding-for-header"
@@ -69,7 +69,10 @@ class Home extends Component {
           isMobile={device.isMobile}
         />
 
-        <Footer location={this.props.location} />
+        <Footer 
+          location={location} 
+          device={device}
+        />
       </div>
     )
   }

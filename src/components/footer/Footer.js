@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import { Typography } from '@material-ui/core'
 import { 
   createMuiTheme, 
@@ -13,16 +13,17 @@ import TwitterIcon from '@material-ui/icons/Twitter'
 import SpotifyIcon from '../icons/SpotifyIcon'
 import AppleMusicIcon from '../icons/AppleMusicIcon'
 import YouTubeIcon from '@material-ui/icons/YouTube'
-import AlternateEmailIcon from '@material-ui/icons/AlternateEmail'
+// import AlternateEmailIcon from '@material-ui/icons/AlternateEmail'
 // import MenuBookIcon from '@material-ui/icons/MenuBook'
-import GitHubIcon from '@material-ui/icons/GitHub'
+// import GitHubIcon from '@material-ui/icons/GitHub'
 import CodeIcon from '@material-ui/icons/Code'
 import GetGithubUrl from '../../scripts/GetGithubUrl'
 import '../../css/components/footer.css'
 
 class Footer extends Component {
   render() {
-    const { pathname } = this.props.location
+    const { device, location } = this.props
+    const { pathname } = location
     const theme = createMuiTheme({
       palette: {
         primary: {
@@ -69,7 +70,7 @@ class Footer extends Component {
             link='https://www.youtube.com/channel/UCsAuRJv-BwMcLELAjNH46dQ'
           />
 
-          <FooterItem 
+          {/* <FooterItem 
             Icon={<AlternateEmailIcon color='secondary' />}
             label='contact'
             link={
@@ -86,7 +87,7 @@ class Footer extends Component {
                 </Link>
               </Typography>
             }
-          />
+          /> */}
           
           {/* <FooterItem 
             Icon={<MenuBookIcon color='secondary' />}
@@ -107,19 +108,19 @@ class Footer extends Component {
             }
           /> */}
 
-          <FooterItem 
+          {/* <FooterItem 
             Icon={<GitHubIcon color='secondary' />}
             label='github'
             link='https://github.com/nbennett320/northwest.band'
-          />
+          /> */}
 
           <FooterItem 
             Icon={<CodeIcon color='secondary' />}
-            label='read the source'
+            label='see the code'
             link={`https://github.com/nbennett320/northwest.band/${GetGithubUrl(pathname)}`}
           />
 
-          <Share location={this.props.location} />
+          {device.isMobile && <Share location={location} />}
 
           <FooterBottom />
         </ThemeProvider>               

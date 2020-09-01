@@ -19,8 +19,12 @@ class CartPage extends Component {
   }
 
   render() {
-    const { cart, device, history } = this.props
-    console.log(this.props)
+    const { 
+      cart, 
+      device, 
+      history, 
+      location 
+    } = this.props
     return (
       <div className="view">
         {helmet}
@@ -50,7 +54,10 @@ class CartPage extends Component {
           cart={cart}
         />} 
         
-        <Footer location={this.props.location} />
+        <Footer 
+          location={location} 
+          device={device}
+        />
       </div>
     )
   }

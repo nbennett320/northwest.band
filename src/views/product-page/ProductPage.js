@@ -93,7 +93,7 @@ export default class ProductPage extends Component {
   }
 
   render() {
-    const { match, device } = this.props
+    const { match, device, location } = this.props
     const { item, model } = this.state
     const info = item && {
       title: item.title,
@@ -133,7 +133,10 @@ export default class ProductPage extends Component {
           device={device}
         /> */}
 
-        <Footer location={this.props.location} />
+        <Footer 
+          location={location} 
+          device={device}
+        />
       </div>
     )
   }
