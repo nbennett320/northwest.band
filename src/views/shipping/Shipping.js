@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { Helmet } from 'react-helmet'
-import CheckoutHeader from './CheckoutHeader'
-import BraintreeCard from './BraintreeCard'
+import ShippingHeader from './ShippingHeader'
+import Form from './Form'
 import Footer from '../../components/footer/Footer'
 
-export default class CheckoutPage extends Component {
+export default class Shipping extends Component {
   componentDidMount() {
     const { cart } = this.props
     if(cart.length < 1) {
@@ -14,12 +14,11 @@ export default class CheckoutPage extends Component {
   }
 
   render() {
-    const { cart, device } = this.props
-    
+    const { device } = this.props
     return (
       <div className="view">
         {helmet}
-        <CheckoutHeader 
+        <ShippingHeader 
           scale={() => (
             device.vpWidth > 1920 
               ? "lg"
@@ -29,11 +28,10 @@ export default class CheckoutPage extends Component {
           )}
         />
 
-        <BraintreeCard 
-          cart={cart}
-          
-        />
+        <Form 
         
+        />
+
         <Footer location={this.props.location} />
       </div>
     )
@@ -54,7 +52,8 @@ const helmet = (
         merchandise, 
         clothing, 
         screen print, 
-        band tees, 
+        band tees,
+        shipping
       "
     />
     <link rel="canonical" href="http://northwest.band" />
@@ -63,7 +62,7 @@ const helmet = (
       Northwest shirts, hoodies, physical music and more.
     " />
     <meta name="robots" content="noindex" />
-    <meta name="url" content="http://northwest.band/merch" />
-    <title>northwest the band | checkout</title>
+    <meta name="url" content="http://northwest.band/shipping" />
+    <title>northwest the band | shipping info</title>
   </Helmet>
 )

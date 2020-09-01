@@ -50,7 +50,7 @@ class CartPage extends Component {
           cart={cart}
         />} 
         
-        <Footer />
+        <Footer location={this.props.location} />
       </div>
     )
   }

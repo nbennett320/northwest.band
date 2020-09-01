@@ -58,7 +58,7 @@ export default class Goodies extends Component {
           />
         </div>
 
-        <Footer />
+        <Footer location={this.props.location} />
       </div>
     )
   }

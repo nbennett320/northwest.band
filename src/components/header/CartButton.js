@@ -33,7 +33,7 @@ const styles = {
   main: {
     position: 'absolute',
     top: '2vh',
-    right: '40px',
+    right: '20px',
     zIndex: '5500'
   },
 

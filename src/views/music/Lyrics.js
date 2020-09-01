@@ -99,11 +99,10 @@ const makeHelmet = (key, song) => (
         northwest band,
         music, 
         band, 
-        merch, 
-        merchandise, 
-        clothing, 
-        screen print, 
-        band tees, 
+        lyrics,
+        songs,
+        artwork,
+        album
       "
     />
     <link rel="canonical" href="http://northwest.band/music" />

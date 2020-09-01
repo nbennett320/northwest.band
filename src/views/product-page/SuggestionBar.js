@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Typography } from '@material-ui/core'
 import ProductListing from '../merch/ProductListing'
-import products from '../../assets/data/Products.json'
+// import products from '../../assets/data/Products.json'
 
 export default class SuggestionBar extends Component {
   makeSuggestions = () => {

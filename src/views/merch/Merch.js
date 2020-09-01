@@ -45,7 +45,7 @@ class Merch extends Component {
           device={device}
         />
 
-        <Footer />
+        <Footer location={this.props.location} />
       </div>
     )
   }

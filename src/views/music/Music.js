@@ -98,11 +98,10 @@ const helmet = <Helmet>
       northwest band,
       music, 
       band, 
-      lyrics, 
-      219, 
-      indie, 
-      rock, 
+      lyrics,
       songs, 
+      artwork,
+      album
     "
   />
   <link rel="canonical" href="http://northwest.band/music" />

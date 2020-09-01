@@ -9,12 +9,13 @@ import Lyrics from './views/music/Lyrics'
 import Merch from './views/merch/Merch'
 import ProductPage from './views/product-page/ProductPage'
 import CartPage from './views/cart-page/CartPage'
+import Shipping from './views/shipping/Shipping'
 import CheckoutPage from './views/checkout-page/CheckoutPage'
 import Goodies from './views/goodies/Goodies'
 import Demos from './views/demos/Demos'
 import Contact from './views/contact/Contact'
 import ScrollToTop from './scripts/ScrollToTop'
-import NoMatch from './NoMatch'
+import NoMatch from './views/no-match/NoMatch'
 import './css/main.css'
 
 // query device size
@@ -61,7 +62,7 @@ class Main extends Component {
     }
     let items = this.state.cart
     items.push(item)
-    localStorage.setItem("cart", items)
+    localStorage.setItem("cart", JSON.stringify(items))
     this.setState({
       cart: items,
       showCart: items.length > 0
@@ -77,7 +78,7 @@ class Main extends Component {
         break
       }
     }
-    localStorage.setItem("cart", cart)
+    localStorage.setItem("cart", JSON.stringify(cart))
     this.setState({
       cart: cart,
       showCart: cart.length > 0
@@ -211,6 +212,7 @@ class Main extends Component {
                   vpHeight: vpHeight,
                   isMobile: isMobile,
                 }}
+                setDestination={this.setDestination}
               />}
             />
 
@@ -224,6 +226,7 @@ class Main extends Component {
                   vpHeight: vpHeight,
                   isMobile: isMobile,
                 }}
+                setDestination={this.setDestination}
               />}
             />
 
@@ -253,6 +256,34 @@ class Main extends Component {
                   vpHeight: vpHeight,
                   isMobile: isMobile,
                 }}
+                setDestination={this.setDestination}
+              />}
+            />
+
+            <Route path='/shipping'
+              render={(props) => <Shipping 
+                {...props}
+                setHeaderLink={this.setHeaderLink}
+                device={{
+                  vpWidth: vpWidth,
+                  vpHeight: vpHeight,
+                  isMobile: isMobile,
+                }}
+                setDestination={this.setDestination}
+              />}
+            />
+
+            <Route path='/checkout' 
+              render={(props) => <CheckoutPage 
+                {...props} 
+                setHeaderLink={this.setHeaderLink}
+                cart={cart}
+                device={{
+                  vpWidth: vpWidth,
+                  vpHeight: vpHeight,
+                  isMobile: isMobile,
+                }}
+                setDestination={this.setDestination}
               />}
             />
 
@@ -260,6 +291,7 @@ class Main extends Component {
               render={(props) => <Goodies 
                 {...props} 
                 setHeaderLink={this.setHeaderLink}
+                setDestination={this.setDestination}
               />}
             />
 
@@ -278,6 +310,7 @@ class Main extends Component {
                   vpHeight: vpHeight,
                   isMobile: isMobile,
                 }}
+                setDestination={this.setDestination}
               />}
             />
 
@@ -287,19 +320,6 @@ class Main extends Component {
                 setHeaderLink={this.setHeaderLink}
               />}
             /> */}
-
-            <Route path='/checkout' 
-              render={(props) => <CheckoutPage 
-                {...props} 
-                setHeaderLink={this.setHeaderLink}
-                cart={cart}
-                device={{
-                  vpWidth: vpWidth,
-                  vpHeight: vpHeight,
-                  isMobile: isMobile,
-                }}
-              />}
-            />
 
             {/* <Route path='/cart' 
               render={(props) => <ViewCartPage 

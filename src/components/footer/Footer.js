@@ -7,19 +7,22 @@ import {
 } from '@material-ui/core/styles'
 import FooterItem from './FooterItem'
 import FooterBottom from './FooterBottom'
-import Share from '../Share'
+import Share from './Share'
 import InstagramIcon from '@material-ui/icons/Instagram'
 import TwitterIcon from '@material-ui/icons/Twitter'
 import SpotifyIcon from '../icons/SpotifyIcon'
 import AppleMusicIcon from '../icons/AppleMusicIcon'
 import YouTubeIcon from '@material-ui/icons/YouTube'
 import AlternateEmailIcon from '@material-ui/icons/AlternateEmail'
-import MenuBookIcon from '@material-ui/icons/MenuBook'
+// import MenuBookIcon from '@material-ui/icons/MenuBook'
 import GitHubIcon from '@material-ui/icons/GitHub'
+import CodeIcon from '@material-ui/icons/Code'
+import GetGithubUrl from '../../scripts/GetGithubUrl'
 import '../../css/components/footer.css'
 
 class Footer extends Component {
   render() {
+    const { pathname } = this.props.location
     const theme = createMuiTheme({
       palette: {
         primary: {
@@ -108,6 +111,12 @@ class Footer extends Component {
             Icon={<GitHubIcon color='secondary' />}
             label='github'
             link='https://github.com/nbennett320/northwest.band'
+          />
+
+          <FooterItem 
+            Icon={<CodeIcon color='secondary' />}
+            label='read the source'
+            link={`https://github.com/nbennett320/northwest.band/${GetGithubUrl(pathname)}`}
           />
 
           <Share location={this.props.location} />
