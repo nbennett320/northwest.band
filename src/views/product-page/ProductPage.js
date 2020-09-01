@@ -4,44 +4,42 @@ import { Divider } from '@material-ui/core'
 import ProductOverview from './ProductOverview'
 import ProductDetails from './ProductDetails'
 import Footer from '../../components/footer/Footer'
-import products from '../../assets/data/Products.json'
-import SuggestionBar from './SuggestionBar'
+// import SuggestionBar from './SuggestionBar'
+import server from '../../server.config'
 
 export default class ProductPage extends Component {
   constructor(props) {
     super(props) 
     this.state = {
       model: props.match.params.model,
-      item: undefined
+      item: undefined,
     }
   }
 
   componentDidMount() {
     this.props.setHeaderLink('/merch')
     const { match } = this.props
-    const product = this.getProduct(match.params.model)
-    console.log("product", product)
-    //const urlHasColor = product.attributes.colors.includes(match.params.color)
-    const selectedColor = product.attributes.colors.includes(match.params.color)
-      ? match.params.color
-      : product.attributes.colors[0]
-    console.log("selected color:" , selectedColor)
-    // color defaults to first listing in the 
-    // Products.json file if nothing defined in url params,
-    // size defaults to "medium"
-    const item = {
-      ...product,
-      selectedColor: selectedColor,
-      selectedSize: "medium"
-    }
-    console.log(item)
-    if(item) 
-      this.setState({
-        item: item,
+    this.getProduct(match.params.model)
+      .then(() => {
+        const { item } = this.state
+        const selectedColor = item.attributes.colors.includes(match.params.color)
+          ? match.params.color
+          : item.attributes.colors[0]
+        // color defaults to first listing in the 
+        // Products.json file if nothing defined in url params,
+        // size defaults to "medium"
+        const newItem = {
+          ...item,
+          selectedColor: selectedColor,
+          selectedSize: "medium"
+        }
+        if(newItem) 
+          this.setState({
+            item: newItem,
+          })
       })
-    console.log(this.state)
-
-    const hasShownBlmPanel = localStorage.getItem("hasShownBlmPanel")
+    
+    const hasShownBlmPanel = sessionStorage.getItem("hasShownBlmPanel")
     // uses boolean as string
     if(hasShownBlmPanel === "false") {
       this.props.setDestination({from: this.props.match.path})
@@ -59,24 +57,14 @@ export default class ProductPage extends Component {
     }
   }
 
-  // there's def a better way to do this LOL
-  getProduct = model => {
-    let match
-    console.log("model:", model)
-    Object.values(products).forEach((el, i) => {
-      console.log(el)
-      Object.values(el).forEach((product, j) => {
-        console.log(product)
-        if(product.attributes.model.includes(reverseKey(model)) 
-          || product.attributes.model.includes(model)) {
-            match = product
-        }
-      })
-    })
-    console.log("match", match)
-    return match 
-      ? match
-      : false
+  // get product data
+  getProduct = async (model) => {
+    // in the future: server/products?num_of_items=20&other_param=something
+    const item = await fetch(`${server}/products/${model}`,
+      {
+        method: 'GET',
+      }).then(res => res.json())
+    this.setState({ item })
   }
 
   setColor = color => {
@@ -113,8 +101,6 @@ export default class ProductPage extends Component {
       description: item.description,
       model: item.attributes.model
     }
-    console.log(this.props)
-    console.log(this.state)
     return (
       <div className="view padding-for-header">
         {item && helmet(info)}
@@ -152,8 +138,6 @@ export default class ProductPage extends Component {
     )
   }
 }
-
-const reverseKey = model => model.replace(/-/g,' ').replace(/[.()]/g,'').toLowerCase()
 
 const helmet = info => (
   <Helmet>

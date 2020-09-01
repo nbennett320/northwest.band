@@ -12,7 +12,7 @@ export default class Demos extends Component {
   componentDidMount () {
     this.props.setHeaderLink('/goodies')
 
-    const hasShownBlmPanel = localStorage.getItem("hasShownBlmPanel")
+    const hasShownBlmPanel = sessionStorage.getItem("hasShownBlmPanel")
     // uses boolean as string
     if(hasShownBlmPanel === "false") {
       this.props.setDestination({from: this.props.match.path})

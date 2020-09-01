@@ -1,9 +1,29 @@
 import React, { Component } from 'react'
 import ProductListing from './ProductListing'
-import products from '../../assets/data/Products.json'
+import server from '../../server.config'
+import { Hidden } from '@material-ui/core'
 
 class Products extends Component {
+  state = {
+    products: {}
+  }
+
+  componentDidMount() {
+    this.getProducts()
+  }
+
+  // get product data
+  getProducts = async () => {
+    // in the future: server/products?num_of_items=20&other_param=something
+    const products = await fetch(`${server}/products`,
+      {
+        method: 'GET',
+      }).then(res => res.json())
+    this.setState({ products })
+  }
+
   makeCatalog = filter => {
+    const { products } = this.state
     const { device } = this.props
     const clothing = products["clothing"]
     const other = products["other"]
@@ -59,9 +79,16 @@ class Products extends Component {
   }
 
   render() {
-    return (
-      <div style={styles.main}>
-        {this.makeCatalog()}
+    const { products } = this.state
+    if(Object.keys(products).length > 0)
+      return (
+        <div style={styles.main}>
+          {this.makeCatalog()}
+        </div>
+      )
+    else return (
+      <div style={{display: 'none'}}> 
+        ( loading )
       </div>
     )
   }

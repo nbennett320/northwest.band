@@ -22,8 +22,8 @@ const mql = window.matchMedia(`(max-width: 633px)`)
 const vpWidth = window.innerWidth
 const vpHeight = window.innerHeight
 
-if(!localStorage.getItem("hasShownBlmPanel")) {
-  localStorage.setItem("hasShownBlmPanel", "false")
+if(!sessionStorage.getItem("hasShownBlmPanel")) {
+  sessionStorage.setItem("hasShownBlmPanel", "false")
 }
 
 class Main extends Component {
@@ -42,14 +42,8 @@ class Main extends Component {
     }
   }
 
-  componentDidMount() {
-    const cart = localStorage.getItem("cart")
-    console.log(cart)
-  }
-
   setDestination = props => {
-    console.log("hey")
-    localStorage.setItem("hasShownBlmPanel", "true")
+    sessionStorage.setItem("hasShownBlmPanel", "true")
     this.setState({
       from: {
         ...this.state.from,
@@ -162,6 +156,7 @@ class Main extends Component {
               render={(props) => <Lyrics 
                 {...props} 
                 setHeaderLink={this.setHeaderLink}
+                setDestination={this.setDestination}
               />}
             
             />
