@@ -7,7 +7,9 @@ export default class Artwork extends Component {
       ? styles.mobile
       : styles.main
     return (
-      <img src={img} 
+      <img 
+        onClick={this.props.handleClick}
+        src={img} 
         alt={`artwork for ${name}.`} 
         style={style.cover}
       />

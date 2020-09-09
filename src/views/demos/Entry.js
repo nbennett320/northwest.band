@@ -10,6 +10,11 @@ import Artwork from './Artwork'
 import Description from './Description'
 
 export default class Entry extends Component {
+  handleDownload = () => {
+    const url = this.props.downloadUrl
+    window.open(url, '_blank')
+  }
+
   render() {
     const { 
       name,
@@ -44,6 +49,7 @@ export default class Entry extends Component {
             img={img}
             name={name}
             device={this.props.device}
+            handleClick={this.handleDownload}
           />
 
           <Description 

@@ -43,6 +43,8 @@ export default class Demos extends Component {
             img={require(`../../assets/img/music/goodies/${entry.art}`)}
             content={entry.description}
             device={this.props.device}
+            handleDownload={this.handleDownload}
+            downloadUrl={entry.downloadUrl}
           />
         </div>
     )}) 
