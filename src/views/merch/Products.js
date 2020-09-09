@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import ProductListing from './ProductListing'
 import server from '../../server.config'
-import { Hidden } from '@material-ui/core'
 
 class Products extends Component {
   state = {

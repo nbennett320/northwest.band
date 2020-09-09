@@ -6,7 +6,6 @@ import server from '../server.config'
 
 export default class ImageBlock extends Component {
   render() {
-    const { image } = this.state
     const { text, scale } = this.props
     return (
       <div style={{

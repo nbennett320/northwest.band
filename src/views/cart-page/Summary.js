@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { 
-  Button,
   Typography
 } from '@material-ui/core'
 import Price from './Price'

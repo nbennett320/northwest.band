@@ -26,15 +26,15 @@ const useAddress = async (cart, address) => {
   return res
 }
 
-const useLocation = async (cart) => {
-  const { coords } = navigator.geolocation.getCurrentPosition()
-  const res = await fetch(`${server}/calculate/shipping/location
-    ?weight=${calculateTotalWeight(cart)}
-    &lat=${coords.latitude}
-    &long=${coords.longitude}
-  `)
-  return res
-}
+// const useLocation = async (cart) => {
+//   const { coords } = navigator.geolocation.getCurrentPosition()
+//   const res = await fetch(`${server}/calculate/shipping/location
+//     ?weight=${calculateTotalWeight(cart)}
+//     &lat=${coords.latitude}
+//     &long=${coords.longitude}
+//   `)
+//   return res
+// }
 
 const calculateTotalWeight = cart => {
   let sum = 0
