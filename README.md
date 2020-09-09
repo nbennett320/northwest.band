@@ -17,7 +17,7 @@ clone the repository to your computer
 install dependencies
 <br />
 
-### `yarn start`
+### `yarn serve`
 start a development server on [http://localhost:3000](http://localhost:3000)<br />
 
 ### `yarn build`
