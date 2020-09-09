@@ -29,7 +29,7 @@ export default class Shipping extends Component {
         />
 
         <Form 
-        
+          device={device}
         />
 
         <Footer 
