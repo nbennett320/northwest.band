@@ -23,7 +23,6 @@ import '../../css/components/footer.css'
 class Footer extends Component {
   render() {
     const { device, location } = this.props
-    const { pathname } = location
     const theme = createMuiTheme({
       palette: {
         primary: {
@@ -117,10 +116,10 @@ class Footer extends Component {
           <FooterItem 
             Icon={<CodeIcon color='secondary' />}
             label='see the code'
-            link={`https://github.com/nbennett320/northwest.band/${GetGithubUrl(pathname)}`}
+            link={location && `https://github.com/nbennett320/northwest.band/${GetGithubUrl(location.pathname)}`}
           />
 
-          {device.isMobile && <Share location={location} />}
+          {device && device.isMobile && <Share location={location} />}
 
           <FooterBottom />
         </ThemeProvider>               
