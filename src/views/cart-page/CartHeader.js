@@ -29,7 +29,7 @@ const styles = {
   sm: {
     main: {
       width: '100%',
-      height: 'calc(250px)',
+      height: '200px',
       backgroundPosition: 'top',
       backgroundRepeat: 'no-repeat',
       backgroundSize: 'cover',

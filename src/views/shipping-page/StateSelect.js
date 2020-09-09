@@ -16,8 +16,7 @@ export default class StateSelect extends Component {
         >
           <InputLabel> state </InputLabel>
           <Select
-            // value={item.selectedColor}
-            onChange={this.props.handleChangeState}
+            onChange={this.props.handleSetState}
             label={"state"}
             required
           >

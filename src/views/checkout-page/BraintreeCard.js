@@ -62,12 +62,12 @@ export default class BraintreeCard extends Component {
           onInstance={instance => this.instance = instance}
         />
 
-        <Button onClick={this.buy}
+        {/* <Button onClick={this.buy}
           variant="outlined"
           style={styles.button}
         >
           buy
-        </Button>
+        </Button> */}
       </div>
     )
   }

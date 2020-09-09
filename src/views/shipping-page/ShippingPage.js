@@ -13,6 +13,11 @@ export default class Shipping extends Component {
     this.props.setHeaderLink('/cart')
   }
 
+  handleFormSubmit = shippingInfo => {
+    console.log("submitted shipping info:", shippingInfo)
+    this.props.history.push('/checkout')
+  }
+
   render() {
     const { device, location } = this.props
     return (
@@ -30,6 +35,7 @@ export default class Shipping extends Component {
 
         <Form 
           device={device}
+          handleSubmit={this.handleFormSubmit}
         />
 
         <Footer 
