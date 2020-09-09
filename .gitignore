@@ -37,6 +37,8 @@ src/server.config.js
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+firebase-debug.log*
 
 # firebase
 .firebaserc
+.firebase
