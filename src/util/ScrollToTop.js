@@ -1,4 +1,4 @@
-import { Component } from 'react'
+import React, { Component, useEffect } from 'react'
 import { withRouter } from 'react-router-dom'
 
 class ScrollToTop extends Component {
@@ -11,4 +11,5 @@ class ScrollToTop extends Component {
     return this.props.children
   }
 }
+
 export default withRouter(ScrollToTop)
