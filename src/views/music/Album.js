@@ -31,13 +31,11 @@ export default class Album extends Component {
         <ThemeProvider theme={theme}>
           <Typography variant="h4" color='secondary'> {title.toLowerCase()} </Typography>
           <Typography variant="subtitle1" color='secondary'> {date.toLowerCase()} </Typography>
-
           <Artwork
             img={img}
             name={title}
             device={this.props.device}
           />
-
           <SongList album={title} />
         </ThemeProvider>
       </div>

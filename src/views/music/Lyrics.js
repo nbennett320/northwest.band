@@ -27,10 +27,15 @@ class Lyrics extends Component {
   getSong = async () => {
     const { match } = this.props
     const { key } = match.params
+    console.log("song key:",key)
     const song = await fetch(`${server}/songs/${key}`,
       {
         method: 'GET',
-      }).then(res => res.json())
+      }).then(res => {
+        console.log("HELO", res.status)
+        return res.json()
+      })
+    console.log("song", song)
     this.setState({ song })
   }
   

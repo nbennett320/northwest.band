@@ -28,8 +28,8 @@ if(!sessionStorage.getItem("hasShownBlmPanel")) {
 }
 
 class Main extends Component {
-  constructor(props) {
-    super(props)
+  constructor() {
+    super()
     this.state = {
       cart: [],
       showCart: false,
@@ -136,12 +136,12 @@ class Main extends Component {
 
             {/* redirect from /songs/ to /music for cases where user tries
             to link there directly */}
-            <Redirect
+            {/* <Redirect
               from='/music/:key'
-              to='/songs/:key'
-            />
+              to='/music/'
+            /> */}
 
-            <Route path='/music' 
+            <Route exact path='/music' 
               render={(props) => <Music 
                 {...props} 
                 setHeaderLink={this.setHeaderLink}
@@ -153,7 +153,7 @@ class Main extends Component {
               />}
             />
 
-            <Route path='/songs/:key'
+            <Route exact path='/music/:key'
               render={(props) => <Lyrics 
                 {...props} 
                 setHeaderLink={this.setHeaderLink}

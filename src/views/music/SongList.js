@@ -35,7 +35,7 @@ export default class SongList extends Component {
               ? <Typography variant="subtitle1" color="secondary">
                 {album[song]["title"].toLowerCase()}
               </Typography>
-              : <Link to={`songs/${makeKey(album[song]["title"])}`} 
+              : <Link to={`music/${makeKey(album[song]["title"])}`} 
                 params={{
                   title: album[song]["title"],
                   key: makeKey(album[song]["title"])

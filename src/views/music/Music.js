@@ -57,11 +57,9 @@ export default class Music extends Component {
         className="view padding-for-header" 
       >
         {helmet}
-
         <div style={styles.list}>
           {this.listEntries()}
         </div>
-
         <Footer 
           location={location} 
           device={device}
