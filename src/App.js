@@ -15,6 +15,7 @@ const device = {
 }
 
 const ScrollToTop = props => {
+  console.log(props)
   useEffect(() => {
     window.scrollTo(0,0)
   }, [props.location])
@@ -23,25 +24,24 @@ const ScrollToTop = props => {
 
 const App = props => {
   return (
-    <ScrollToTop>
+    <div>
       <Header 
         cart={props.cart}
-        showCart={true}
+        showCart={props.showCart}
         headerLink={props.headerLink}
       />
       <ViewRouter 
         {...props}
         device={device}
       />
-    </ScrollToTop>
+    </div>
   )
 }
 
-const mapStateToProps = state => {
-  return {
-    cart: state.cartItems,
-    headerLink: state.headerLink,
-  }
-}
+const mapStateToProps = state => ({
+  cart: state.cartItems,
+  showCart: state.showCart,
+  headerLink: state.headerLink,
+})
 
 export default connect(mapStateToProps)(App)

@@ -4,7 +4,7 @@ import { applyMiddleware, combineReducers, createStore } from 'redux'
 import { Provider } from 'react-redux'
 import { routerReducer, routerMiddleware } from 'react-router-redux'
 import { createBrowserHistory } from 'history'
-import rootReducer from './reducers'
+import rootReducer from './redux/reducers'
 import Root from './Root'
 import * as serviceWorker from './serviceWorker'
 import './css/index.css'
@@ -19,6 +19,8 @@ const store = createStore(
   reducers,
   middleware
 )
+
+console.log(store.getState())
 
 render(
   <Provider store={store}>

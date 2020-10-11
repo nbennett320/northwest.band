@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import { Helmet } from 'react-helmet'
 import Cloud from './Cloud'
 import AnimationStyles from './AnimationStyles'
 import Footer from '../../components/footer/Footer'
+import { SET_HEADER_LINK } from '../../redux/actionTypes'
 import '../../css/home.css'
 
 class Home extends Component {
@@ -10,10 +12,10 @@ class Home extends Component {
     this.props.setHeaderLink('/')
     const hasShownBlmPanel = sessionStorage.getItem("hasShownBlmPanel")
     // uses boolean as string
-    if(hasShownBlmPanel === "false") {
-      this.props.setDestination({from: this.props.match.path})
-      this.props.history.push('/blm')
-    }
+    // if(hasShownBlmPanel === "false") {
+    //   this.props.setDestination({from: this.props.match.path})
+    //   this.props.history.push('/blm')
+    // }
   }
  
   render() {
@@ -117,4 +119,13 @@ const helmet = (
   </Helmet>
 )
 
-export default Home
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  setHeaderLink: () => dispatch({
+    type: SET_HEADER_LINK,
+  })
+})
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(Home)
