@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
-import ViewRouter from './Router'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import ViewRouter from './ViewRouter'
 import { Header } from './components'
 
 // query device size
@@ -24,24 +25,32 @@ const ScrollToTop = props => {
 
 const App = props => {
   return (
-    <div>
-      <Header 
-        cart={props.cart}
-        showCart={props.showCart}
-        headerLink={props.headerLink}
-      />
-      <ViewRouter 
-        {...props}
-        device={device}
-      />
-    </div>
+    <Router history={props.history}>
+      <Route 
+        path='/:filter?'
+        component={App}
+      >
+        <Header 
+          cart={props.cart}
+          showCart={props.showCart}
+          headerLink={props.headerLink}
+        />
+        <ViewRouter 
+          {...props}
+          device={device}
+        />
+      </Route>
+    </Router>
+      
   )
 }
 
-const mapStateToProps = state => ({
-  cart: state.cartItems,
-  showCart: state.showCart,
-  headerLink: state.headerLink,
-})
+const mapStateToProps = state => {
+  return {
+    cart: state.cartItems,
+    showCart: state.showCart,
+    headerLink: state.headerLink,
+  }
+}
 
 export default connect(mapStateToProps)(App)

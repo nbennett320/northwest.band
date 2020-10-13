@@ -1,37 +1,35 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import CartButton from './CartButton'
 import HeaderLogo from '../../assets/img/nwStarLogoBlack_407x128.png'
 // import BlmBar from './BlmBar'
 import '../../css/components/header.css'
 
-class Header extends Component {
-  render () {
-    const { 
-      cart,
-			showCart, 
-			headerLink
-		} = this.props
+const Header = props => {
+  const { 
+    cart,
+    showCart, 
+    headerLink
+  } = props
 
-    return (
-      <div className="header" style={styles.main}>
-        <Link to={headerLink}
-					style={styles.link}
-				>
-          <img src={HeaderLogo} 
-            id="header-image" 
-            style={styles.img} 
-            alt="northwest header"
-          />
+  return (
+    <div className="header" style={styles.main}>
+      <Link to={headerLink}
+        style={styles.link}
+      >
+        <img src={HeaderLogo} 
+          id="header-image" 
+          style={styles.img} 
+          alt="northwest header"
+        />
+      </Link>
+      {showCart && <Link to='/cart' > 
+          <CartButton cart={cart} /> 
         </Link>
-
-				{showCart && <Link to='/cart' > 
-						<CartButton cart={cart} /> 
-					</Link>
-				}
-      </div>
-    )
-  }
+      }
+    </div>
+  )
 }
 
 const styles = {
@@ -69,4 +67,10 @@ const styles = {
   }
 }
 
-export default Header
+const mapStateToProps = state => ({
+  cart: state.cartItems,
+  showCart: state.showCart,
+  headerLink: state.headerLink,
+})
+
+export default connect(mapStateToProps)(Header)

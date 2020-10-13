@@ -1,10 +1,2 @@
-import { combineReducers } from 'redux'
-import { 
-  addToCart,
-  setHeaderLink
-} from '../actions'
-
-export default combineReducers({
-  addToCart,
-  setHeaderLink
-})
+export { default as cartItems } from './cartItems'
+export { default as headerLink } from './headerLink'

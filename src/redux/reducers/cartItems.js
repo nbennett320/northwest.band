@@ -8,6 +8,7 @@ const initialState = {
 }
 
 export default (state = initialState, action) => {
+  console.log(state)
   switch(action.type) {
     case ADD_TO_CART:
       const { item } = action.payload
@@ -16,7 +17,6 @@ export default (state = initialState, action) => {
         item
       ]
       return {
-        ...state,
         cart: updatedCart,
         showCart: updatedCart.cart.lengh > 0
       }

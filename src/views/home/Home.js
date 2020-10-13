@@ -25,7 +25,6 @@ class Home extends Component {
         className="view padding-for-header"
       >
         {helmet}
-
         <Cloud link='/music'
           stylesProp={{
             cloud: styles.cloud.music, 
@@ -40,7 +39,6 @@ class Home extends Component {
           }}
           isMobile={device.isMobile}
         />
-
         <Cloud link='/merch'
           stylesProp={{
             cloud: styles.cloud.merch, 
@@ -55,7 +53,6 @@ class Home extends Component {
           }}
           isMobile={device.isMobile}
         />
-
         <Cloud link='/goodies'
           stylesProp={{
             cloud: styles.cloud.goodies, 
@@ -70,7 +67,6 @@ class Home extends Component {
           }}
           isMobile={device.isMobile}
         />
-
         <Footer 
           location={location} 
           device={device}
@@ -122,6 +118,9 @@ const helmet = (
 const mapDispatchToProps = (dispatch, ownProps) => ({
   setHeaderLink: () => dispatch({
     type: SET_HEADER_LINK,
+    payload: {
+      headerLink: '/'
+    }
   })
 })
 
