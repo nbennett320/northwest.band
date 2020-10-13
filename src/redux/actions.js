@@ -2,6 +2,7 @@ import {
   ADD_TO_CART,
   REMOVE_FROM_CART,
   SET_HEADER_LINK,
+  MEASURE_DEVICE
 } from './actionTypes'
 
 export const addToCart = (itemAdded, match) => {
@@ -31,4 +32,8 @@ export const setHeaderLink = link => ({
   payload: {
     headerLink: link
   }
+})
+
+export const measureDevice = () => ({
+  type: MEASURE_DEVICE
 })

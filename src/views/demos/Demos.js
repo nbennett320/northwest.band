@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
-import { Helmet } from 'react-helmet'
+import { connect } from 'react-redux' 
+import { SET_HEADER_LINK } from '../../redux/actionTypes'
+import Helmet from './Helmet'
 import Entry from './Entry'
 import Footer from '../../components/footer/Footer'
 import server from '../../server.config'
 
-export default class Demos extends Component {
+class Demos extends Component {
   state = {
     goodies: {}
   }
@@ -42,7 +44,6 @@ export default class Demos extends Component {
             name={entry.name}
             img={require(`../../assets/img/music/goodies/${entry.art}`)}
             content={entry.description}
-            device={this.props.device}
             handleDownload={this.handleDownload}
             downloadUrl={entry.downloadUrl}
           />
@@ -51,21 +52,15 @@ export default class Demos extends Component {
   }
 
   render() {
-    const { device, location } = this.props
     return (
       <div style={styles.main}
         className="view padding-for-header"
       >
-        {helmet}
-
+        <Helmet />
         <div style={styles.list}>
           {this.listEntries()}
         </div>
-
-        <Footer 
-          location={location} 
-          device={device}
-        />
+        <Footer />
       </div>
     )
   }
@@ -76,41 +71,26 @@ const styles = {
     backgroundColor: '#000',
     letterSpacing: '1px',
   },
-
   entry: {
     width: '100%',
     paddingBottom: '40px'
   },
-
   list: {
     display: 'flex',
     flexDirection: 'column'
   }
 }
 
-const helmet = <Helmet>
-  <meta charset="utf-8" />
-  <meta name="keywords" 
-    content="
-      northwest, 
-      northwest the band, 
-      northwest band,
-      music, 
-      band,  
-      rock, 
-      songs,
-      demos,
-      live,
-      songs,
-      covers
-    "
-  />
-  <link rel="canonical" href="http://northwest.band/music" />
-  <meta name="author" content="Noah Bennett" />
-  <meta name="description" content="
-    Demos, live versions, and covers by Northwest.
-  " />
-  <meta name="robots" content="index" />
-  <meta name="url" content="http://northwest.band/music" />
-  <title> northwest the band | demos, live versions, and covers </title>
-</Helmet>
+const mapDispatchToProps = dispatch => ({
+  setHeaderLink: () => dispatch({
+    type: SET_HEADER_LINK,
+    payload: {
+      headerLink: '/'
+    }
+  })
+})
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(Demos)

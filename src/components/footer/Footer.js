@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux' 
+import { SET_HEADER_LINK } from '../../redux/actionTypes'
 // import { Link } from 'react-router-dom'
 import { Typography } from '@material-ui/core'
 import { 
@@ -38,37 +40,31 @@ class Footer extends Component {
       <div style={styles.footer}>
         <ThemeProvider theme={theme}>
           <Typography variant='h6' style={styles.header}> hit us up!! </Typography>
-
           <FooterItem 
             Icon={<InstagramIcon color='secondary' />}
             label='instagram'
             link='https://www.instagram.com/northwest219/'
           />
-
           <FooterItem 
             Icon={<TwitterIcon color='secondary' /> }
             label='twitter'
             link='https://twitter.com/northwest219'
           />
-
           <FooterItem 
             Icon={<SpotifyIcon color='secondary' />}
             label='spotify'
             link='https://open.spotify.com/artist/0hscERxMRDZRqZIHjKbExD?si=FGhntveJTxKsk9KsoGFM0A'
           />
-
           <FooterItem 
             Icon={<AppleMusicIcon color='secondary' />}
             label='apple music'
             link='https://music.apple.com/us/artist/northwest/1409175767'
           />
-
           <FooterItem 
             Icon={<YouTubeIcon color='secondary' />}
             label='youtube'
             link='https://www.youtube.com/channel/UCsAuRJv-BwMcLELAjNH46dQ'
           />
-
           {/* <FooterItem 
             Icon={<AlternateEmailIcon color='secondary' />}
             label='contact'
@@ -87,7 +83,6 @@ class Footer extends Component {
               </Typography>
             }
           /> */}
-          
           {/* <FooterItem 
             Icon={<MenuBookIcon color='secondary' />}
             label='about'
@@ -106,21 +101,17 @@ class Footer extends Component {
               </Typography>
             }
           /> */}
-
           {/* <FooterItem 
             Icon={<GitHubIcon color='secondary' />}
             label='github'
             link='https://github.com/nbennett320/northwest.band'
           /> */}
-
           <FooterItem 
             Icon={<CodeIcon color='secondary' />}
             label='see the code'
             link={location && `https://github.com/nbennett320/northwest.band/${GetGithubUrl(location.pathname)}`}
           />
-
           {device && device.isMobile && <Share location={location} />}
-
           <FooterBottom />
         </ThemeProvider>               
       </div>
@@ -151,4 +142,23 @@ const styles = {
   }
 }
 
-export default Footer
+const mapStateToProps = state => {
+  return {
+    device: state.device,
+    location: state.location
+  }
+}
+
+const mapDispatchToProps = dispatch => ({
+  setHeaderLink: () => dispatch({
+    type: SET_HEADER_LINK,
+    payload: {
+      headerLink: '/'
+    }
+  })
+})
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Footer)

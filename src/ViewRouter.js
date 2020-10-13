@@ -29,7 +29,6 @@ const ViewRouter = props => {
       <Route exact path='/'
         render={h => <Home
           {...h}
-          device={props.device}
         />}
       />
 
@@ -55,7 +54,6 @@ const ViewRouter = props => {
       <Route exact path='/music/:key'
         render={h => <Lyrics 
           {...h} 
-          device={props.device}
         />}
       
       />
@@ -70,7 +68,6 @@ const ViewRouter = props => {
       <Route path='/merch' 
         render={h => <Merch 
           {...h}
-          device={props.device}
         />}
       />
 
@@ -98,14 +95,12 @@ const ViewRouter = props => {
       <Route path='/products/:model/:color' 
         render={h => <ProductPage 
           {...h} 
-          device={props.device}
         />}
       />
 
       <Route path='/products/:model/' 
         render={h => <ProductPage 
           {...h} 
-          device={props.device}
         />}
       />
 
@@ -126,28 +121,24 @@ const ViewRouter = props => {
       <Route path='/cart' 
         render={h => <CartPage 
           {...h} 
-          device={props.device}
         />}
       />
 
       <Route path='/shipping'
         render={h => <ShippingPage 
           {...h}
-          device={props.device}
         />}
       />
 
       <Route path='/checkout' 
         render={h => <CheckoutPage 
           {...h} 
-          device={props.device}
         />}
       />
 
       <Route path='/goodies' 
         render={h => <Goodies 
           {...h} 
-          device={props.device}
         />}
       />
 
@@ -160,7 +151,6 @@ const ViewRouter = props => {
       <Route path='/demos' 
         render={h => <Demos 
           {...h} 
-          device={props.device}
         />}
       />
 
@@ -227,7 +217,6 @@ const ViewRouter = props => {
       <Route path='/*'
         render={h => <NoMatch
           {...h} 
-          device={props.device}
         />} 
       />
     </Switch>
@@ -239,6 +228,7 @@ const mapStateToProps = state => {
     cart: state.cartItems,
     showCart: state.showCart,
     headerLink: state.headerLink,
+    device: state.device
   }
 }
 

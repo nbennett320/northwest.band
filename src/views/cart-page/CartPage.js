@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-import { Helmet } from 'react-helmet'
+import { connect } from 'react-redux' 
+import { SET_HEADER_LINK } from '../../redux/actionTypes'
+import Helmet from './Helmet'
 import CartHeader from './CartHeader'
 import ListArea from './ListArea'
 import NoItems from './NoItems'
@@ -27,8 +29,7 @@ class CartPage extends Component {
     } = this.props
     return (
       <div className="view">
-        {helmet}
-        
+        <Helmet />
         <CartHeader 
           scale={() => (
             device.vpWidth > 1920 
@@ -63,32 +64,23 @@ class CartPage extends Component {
   }
 }
 
-const helmet = (
-  <Helmet>
-    <meta charset="utf-8" />
-    <meta name="keywords" 
-      content="
-        northwest, 
-        northwest the band, 
-        northwest band,
-        music, 
-        band, 
-        merch, 
-        merchandise, 
-        clothing, 
-        screen print, 
-        band tees, 
-      "
-    />
-    <link rel="canonical" href="http://northwest.band" />
-    <meta name="author" content="Noah Bennett" />
-    <meta name="description" content="
-      Northwest shirts, hoodies, physical music and more.
-    " />
-    <meta name="robots" content="noindex" />
-    <meta name="url" content="http://northwest.band/merch" />
-    <title>northwest the band | cart</title>
-  </Helmet>
-)
+const mapStateToProps = state => {
+  return {
+    cart: state.cart,
+    device: state.device
+  }
+}
 
-export default CartPage
+const mapDispatchToProps = dispatch => ({
+  setHeaderLink: () => dispatch({
+    type: SET_HEADER_LINK,
+    payload: {
+      headerLink: '/'
+    }
+  })
+})
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(CartPage)

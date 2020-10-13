@@ -4,7 +4,11 @@ import { applyMiddleware, combineReducers, createStore } from 'redux'
 import { Provider } from 'react-redux'
 import { routerReducer, routerMiddleware } from 'react-router-redux'
 import { createBrowserHistory } from 'history'
-import { cartItems, headerLink } from './redux/reducers'
+import { 
+  cartItems, 
+  headerLink,
+  device
+} from './redux/reducers'
 import App from './App'
 import * as serviceWorker from './serviceWorker'
 import './css/index.css'
@@ -15,14 +19,13 @@ const middleware = applyMiddleware(routerMiddleware(history))
 const reducers = combineReducers({
   cartItems,
   headerLink,
+  device,
   routing: routerReducer
 })
 const store = createStore(
   reducers,
   middleware
 )
-
-console.log(store.getState())
 
 render(
   <Provider store={store}>

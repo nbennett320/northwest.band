@@ -12,7 +12,6 @@ const Header = props => {
     showCart, 
     headerLink
   } = props
-
   return (
     <div className="header" style={styles.main}>
       <Link to={headerLink}

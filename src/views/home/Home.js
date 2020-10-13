@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Helmet } from 'react-helmet'
 import Cloud from './Cloud'
 import AnimationStyles from './AnimationStyles'
 import Footer from '../../components/footer/Footer'
+import Helmet from './Helmet'
 import { SET_HEADER_LINK } from '../../redux/actionTypes'
 import '../../css/home.css'
 
@@ -24,7 +24,7 @@ class Home extends Component {
       <div style={styles.main}
         className="view padding-for-header"
       >
-        {helmet}
+        <Helmet />
         <Cloud link='/music'
           stylesProp={{
             cloud: styles.cloud.music, 
@@ -86,36 +86,11 @@ const styles = {
   ...AnimationStyles
 }
 
-const helmet = (
-  <Helmet>
-    <meta charset="utf-8" />
-    <meta name="keywords" 
-      content="
-        northwest, 
-        northwest the band, 
-        northwest band,
-        north west, 
-        band, 
-        nwi, 
-        219, 
-        the region, 
-        northwest indiana, 
-        chicago, 
-        rock and roll
-      "
-    />
-    <link rel="canonical" href="http://northwest.band" />
-    <meta name="author" content="Noah Bennett" />
-    <meta name="description" content="
-      Northwest is a rock and roll band from Northwest Indiana, started before the summer of 2017.
-    " />
-    <meta name="robots" content="index" />
-    <meta name="url" content="http://northwest.band" />
-    <title>northwest the band | music, merch, and cool stuff</title>
-  </Helmet>
-)
+const mapStateToProps = state => ({
+  device: state.device
+})
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
+const mapDispatchToProps = dispatch => ({
   setHeaderLink: () => dispatch({
     type: SET_HEADER_LINK,
     payload: {
@@ -125,6 +100,6 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 })
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(Home)

@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
-import { Helmet } from 'react-helmet'
+import { connect } from 'react-redux'
 import AnimatedImage from './AnimatedImage'
 import AnimatedStyles from './AnimatedStyles'
 import Footer from '../../components/footer/Footer'
+import Helmet from './Helmet'
+import { SET_HEADER_LINK } from '../../redux/actionTypes'
 import '../../css/goodies.css'
 
-export default class Goodies extends Component {
+class Goodies extends Component {
   componentDidMount () {
     this.props.setHeaderLink('/')
   }
@@ -16,8 +18,7 @@ export default class Goodies extends Component {
       <div style={styles.main}
         className="view padding-for-header"
       >
-        {helmet}
-
+        <Helmet />
         <div style={styles.container}>
           <AnimatedImage
             link='/demos'
@@ -37,7 +38,6 @@ export default class Goodies extends Component {
             }}
           />
         </div>
-
         <div style={styles.container}>
           <AnimatedImage
             link='/vault'
@@ -58,7 +58,6 @@ export default class Goodies extends Component {
             }}
           />
         </div>
-
         <Footer 
           location={location} 
           device={device}
@@ -68,35 +67,6 @@ export default class Goodies extends Component {
   }
 }
 
-const helmet = (
-  <Helmet>
-    <meta charset="utf-8" />
-    <meta name="keywords" 
-      content="
-        northwest, 
-        northwest the band, 
-        northwest band,
-        north west, 
-        band, 
-        nwi, 
-        219, 
-        the region, 
-        northwest indiana, 
-        goodies, 
-        art
-      "
-    />
-    <link rel="canonical" href="http://northwest.band" />
-    <meta name="author" content="Noah Bennett" />
-    <meta name="description" content="
-      Northwest demo tracks, various works of art, and other goodies.
-    " />
-    <meta name="robots" content="index" />
-    <meta name="url" content="http://northwest.band/goodies" />
-    <title> northwest the band | demos, artwork, and more </title>
-  </Helmet>
-)
-
 const styles = {
   main: {
     backgroundColor: '#000',
@@ -104,3 +74,17 @@ const styles = {
   },
   ...AnimatedStyles
 }
+
+const mapDispatchToProps = dispatch => ({
+  setHeaderLink: () => dispatch({
+    type: SET_HEADER_LINK,
+    payload: {
+      headerLink: '/'
+    }
+  })
+})
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(Goodies)

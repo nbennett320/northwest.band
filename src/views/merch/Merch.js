@@ -1,18 +1,12 @@
 import React, { Component } from 'react'
-import { Helmet } from 'react-helmet'
+import { connect } from 'react-redux' 
+import { SET_HEADER_LINK } from '../../redux/actionTypes'
+import Helmet from './Helmet'
 import StoreHeader from './StoreHeader'
 import Products from './Products'
 import Footer from '../../components/footer/Footer'
 
 class Merch extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      showFilters: false,
-      filteredBy: undefined,
-    }
-  }
-
   componentDidMount () {
     this.props.setHeaderLink('/')
 
@@ -25,13 +19,11 @@ class Merch extends Component {
   }
 
   render() {
-    const { device, location } = this.props
+    const { device } = this.props
     return (
       <div className="view">
-        {helmet}
-
+        <Helmet />
         <StoreHeader 
-          filter={this.state.filteredBy} 
           scale={() => (
             device.vpWidth > 1920 
               ? "lg"
@@ -40,46 +32,29 @@ class Merch extends Component {
                 : "m"
           )}
         />
-
-        <Products 
-          device={device}
-        />
-
-        <Footer 
-          location={location} 
-          device={device}
-        />
+        <Products />
+        <Footer />
       </div>
     )
   }
 }
 
-const helmet = (
-  <Helmet>
-    <meta charset="utf-8" />
-    <meta name="keywords" 
-      content="
-        northwest, 
-        northwest the band, 
-        northwest band,
-        music, 
-        band, 
-        merch, 
-        merchandise, 
-        clothing, 
-        screen print, 
-        band tees, 
-      "
-    />
-    <link rel="canonical" href="http://northwest.band" />
-    <meta name="author" content="Noah Bennett" />
-    <meta name="description" content="
-      Northwest shirts, hoodies, physical music and more.
-    " />
-    <meta name="robots" content="index" />
-    <meta name="url" content="http://northwest.band/merch" />
-    <title>northwest the band | shirts, hoodies, and more</title>
-  </Helmet>
-)
+const mapStateToProps = state => {
+  return {
+    device: state.device
+  }
+}
 
-export default Merch
+const mapDispatchToProps = dispatch => ({
+  setHeaderLink: () => dispatch({
+    type: SET_HEADER_LINK,
+    payload: {
+      headerLink: '/'
+    }
+  })
+})
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Merch)
