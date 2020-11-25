@@ -1,77 +1,77 @@
-import React, { Component } from 'react'
-import { Helmet } from 'react-helmet'
+import React from 'react'
+import { connect } from 'react-redux'
+import { SET_HEADER_LINK } from '../../redux/actionTypes'
 import LyricsHeader from './LyricsHeader'
 import LyricsBody from './LyricsBody'
 import Footer from '../../components/footer/Footer'
+import { LyricsHelmet as Helmet } from './Helmet'
 import server from '../../server.config'
 
-class Lyrics extends Component {
-  state = {
-    song: {}
-  }
-
-  componentDidMount() {
-    this.props.setHeaderLink('/music')
-
-    const hasShownBlmPanel = sessionStorage.getItem("hasShownBlmPanel")
-    // uses boolean as string
-    if(hasShownBlmPanel === "false") {
-      this.props.setDestination({from: this.props.match.path})
-      this.props.history.push('/blm')
+const useFetchLyrics = props => {
+  const [song, setSong] = React.useState({})
+  const [isLoading, setLoading] = React.useState(true)
+  const { key } = props.match.params
+  React.useEffect(() => {
+    const getSong = async () => {
+      try {
+        setLoading(true)
+        const res = await fetch(`${server}/songs/${key}`, { method: 'GET' })
+          .then(res => res.json())
+        setSong(res)
+      } catch(err) {
+        console.error("error fetching song lyrics", err)
+        setLoading(false)
+      }
     }
+    if(Object.keys(song).length === 0) {
+      getSong()
+    } else {
+      setLoading(false)
+    }
+  }, [song, isLoading, key])
+  return [song, isLoading]
+}
 
-    this.getSong()
+const Lyrics = props => {
+  const [song, isLoading] = useFetchLyrics(props)
+  const { match, location, device } = props
+  const { key } = match.params
+  const hasShownBlmPanel = sessionStorage.getItem("hasShownBlmPanel")
+  if(hasShownBlmPanel === "false") {
+    props.setDestination({from: props.match.path})
+    props.history.push('/blm')
   }
-
-  // get song data from backend
-  getSong = async () => {
-    const { match } = this.props
-    const { key } = match.params
-    console.log("song key:",key)
-    const song = await fetch(`${server}/songs/${key}`,
-      {
-        method: 'GET',
-      }).then(res => {
-        console.log("HELO", res.status)
-        return res.json()
-      })
-    console.log("song", song)
-    this.setState({ song })
-  }
-  
-  render() {
-    const { song } = this.state
-    const { match, location, device } = this.props
-    const { key } = match.params
-    const helmet = makeHelmet(key, song)
-    return Object.keys(song).length > 0 
-      ? (
+  props.setHeaderLink()
+  return isLoading 
+    ? (
+    <div style={styles.hidden}>
+    ( loading )
+    </div>
+    ) : (
       <div style={{
           ...styles.main,
           backgroundImage: `url(${server}/assets/img/lyrics/${song["album"].replace(/\s+/g, '-').toLowerCase()}/${key}.jpg)`
         }}
       >
-        {helmet}
-
+        <Helmet 
+          song={song}
+          songKey={key}
+        />
         <div style={styles.content}>
           <LyricsHeader 
             title={song.title}
             album={song.album}
             date={song.date}
           />
-
           <LyricsBody song={song} />
         </div>
-
         <Footer 
           location={location} 
           device={device}
         />
       </div>
-    ) : <div style={styles.hidden}>
-        ( loading )
-      </div>
-  }
+    )
+  
 }
 
 const styles = {
@@ -97,31 +97,20 @@ const styles = {
   }
 }
 
-const makeHelmet = (key, song) => (
-  <Helmet>
-    <meta charset="utf-8" />
-    <meta name="keywords" 
-      content="
-        northwest, 
-        northwest the band, 
-        northwest band,
-        music, 
-        band, 
-        lyrics,
-        songs,
-        artwork,
-        album
-      "
-    />
-    <link rel="canonical" href="http://northwest.band/music" />
-    <meta name="author" content="Noah Bennett" />
-    <meta name="robots" content="index" />
-    <meta name="url" content={`http://northwest.band/songs/${key}`} />
-    <title>northwest the band | {Object.keys(song).length > 0 ? song.title.toLowerCase() : ''} lyrics </title>
-    <meta name="description" content={`
-      Lyrics for "${song.title}" by Northwest.
-    `} />
-  </Helmet>
-)
+const mapStateToProps = state => ({
+  device: state.device
+})
 
-export default Lyrics
+const mapDispatchToProps = dispatch => ({
+  setHeaderLink: () => dispatch({
+    type: SET_HEADER_LINK,
+    payload: {
+      headerLink: '/music'
+    }
+  })
+})
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Lyrics)

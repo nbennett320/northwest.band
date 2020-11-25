@@ -1,79 +1,75 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
+import { SET_HEADER_LINK } from '../../redux/actionTypes'
 import Cloud from './Cloud'
 import AnimationStyles from './AnimationStyles'
 import Footer from '../../components/footer/Footer'
 import Helmet from './Helmet'
-import { SET_HEADER_LINK } from '../../redux/actionTypes'
 import '../../css/home.css'
 
-class Home extends Component {
-  componentDidMount() {
-    this.props.setHeaderLink('/')
-    const hasShownBlmPanel = sessionStorage.getItem("hasShownBlmPanel")
-    // uses boolean as string
-    // if(hasShownBlmPanel === "false") {
-    //   this.props.setDestination({from: this.props.match.path})
-    //   this.props.history.push('/blm')
-    // }
+const Home = props => {
+  const { device, location } = props
+  const hasShownBlmPanel = sessionStorage.getItem("hasShownBlmPanel")
+  props.setHeaderLink()
+
+  // uses boolean as string
+  if(hasShownBlmPanel === "false") {
+    props.setDestination({from: props.match.path})
+    props.history.push('/blm')
   }
- 
-  render() {
-    const { device, location } = this.props
-    return (
-      <div style={styles.main}
-        className="view padding-for-header"
-      >
-        <Helmet />
-        <Cloud link='/music'
-          stylesProp={{
-            cloud: styles.cloud.music, 
-            text: styles.text.music
-          }}
-          images={{
-            cloud: 'assets/img/home/clouds/nwcloud1sprites_364_1500.png',
-            text: {
-              main: 'assets/img/home/text/music_sprites2_cropped.png',
-              hover: 'assets/img/home/text/music_sprites_hover_500_164.png'
-            }
-          }}
-          isMobile={device.isMobile}
-        />
-        <Cloud link='/merch'
-          stylesProp={{
-            cloud: styles.cloud.merch, 
-            text: styles.text.merch
-          }}
-          images={{
-            cloud: 'assets/img/home/clouds/nwcloud2sprites_364_1500_2.png',
-            text: {
-              main: 'assets/img/home/text/merchsprites2000x198.png',
-              hover: 'assets/img/home/text/merch_hoversprites1500x145.png'
-            }
-          }}
-          isMobile={device.isMobile}
-        />
-        <Cloud link='/goodies'
-          stylesProp={{
-            cloud: styles.cloud.goodies, 
-            text: styles.text.goodies
-          }}
-          images={{
-            cloud: 'assets/img/home/clouds/nwcloud4sprites_462_2000.png',
-            text: {
-              main: 'assets/img/home/text/goodiessprites6500x292.png',
-              hover: 'assets/img/home/text/goodies_hoversprites1500x308.png'
-            }
-          }}
-          isMobile={device.isMobile}
-        />
-        <Footer 
-          location={location} 
-          device={device}
-        />
-      </div>
-    )
-  }
+  return (
+    <div style={styles.main}
+      className="view padding-for-header"
+    >
+      <Helmet />
+      <Cloud link='/music'
+        stylesProp={{
+          cloud: styles.cloud.music, 
+          text: styles.text.music
+        }}
+        images={{
+          cloud: 'assets/img/home/clouds/nwcloud1sprites_364_1500.png',
+          text: {
+            main: 'assets/img/home/text/music_sprites2_cropped.png',
+            hover: 'assets/img/home/text/music_sprites_hover_500_164.png'
+          }
+        }}
+        isMobile={device.isMobile}
+      />
+      <Cloud link='/merch'
+        stylesProp={{
+          cloud: styles.cloud.merch, 
+          text: styles.text.merch
+        }}
+        images={{
+          cloud: 'assets/img/home/clouds/nwcloud2sprites_364_1500_2.png',
+          text: {
+            main: 'assets/img/home/text/merchsprites2000x198.png',
+            hover: 'assets/img/home/text/merch_hoversprites1500x145.png'
+          }
+        }}
+        isMobile={device.isMobile}
+      />
+      <Cloud link='/goodies'
+        stylesProp={{
+          cloud: styles.cloud.goodies, 
+          text: styles.text.goodies
+        }}
+        images={{
+          cloud: 'assets/img/home/clouds/nwcloud4sprites_462_2000.png',
+          text: {
+            main: 'assets/img/home/text/goodiessprites6500x292.png',
+            hover: 'assets/img/home/text/goodies_hoversprites1500x308.png'
+          }
+        }}
+        isMobile={device.isMobile}
+      />
+      <Footer 
+        location={location} 
+        device={device}
+      />
+    </div>
+  )
 }
 
 const styles = {
