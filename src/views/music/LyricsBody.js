@@ -1,27 +1,33 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Typography } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core/styles'
 
-export default class LyricsBody extends Component {
-  listLyrics = () => {
-    const { lyrics } = this.props.song
-    return lyrics.map((el, i) => (
-      <span key={i}> {el.toLowerCase()} <br /> </span>
-    ))
-  }
-
-  render() {
-    return (
-      <div style={styles.main}>
-        <Typography variant="body2" color="secondary">
-          {this.listLyrics()}
-        </Typography>
-      </div>
-    )
-  }
+const LyricsBody = props => {
+  const classes = useStyles()
+  const { lyrics } = props.song
+  return (
+    <div className={classes.main}>
+      <Typography 
+        variant="body2" 
+        color="secondary"
+      >
+        {
+          lyrics.map((el, i) => (
+            <span key={i}> 
+              {el.toLowerCase()} 
+              <br /> 
+            </span>
+          ))
+        }
+      </Typography>
+    </div>
+  )
 }
 
-const styles = {
+const useStyles = makeStyles(() => ({
   main: {
     margin: '20px 0'
   }
-}
+}))
+
+export default LyricsBody

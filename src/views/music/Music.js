@@ -4,44 +4,14 @@ import { SET_HEADER_LINK } from '../../redux/actionTypes'
 import { makeStyles } from '@material-ui/core/styles'
 import Album from './Album'
 import { MusicHelmet as Helmet } from './Helmet'
-import server from '../../server.config'
+import albums from '../../assets/data/Albums.json'
 import '../../css/music.css'
-
-const useFetchAlbums = () => {
-  const [albums, setAlbums] = React.useState({})
-  const [isLoading, setLoading] = React.useState(false)
-  React.useEffect(() => {
-    const getAlbums = async () => {
-      try {
-        setLoading(true)
-        const res = await fetch(`${server}/albums`, { method: 'GET' })
-          .then(res => res.json())
-        setAlbums(res)
-      } catch(err) {
-        console.error("error fetching albums", err)
-        setLoading(false)
-      }
-    }
-    if(Object.keys(albums).length === 0) {
-      getAlbums()
-    } else {
-      setLoading(false)
-    }
-  }, [albums])
-  return [albums, isLoading]
-}
 
 const Music = props => {
   const classes = useStyles()
-  const [albums, isLoading] = useFetchAlbums(props)
   props.setHeaderLink()
   
-  return isLoading 
-    ? (
-      <div className={classes.hidden}>
-        ( loading )
-      </div>
-    ) : (
+  return (
     <div className={`${classes.main} view padding-for-header`}>
       <Helmet />
       <div className={classes.list}>
