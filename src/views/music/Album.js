@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { connect } from 'react-redux'
 import {
   Typography,
 } from '@material-ui/core'
@@ -9,38 +10,50 @@ import {
 import Artwork from './Artwork'
 import SongList from './SongList'
 
-export default class Album extends Component {
-  render() {
-    const { title, date, img } = this.props
-    const theme = createMuiTheme({
-      palette: {
-        primary: {
-          main: '#000',
-        },
-        secondary: {
-          main: '#fff',
-        },
+const Album = props => {
+  const { 
+    title, 
+    date, 
+    img, 
+    device 
+  } = props
+  const theme = createMuiTheme({
+    palette: {
+      primary: {
+        main: '#000',
       },
-    })
-    const style = this.props.device.isMobile 
-      ? styles.mobile
-      : styles.main
-    
-    return (
-      <div style={style.main}>
-        <ThemeProvider theme={theme}>
-          <Typography variant="h4" color='secondary'> {title.toLowerCase()} </Typography>
-          <Typography variant="subtitle1" color='secondary'> {date.toLowerCase()} </Typography>
-          <Artwork
-            img={img}
-            name={title}
-            device={this.props.device}
-          />
-          <SongList album={title} />
-        </ThemeProvider>
-      </div>
-    )
-  }
+      secondary: {
+        main: '#fff',
+      },
+    },
+  })
+  const style = device.isMobile 
+    ? styles.mobile
+    : styles.main
+  
+  return (
+    <div style={style.main}>
+      <ThemeProvider theme={theme}>
+        <Typography 
+          variant="h4" 
+          color='secondary'
+        > 
+          {title.toLowerCase()}
+        </Typography>
+        <Typography 
+          variant="subtitle1" 
+          color='secondary'
+        > 
+          {date.toLowerCase()}
+        </Typography>
+        <Artwork
+          img={img}
+          name={title}
+        />
+        <SongList album={title} />
+      </ThemeProvider>
+    </div>
+  )
 }
 
 const styles = {
@@ -79,3 +92,11 @@ const styles = {
     }
   }
 }
+
+const mapStateToProps = state => ({
+  device: state.device
+})
+
+export default connect(
+  mapStateToProps
+)(Album)

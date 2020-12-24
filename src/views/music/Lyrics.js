@@ -5,7 +5,6 @@ import LyricsHeader from './LyricsHeader'
 import LyricsBody from './LyricsBody'
 import Footer from '../../components/footer/Footer'
 import { LyricsHelmet as Helmet } from './Helmet'
-import server from '../../server.config'
 import songs from '../../assets/data/Songs.json'
 
 const getSongFromKey = key => {
@@ -25,11 +24,6 @@ const Lyrics = props => {
   const { key } = match.params
   const song = getSongFromKey(key)
   const backgroundImage = require(`../../assets/img/lyrics/${song["album"].replace(/\s+/g, '-').toLowerCase()}/${key}.jpg`)
-  const hasShownBlmPanel = sessionStorage.getItem("hasShownBlmPanel")
-  if(hasShownBlmPanel === "false") {
-    props.setDestination({from: props.match.path})
-    props.history.push('/blm')
-  }
   props.setHeaderLink()
   return (
     <div style={{
@@ -76,9 +70,6 @@ const styles = {
   content: {
     margin: '0 auto',
     marginTop: 'calc(8vh + 40px)',
-  },
-  hidden: {
-    display: 'none'
   }
 }
 

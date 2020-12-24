@@ -1,8 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { SET_HEADER_LINK } from '../../redux/actionTypes'
+import { makeStyles } from '@material-ui/core/styles'
 import Album from './Album'
-import Footer from '../../components/footer/Footer'
 import { MusicHelmet as Helmet } from './Helmet'
 import server from '../../server.config'
 import '../../css/music.css'
@@ -32,52 +32,41 @@ const useFetchAlbums = () => {
 }
 
 const Music = props => {
+  const classes = useStyles()
   const [albums, isLoading] = useFetchAlbums(props)
-  const { device, location } = props
-  const hasShownBlmPanel = sessionStorage.getItem("hasShownBlmPanel")
-  if(hasShownBlmPanel === "false") {
-    props.setDestination({from: props.match.path})
-    props.history.push('/blm')
-  }
   props.setHeaderLink()
   
   return isLoading 
     ? (
-      <div style={styles.hidden}>
+      <div className={classes.hidden}>
         ( loading )
       </div>
     ) : (
-    <div style={styles.main}
-      className="view padding-for-header" 
-    >
+    <div className={`${classes.main} view padding-for-header`}>
       <Helmet />
-      <div style={styles.list}>
+      <div className={classes.list}>
         {
           Object.keys(albums).map(i => {
             const album = albums[i]
             return (
-              <div key={i} 
-                style={styles.entry}
+              <div 
+                key={i} 
+                className={classes.entry}
               >
                 <Album 
                   title={`${album["title"]}`}
                   date={`${album["date"]}`}
                   img={require(`../../assets/img/music/${album["art"]}`)}
-                  device={props.device}
                 />
               </div>
           )})
         }
       </div>
-      <Footer 
-        location={location} 
-        device={device}
-      />
     </div>
   ) 
 }
 
-const styles = {
+const useStyles = makeStyles(() => ({
   main: {
     paddingBottom: '2vh',
     margin: '0',
@@ -95,7 +84,7 @@ const styles = {
   hidden: {
     display: 'none'
   }
-}
+}))
 
 const mapStateToProps = state => ({
   device: state.device

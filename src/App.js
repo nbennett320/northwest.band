@@ -1,24 +1,38 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 // import { withRouter } from 'react-router'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import ViewRouter from './ViewRouter'
-import { Header } from './components'
+import { Header, Footer } from './components'
 import { MEASURE_DEVICE } from './redux/actionTypes'
 
 const App = props => {
-  const { measureDevice, history } = props
+  const { 
+    measureDevice, 
+    history, 
+    location, 
+    device
+  } = props
+  const hasShownBlmPanel = sessionStorage.getItem("hasShownBlmPanel")
+  if(hasShownBlmPanel === "false") {
+    props.setDestination({from: props.match.path})
+    props.history.push('/blm')
+  }
   window.onresize = measureDevice
 
-  useEffect(() => {
+  React.useEffect(() => {
     window.scrollTo(0,0)
-  }, [history.location])
+  }, [history.path])
   
   return (
     <Router history={history}>
       <Route path='/:filter?'>
         <Header />
         <ViewRouter />
+        <Footer 
+          location={location} 
+          device={device}
+        />
       </Route>
     </Router>
   )
