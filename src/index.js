@@ -1,5 +1,5 @@
 import React from 'react'
-import { render } from 'react-dom'
+import ReactDOM from 'react-dom'
 import { applyMiddleware, combineReducers, createStore } from 'redux'
 import { Provider } from 'react-redux'
 import { routerReducer, routerMiddleware } from 'react-router-redux'
@@ -29,7 +29,7 @@ const store = createStore(
   middleware
 )
 
-render(
+ReactDOM.render(
   <Provider store={store}>
     <ThemeProvider theme={theme}>
       <App history={history} />

@@ -113,8 +113,8 @@ const useStyles = makeStyles(theme => ({
     top: '100%',
     position: 'block',
     padding: '40px 0',
-    backgroundColor: theme.palette.color.black, 
-    color: theme.palette.color.white
+    backgroundColor: theme.palette.black.main, 
+    color: theme.palette.white.main
   },
   linkItem: {
     display: 'flex',
