@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import ProductListing from './ProductListing'
 import server from '../../server.config'
 
@@ -105,4 +106,12 @@ const styles = {
   }
 }
 
-export default Products
+const mapStateToProps = state => {
+  return {
+    device: state.device
+  }
+}
+
+export default connect(
+  mapStateToProps
+)(Products)
