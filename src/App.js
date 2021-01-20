@@ -35,6 +35,10 @@ const App = props => {
           location={location} 
           device={device}
         />
+        <Footer 
+          location={location}
+          device={device}
+        />
       </Route>
     </Router>
   )

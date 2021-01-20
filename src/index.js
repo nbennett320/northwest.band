@@ -9,6 +9,8 @@ import {
   headerLink,
   device
 } from './redux/reducers'
+import { ThemeProvider } from '@material-ui/core'
+import theme from './theme'
 import App from './App'
 import * as serviceWorker from './serviceWorker'
 import './css/index.css'
@@ -29,7 +31,9 @@ const store = createStore(
 
 render(
   <Provider store={store}>
-    <App history={history} />
+    <ThemeProvider theme={theme}>
+      <App history={history} />
+    </ThemeProvider>
   </Provider>, document.getElementById('root')
 )
 

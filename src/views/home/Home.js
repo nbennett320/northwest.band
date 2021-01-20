@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { SET_HEADER_LINK } from '../../redux/actionTypes'
 import Cloud from './Cloud'
 import AnimationStyles from './AnimationStyles'
-import Footer from '../../components/footer/Footer'
 import Helmet from './Helmet'
 import '../../css/home.css'
 
@@ -64,10 +63,6 @@ const Home = props => {
         }}
         isMobile={device.isMobile}
       />
-      <Footer 
-        location={location} 
-        device={device}
-      />
     </div>
   )
 }
@@ -76,7 +71,7 @@ const styles = {
   main: {
     justifyContent: 'center',
     alignItems: 'center',
-    // paddingBottom: '40px',
+    paddingBottom: '40px',
     background: '#fec0d3',
   }, 
   ...AnimationStyles
