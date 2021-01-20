@@ -29,7 +29,6 @@ if(!sessionStorage.getItem("hasShownBlmPanel")) {
 
 class Main extends Component {
   constructor() {
-    super()
     this.state = {
       cart: [],
       showCart: false,

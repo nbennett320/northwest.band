@@ -76,7 +76,7 @@ const styles = {
   main: {
     justifyContent: 'center',
     alignItems: 'center',
-    paddingBottom: '40px',
+    // paddingBottom: '40px',
     background: '#fec0d3',
   }, 
   ...AnimationStyles

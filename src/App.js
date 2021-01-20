@@ -18,18 +18,20 @@ const App = props => {
     props.setDestination({from: props.match.path})
     props.history.push('/blm')
   }
-  window.onresize = measureDevice
+
+  window.addEventListener('resize', () => {
+    measureDevice()
+  })
 
   React.useEffect(() => {
     window.scrollTo(0,0)
-  }, [history.path])
+  }, [history])
   
   return (
     <Router history={history}>
       <Route path='/:filter?'>
         <Header />
-        <ViewRouter />
-        <Footer 
+        <ViewRouter 
           location={location} 
           device={device}
         />

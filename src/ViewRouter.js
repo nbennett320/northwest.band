@@ -15,6 +15,7 @@ import {
   Demos,
   NoMatch
 } from './views'
+import { Footer } from './components'
 
 const ViewRouter = props => {
   return (
@@ -26,10 +27,12 @@ const ViewRouter = props => {
         />}
       /> */}
 
-      <Route exact path='/'
+      <Route  
+        path='/'
         render={h => <Home
           {...h}
         />}
+        exact
       />
 
       <Redirect
@@ -44,18 +47,21 @@ const ViewRouter = props => {
         to='/music/'
       /> */}
 
-      <Route exact path='/music' 
+      <Route 
+        path='/music' 
         render={h => <Music 
           {...h} 
           device={props.device}
         />}
+        exact
       />
 
-      <Route exact path='/music/:key'
+      <Route 
+        path='/music/:key'
         render={h => <Lyrics 
           {...h} 
         />}
-      
+        exact
       />
 
       {/* redirect from /songs/ to /music for cases where user tries
@@ -65,7 +71,8 @@ const ViewRouter = props => {
         to='/music'
       />
 
-      <Route path='/merch' 
+      <Route 
+        path='/merch' 
         render={h => <Merch 
           {...h}
         />}
@@ -92,13 +99,16 @@ const ViewRouter = props => {
         to='/merch'
       />
 
-      <Route path='/products/:model/:color' 
+      <Route 
+        path='/products/:model/:color' 
         render={h => <ProductPage 
           {...h} 
         />}
+        exact
       />
 
-      <Route path='/products/:model/' 
+      <Route 
+        path='/products/:model/' 
         render={h => <ProductPage 
           {...h} 
         />}
@@ -118,25 +128,29 @@ const ViewRouter = props => {
         to='/merch'
       />
 
-      <Route path='/cart' 
+      <Route 
+        path='/cart' 
         render={h => <CartPage 
           {...h} 
         />}
       />
 
-      <Route path='/shipping'
+      <Route 
+        path='/shipping'
         render={h => <ShippingPage 
           {...h}
         />}
       />
 
-      <Route path='/checkout' 
+      <Route 
+        path='/checkout' 
         render={h => <CheckoutPage 
           {...h} 
         />}
       />
 
-      <Route path='/goodies' 
+      <Route 
+        path='/goodies' 
         render={h => <Goodies 
           {...h} 
         />}
@@ -148,7 +162,8 @@ const ViewRouter = props => {
         to='/goodies'
       />
 
-      <Route path='/demos' 
+      <Route 
+        path='/demos' 
         render={h => <Demos 
           {...h} 
         />}
@@ -214,7 +229,8 @@ const ViewRouter = props => {
       /> */}
 
       {/* catch all unknown routes (error 404) */}
-      <Route path='/*'
+      <Route 
+        path='/*'
         render={h => <NoMatch
           {...h} 
         />} 

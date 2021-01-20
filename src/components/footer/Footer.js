@@ -111,7 +111,7 @@ class Footer extends Component {
             label='see the code'
             link={location && `https://github.com/nbennett320/northwest.band/${GetGithubUrl(location.pathname)}`}
           />
-          {device && device.isMobile && <Share location={location} />}
+          {device?.isMobile && <Share location={location} />}
           <FooterBottom />
         </ThemeProvider>               
       </div>
@@ -122,12 +122,11 @@ class Footer extends Component {
 const styles = {
   footer: {
     width: '100%',
-    height: 'auto',
-    position: 'absolute',
+    top: '100%',
+    position: 'block',
     padding: '40px 0',
     backgroundColor: '#000', 
     color: '#fff',
-    top: '100%',
   },
 
   linkItem: {
