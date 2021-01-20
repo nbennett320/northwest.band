@@ -7,7 +7,7 @@ import Helmet from './Helmet'
 import '../../css/home.css'
 
 const Home = props => {
-  const { device, location } = props
+  const { device } = props
   const hasShownBlmPanel = sessionStorage.getItem("hasShownBlmPanel")
   props.setHeaderLink()
 

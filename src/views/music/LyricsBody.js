@@ -8,8 +8,8 @@ const LyricsBody = props => {
   return (
     <div className={classes.main}>
       <Typography 
-        variant="body2" 
-        color="secondary"
+        variant='body2'
+        color='secondary'
       >
         {
           lyrics.map((el, i) => (

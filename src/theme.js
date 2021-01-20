@@ -13,7 +13,18 @@ const palette = createMuiTheme({
     },
     textSecondary: {
       main: 'rgba(0,0,0,0.82)'
-    }
+    },
+    black: {
+      main: '#000',
+      shade1: '#0f0f0f',
+      shade2: '#111'
+    },
+    white: {
+      main: '#fff',
+      shade1: '#fefefe',
+      shade2: '#fafafa',
+      shade3: '#eee'
+    },
   }
 })
 
