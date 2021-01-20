@@ -1,15 +1,17 @@
 import React, { Component } from 'react'
-import { Helmet } from 'react-helmet'
+import { connect } from 'react-redux'
+import { SET_HEADER_LINK } from '../../redux/actionTypes'
 import { Divider } from '@material-ui/core'
 import ProductOverview from './ProductOverview'
 import ProductDetails from './ProductDetails'
 import Footer from '../../components/footer/Footer'
+import Helmet from './Helmet'
 // import SuggestionBar from './SuggestionBar'
 import server from '../../server.config'
 
-export default class ProductPage extends Component {
+class ProductPage extends Component {
   constructor(props) {
-    super(props) 
+    super(props)
     this.state = {
       model: props.match.params.model,
       item: undefined,
@@ -103,7 +105,7 @@ export default class ProductPage extends Component {
     }
     return (
       <div className="view padding-for-header">
-        {item && helmet(info)}
+        <Helmet info={info} />
 
         {item && <ProductOverview
           item={item}
@@ -142,30 +144,22 @@ export default class ProductPage extends Component {
   }
 }
 
-const helmet = info => (
-  <Helmet>
-      <meta charset="utf-8" />
-      <meta name="keywords" 
-          content="
-              northwest, 
-              northwest the band, 
-              northwest band,
-              music, 
-              band, 
-              merch, 
-              merchandise, 
-              clothing, 
-              screen print, 
-              band tees, 
-          "
-      />
-      <link rel="canonical" href="http://northwest.band" />
-      <meta name="author" content="Noah Bennett" />
-      <meta name="description" content={`
-          A ${info.color} ${info.description}.
-      `} />
-      <meta name="robots" content="index" />
-      <meta name="url" content={`http://northwest.band/products/${info.model}`} />
-      <title> northwest the band | {info.title} </title>
-  </Helmet>
-)
+const mapStateToProps = state => {
+  return {
+    device: state.device
+  }
+}
+
+const mapDispatchToProps = dispatch => ({
+  setHeaderLink: () => dispatch({
+    type: SET_HEADER_LINK,
+    payload: {
+      headerLink: '/'
+    }
+  })
+})
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ProductPage)
