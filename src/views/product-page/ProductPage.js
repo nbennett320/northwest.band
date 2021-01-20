@@ -134,11 +134,6 @@ class ProductPage extends Component {
           item={item} 
           device={device}
         /> */}
-
-        <Footer 
-          location={location} 
-          device={device}
-        />
       </div>
     )
   }
