@@ -1,16 +1,13 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export default class Image extends Component {
-  render() {
-    const { path, alt } = this.props
-    console.log(path)
-    return (
-      <img src={path}
-        alt={`${alt}`}
-        style={styles.image}
-      />
-    )
-  }
+const Image = props => {
+  console.log(props.path)
+  return (
+    <img src={props.path}
+      alt={`${props.alt}`}
+      style={styles.image}
+    />
+  )
 }
 
 const styles = {
@@ -21,3 +18,5 @@ const styles = {
     margin: '0 auto'
   }
 }
+
+export default Image

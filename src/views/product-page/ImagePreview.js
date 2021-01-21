@@ -1,33 +1,26 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Image from './Image'
 import ColorOptions from './ColorOptions'
 
-export default class ImagePreview extends Component {
-  render() {
-    const { 
-      item, 
-      model, 
-      match 
-    } = this.props
-    const selectedColor = item.selectedColor 
-      ? item.selectedColor
-      : item.attributes.colors[0]
-    return (
-      <div style={styles.main}>
-        {item && <Image 
-          path={require(`../../assets/img/merch/500/${item.image}${selectedColor}.jpg`)}
-          alt={item.description}
-        />}
-        {item && <ColorOptions 
-          item={item}
-          colors={item.attributes.colors}
-          model={model}
-          setColor={this.props.setColor}
-          match={match}
-        />}
-      </div>
-    )
-  }
+const ImagePreview = props => {
+  const selectedColor = props.item.selectedColor 
+    ? props.item?.selectedColor
+    : props.item.attributes.colors[0]
+  return (
+    <div style={styles.main}>
+      <Image 
+        path={require(`../../assets/img/merch/500/${props.item.image}${selectedColor}.jpg`)}
+        alt={props.item.description}
+      />
+      <ColorOptions 
+        item={props.item}
+        colors={props.item.attributes.colors}
+        model={props.model}
+        setColor={props.setColor}
+        match={props.match}
+      />
+    </div>
+  )
 }
 
 const styles = {
@@ -36,3 +29,5 @@ const styles = {
     flexDirection: 'column'
   }
 }
+
+export default ImagePreview

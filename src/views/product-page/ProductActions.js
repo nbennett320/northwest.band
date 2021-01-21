@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Title from './Title'
-import Selectors from './Selectors'
+import ProductSelectors from './ProductSelectors'
 import NativeSelectors from './Selectors.Native'
 import AddToCart from './AddToCart'
 
@@ -22,14 +22,14 @@ export default class Actions extends Component {
             model={model}
             setColor={this.props.setColor}
             setSize={this.props.setSize}
-            setURL={this.props.setURL}
+            setUrl={this.props.setUrl}
           />
-          : item && <Selectors 
+          : item && <ProductSelectors 
             item={item}
             model={model}
             setColor={this.props.setColor}
             setSize={this.props.setSize}
-            setURL={this.props.setURL}
+            setUrl={this.props.setUrl}
           />
         }
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import ImagePreview from './ImagePreview'
-import Actions from './Actions'
+import ProductActions from './ProductActions'
 
 export default class ProductOverview extends Component {
   render() {
@@ -34,12 +34,12 @@ export default class ProductOverview extends Component {
             : styles.main.box
           }
         >
-          <Actions 
+          <ProductActions 
             item={item}
             model={model}
             setColor={this.props.setColor}
             setSize={this.props.setSize}
-            setURL={this.props.setURL}
+            setUrl={this.props.setUrl}
             addItemToCart={this.props.addItemToCart}
             match={match}
             device={device}
@@ -56,18 +56,15 @@ const styles = {
       display: 'flex',
       flexDirection: 'row',
     },
-
     box: {
       width: '50%',
     }
   },
-
   mobile: {
     main: {
       display: 'flex',
       flexDirection: 'column',
     },
-
     box: {
       width: '100%',
     }
