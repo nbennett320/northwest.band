@@ -1,47 +1,40 @@
-import React, { Component } from 'react'
-import Title from './Title'
+import React from 'react'
+import ProductTitle from './ProductTitle'
 import ProductSelectors from './ProductSelectors'
 import NativeSelectors from './Selectors.Native'
 import AddToCart from './AddToCart'
 
-export default class Actions extends Component {
-  render() {
-    const { 
-      item, 
-      model, 
-      match,
-      device
-    } = this.props
-    return (
-      <div style={styles.main}>
-        {item && <Title item={item} device={device} />}
-
-        {device.isMobile
-          ? item && <NativeSelectors 
-            item={item}
-            model={model}
-            setColor={this.props.setColor}
-            setSize={this.props.setSize}
-            setUrl={this.props.setUrl}
-          />
-          : item && <ProductSelectors 
-            item={item}
-            model={model}
-            setColor={this.props.setColor}
-            setSize={this.props.setSize}
-            setUrl={this.props.setUrl}
-          />
-        }
-
-        {item && <AddToCart 
-          item={item}
-          match={match}
-          device={device}
-          addItemToCart={this.props.addItemToCart}
-        />}
-      </div>
-    )
-  }
+const ProductActions = props => {
+  return (
+    <div style={styles.main}>
+      <ProductTitle 
+        item={props.item} 
+        device={props.device} 
+      />
+      {props.device.isMobile
+        ? <NativeSelectors 
+          item={props.item}
+          model={props.model}
+          setColor={props.setColor}
+          setSize={props.setSize}
+          setUrl={props.setUrl}
+        />
+        : <ProductSelectors 
+          item={props.item}
+          model={props.model}
+          setColor={props.setColor}
+          setSize={props.setSize}
+          setUrl={props.setUrl}
+        />
+      }
+      <AddToCart 
+        item={props.item}
+        match={props.match}
+        device={props.device}
+        addItemToCart={props.addItemToCart}
+      />
+    </div>
+  )
 }
 
 const styles = {
@@ -52,3 +45,5 @@ const styles = {
     justifyContent: 'center'
   }
 }
+
+export default ProductActions

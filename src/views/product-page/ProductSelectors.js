@@ -5,13 +5,15 @@ import {
   Select,
   MenuItem
 } from '@material-ui/core'
+import { makeStyles } from '@material-ui/styles'
 
 const ProductSelectors = props => {
+  const { item } = props
+  const classes = useStyles()
+
   const handleChangeColor = (e) => {
-    const { model } = props
-    console.log(props)
     props.setColor(e.target.value)
-    props.setUrl(`/products/${model}/${e.target.value}`)
+    props.setUrl(`/products/${props.model}/${e.target.value}`)
   }
 
   const handleChangeSize = (_, val) => {
@@ -19,15 +21,17 @@ const ProductSelectors = props => {
     props.setSize(val.props.value)
   }
 
-  const { item } = props
   return (
-    <div style={styles.main}>
+    <div className={classes.main}>
       {item.attributes?.colors.length > 0 &&
-        <div style={styles.form}>
-          <FormControl variant="outlined"
-            style={styles.selector}
+        <div className={classes.form}>
+          <FormControl 
+            variant="outlined"
+            className={classes.selector}
           >
-            <InputLabel> color </InputLabel>
+            <InputLabel>
+              color
+            </InputLabel>
             <Select
               value={item.selectedColor}
               onChange={handleChangeColor}
@@ -47,11 +51,14 @@ const ProductSelectors = props => {
       }
       
       {item.attributes.sizes.length > 0 && 
-        <div style={styles.form}>
-          <FormControl variant="outlined" 
-            style={styles.selector}
+        <div className={classes.form}>
+          <FormControl 
+            variant="outlined" 
+            className={classes.selector}
           >
-            <InputLabel> size </InputLabel>
+            <InputLabel>
+              size
+            </InputLabel>
             <Select
               value={item.selectedSize}
               onChange={handleChangeSize}
@@ -73,7 +80,7 @@ const ProductSelectors = props => {
   )
 }
 
-const styles = {
+const useStyles = makeStyles(() => ({
   main: {
     padding: '20px 0',
     width: '33.333%',
@@ -88,6 +95,6 @@ const styles = {
   selector: {
     width: '100%'
   }
-}
+}))
 
 export default ProductSelectors
