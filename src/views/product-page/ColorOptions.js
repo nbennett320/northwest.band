@@ -1,48 +1,42 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
+import { makeStyles } from '@material-ui/styles'
 
-export default class ColorOptions extends Component {
-  isSelected = (el) => {
-    const { selectedColor } = this.props.item
+const ColorOptions = props => {
+  const classes = useStyles()
+  const isSelected = (el) => {
+    const { selectedColor } = props.item
     return el === selectedColor
   }
-
-  render() {
-    const { 
-      item,
-      colors, 
-      model,
-      match
-    } = this.props
-    console.log("color options: ", this.props)
-    return (
-      <span style={styles.main}>
-        {colors.map((color, i) => (
-          <Link to={`/products/${model}/${color}`}
-            key={i}
-          >
-            <img src={require(`../../assets/img/merch/500/${item.image}${color}.jpg`)}
-              alt={`${color} ${model}`}
-              onMouseEnter={() => this.props.setColor(color)}
-              onMouseLeave={() => match.params.color 
-                ? this.props.setColor(match.params.color)
-                : this.props.setColor(item.attributes.colors[0])
-              }
-              style={{
-                ...styles.image,
-                ...this.isSelected(color)
-                  ? styles.selected
-                  : {}
-              }}
-            />
-          </Link>
-        ))}
-      </span>
-    )
-  }
+  return (
+    <span className={classes.main}>
+      {props.colors.map((color, i) => (
+        <Link
+          to={`/products/${props.model}/${color}`}
+          key={i}
+        >
+          <img 
+            src={require(`../../assets/img/merch/500/${props.item.image}${color}.jpg`)}
+            alt={`${color} ${props.model}`}
+            onMouseEnter={() => props.setColor(color)}
+            onMouseLeave={() => props.match.params.color 
+              ? props.setColor(props.match.params.color)
+              : props.setColor(props.item.attributes.colors[0])
+            }
+            style={{
+              ...styles.image,
+              ...isSelected(color)
+                ? styles.selected
+                : {}
+            }}
+          />
+        </Link>
+      ))}
+    </span>
+  )
 }
 
-const styles = {
+const useStyles = makeStyles(() => ({
   main: {
     display: 'flex',
     flexDirection: 'row',
@@ -52,14 +46,17 @@ const styles = {
     margin: '0 10%',
     padding: '10px 0'
   },
+}))
 
+const styles = {
   image: {
     height: '50px',
     width: '50px',
     cursor: 'pointer',
   },
-
   selected: {
     filter: 'brightness(1.075)'
   }
 }
+
+export default ColorOptions
