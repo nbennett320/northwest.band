@@ -1,53 +1,45 @@
-import React, { Component } from 'react'
+import React from 'react'
 import ImagePreview from './ImagePreview'
 import ProductActions from './ProductActions'
 
-export default class ProductOverview extends Component {
-  render() {
-    const { 
-      item,
-      model,
-      match,
-      device 
-    } = this.props
-    return (
-      <div style={device.isMobile 
-          ? styles.mobile.main 
-          : styles.main.main
+const ProductOverview = props => {
+  return (
+    <div style={props.device.isMobile 
+        ? styles.mobile.main 
+        : styles.main.main
+      }
+    >
+      <div style={props.device.isMobile 
+          ? styles.mobile.box 
+          : styles.main.box
         }
       >
-        <div style={device.isMobile 
-            ? styles.mobile.box 
-            : styles.main.box
-          }
-        >
-          <ImagePreview 
-            item={item}
-            model={model}
-            setColor={this.props.setColor}
-            match={match}
-          />
-        </div>
-
-        <div style={device.isMobile 
-            ? styles.mobile.box 
-            : styles.main.box
-          }
-        >
-          <ProductActions 
-            item={item}
-            model={model}
-            setColor={this.props.setColor}
-            setSize={this.props.setSize}
-            setUrl={this.props.setUrl}
-            addItemToCart={this.props.addItemToCart}
-            match={match}
-            device={device}
-          />
-        </div>
+        <ImagePreview 
+          item={props.item}
+          model={props.model}
+          setColor={props.setColor}
+          match={props.match}
+        />
       </div>
-    )
-  }
+
+      <div style={props.device.isMobile 
+          ? styles.mobile.box 
+          : styles.main.box
+        }
+      >
+        <ProductActions 
+          item={props.item}
+          model={props.model}
+          setColor={props.setColor}
+          setSize={props.setSize}
+          setUrl={props.setUrl}
+          addItemToCart={props.addItemToCart}
+          match={props.match}
+          device={props.device}
+        />
+      </div>
+    </div>
+  )
 }
 
 const styles = {
@@ -70,3 +62,5 @@ const styles = {
     }
   }
 }
+
+export default ProductOverview
