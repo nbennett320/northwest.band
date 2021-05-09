@@ -3,7 +3,7 @@
     "title": "Area Code",
     "date": "July 15, 2018",
     "length": 11,
-    "art": "areacode.png"
+    "art": "areacode.jpg"
   },
   {
     "title": "Suburban Dogs",
@@ -15,7 +15,7 @@
     "title": "Apathy",
     "date": "January 25, 2020",
     "length": 1,
-    "art": "apathy2.png"
+    "art": "apathy2.jpg"
   },
   {
     "title": "Silver Lining",
@@ -27,6 +27,6 @@
     "title": "Self",
     "date": "October 1, 2020",
     "length": 1,
-    "art": "self.png"
+    "art": "self.jpg"
   }
 ]
