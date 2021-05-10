@@ -7,35 +7,49 @@ const getThumbnail = src => {
   return thumb
 }
 
-const AsyncImage = props => {
+const AsyncBackgroundImage = props => {
   const [loaded, setLoaded] = React.useState(0)
-  const [src, setSrc] = React.useState('')
+  const [backgroundImage, setBackgroundImage] = React.useState('')
   React.useEffect(() => {
     if(loaded > 1) {
     } else if(loaded > 0) {
       const loadSrc = async () => await import(`../${props.src.replaceAll(/\.\.\//g, '')}`).then(res => {
-        setSrc(res.default)
+        setBackgroundImage(res.default)
         setLoaded(loaded + 1)
       })
       loadSrc()
     } else {
       const thumbnailSrc = getThumbnail(props.src)
       const loadThumbnailSrc = async () => await import(`../${thumbnailSrc.replaceAll(/\.\.\//g, '')}`).then(res => {
-        setSrc(res.default)
+        setBackgroundImage(res.default)
         setLoaded(loaded + 1)
       })
       loadThumbnailSrc()
     }
   }, [loaded])
   return loaded ? (
-    <img
-      src={src}
-      alt={props.alt}
+    <div
       className={props.className}
-    />
+      style={{
+        ...styles.background,
+        backgroundImage: `url(${backgroundImage})`
+      }}
+    >
+      {props.children}
+    </div>
   ) : (
-    <div />
+    <div className={props.className}>
+      {props.children}
+    </div>
   )
 }
 
-export default AsyncImage
+const styles = {
+  background: {
+    backgroundPosition: 'top',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+  }
+}
+
+export default AsyncBackgroundImage

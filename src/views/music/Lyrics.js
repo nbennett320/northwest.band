@@ -6,6 +6,7 @@ import LyricsBody from './LyricsBody'
 import { LyricsHelmet as Helmet } from './Helmet'
 import { makeStyles } from '@material-ui/styles'
 import songs from '../../assets/data/Songs.json'
+import { AsyncBackgroundImage } from '../../components/'
 
 const getSongFromKey = key => {
   let result
@@ -24,14 +25,12 @@ const Lyrics = props => {
   const { key } = match.params
   const song = getSongFromKey(key)
   const classes = useStyles({ song, key })
-  const backgroundImage = require(`../../assets/img/lyrics/${song['album'].replace(/\s+/g, '-').toLowerCase()}/${key}.jpg`)
+  const backgroundImage = `../../assets/img/lyrics/${song['album'].replace(/\s+/g, '-').toLowerCase()}/${key}.jpg`
   props.setHeaderLink()
   return (
-    <div 
+    <AsyncBackgroundImage 
       className={classes.main}
-      style={{
-        backgroundImage: `url(${backgroundImage})`
-      }}
+      src={backgroundImage}
     >
       <Helmet 
         song={song}
@@ -45,7 +44,7 @@ const Lyrics = props => {
         />
         <LyricsBody song={song} />
       </div>
-    </div>
+    </AsyncBackgroundImage>
   )
 }
 
@@ -59,9 +58,6 @@ const useStyles = makeStyles(() => ({
       display: 'flex',
       flexDirection: 'column',
       paddingTop: '0',
-      backgroundPosition: 'top',
-      backgroundRepeat: 'no-repeat',
-      backgroundSize: 'cover',
     },
     content: {
       margin: '0 auto',
