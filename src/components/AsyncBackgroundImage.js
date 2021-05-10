@@ -26,7 +26,7 @@ const AsyncBackgroundImage = props => {
       })
       loadThumbnailSrc()
     }
-  }, [loaded])
+  }, [loaded, props.src])
   return loaded ? (
     <div
       className={props.className}

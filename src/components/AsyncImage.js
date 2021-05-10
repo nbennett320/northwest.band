@@ -26,7 +26,7 @@ const AsyncImage = props => {
       })
       loadThumbnailSrc()
     }
-  }, [loaded])
+  }, [loaded, props.src])
   return loaded ? (
     <img
       src={src}
