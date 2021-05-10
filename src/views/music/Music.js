@@ -26,7 +26,7 @@ const Music = props => {
                 <Album 
                   title={`${album["title"]}`}
                   date={`${album["date"]}`}
-                  img={require(`../../assets/img/music/${album["art"]}`)}
+                  img={`../../assets/img/music/${album["art"]}`}
                 />
               </div>
           )})

@@ -1,11 +1,12 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
+import { AsyncImage } from '../../components/'
 
 const Artwork = props => {
   const { img, title } = props
   const classes = useStyles()
   return (
-    <img 
+    <AsyncImage 
       src={img} 
       alt={`album art for northwest's ${title}.`} 
       className={classes.cover}
