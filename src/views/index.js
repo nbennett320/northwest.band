@@ -1,4 +1,4 @@
-export { default as BlmPanel } from './on-launch/BlmPanel'
+export { default as BlmPanel } from './panels/BlmPanel'
 export { default as Home } from './home/Home'
 export { default as Music } from './music/Music'
 export { default as Lyrics } from './music/Lyrics'

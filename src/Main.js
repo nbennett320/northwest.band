@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { Redirect } from 'react-router-dom'
 import Header from './components/header/Header'
-import BlmPanel from './views/on-launch/BlmPanel'
+import BlmPanel from './views/panels/BlmPanel'
 import Home from './views/home/Home'
 import Music from './views/music/Music'
 import Lyrics from './views/music/Lyrics'
@@ -23,8 +23,8 @@ const mql = window.matchMedia(`(max-width: 633px)`)
 const vpWidth = window.innerWidth
 const vpHeight = window.innerHeight
 
-if(!sessionStorage.getItem("hasShownBlmPanel")) {
-  sessionStorage.setItem("hasShownBlmPanel", "false")
+if(!sessionStorage.getItem("hasShownPanel")) {
+  sessionStorage.setItem("hasShownPanel", "false")
 }
 
 class Main extends Component {
@@ -43,7 +43,7 @@ class Main extends Component {
   }
 
   setDestination = props => {
-    sessionStorage.setItem("hasShownBlmPanel", "true")
+    sessionStorage.setItem("hasShownPanel", "true")
     this.setState({
       from: {
         ...this.state.from,

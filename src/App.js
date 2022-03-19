@@ -13,8 +13,8 @@ const App = props => {
     location, 
     device
   } = props
-  const hasShownBlmPanel = sessionStorage.getItem("hasShownBlmPanel")
-  if(hasShownBlmPanel === "false") {
+  const hasShownPanel = sessionStorage.getItem("hasShownPanel")
+  if(hasShownPanel === "false") {
     props.setDestination({from: props.match.path})
     props.history.push('/blm')
   }

@@ -101,9 +101,9 @@ const ProductPage = props => {
 //           })
 //       })
     
-//     const hasShownBlmPanel = sessionStorage.getItem("hasShownBlmPanel")
+//     const hasShownPanel = sessionStorage.getItem("hasShownPanel")
 //     // uses boolean as string
-//     if(hasShownBlmPanel === "false") {
+//     if(hasShownPanel === "false") {
 //       this.props.setDestination({from: this.props.match.path})
 //       this.props.history.push('/blm')
 //     }

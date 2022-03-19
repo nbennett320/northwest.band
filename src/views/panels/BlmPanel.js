@@ -7,7 +7,10 @@ export default class BlmPanel extends Component {
   render() {
     const { from } = this.props
     return (
-      <div className="view" style={styles.main}>
+      <div 
+        className="view" 
+        style={styles.main}
+      >
         <Typography variant="body2" style={styles.text}>
           Black lives matter. &nbsp;
         </Typography>
@@ -20,7 +23,7 @@ export default class BlmPanel extends Component {
         <Link to={`${from.path !== '/blm' 
           ? from.path 
           : () => {
-            sessionStorage.setItem("hasShownBlmPanel", "true")
+            sessionStorage.setItem("hasShownPanel", "true")
             return '/blm'
         }}`}
           style={styles.bottomLink}

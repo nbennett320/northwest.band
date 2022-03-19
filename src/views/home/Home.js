@@ -8,57 +8,62 @@ import '../../css/home.css'
 
 const Home = props => {
   const { device } = props
-  const hasShownBlmPanel = sessionStorage.getItem("hasShownBlmPanel")
+  const hasShownPanel = sessionStorage.getItem("hasShownPanel")
   props.setHeaderLink()
 
   // uses boolean as string
-  if(hasShownBlmPanel === "false") {
+  if(hasShownPanel === "false") {
     props.setDestination({from: props.match.path})
     props.history.push('/blm')
   }
+
   return (
-    <div style={styles.main}
+    <div 
+      style={styles.main}
       className="view padding-for-header"
     >
       <Helmet />
-      <Cloud link='/music'
+      <Cloud 
+        link='/music'
         stylesProp={{
           cloud: styles.cloud.music, 
           text: styles.text.music
         }}
         images={{
-          cloud: 'assets/img/home/clouds/nwcloud1sprites_364_1500.png',
+          cloud: 'assets/img/home/clouds/nwcloud1sprites_364_1500.webp',
           text: {
-            main: 'assets/img/home/text/music_sprites2_cropped.png',
-            hover: 'assets/img/home/text/music_sprites_hover_500_164.png'
+            main: 'assets/img/home/text/music_sprites2_cropped.webp',
+            hover: 'assets/img/home/text/music_sprites_hover_500_164.webp'
           }
         }}
         isMobile={device.isMobile}
       />
-      <Cloud link='/merch'
+      <Cloud 
+        link='/merch'
         stylesProp={{
           cloud: styles.cloud.merch, 
           text: styles.text.merch
         }}
         images={{
-          cloud: 'assets/img/home/clouds/nwcloud2sprites_364_1500_2.png',
+          cloud: 'assets/img/home/clouds/nwcloud2sprites_364_1500_2.webp',
           text: {
-            main: 'assets/img/home/text/merchsprites2000x198.png',
-            hover: 'assets/img/home/text/merch_hoversprites1500x145.png'
+            main: 'assets/img/home/text/merchsprites2000x198.webp',
+            hover: 'assets/img/home/text/merch_hoversprites1500x145.webp'
           }
         }}
         isMobile={device.isMobile}
       />
-      <Cloud link='/goodies'
+      <Cloud 
+        link='/goodies'
         stylesProp={{
           cloud: styles.cloud.goodies, 
           text: styles.text.goodies
         }}
         images={{
-          cloud: 'assets/img/home/clouds/nwcloud4sprites_462_2000.png',
+          cloud: 'assets/img/home/clouds/nwcloud4sprites_462_2000.webp',
           text: {
-            main: 'assets/img/home/text/goodiessprites6500x292.png',
-            hover: 'assets/img/home/text/goodies_hoversprites1500x308.png'
+            main: 'assets/img/home/text/goodiessprites6500x292.webp',
+            hover: 'assets/img/home/text/goodies_hoversprites1500x308.webp'
           }
         }}
         isMobile={device.isMobile}

@@ -1,51 +1,45 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 
-export default class Cloud extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      isHovering: false,
-    }
-  }
+const Cloud = props => {
+  const [isHovering, setIsHovering] = React.useState(false);
 
-  toggleHover = () => this.setState({isHovering: !this.state.isHovering})
+  const { 
+    link, 
+    stylesProp, 
+    images, 
+    isMobile 
+  } = props
 
-  render() {
-    const { 
-      link, 
-      stylesProp, 
-      images, 
-      isMobile 
-    } = this.props
-    return (
-      <div className="cloud"
-        style={{
-          ...stylesProp.cloud,
-          ...isMobile ? {} : {...styles.desktop.cloud},
-          backgroundImage: `url(${require('../../' + images.cloud)})`
-        }}
-      >
-        <Link to={`${link}`}>
-          <div
-            onMouseEnter={this.toggleHover}
-            onMouseLeave={this.toggleHover}
-            style={this.state.isHovering 
-                ? {
-                  ...stylesProp.text.hover,
-                  ...styles.text,
-                  backgroundImage: `url(${require('../../' + images.text.hover)})`
-                } : {
-                  ...stylesProp.text.main,
-                  ...styles.text,
-                  backgroundImage: `url(${require('../../' + images.text.main)})`
-                }
-            }
-          />
-        </Link>
-      </div>
-    )
-  }
+  const toggleHover = () => setIsHovering(!isHovering)
+
+  return (
+    <div className="cloud"
+      style={{
+        ...stylesProp.cloud,
+        ...isMobile ? {} : {...styles.desktop.cloud},
+        backgroundImage: `url(${require('../../' + images.cloud)})`
+      }}
+    >
+      <Link to={`${link}`}>
+        <div
+          onMouseEnter={toggleHover}
+          onMouseLeave={toggleHover}
+          style={isHovering 
+              ? {
+                ...stylesProp.text.hover,
+                ...styles.text,
+                backgroundImage: `url(${require('../../' + images.text.hover)})`
+              } : {
+                ...stylesProp.text.main,
+                ...styles.text,
+                backgroundImage: `url(${require('../../' + images.text.main)})`
+              }
+          }
+        />
+      </Link>
+    </div>
+  )
 }
 
 const styles = {
@@ -60,3 +54,5 @@ const styles = {
     zIndex: '15',
   }
 }
+
+export default Cloud
