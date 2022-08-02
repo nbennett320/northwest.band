@@ -23,7 +23,7 @@ export const getStaticProps = async ({ params }: { params: SongData }) => {
 
   return {
     props: {
-      songData,
+      data: songData,
     }
   }
 }

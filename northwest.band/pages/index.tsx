@@ -2,6 +2,7 @@ import React from 'react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link'
 import Navbar from '../components/navbar/Navbar'
 import AnimatedBackground from '../components/animated/AnimatedBackground'
 import styles from '../styles/Home.module.css'
@@ -49,20 +50,21 @@ const Home: NextPage = () => {
             frames={3}
             duration={`0.8s`}
           >
-            <a
-              href='/music'
-              onMouseOver={() => { setMusicHover(true) }}
-              onMouseLeave={() => { setMusicHover(false) }}
-            >
-              <AnimatedBackground 
-                src={musicSrc}
-                frames={musicHover ? 3 : 11}
-                duration={musicHover ? `0.6s` : `1.2s`}
-                style={{
-                  transform: 'scale(0.5)',
-                }}
-              />
-            </a>
+            <Link href='/music'>
+              <a
+                onMouseOver={() => { setMusicHover(true) }}
+                onMouseLeave={() => { setMusicHover(false) }}
+              >
+                <AnimatedBackground 
+                  src={musicSrc}
+                  frames={musicHover ? 3 : 11}
+                  duration={musicHover ? `0.6s` : `1.2s`}
+                  style={{
+                    transform: 'scale(0.5)',
+                  }}
+                />
+              </a>
+            </Link>
           </AnimatedBackground>
 
           <AnimatedBackground 
@@ -70,20 +72,21 @@ const Home: NextPage = () => {
             frames={3}
             duration={`0.8s`}
           >
-            <a
-              href='/merch'
-              onMouseOver={() => { setMerchHover(true) }}
-              onMouseLeave={() => { setMerchHover(false) }}
-            >
-              <AnimatedBackground 
-                src={merchSrc}
-                frames={merchHover ? 2 : 4}
-                duration={merchHover ? `0.5s` : `1.2s`}
-                style={{
-                  transform: 'scale(0.5)',
-                }}
-              />
-            </a>
+            <Link href='/merch'>
+              <a
+                onMouseOver={() => { setMerchHover(true) }}
+                onMouseLeave={() => { setMerchHover(false) }}
+              >
+                <AnimatedBackground 
+                  src={merchSrc}
+                  frames={merchHover ? 2 : 4}
+                  duration={merchHover ? `0.5s` : `1.2s`}
+                  style={{
+                    transform: 'scale(0.5)',
+                  }}
+                />
+              </a>
+            </Link>
           </AnimatedBackground>
 
           <AnimatedBackground 
@@ -91,20 +94,21 @@ const Home: NextPage = () => {
             frames={4}
             duration={`0.8s`}
           >
-            <a
-              href=''
-              onMouseOver={() => { setGoodiesHover(true) }}
-              onMouseLeave={() => { setGoodiesHover(false) }}
-            >
-              <AnimatedBackground 
-                src={goodiesSrc}
-                frames={goodiesHover ? 3 : 13}
-                duration={goodiesHover ? `0.6s` : `1.5s`}
-                style={{
-                  transform: 'scale(0.5)',
-                }}
-              />
-            </a>
+            <Link href='/goodies'>
+              <a
+                onMouseOver={() => { setGoodiesHover(true) }}
+                onMouseLeave={() => { setGoodiesHover(false) }}
+              >
+                <AnimatedBackground 
+                  src={goodiesSrc}
+                  frames={goodiesHover ? 3 : 13}
+                  duration={goodiesHover ? `0.6s` : `1.5s`}
+                  style={{
+                    transform: 'scale(0.5)',
+                  }}
+                />
+              </a>
+            </Link>
           </AnimatedBackground>
         </div>
       </main>

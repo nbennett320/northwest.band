@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import styles from './styles.module.scss'
 
 interface Props {
@@ -11,20 +12,21 @@ const Navbar = (props: Props) => {
   
   return (
     <nav className={styles.navbar}>
-      <a 
-        className={styles.link}
-        href={props.href}
-        onMouseOver={() => { setHover(true) }}
-        onMouseLeave={() => { setHover(false) }}
-      >
-        <Image
-          src={'/images/nwStarLogoBlack_407x128.png'}
-          alt='northwest star logo'
-          height={hover ? 64*1.05 : 64}
-          width={hover ? 204*1.05 : 204}
-          layout='intrinsic'
-        />
-      </a>
+      <Link href={props?.href ?? '/'}>
+        <a 
+          className={styles.link}
+          onMouseOver={() => { setHover(true) }}
+          onMouseLeave={() => { setHover(false) }}
+        >
+          <Image
+            src={'/images/nwStarLogoBlack_407x128.png'}
+            alt='northwest star logo'
+            height={hover ? 64*1.05 : 64}
+            width={hover ? 204*1.05 : 204}
+            layout='intrinsic'
+          />
+        </a>
+      </Link>
     </nav>
   )
 }
