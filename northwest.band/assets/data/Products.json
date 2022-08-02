@@ -1,0 +1,166 @@
+{
+  "clothing": {
+    "0": {
+      "title": "northwest classic t-shirt",
+      "price": 12.00,
+      "image": "classic-",
+      "description": "t-shirt with classic nw box logo",
+      "attributes": {
+        "type": "clothing",
+        "category": "shirt",
+        "subcategory": "short-sleeve",
+        "model": "classic-tee",
+        "style": "classic",
+        "colors": [
+          "white-on-black",
+          "black-on-white",
+          "red-on-white",
+          "white-on-green"
+        ],
+        "sizes": [
+          "small",
+          "medium",
+          "large",
+          "x-large"
+        ]
+      }
+    },
+
+    "1": {
+      "title": "northwest suburban dogs t-shirt",
+      "price": 12.00,
+      "image": "sd-tee-",
+      "description": "t-shirt with black suburban dogs logo",
+      "attributes": {
+        "type": "clothing",
+        "category": "shirt",
+        "subcategory": "short-sleeve",
+        "model": "suburban-dogs-tee",
+        "style": "suburban-dogs",
+        "colors": [
+          "hot-pink",
+          "orange",
+          "vintage-rose",
+          "eggshell",
+          "yellow"
+        ],
+        "sizes": [
+          "small",
+          "medium",
+          "large",
+          "x-large"
+        ]   
+      }
+    },
+
+    "2": {
+      "title": "leo photo t-shirt",
+      "price": 14.00,
+      "image": "leo-tee-",
+      "description": "t-shirt with a lil rascal named leo on it",
+      "attributes": {
+        "type": "clothing",
+        "category": "shirt",
+        "subcategory": "short-sleeve",
+        "model": "leo photo shirt",
+        "style": "suburban-dogs",
+        "colors": [
+          "white",
+          "orange",
+          "light-blue",
+          "black"
+        ],
+        "sizes": [
+          "small",
+          "medium",
+          "large",
+          "x-large"
+        ]   
+      }
+    },
+
+    "3": {
+      "title": "leo photo hoodie",
+      "price": 24.00,
+      "image": "leo-hoodie-",
+      "description": "hoodie with a lil rascal named leo on it",
+      "attributes": {
+        "type": "clothing",
+        "category": "sweatshirt",
+        "subcategory": "hoodie",
+        "model": "leo photo hoodie",
+        "style": "suburban-dogs",
+        "colors": [
+          "grey",
+          "purple",
+          "black"
+        ],
+        "sizes": [
+          "small",
+          "medium",
+          "large",
+          "x-large"
+        ]   
+      }
+    },
+
+    "4": {
+      "title": "northwest suburban dogs hoodie",
+      "price": 22.00,
+      "image": "sd-hoodie-",
+      "description": "hoodie with black suburban dogs logo",
+      "attributes": {
+        "type": "clothing",
+        "category": "sweatshirt",
+        "subcategory": "hoodie",
+        "model": "suburban dogs hoodie",
+        "style": "suburban dogs",
+        "colors": [
+          "grey",
+          "orange",
+          "pink"
+        ],
+        "sizes": [
+          "small",
+          "medium",
+          "large",
+          "x-large"
+        ]
+      }
+    }
+  },
+
+  "other": {
+    "0": {
+      "title": "suburban dogs cd",
+      "price": 28.00,
+      "image": "suburban dogs cd cover art",
+      "description": "physical cd of northwest\"s suburban dogs with a lyrics booklet",
+      "attributes": {
+        "type": "other",
+        "category": "music",
+        "subcategory": "cd",
+        "model": "suburban dogs cd",
+        "style": "suburban-dogs",
+        "colors": [""],
+        "sizes": []
+      }
+    },
+
+    "1": {
+      "title": "area code cd",
+      "price": 28.00,
+      "image": "area code cd cover art",
+      "description": "physical cd of northwest\"s area code with a lyrics booklet",
+      "attributes": {
+        "type": "other",
+        "category": "music",
+        "subcategory": "cd",
+        "model": "area code cd",
+        "style": "classic",
+        "colors": [""],
+        "sizes": []
+      }
+    }
+  }
+}

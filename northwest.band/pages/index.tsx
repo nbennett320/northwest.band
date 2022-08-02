@@ -2,6 +2,7 @@ import React from 'react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
+import Navbar from '../components/navbar/Navbar'
 import AnimatedBackground from '../components/animated/AnimatedBackground'
 import styles from '../styles/Home.module.css'
 
@@ -40,9 +41,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          {/* Welcome to <a href="https://nextjs.org">Next.js!</a> */}
-        </h1>
+        <Navbar />
 
         <div className={styles.grid}>
           <AnimatedBackground 
@@ -51,7 +50,7 @@ const Home: NextPage = () => {
             duration={`0.8s`}
           >
             <a
-              href=''
+              href='/music'
               onMouseOver={() => { setMusicHover(true) }}
               onMouseLeave={() => { setMusicHover(false) }}
             >
@@ -72,7 +71,7 @@ const Home: NextPage = () => {
             duration={`0.8s`}
           >
             <a
-              href=''
+              href='/merch'
               onMouseOver={() => { setMerchHover(true) }}
               onMouseLeave={() => { setMerchHover(false) }}
             >
