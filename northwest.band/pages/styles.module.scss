@@ -8,6 +8,12 @@
   background-color: $eggshell;
 }
 
+.goodies {
+  background-color: salmon;
+}
+
+
+
 .content {
   transform: scale(0.85);
 }
@@ -57,6 +63,10 @@
 
   .content {
     transform: scale(0.7);
+  }
+
+  .fullwidth > div {
+    width: 100% !important;
   }
 }
 
