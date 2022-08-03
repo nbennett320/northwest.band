@@ -20,11 +20,11 @@ const Album = (props: Props) => {
       />
       <h3 className={styles.title}>
         {props.album.songs.length > 1 
-          ? props.album.title
+          ? props.album.title.toLowerCase()
           : (
-            <Link href={`/lyrics/${props.album.songs[0].key}`}>
+            <Link href={`/music/lyrics/${props.album.songs[0].key}`}>
               <a className={styles.link}>
-                {props.album.title}
+                {props.album.title.toLowerCase()}
               </a>
             </Link>
           )
@@ -32,13 +32,13 @@ const Album = (props: Props) => {
       </h3>
       {props.album.songs.length > 1 && <ul className={styles.list}>
         {props.album.songs.map(song => (
-          <li className={styles.song}>
+          <li key={song.title} className={styles.song}>
             {song.instrumental 
-              ? song.title 
+              ? song.title.toLowerCase()
               : (
-                <Link href={`/lyrics/${song.key}`}>
+                <Link href={`/music/lyrics/${song.key}`}>
                   <a className={styles.link}>
-                    {song.title}
+                    {song.title.toLowerCase()}
                   </a>
                 </Link>
               )

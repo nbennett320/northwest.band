@@ -1,7 +1,7 @@
-import { getAllAlbumPaths, getAlbumData } from '../../lib/albums'
+import { getAllSongPaths, getSongData } from '../../lib/songs'
 
 export const getStaticPaths = async () => {
-  const paths = getAllAlbumPaths()
+  const paths = getAllSongPaths()
 
   return {
     paths,
@@ -19,7 +19,7 @@ interface AlbumData {
 }
 
 export const getStaticProps = async ({ params }: { params: AlbumData }) => {
-  const albumData = getAlbumData(params.id)
+  const albumData = getSongData(params.id)
 
   return {
     props: {
@@ -32,7 +32,7 @@ interface Props {
   data: AlbumData
 }
 
-const Album = (props: Props) => {
+const Song = (props: Props) => {
   return (
     <div>
       {props.data.title}
@@ -40,4 +40,4 @@ const Album = (props: Props) => {
   )
 }
 
-export default Album
+export default Song

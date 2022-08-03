@@ -1,9 +1,8 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import Navbar from '../components/navbar/Navbar'
-import Footer from '../components/footer/Footer'
-import Album from './music/Album'
-import { getAllMusicData, MusicData } from '../lib/music'
+import Navbar from '../../../components/navbar/Navbar'
+import Footer from '../../../components/footer/Footer'
+import { getAllMusicData, MusicData } from '../../../lib/music'
 import styles from './styles.module.scss'
 
 interface Props {
@@ -20,15 +19,13 @@ export const getStaticProps = (): { props: Props } => {
   }
 }
 
-const Music = (props: Props) => {
+const Lyrics = (props: Props) => {
   console.log(props)
-
-  const albumKeys = Object.keys(props.data)
 
   return (
     <div className={`${styles.container} ${styles.music}`}>
       <Head>
-        <title>northwest.band | music</title>
+        <title>northwest.band | lyrics</title>
         <meta 
           name="description" 
           content="official site of northwest the band" 
@@ -40,17 +37,11 @@ const Music = (props: Props) => {
       </Head>
 
       <main className={styles.main}>
-        <Navbar href='/' />
-        <h1 className='hidden'>music</h1>
+        <Navbar href='/music' />
+        <h1 className='hidden'>lyrics</h1>
 
         <div className={styles.grid}>
-          {albumKeys.map(key => (
-            <div key={key} className={styles.album}>
-              <Album 
-                album={props.data[key]} 
-              />
-            </div>
-          ))}
+          
         </div>
       </main>
 
@@ -59,4 +50,4 @@ const Music = (props: Props) => {
   )
 }
 
-export default Music
+export default Lyrics
