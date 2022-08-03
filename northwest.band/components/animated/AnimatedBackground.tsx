@@ -7,6 +7,7 @@ interface Props {
   frames: number
   duration?: string
   style?: React.CSSProperties
+  className?: string
 }
 
 const AnimatedBackground = (props: React.PropsWithChildren<Props>) => {
@@ -24,7 +25,7 @@ const AnimatedBackground = (props: React.PropsWithChildren<Props>) => {
 
   return (
     <div 
-      className={styles.container}
+      className={`${styles.container} ${props?.className ?? ''}`}
       style={props.style}
     >
       <Animated

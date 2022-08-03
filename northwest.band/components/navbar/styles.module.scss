@@ -18,3 +18,9 @@
 .link {
   cursor: pointer;
 }
+
+@media (max-width: 600px) {
+  .navbar {
+    height: 12vh;
+  }
+}

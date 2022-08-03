@@ -1,5 +1,26 @@
+@import '../styles/variables.scss';
+
+.home {
+  background-color: $pink;
+}
+
+.music {
+  background-color: $eggshell;
+}
+
+.content {
+  transform: scale(0.85);
+}
+
+@media (prefers-color-scheme: dark) {
+  .music {
+    background-color: #111;
+  }
+}
+
 .container {
   padding: 0 2rem;
+  overflow: hidden;
 }
 
 .main {
@@ -10,7 +31,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: var(--pink);
 }
 
 .footer {
@@ -111,8 +131,12 @@
 
 @media (max-width: 600px) {
   .grid {
-    width: 100%;
+    width: auto;
     flex-direction: column;
+  }
+
+  .content {
+    transform: scale(0.7);
   }
 }
 

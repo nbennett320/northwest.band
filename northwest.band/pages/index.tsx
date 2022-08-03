@@ -5,7 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import Navbar from '../components/navbar/Navbar'
 import AnimatedBackground from '../components/animated/AnimatedBackground'
-import styles from '../styles/Home.module.css'
+import styles from './styles.module.scss'
 
 const Home: NextPage = () => {
   const [musicHover, setMusicHover] = React.useState<boolean>(false)
@@ -28,7 +28,7 @@ const Home: NextPage = () => {
     : '/images/home/text/goodiessprites6500x292.png'
 
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} ${styles.home}`}>
       <Head>
         <title>northwest.band</title>
         <meta 
@@ -49,6 +49,7 @@ const Home: NextPage = () => {
             src={cloudSrc[0]}
             frames={3}
             duration={`0.8s`}
+            className={styles.content}
           >
             <Link href='/music'>
               <a
@@ -71,6 +72,7 @@ const Home: NextPage = () => {
             src={cloudSrc[1]}
             frames={3}
             duration={`0.8s`}
+            className={styles.content}
           >
             <Link href='/merch'>
               <a
@@ -93,6 +95,7 @@ const Home: NextPage = () => {
             src={cloudSrc[2]}
             frames={4}
             duration={`0.8s`}
+            className={styles.content}
           >
             <Link href='/goodies'>
               <a

@@ -5,7 +5,7 @@ import Image from 'next/image'
 import Navbar from '../components/navbar/Navbar'
 import Album from './music/Album'
 import { getAllMusicData, MusicData } from '../lib/music'
-import styles from '../styles/Home.module.css'
+import styles from './styles.module.scss'
 
 interface Props {
   data: Record<string, MusicData>
@@ -27,7 +27,7 @@ const Music = (props: Props) => {
   const albumKeys = Object.keys(props.data)
 
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} ${styles.music}`}>
       <Head>
         <title>northwest.band | music</title>
         <meta 
