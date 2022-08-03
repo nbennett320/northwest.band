@@ -21,8 +21,6 @@ export const getStaticProps = (): { props: Props } => {
 }
 
 const Music = (props: Props) => {
-  console.log(props)
-
   const albumKeys = Object.keys(props.data)
 
   return (

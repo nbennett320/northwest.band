@@ -33,5 +33,19 @@
     "dateISO": "2020-10-01",
     "length": 1,
     "art": "self.png"
+  },
+  {
+    "title": "FRIENDS 'TIL I DIE",
+    "date": "June 23, 2022",
+    "dateISO": "2022-06-23",
+    "length": 1,
+    "art": "friendstilidie.jpg"
+  },
+  {
+    "title": "i like mike",
+    "date": "July 11, 2022",
+    "dateISO": "2022-07-11",
+    "length": 3,
+    "art": "ilikemike.jpg"
   }
 ]

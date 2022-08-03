@@ -193,5 +193,33 @@
     "album": "Self",
     "instrumental": false,
     "lyrics": ["You told me to work on myself sometimes", "but it's hard when you're always on my mind", "I'll try it in the dark of night", "but that's when the thought of you comes by", "", "any other time of day, forget what I wanna say", "forget what I even do", "Cause All I do is think of you", "", "I'm helpless, the way I'm here all day and night", "it's useless, my heart sit still", "why can't I spend my time thinking about something else?", "I'll try to clear my head now, but I can't help that it's myself", "", "so i'll just sit here and nurse my tea", "just waiting until you're through with me", "cause' I know this is how it ends", "it's always something that I gotta amend", "", "I'll try to keep my distance well", "cause' if I don't I'll be going through hell", "it's just a little thing that hurts", "but through the night it'll just get worse", "", "Cause All I do is think of you", "", "I'm helpless, the way I'm here all day and night", "it's useless, my heart sit still", "why can't I spend my time thinking about something else?", "I'll try to clear my head now, but I can't help that it's myself", "", "it's myself"]
+  },
+  {
+    "title": "FRIENDS 'TIL I DIE",
+    "date": "June 23, 2022",
+    "album": "FRIENDS 'TIL I DIE",
+    "instrumental": false,
+    "lyrics": ["a shy embrace", "can you see it in my face?", "i'd rather not be here", "", "stuck in my phone", "can i just go home?", "i can't be too forward", "", "'cause i'm lost without it", "i'm lost without it", "i'm all by myself", "", "but you're right by my side", "my friend 'til i die", "i can't belive it went this way"]
+  },
+  {
+    "title": "i like mike",
+    "date": "July 11, 2022",
+    "album": "i like mike",
+    "instrumental": false,
+    "lyrics": ["yeah you're looking at the ground", "and cats in a tangle over nothing", "my mind is somewhere out of town", "vacation before my sentencing", "", "rent for the rest of my life", "just like anyone around", "i never wanna leave you sidelined", "i might want this for the rest of time like"]
+  },
+  {
+    "title": "SlideCylinderDependence",
+    "date": "July 11, 2022",
+    "album": "i like mike",
+    "instrumental": true,
+    "lyrics": []
+  },
+  {
+    "title": "FunRefund",
+    "date": "July 11, 2022",
+    "album": "i like mike",
+    "instrumental": true,
+    "lyrics": []
   }
 ]

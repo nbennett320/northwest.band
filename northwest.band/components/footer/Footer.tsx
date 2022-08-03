@@ -63,6 +63,25 @@ const Footer = (props: Props) => {
         </a>
 
         <a
+          href="https://northwest9.bandcamp.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span className={styles.logo}>
+            <Image 
+              src="/images/svg/bandcamp-fill-white.svg" 
+              alt="Bandcamp Logo" 
+              width={72} 
+              height={24}
+              style={{
+                transform: 'scale(0.9)'
+              }}
+            />
+          </span>
+          bandcamp
+        </a>
+
+        <a
           href="https://music.apple.com/us/artist/northwest/1409175767"
           target="_blank"
           rel="noopener noreferrer"

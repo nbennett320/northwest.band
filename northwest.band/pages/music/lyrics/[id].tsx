@@ -5,7 +5,6 @@ import styles from './styles.module.scss'
 
 export const getStaticPaths = async () => {
   const paths = getAllSongPaths()
-  console.log(paths)
 
   return {
     paths,
@@ -28,7 +27,6 @@ interface Props {
 }
 
 const Song = (props: Props) => {
-  console.log("hello world")
   return (
     <Layout data={props.data}>
       <Head>
