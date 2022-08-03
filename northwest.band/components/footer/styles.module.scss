@@ -1,0 +1,41 @@
+.footer {
+  display: flex;
+  flex: 1;
+  padding: 2rem 0;
+  border-top: 1px solid #000;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  background-color: #111;
+  width: 100vw;
+  left: 0;
+  color: #eaeaea;
+}
+
+.footer a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  margin-bottom: .5rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  height: 1em;
+  margin-right: -1rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  .footer {
+    border-color: #222;
+  }
+  .code {
+    background: #111;
+  }
+  .logo img {
+    filter: invert(1);
+  }
+}
