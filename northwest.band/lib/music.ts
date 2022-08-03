@@ -7,6 +7,7 @@ const makeKey = (title: string) => title
   .toLowerCase()
 
 export interface SongData {
+  key: string
   title: string
   date: string
   album: string
@@ -19,6 +20,7 @@ export interface MusicData {
   songs: SongData[]
   art: string
   date: number
+  title: string
 }
 
 export const getAllMusicData = () => {
@@ -26,12 +28,15 @@ export const getAllMusicData = () => {
 
   albums.forEach(album => {
     const title = album.title
-    const songList: SongData[] = songs.filter(song => song.album === title)
+    const songList: SongData[] = songs
+      .filter(song => song.album === title)
+      .map(song => ({ key: makeKey(song.title), ...song }))
     data[title] = {
       key: makeKey(title),
       songs: songList,
       art: `/images/music/${album.art}`,
-      date: Date.parse(album.dateISO)
+      date: Date.parse(album.dateISO),
+      title
     }
   })
 

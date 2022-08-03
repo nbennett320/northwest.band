@@ -43,8 +43,10 @@ const Home: NextPage = () => {
 
       <main className={styles.main}>
         <Navbar />
+        <h1 className='hidden'>northwest.band</h1>
 
         <div className={styles.grid}>
+          <h2 className='hidden'>music</h2>
           <AnimatedBackground 
             src={cloudSrc[0]}
             frames={3}
@@ -68,6 +70,7 @@ const Home: NextPage = () => {
             </Link>
           </AnimatedBackground>
 
+          <h2 className='hidden'>merch</h2>
           <AnimatedBackground 
             src={cloudSrc[1]}
             frames={3}
@@ -91,6 +94,7 @@ const Home: NextPage = () => {
             </Link>
           </AnimatedBackground>
 
+          <h2 className='hidden'>goodies</h2>
           <AnimatedBackground 
             src={cloudSrc[2]}
             frames={4}

@@ -19,6 +19,17 @@
   align-items: center;
   flex-grow: 1;
   margin-bottom: .5rem;
+  font-size: small;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
 }
 
 .logo {
@@ -26,6 +37,17 @@
   align-items: center;
   height: 1em;
   margin-right: -1rem;
+}
+
+@media (max-width: 600px) {
+  .container {
+    width: 80%;
+  }
+  
+  .footer a {
+    margin-bottom: .7rem;
+    font-size: smaller;
+  }
 }
 
 @media (prefers-color-scheme: dark) {

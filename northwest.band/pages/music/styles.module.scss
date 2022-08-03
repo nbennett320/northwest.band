@@ -1,0 +1,34 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: medium;
+  font-weight: normal;
+  width: 100%;
+  text-align: center;
+  margin-top: .25rem;
+  margin-bottom: .25rem;
+}
+
+.date {
+  font-size: smaller;
+  font-weight: lighter;
+  width: 100%;
+  text-align: center;
+  margin-top: .25rem;
+}
+
+.list {
+  list-style: none;
+}
+
+.song {
+  font-size: smaller;
+  list-style-type: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}

@@ -43,9 +43,17 @@ const Music = (props: Props) => {
 
       <main className={styles.main}>
         <Navbar href='/' />
+        <h1 className='hidden'>music</h1>
 
         <div className={styles.grid}>
-          {albumKeys.map(key => (<Album key={key} album={props.data[key]} />))}
+          {albumKeys.map(key => (
+            <div className={styles.album}>
+              <Album 
+                key={key} 
+                album={props.data[key]} 
+              />
+            </div>
+          ))}
         </div>
       </main>
 
