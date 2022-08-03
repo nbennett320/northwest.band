@@ -11,40 +11,36 @@ interface Props {
 }
 
 const Layout = (props: React.PropsWithChildren<Props>) => {
-  const ref = React.useRef<HTMLDivElement>(null)
-  const [height, setHeight] = React.useState<number>()
-  const [width, setWidth] = React.useState<number>()
+  const containerRef = React.useRef<HTMLDivElement>(null)
   const [darkText, setDarkText] = React.useState<boolean>()
+  const [textBottom, setTextBottom] = React.useState<number>()
   const src = `/images/lyrics/${props.data.id}.jpg`
-  console.log('src: ', src)
 
   React.useEffect(() => {
+    const img: HTMLImageElement = new Image()
+    img.src = src
+    img.onload = () => {
+      setDarkText(useDarkTextOverImage(img))
+    }
   }, [props.data.id])
 
   React.useEffect(() => {
-    if(ref.current) {
-      const rect = ref.current.getBoundingClientRect()
-      const img: HTMLImageElement = new Image()
-      img.src = src
-      img.onload = () => {
-        const ratio = img.width / rect.width
-        setHeight(rect.height / ratio)
-        setWidth(rect.width)
-        setDarkText(useDarkTextOverImage(img))
-        console.log("height, width: ", height, width, ratio, darkText)
-      }
+    if(containerRef.current) {
+      const containerRect = containerRef.current.getBoundingClientRect()
+      const bottom = containerRect.bottom > window.innerHeight
+        ? containerRect.bottom
+        : window.innerHeight
+      setTextBottom(bottom)
     }
-  }, [ref.current, props.data.id])
+  }, [containerRef.current])
 
   return (
-    <div 
-      ref={ref}
-      className={`${styles.container}`}
-    >
+    <div className={`${styles.container}`}>
       <main className={styles.main}>
         <Navbar href='/music' />
 
         <div 
+          ref={containerRef}
           className={styles.grid}
           style={{
             color: darkText ? '#000' : '#fff'
@@ -53,17 +49,22 @@ const Layout = (props: React.PropsWithChildren<Props>) => {
           {props.children}
         </div>
 
-        {ref.current && <div className={styles.imgcontainer}>
+        <div className={styles.imgcontainer}>
           <NextImage 
             src={src}
             layout='fill'
             className={styles.bgimage}
             priority
           />
-        </div>}
+        </div>
       </main>
 
-      {/* <Footer /> */}
+      <Footer 
+        className={styles.footer}
+        style={{
+          top: `${textBottom}px`
+        }}
+      />
     </div>
   )
 }
