@@ -24,6 +24,7 @@ const Navbar = (props: Props) => {
             height={hover ? 64*1.05 : 64}
             width={hover ? 204*1.05 : 204}
             layout='intrinsic'
+            className={styles.logo}
           />
         </a>
       </Link>

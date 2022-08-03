@@ -13,6 +13,11 @@
 }
 
 @media (prefers-color-scheme: dark) {
+  .home {
+    background-color: rgb(2, 0, 36);
+    background: linear-gradient(0deg, rgba(2, 0, 36, 1) 0%, rgba(36, 11, 109, 1) 33%, rgba(0, 4, 154, 1) 100%);
+  }
+
   .music {
     background-color: #111;
   }

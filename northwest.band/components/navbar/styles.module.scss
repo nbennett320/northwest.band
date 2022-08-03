@@ -24,3 +24,13 @@
     height: 12vh;
   }
 }
+
+@media (prefers-color-scheme: dark) {
+  .logo {
+    filter: invert(1);
+  }
+  
+  .navbar { 
+    background-color: rgba($color: #000, $alpha: 0.5);
+  }
+}
