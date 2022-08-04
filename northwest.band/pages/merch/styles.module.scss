@@ -1,0 +1,16 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 33.3333333%;
+}
+
+.imgpreview {
+  object-fit: fill;
+  height: auto;
+  width: 100%;
+  padding: 1rem;
+}
+
+.title {
+  font-weight: normal;
+}

@@ -25,6 +25,7 @@ router.get('/', async (req, res, next) => {
                 edges {
                   node {
                     url
+                    altText
                   }
                 }
               }
@@ -35,8 +36,17 @@ router.get('/', async (req, res, next) => {
     `
   })
   const data = await query.json()
-
-  res.send(data)
+  const products = data?.data?.products?.edges?.map((edge: any) => ({
+    id: edge.node?.id,
+    title: edge.node?.title,
+    productType: edge.node?.productType,
+    images: edge.node?.images?.edges?.map((image: any) => ({
+      url: image.node?.url,
+      altText: image.node?.altText,
+    }))
+  }))
+  
+  res.send(products)
 })
 
 module.exports = router
