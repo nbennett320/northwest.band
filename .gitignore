@@ -76,3 +76,5 @@ firebase-debug.log*
 
 # typescript
 *.tsbuildinfo
+
+backend/config.json
