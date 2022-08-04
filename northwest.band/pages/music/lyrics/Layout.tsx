@@ -1,9 +1,9 @@
 import React from 'react'
-import NextImage from 'next/image'
 import Navbar from '../../../components/navbar/Navbar'
 import Footer from '../../../components/footer/Footer'
 import { SongData } from '../../../lib/songs'
 import { useDarkTextOverImage } from '../../../lib/image'
+import BackgroundImage from './BackgroundImage'
 import styles from './styles.module.scss'
 
 interface Props {
@@ -50,11 +50,9 @@ const Layout = (props: React.PropsWithChildren<Props>) => {
         </div>
 
         <div className={styles.imgcontainer}>
-          <NextImage 
-            src={src}
-            layout='fill'
-            className={styles.bgimage}
-            priority
+          <BackgroundImage 
+            src={src} 
+            alt={`${props.data.title} background image`} 
           />
         </div>
       </main>

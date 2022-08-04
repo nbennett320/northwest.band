@@ -27,6 +27,8 @@ router.get('/', async (req, res, next) => {
                   node {
                     url
                     altText
+                    height
+                    width
                   }
                 }
               }
@@ -46,6 +48,8 @@ router.get('/', async (req, res, next) => {
     images: edge.node?.images?.edges?.map((image: any) => ({
       url: image.node?.url,
       altText: image.node?.altText,
+      height: image.node?.height,
+      width: image.node?.width,
     }))
   }))
   
@@ -102,6 +106,8 @@ router.get('/item/:handle', async (req, res, next) => {
               node {
                 url
                 altText
+                height
+                width
               }
             }
           }
@@ -119,6 +125,8 @@ router.get('/item/:handle', async (req, res, next) => {
     images: data?.data?.product?.images?.edges?.map((image: any) => ({
       url: image.node?.url,
       altText: image.node?.altText,
+      height: image.node?.height,
+      width: image.node?.width,
     }))
   }
   

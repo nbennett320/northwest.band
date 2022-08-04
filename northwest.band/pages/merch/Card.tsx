@@ -17,9 +17,9 @@ const Card = (props: Props) => {
         <Image 
           src={image.url}
           alt={image?.altText}
+          height={image.height}
+          width={image.width}
           layout='intrinsic'
-          height={200}
-          width={200}
         />
       </div>
 

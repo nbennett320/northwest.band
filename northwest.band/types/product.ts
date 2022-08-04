@@ -7,6 +7,8 @@ export interface Product {
     {
       url: string
       altText?: string
+      height: number
+      width: number
     }
   ]
   options?: [

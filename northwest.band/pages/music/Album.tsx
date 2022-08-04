@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import AlbumImage from './AlbumImage'
 import { MusicData } from '../../lib/music'
 import styles from './styles.module.scss'
 
@@ -13,8 +14,9 @@ const Album = (props: Props) => {
 
   return (
     <div className={styles.container}>
-      <Image 
+      <AlbumImage 
         src={props.album.art}
+        alt={`${props.album.title.toLowerCase()} album art`}
         height={imageSize}
         width={imageSize}
       />
