@@ -2,6 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import { Product } from '../../types/product'
 import styles from './styles.module.scss'
+import Link from 'next/link'
 
 interface Props {
   product: Product
@@ -23,7 +24,11 @@ const Card = (props: Props) => {
       </div>
 
       <span className={styles.title}>
-        {props.product.title}
+        <Link href={`/merch/item/${props.product.handle}`}>
+          <a>
+            {props.product.title}
+          </a>
+        </Link>
       </span>
     </div>
   )
