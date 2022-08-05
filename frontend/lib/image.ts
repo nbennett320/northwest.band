@@ -44,7 +44,7 @@ export const getAverageRGB = (img: HTMLImageElement) => {
   return rgb
 }
 
-export const useDarkTextOverImage = (img: HTMLImageElement) => {
+export const hasDarkTextOverImage = (img: HTMLImageElement) => {
   const rgb = getAverageRGB(img)
   const avg = (rgb.r + rgb.g + rgb.b) / 3
   return avg > 100

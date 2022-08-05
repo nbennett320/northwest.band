@@ -2,7 +2,7 @@ import React from 'react'
 import Navbar from '../../../components/navbar/Navbar'
 import Footer from '../../../components/footer/Footer'
 import { SongData } from '../../../lib/songs'
-import { useDarkTextOverImage } from '../../../lib/image'
+import { hasDarkTextOverImage } from '../../../lib/image'
 import BackgroundImage from './BackgroundImage'
 import styles from './styles.module.scss'
 
@@ -20,9 +20,9 @@ const Layout = (props: React.PropsWithChildren<Props>) => {
     const img: HTMLImageElement = new Image()
     img.src = src
     img.onload = () => {
-      setDarkText(useDarkTextOverImage(img))
+      setDarkText(hasDarkTextOverImage(img))
     }
-  }, [props.data.id])
+  }, [src])
 
   React.useEffect(() => {
     if(containerRef.current) {
@@ -32,7 +32,7 @@ const Layout = (props: React.PropsWithChildren<Props>) => {
         : window.innerHeight
       setTextBottom(bottom)
     }
-  }, [containerRef.current])
+  }, [containerRef])
 
   return (
     <div className={`${styles.container}`}>
