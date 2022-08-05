@@ -1,0 +1,94 @@
+@import '../styles/variables.scss';
+
+.home {
+  background-color: $pink;
+}
+
+.music {
+  background-color: $eggshell;
+}
+
+.merch {
+}
+
+.goodies {
+  background-color: salmon;
+}
+
+.content {
+  transform: scale(0.85);
+}
+
+.cards {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  padding-top: 1rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  .home {
+    background-color: rgb(2, 0, 36);
+    background: linear-gradient(0deg, rgba(2, 0, 36, 1) 0%, rgba(36, 11, 109, 1) 33%, rgba(0, 4, 154, 1) 100%);
+  }
+
+  .music {
+    background-color: #111;
+  }
+}
+
+.flextop { 
+  justify-content: start !important;
+}
+
+.container {
+  padding: 0 2rem;
+  overflow: hidden;
+}
+
+.main {
+  min-height: 100vh;
+  padding: 4rem 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 800px;
+}
+
+.album {
+  padding: 2rem;
+}
+
+@media (max-width: 600px) {
+  .grid {
+    width: auto;
+    flex-direction: column;
+    max-width: 100vw;
+  }
+
+  .content {
+    transform: scale(0.7);
+  }
+
+  .fullwidth > div {
+    width: 100% !important;
+  }
+
+  .cards {
+    width: 100%;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .code {
+    background: #111;
+  }
+}

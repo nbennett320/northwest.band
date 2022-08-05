@@ -1,0 +1,7 @@
+.song-link {
+  text-decoration: none;
+}
+
+.song-link:hover {
+  text-decoration: underline rgba(255,255,255,0.82);
+}

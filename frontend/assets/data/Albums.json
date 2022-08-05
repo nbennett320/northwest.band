@@ -1,0 +1,51 @@
+[
+  {
+    "title": "Area Code",
+    "date": "July 15, 2018",
+    "dateISO": "2018-07-15",
+    "length": 11,
+    "art": "areacode.png"
+  },
+  {
+    "title": "Suburban Dogs",
+    "date": "November 15, 2019",
+    "dateISO": "2019-11-15",
+    "length": 13,
+    "art": "subbie dogs text w canvas4.jpg"
+  },
+  {
+    "title": "Apathy",
+    "date": "January 25, 2020",
+    "dateISO": "2020-01-25",
+    "length": 1,
+    "art": "apathy2.png"
+  },
+  {
+    "title": "Silver Lining",
+    "date": "September 12, 2020",
+    "dateISO": "2020-09-12",
+    "length": 3,
+    "art": "silverlining.jpg"
+  },
+  {
+    "title": "Self",
+    "date": "October 1, 2020",
+    "dateISO": "2020-10-01",
+    "length": 1,
+    "art": "self.png"
+  },
+  {
+    "title": "FRIENDS 'TIL I DIE",
+    "date": "June 23, 2022",
+    "dateISO": "2022-06-23",
+    "length": 1,
+    "art": "friendstilidie.jpg"
+  },
+  {
+    "title": "i like mike",
+    "date": "July 11, 2022",
+    "dateISO": "2022-07-11",
+    "length": 3,
+    "art": "ilikemike.jpg"
+  }
+]
