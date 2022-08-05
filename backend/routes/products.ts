@@ -22,6 +22,12 @@ router.get('/', async (req, res, next) => {
               handle
               title
               productType
+              priceRange {
+                minVariantPrice {
+                  amount
+                  currencyCode
+                }
+              }
               images(first: 3) {
                 edges {
                   node {
@@ -45,6 +51,7 @@ router.get('/', async (req, res, next) => {
     handle: edge.node?.handle,
     title: edge.node?.title,
     productType: edge.node?.productType,
+    price: edge.node?.priceRange.minVariantPrice?.amount,
     images: edge.node?.images?.edges?.map((image: any) => ({
       url: image.node?.url,
       altText: image.node?.altText,
@@ -101,6 +108,12 @@ router.get('/item/:handle', async (req, res, next) => {
           handle
           title
           productType
+          priceRange {
+            minVariantPrice {
+              amount
+              currencyCode
+            }
+          }
           images(first: 3) {
             edges {
               node {
@@ -121,7 +134,8 @@ router.get('/item/:handle', async (req, res, next) => {
     id: data?.data?.product?.id,
     handle: data?.data?.product?.handle,
     title: data?.data?.product?.title,
-    productType: data?.product?.data?.productType,
+    productType: data?.data?.product?.data?.productType,
+    price: data?.data?.product?.priceRange.minVariantPrice?.amount,
     images: data?.data?.product?.images?.edges?.map((image: any) => ({
       url: image.node?.url,
       altText: image.node?.altText,

@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   width: 33.3333333%;
-  height: 400px;
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 0px 8px 2px;
 }
 
 .imgpreview {
@@ -14,6 +14,25 @@
 
 .title {
   font-weight: normal;
+  margin-left: 1rem;
+}
+
+.link {
+  text-decoration: underline;
+}
+
+.textcontainer {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 1rem;
+}
+
+.price {
+  align-items: flex-end;
+  justify-self: flex-end;
+  margin-left: auto;
+  margin-right: 1rem;
+  font-weight: 500;
 }
 
 // medium size

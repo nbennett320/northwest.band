@@ -3,6 +3,7 @@ export interface Product {
   handle: string
   title: string
   productType?: string
+  price: number,
   images: [
     {
       url: string

@@ -26,6 +26,8 @@ const Container = styled.div`
   animation-iteration-count: infinite;
   animation-timing-function: steps(${(props: Props) => props.frames});
   animation-name: ${(props: Props) => animation(props)};
+  user-select: none;
+  -webkit-touch-callout: none;
 `
 
 const Animated = (props: React.PropsWithChildren<Props>) => {
