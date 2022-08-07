@@ -6,6 +6,7 @@ import Link from 'next/link'
 
 interface Props {
   product: Product
+  idx: number
 }
 
 const Card = (props: Props) => {
@@ -19,10 +20,15 @@ const Card = (props: Props) => {
       const rect = ref.current.getBoundingClientRect()
       setWidth(rect.width)
     }
-  }, [ref.current])
+  }, [ref])
 
   return (
-    <div className={styles.card}>
+    <div 
+      className={styles.card}
+      style={{
+        zIndex: props.idx,
+      }}
+    >
       <div 
         ref={ref} 
         className={styles.imgpreview}
@@ -33,9 +39,9 @@ const Card = (props: Props) => {
             onMouseOver={() => { setHover(true) }}
             onMouseLeave={() => { setHover(false) }}
           >
-            <Image 
+            <Image
               src={image.url}
-              alt={image?.altText}
+              alt={image.altText}
               height={width}
               width={width}
               layout='intrinsic'

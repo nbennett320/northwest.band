@@ -14,6 +14,7 @@
 
 .title {
   font-weight: normal;
+  font-size: x-large;
   margin-left: 1rem;
 }
 
@@ -32,7 +33,9 @@
   justify-self: flex-end;
   margin-left: auto;
   margin-right: 1rem;
+  margin-top: 1rem;
   font-weight: 500;
+  font-size: small;
 }
 
 // medium size
@@ -45,6 +48,6 @@
 // mobile
 @media (max-width: 600px) {
   .card {
-    width: 100%;
+    width: 50%;
   }
 }
