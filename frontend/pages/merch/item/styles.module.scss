@@ -24,6 +24,15 @@
   top: 0;
 }
 
+.block {
+  width: 50%;
+}
+
+.item {
+  display: flex;
+  flex-direction: row;
+}
+
 .title {
   margin-left: 1rem;
   line-height: 1.2;
@@ -60,5 +69,22 @@
 
   &:hover {
     filter: brightness(1.1);
+  }
+}
+
+// mobile
+@media (max-width: 600px) {
+  .item {
+    flex-direction: column;
+  }
+
+  .block {
+    width: 100%;
+  }
+
+  .imgcontainer {
+    max-width: 80vw;
+    max-height: 80vw;
+    align-self: center;
   }
 }

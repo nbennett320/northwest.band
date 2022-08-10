@@ -1,11 +1,11 @@
 import React from 'react'
 import Head from 'next/head'
-import Layout from './Layout'
 import { getAllProductPaths, getAllProductData } from '../../../lib/products'
-import { Product, ProductOption } from '../../../types/product'
+import Layout from './Layout'
 import ImagePreview from './ImagePreview'
-import styles from './styles.module.scss'
+import { Product } from '../../../types/product'
 import DropdownSelect, { MenuOption } from '../../../components/menu/DropdownSelect'
+import styles from './styles.module.scss'
 
 export const getStaticPaths = async () => {
   const paths = await getAllProductPaths()
@@ -61,14 +61,14 @@ const Item = (props: Props) => {
       </Head>
 
       <div className={styles.container}>
-        <div className='row'>
-          <div className='w-1/2'>
+        <div className={styles.item}>
+          <div className={styles.block}>
             <ImagePreview
               images={props.data.images}
             />
           </div>
 
-          <div className='pt-4 col w-1/2'>
+          <div className={`pt-4 col ${styles.block}`}>
             <h1 className={styles.title}>
               {props.data.title.toLowerCase()}
             </h1>
@@ -77,22 +77,34 @@ const Item = (props: Props) => {
               ${parseInt(props.data.price as unknown as string)}
             </span>
 
-            {props.data.options?.map(option => (
-              <div key={option.id}>
-                <DropdownSelect 
-                  label={option.name}
-                  value={selected?.[option.id]?.label}
-                  options={option.values.map(value => ({
-                    value, 
-                    label: value,
-                    data: {
-                      id: option.id
-                    }
-                  }))}
-                  onChange={(_, data) => { handleSelect(data) }}
-                />
+            <div className='w-full col items-center mt-2 mb-2'>
+              {props.data.options?.map(option => (
+                <div key={option.id}>
+                  <DropdownSelect 
+                    label={option.name}
+                    value={selected?.[option.id]?.label}
+                    options={option.values.map(value => ({
+                      value, 
+                      label: value,
+                      data: {
+                        id: option.id
+                      }
+                    }))}
+                    onChange={(_, data) => { handleSelect(data) }}
+                  />
+                </div>
+              ))}
+            </div>
+
+            <div className='w-full col items-center mt-2'>
+              <div className='flex space-x-2 justify-center'>
+                <button 
+                  type='button'
+                  className='inline-block w-48 px-6 py-2.5 border border-gray-300 shadow-sm text-gray-700 text-xs font-bold leading-tight rounded hover:bg-gray-50 hover:shadow-lg focus:ring-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:shadow-md active:bg-gray-200 active:shadow-md transition duration-150 ease-in-out'>
+                  add to cart
+                </button>
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </div>
