@@ -44,6 +44,13 @@ const Item = (props: Props) => {
     setSelected(val)
   }
 
+  const isValid = () => {
+    if(!selected) return false
+    if(props.data.options?.length !== Object.keys(selected).length) return false
+
+    return true
+  }
+
   return (
     <Layout data={props.data}>
       <Head>
@@ -98,9 +105,11 @@ const Item = (props: Props) => {
 
             <div className='w-full col items-center mt-2'>
               <div className='flex space-x-2 justify-center'>
-                <button 
+                <button
+                  disabled={!isValid()}
                   type='button'
-                  className='inline-block w-48 px-6 py-2.5 border border-gray-300 shadow-sm text-gray-700 text-xs font-bold leading-tight rounded hover:bg-gray-50 hover:shadow-lg focus:ring-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:shadow-md active:bg-gray-200 active:shadow-md transition duration-150 ease-in-out'>
+                  className={`inline-block w-48 px-6 py-2.5 border border-gray-300 shadow-sm text-gray-700 text-xs font-bold leading-tight rounded hover:bg-gray-50 hover:shadow-lg focus:ring-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:shadow-md active:bg-gray-200 active:shadow-md transition duration-150 ease-in-out ${!isValid() ? 'pointer-events-none opacity-60 cursor-not-allowed shadow-none' : ''}`}
+                >
                   add to cart
                 </button>
               </div>
