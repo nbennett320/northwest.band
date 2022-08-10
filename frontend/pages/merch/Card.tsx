@@ -13,7 +13,11 @@ const Card = (props: Props) => {
   const ref = React.useRef<HTMLDivElement>(null)
   const [width, setWidth] = React.useState<number>()
   const [hover, setHover] = React.useState<boolean>(false)
-  const image = props.product.images[0]
+
+  const image = (() => {
+    if(props.product.images.length <= 1) return props.product.images[0] 
+    else return props.product.images.at(hover ? 1 : 0)
+  }).call()
 
   React.useEffect(() => {
     if(ref.current) {
@@ -39,14 +43,14 @@ const Card = (props: Props) => {
             onMouseOver={() => { setHover(true) }}
             onMouseLeave={() => { setHover(false) }}
           >
-            <Image
-              src={image.url}
-              alt={image.altText}
+            {image && <Image
+              src={image?.url}
+              alt={image?.altText}
               height={width}
               width={width}
               layout='intrinsic'
               objectFit='cover'
-            />
+            />}
           </a>
         </Link>}
       </div>

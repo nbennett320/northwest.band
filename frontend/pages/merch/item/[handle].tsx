@@ -1,8 +1,11 @@
+import React from 'react'
 import Head from 'next/head'
 import Layout from './Layout'
 import { getAllProductPaths, getAllProductData } from '../../../lib/products'
+import { Product, ProductOption } from '../../../types/product'
+import ImagePreview from './ImagePreview'
 import styles from './styles.module.scss'
-import { Product } from '../../../types/product'
+import DropdownSelect, { MenuOption } from '../../../components/menu/DropdownSelect'
 
 export const getStaticPaths = async () => {
   const paths = await getAllProductPaths()
@@ -13,7 +16,9 @@ export const getStaticPaths = async () => {
   }
 }
 
-export const getStaticProps = async ({ params }: { params: { handle: string } }) => {
+export const getStaticProps = async (
+  { params }: { params: { handle: string } }
+) => {
   const productData = await getAllProductData(params.handle)
 
   return {
@@ -27,7 +32,18 @@ interface Props {
   data: Product
 }
 
-const Product = (props: Props) => {
+const Item = (props: Props) => {
+  const [selected, setSelected] = React.useState<Record<string, MenuOption>>()
+
+  const handleSelect = (data: MenuOption) => {
+    const val = {
+      ...selected,
+      [data?.data?.id]: data
+    }
+
+    setSelected(val)
+  }
+
   return (
     <Layout data={props.data}>
       <Head>
@@ -44,16 +60,44 @@ const Product = (props: Props) => {
         />
       </Head>
 
-      <div>
-        <h1 className={styles.title}>
-          {props.data.title.toLowerCase()}
-        </h1>
-        <span>
-          {props.data.title.toLowerCase()}
-        </span>
+      <div className={styles.container}>
+        <div className='row'>
+          <div className='w-1/2'>
+            <ImagePreview
+              images={props.data.images}
+            />
+          </div>
+
+          <div className='pt-4 col w-1/2'>
+            <h1 className={styles.title}>
+              {props.data.title.toLowerCase()}
+            </h1>
+
+            <span className={styles.price}>
+              ${parseInt(props.data.price as unknown as string)}
+            </span>
+
+            {props.data.options?.map(option => (
+              <div key={option.id}>
+                <DropdownSelect 
+                  label={option.name}
+                  value={selected?.[option.id]?.label}
+                  options={option.values.map(value => ({
+                    value, 
+                    label: value,
+                    data: {
+                      id: option.id
+                    }
+                  }))}
+                  onChange={(_, data) => { handleSelect(data) }}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </Layout>
   )
 }
 
-export default Product
+export default Item

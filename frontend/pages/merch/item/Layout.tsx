@@ -20,7 +20,7 @@ const Layout = (props: React.PropsWithChildren<Props>) => {
         </div>
       </main>
 
-      <Footer />
+      <Footer style={{ position: 'relative' }} />
     </div>
   )
 }
