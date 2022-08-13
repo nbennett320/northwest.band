@@ -1,6 +1,7 @@
 {
   "name": "northwest.band",
   "version": "0.1.0",
+  "proxy": "http://localhost:4432",
   "private": true,
   "scripts": {
     "dev": "next dev",

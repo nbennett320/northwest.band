@@ -17,7 +17,7 @@ const Card = (props: Props) => {
   const image = (() => {
     if(props.product.images.length <= 1) return props.product.images[0] 
     else return props.product.images.at(hover ? 1 : 0)
-  }).call()
+  })()
 
   React.useEffect(() => {
     if(ref.current) {
