@@ -9,11 +9,13 @@
   object-fit: fill;
   height: auto;
   width: 100%;
-  padding: 1rem;
+  padding: .5rem;
 }
 
 .title {
   font-weight: normal;
+  font-size: x-large;
+  line-height: 1.334;
   margin-left: 1rem;
 }
 
@@ -32,7 +34,10 @@
   justify-self: flex-end;
   margin-left: auto;
   margin-right: 1rem;
+  margin-top: 1rem;
   font-weight: 500;
+  font-size: small;
+  line-height: 1.334;
 }
 
 // medium size
@@ -45,6 +50,6 @@
 // mobile
 @media (max-width: 600px) {
   .card {
-    width: 100%;
+    width: 50%;
   }
 }

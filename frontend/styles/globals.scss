@@ -1,8 +1,10 @@
-@import './variables.scss';
-// @import url('http://fonts.cdnfonts.com/css/dinosotype');
-// font-family: 'DinosoType', sans-serif;
-// @import url('http://fonts.cdnfonts.com/css/mythological');
-// font-family: 'Mythological', sans-serif;
+@import "~tailwindcss/base";
+@import "~tailwindcss/components";
+@import "~tailwindcss/utilities";
+/* @import url('http://fonts.cdnfonts.com/css/dinosotype'); */
+/* font-family: 'DinosoType', sans-serif; */
+/* @import url('http://fonts.cdnfonts.com/css/mythological'); */
+/* font-family: 'Mythological', sans-serif; */
 
 html,
 body {
@@ -24,6 +26,16 @@ a {
 
 .hidden {
   display: none;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
 }
 
 @media (prefers-color-scheme: dark) {

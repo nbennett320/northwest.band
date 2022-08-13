@@ -45,7 +45,7 @@ const Home: NextPage = () => {
         <Navbar />
         <h1 className='hidden'>northwest.band</h1>
 
-        <div className={styles.grid}>
+        <div className={`${styles.grid} mt-4`}>
           <h2 className='hidden'>music</h2>
           <AnimatedBackground 
             src={cloudSrc[0]}

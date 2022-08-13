@@ -1,11 +1,12 @@
 import React from 'react'
 import Head from 'next/head'
 import Navbar from '../components/navbar/Navbar'
+import ImageBlock from '../components/image-block/ImageBlock'
 import Footer from '../components/footer/Footer'
-import { SERVER_URL } from '../env'
-import styles from './styles.module.scss'
 import Card from './merch/Card'
 import { Product } from '../types/product'
+import { SERVER_URL } from '../env'
+import styles from './styles.module.scss'
 
 interface Props {
   data: Record<string, any>
@@ -43,13 +44,15 @@ const Merch = (props: Props) => {
       <main className={`${styles.main} ${styles.flextop}`}>
         <Navbar />
         <h1 className='hidden'>store</h1>
+        <ImageBlock />
 
-        <div className={`${styles.grid} ${styles.fullwidth}`}>
+        <div className={`${styles.grid} ${styles.fullwidth} ${styles.merchgrid} mt-0`}>
           <div className={styles.cards}>
-            {props.data && props.data.map((el: Product) => (
+            {props.data && props.data.map((el: Product, idx: number) => (
               <Card 
                 key={el.id}
                 product={el} 
+                idx={idx + 1}
               />
             ))}
           </div>

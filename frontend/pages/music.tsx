@@ -41,7 +41,7 @@ const Music = (props: Props) => {
         <Navbar href='/' />
         <h1 className='hidden'>music</h1>
 
-        <div className={styles.grid}>
+        <div className={`${styles.grid} mt-2`}>
           {albumKeys.map(key => (
             <div key={key} className={styles.album}>
               <Album 

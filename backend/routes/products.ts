@@ -1,4 +1,3 @@
-
 import express from 'express'
 import fetch from 'node-fetch'
 import config from '../config.json'
@@ -28,7 +27,7 @@ router.get('/', async (req, res, next) => {
                   currencyCode
                 }
               }
-              images(first: 3) {
+              images(first: 2) {
                 edges {
                   node {
                     url
@@ -114,7 +113,7 @@ router.get('/item/:handle', async (req, res, next) => {
               currencyCode
             }
           }
-          images(first: 3) {
+          images(first: 5) {
             edges {
               node {
                 url
@@ -123,6 +122,11 @@ router.get('/item/:handle', async (req, res, next) => {
                 width
               }
             }
+          }
+          options {
+            id
+            name
+            values
           }
         }
       }
@@ -141,7 +145,8 @@ router.get('/item/:handle', async (req, res, next) => {
       altText: image.node?.altText,
       height: image.node?.height,
       width: image.node?.width,
-    }))
+    })),
+    options: data?.data?.product.options,
   }
   
   res.send(product)

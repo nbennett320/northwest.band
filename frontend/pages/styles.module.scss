@@ -1,5 +1,10 @@
 @import '../styles/variables.scss';
 
+.container {
+  padding: 0 2rem;
+  overflow: hidden;
+}
+
 .home {
   background-color: $pink;
 }
@@ -9,6 +14,7 @@
 }
 
 .merch {
+  width: 100vw;
 }
 
 .goodies {
@@ -22,8 +28,8 @@
 .cards {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   width: 100vw;
-  padding-top: 1rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -39,11 +45,6 @@
 
 .flextop { 
   justify-content: start !important;
-}
-
-.container {
-  padding: 0 2rem;
-  overflow: hidden;
 }
 
 .main {
@@ -63,19 +64,36 @@
   max-width: 800px;
 }
 
+.flexreverse {
+  display: flex;
+  flex-wrap: wrap-reverse;
+}
+
+.merchgrid {
+  position: relative;
+  top: calc((8vh + 40px) * -1);
+}
+
 .album {
   padding: 2rem;
+}
+
+.fullwidth {
+  max-width: 100vw;
+  width: 100vw;
 }
 
 @media (max-width: 600px) {
   .grid {
     width: auto;
-    flex-direction: column;
+    flex-direction: row;
     max-width: 100vw;
+    width: 100vw;
   }
 
   .content {
     transform: scale(0.7);
+    height: 300px;
   }
 
   .fullwidth > div {

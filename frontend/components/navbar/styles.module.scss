@@ -19,6 +19,23 @@
   cursor: pointer;
 }
 
+.cart {
+  position: absolute;
+  right: 1.5rem;
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+  border-radius: 100%;
+}
+
+.badge {
+  position: relative;
+  left: 12px;
+  top: -12px;
+  transform: scale(.8);
+  z-index: 101;
+}
+
 @media (max-width: 600px) {
   .navbar {
     height: 12vh;
