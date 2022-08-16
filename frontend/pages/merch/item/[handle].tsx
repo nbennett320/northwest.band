@@ -1,5 +1,6 @@
 import React from 'react'
 import Head from 'next/head'
+import { useGlobalState } from '../../../context/state'
 import { getAllProductPaths, getAllProductData } from '../../../lib/products'
 import Layout from './Layout'
 import ImagePreview from './ImagePreview'
@@ -34,6 +35,7 @@ interface Props {
 }
 
 const Item = (props: Props) => {
+  const state = useGlobalState()
   const [selected, setSelected] = React.useState<Record<string, MenuOption>>()
 
   const handleSelect = (data: MenuOption) => {
@@ -46,13 +48,13 @@ const Item = (props: Props) => {
   }
 
   const handleAddToCart = async () => {
-    const body = {
-      selected,
-      handle: props.data.handle,
+    if(state?.setCartTotalQuantity && state.cartTotalQuantity) {
+      // spoof cart incrememnt
+      state.setCartTotalQuantity(state?.cartTotalQuantity + 1)
     }
-    console.log(JSON.stringify(body))
 
-    if(!localStorage.getItem('cartId')) {
+    if(!state?.cartId && !state?.cartTotalQuantity) {
+      // handle new cart
       const res = await fetch(`${SERVER_URL}/cart/create`, {
         method: 'POST',
         headers: {
@@ -66,9 +68,15 @@ const Item = (props: Props) => {
       })
 
       const data = await res.json()
-      localStorage.setItem('cartId', data?.id)
-      localStorage.setItem('cartTotalQuantity', data?.totalQuantity)
+      const { id, totalQuantity } = data
+      localStorage.setItem('cartId', id)
+      localStorage.setItem('cartTotalQuantity', totalQuantity)
+      state?.setCartId && state.setCartId(id as string)
+      state?.setCartTotalQuantity && state.setCartTotalQuantity(parseInt(totalQuantity as unknown as string))
     }
+
+    // state?.setCartId(state, localStorage.getItem('cartId'))
+    // state?.setCartTotalQuantity(state, parseInt(localStorage.getItem('cartTotalQuantity') as unknown as string))
   }
 
   const isValid = () => {

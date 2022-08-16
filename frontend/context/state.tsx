@@ -1,27 +1,41 @@
 import React from 'react'
 
-interface GlobalState {
-  cartId?: string
-  cartTotalQuantity?: string
+export interface GlobalState {
+  cartId?: string | null
+  setCartId: React.Dispatch<React.SetStateAction<string | null>> | null
+  cartTotalQuantity?: number
+  setCartTotalQuantity: React.Dispatch<React.SetStateAction<number>> | null
 }
 
-const GlobalContext = React.createContext<GlobalState>({})
+const initialState = {
+  cartId: null,
+  setCartId: null,
+  cartTotalQuantity: 0,
+  setCartTotalQuantity: null,
+}
 
-export const GlobalWrapper = ({ children }: { children: React.ReactNode }) => {
-  const state: GlobalState = {}
+const GlobalContext = React.createContext<GlobalState | null>(initialState)
+
+export const GlobalProvider = ({ children }: { children: React.ReactNode }) => {
+  const [cartId, setCartId] = React.useState<string | null>(null)
+  const [cartTotalQuantity, setCartTotalQuantity] = React.useState<number>(0)
+
+  const state = {
+    cartId, 
+    setCartId,
+    cartTotalQuantity,
+    setCartTotalQuantity,
+  }
 
   React.useEffect(() => {
-    window.addEventListener('storage', () => {
-      console.log('storage updated')
-      const cartId = localStorage.getItem('cartId')
-      const cartTotalQuantity = localStorage.getItem('cartTotalQuantity')
+    const localCartId = localStorage.getItem('cartId')
+    const localCartTotalQuantity = localStorage.getItem('cartTotalQuantity')
 
-      if(cartId && cartTotalQuantity) {
-        state.cartId = cartId
-        state.cartTotalQuantity = cartTotalQuantity
-      }
-    })
-  })
+    if(localCartId && localCartTotalQuantity) {
+      setCartId(localCartId)
+      setCartTotalQuantity(parseInt(localCartTotalQuantity as unknown as string))
+    }
+  }, [])
 
   return (
     <GlobalContext.Provider value={state}>
@@ -30,6 +44,6 @@ export const GlobalWrapper = ({ children }: { children: React.ReactNode }) => {
   )
 }
 
-export const useGlobalContext = () => {
+export const useGlobalState = () => {
   return React.useContext(GlobalContext)
 }
