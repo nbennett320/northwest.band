@@ -1,8 +1,8 @@
 import React from 'react'
 import Image from 'next/image'
-import { Product } from '../../types/product'
-import styles from './styles.module.scss'
 import Link from 'next/link'
+import { Product } from '@nw/types'
+import styles from './styles.module.scss'
 
 interface Props {
   product: Product

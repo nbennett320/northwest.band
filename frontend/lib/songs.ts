@@ -1,3 +1,4 @@
+import { makeKey } from '@nw/util'
 import songs from '../assets/data/Songs.json'
 
 export interface SongData {
@@ -8,11 +9,6 @@ export interface SongData {
   instrumental: boolean
   lyrics: string[]
 }
-
-const makeKey = (title: string) => title
-  .replace(/\s/g,'-')
-  .replace(/[.()]/g,'')
-  .toLowerCase()
 
 export const getAllSongPaths = () => (
   songs.map(e => ({ params: { id: makeKey(e.title) } }))

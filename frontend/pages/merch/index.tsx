@@ -1,11 +1,11 @@
 import React from 'react'
 import Head from 'next/head'
-import Navbar from '../components/navbar/Navbar'
-import ImageBlock from '../components/image-block/ImageBlock'
-import Footer from '../components/footer/Footer'
-import Card from './merch/Card'
-import { Product } from '../types/product'
-import { SERVER_URL } from '../env'
+import Navbar from '../../components/navbar/Navbar'
+import ImageBlock from '../../components/image-block/ImageBlock'
+import Footer from '../../components/footer/Footer'
+import Card from './Card'
+import { Product } from '@nw/types'
+import { SERVER_URL } from '../../env'
 import styles from './styles.module.scss'
 
 interface Props {

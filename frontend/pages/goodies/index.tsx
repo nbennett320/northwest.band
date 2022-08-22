@@ -1,9 +1,9 @@
 import React from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
-import Navbar from '../components/navbar/Navbar'
-import AnimatedBackground from '../components/animated/AnimatedBackground'
-import Footer from '../components/footer/Footer'
+import Navbar from '../../components/navbar/Navbar'
+import AnimatedBackground from '../../components/animated/AnimatedBackground'
+import Footer from '../../components/footer/Footer'
 import styles from './styles.module.scss'
 
 const Home = () => {

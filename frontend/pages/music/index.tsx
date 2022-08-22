@@ -1,9 +1,9 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import Navbar from '../components/navbar/Navbar'
-import Footer from '../components/footer/Footer'
-import Album from './music/Album'
-import { getAllMusicData, MusicData } from '../lib/music'
+import Navbar from '../../components/navbar/Navbar'
+import Footer from '../../components/footer/Footer'
+import Album from './Album'
+import { getAllMusicData, MusicData } from '../../lib/music'
 import styles from './styles.module.scss'
 
 interface Props {

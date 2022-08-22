@@ -2,7 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import Navbar from '../../../components/navbar/Navbar'
 import Footer from '../../../components/footer/Footer'
-import { Product } from '../../../types/product'
+import { Product } from '@nw/types'
 import styles from './styles.module.scss'
 
 interface Props {

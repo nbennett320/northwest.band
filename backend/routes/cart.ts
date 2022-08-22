@@ -1,5 +1,6 @@
 import express from 'express'
 import fetch from 'node-fetch'
+import { CartData, CreateCartResponse } from '@nw/types'
 import config from '../config.json'
 
 const router = express.Router()
@@ -90,6 +91,10 @@ router.post('/', async (req, res, next) => {
               amount
               currencyCode
             }
+            checkoutChargeAmount {
+              amount
+              currencyCode
+            }
           }
         }
       }
@@ -119,8 +124,9 @@ router.post('/', async (req, res, next) => {
       subtotalAmount: data?.data?.cart.cost.subtotalAmount,
       taxAmount: data?.data?.cart.cost.totalTaxAmount,
       dutyAmount: data?.data?.cart.cost.totalDutyAmount,
+      checkoutChargeAmount: data?.data?.cart.cost.checkoutChargeAmount,
     },
-  }
+  } as CartData
 
   res.send(cart)
 })
@@ -182,7 +188,7 @@ router.post('/create', async (req, res, next) => {
   const cart = { 
     id: cartData?.data?.cartCreate?.cart.id,
     totalQuantity: cartData?.data?.cartCreate?.cart.totalQuantity,
-  }
+  } as CreateCartResponse
   
   res.send(cart)
 })
