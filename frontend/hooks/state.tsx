@@ -47,9 +47,9 @@ export const GlobalProvider = ({ children }: { children: React.ReactNode }) => {
     }
   }, [])
 
-  React.useEffect(() => {
-    if(cartTotalQuantity === 0) setCartIdInternal(null)
-  }, [cartTotalQuantity])
+  // React.useEffect(() => {
+  //   if(cartTotalQuantity === 0) setCartIdInternal(null)
+  // }, [cartTotalQuantity])
 
   return (
     <GlobalContext.Provider value={state}>
