@@ -2,7 +2,7 @@ import { SelectedOption } from './common'
 import { ProductImage } from './product' 
 
 export interface CostAmount {
-  amount: number,
+  amount: string,
   currencyCode: string,
 }
 
