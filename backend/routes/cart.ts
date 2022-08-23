@@ -1,6 +1,6 @@
 import express from 'express'
 import fetch from 'node-fetch'
-import { CartData, CreateCartResponse } from '@nw/types'
+import { CartData, CreateCartResponse, RemoveCartResponse } from '@nw/types'
 import config from '../config.json'
 
 const router = express.Router()
@@ -24,6 +24,7 @@ router.post('/', async (req, res, next) => {
       error: true,
       message: "No cart id provided"
     })
+
     return
   }
 
@@ -160,8 +161,8 @@ router.post('/create', async (req, res, next) => {
   const cartQuery = await fetch(url, {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/graphql',
-      'X-Shopify-Storefront-Access-Token': config.access_token,
+      'content-type': 'application/graphql',
+      'x-shopify-storefront-access-token': config.access_token,
     },
     body: `
       mutation {
@@ -191,6 +192,93 @@ router.post('/create', async (req, res, next) => {
   } as CreateCartResponse
   
   res.send(cart)
+})
+
+router.post('/remove', async (req, res, next) => {
+  const cartId: string = req.body?.cartId
+  const lineId: string = req.body?.lineId
+
+  if(!cartId) { 
+    res.status(400).send({
+      error: true,
+      message: "No cart id provided",
+    })
+
+    return
+  }
+  
+  if(!lineId) {
+    res.status(400).send({
+      error: true,
+      message: "No cart line id provided",
+    })
+
+    return
+  }
+
+  const query = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/graphql',
+      'x-shopify-storefront-access-token': config.access_token,
+    },
+    body: `
+      mutation {
+        cartLinesRemove(
+          cartId: "${cartId}",
+          lineIds: ["${lineId}"]
+        ) {
+          cart {
+            totalQuantity
+            cost {
+              totalAmount {
+                amount
+                currencyCode
+              }
+              subtotalAmount {
+                amount
+                currencyCode
+              }
+              totalTaxAmount {
+                amount
+                currencyCode
+              }
+              totalDutyAmount {
+                amount
+                currencyCode
+              }
+              checkoutChargeAmount {
+                amount
+                currencyCode
+              }
+            }
+          }
+          userErrors {
+            code
+            field
+            message
+          }
+        }
+      }
+    `
+  })
+
+  const data = await query.json()
+  if(data?.data?.userErrors?.code) {
+    const { code, field, message } = data.data.userErrors
+
+    res.status(500).send({
+      error: true,
+      message: `Shopify error ${code} on ${field}: ${message}`
+    })
+  }
+
+  const updateData = {
+    totalQuantity: data?.data.cartLinesRemove.cart.totalQuantity,
+    cost: data?.data.cartLinesRemove.cart.cost,
+  } as RemoveCartResponse
+
+  res.send(updateData)
 })
 
 module.exports = router

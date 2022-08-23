@@ -45,6 +45,13 @@
   top: calc((8vh + 40px) * -1);
 }
 
+.cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100vw;
+}
+
 .card {
   display: flex;
   flex-direction: column;

@@ -1,6 +1,6 @@
 import React from 'react'
 import Head from 'next/head'
-import { Product } from '@nw/types'
+import { CreateCartResponse, Product } from '@nw/types'
 import { useGlobalState } from '../../../context/state'
 import { getAllProductPaths, getAllProductData } from '../../../lib/products'
 import Layout from './Layout'
@@ -67,10 +67,10 @@ const Item = (props: Props) => {
         }),
       })
 
-      const data = await res.json()
+      const data: CreateCartResponse = await res.json()
       const { id, totalQuantity } = data
       localStorage.setItem('cartId', id)
-      localStorage.setItem('cartTotalQuantity', totalQuantity)
+      localStorage.setItem('cartTotalQuantity', totalQuantity as unknown as string)
       state?.setCartId && state.setCartId(id as string)
       state?.setCartTotalQuantity && state.setCartTotalQuantity(parseInt(totalQuantity as unknown as string))
     }
