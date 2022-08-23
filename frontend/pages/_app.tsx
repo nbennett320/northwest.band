@@ -1,5 +1,5 @@
 import type { AppProps } from 'next/app'
-import { GlobalProvider } from '../context/state'
+import { GlobalProvider } from '../hooks/state'
 import '../styles/globals.scss'
 
 function MyApp({ Component, pageProps }: AppProps) {

@@ -21,8 +21,32 @@
   justify-content: start !important;
 }
 
+.item {
+  // height:
+}
+
+.items {
+  margin-top: -8vh;
+}
+
+.imgplaceholder {
+  height: 100px;
+  width: 100px;
+}
+
 @media (prefers-color-scheme: dark) {
   .cart { 
     background-color: #111;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 0 .5rem;
+    overflow: hidden;
+  }
+
+  .items {
+    margin-top: -8vh;
   }
 }

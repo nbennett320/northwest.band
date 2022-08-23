@@ -2,9 +2,9 @@ import React from 'react'
 
 export interface GlobalState {
   cartId?: string | null
-  setCartId: React.Dispatch<React.SetStateAction<string | null>> | null
+  setCartId: ((cartId: string) => void) | null
   cartTotalQuantity?: number
-  setCartTotalQuantity: React.Dispatch<React.SetStateAction<number>> | null
+  setCartTotalQuantity: ((cartTotalQuantity: number) => void) | null
 }
 
 const initialState = {
@@ -17,8 +17,18 @@ const initialState = {
 const GlobalContext = React.createContext<GlobalState | null>(initialState)
 
 export const GlobalProvider = ({ children }: { children: React.ReactNode }) => {
-  const [cartId, setCartId] = React.useState<string | null>(null)
-  const [cartTotalQuantity, setCartTotalQuantity] = React.useState<number>(0)
+  const [cartId, setCartIdInternal] = React.useState<string | null>(null)
+  const [cartTotalQuantity, setCartTotalQuantityInternal] = React.useState<number>(0)
+
+  const setCartId = (cartId: string) => {
+    setCartIdInternal(cartId)
+    localStorage.setItem('cartId', cartId)
+  }
+
+  const setCartTotalQuantity = (val: number) => {
+    setCartTotalQuantityInternal(val)
+    localStorage.setItem('cartTotalQuantity', val as unknown as string)
+  }
 
   const state = {
     cartId, 
@@ -32,10 +42,14 @@ export const GlobalProvider = ({ children }: { children: React.ReactNode }) => {
     const localCartTotalQuantity = localStorage.getItem('cartTotalQuantity')
 
     if(localCartId && localCartTotalQuantity) {
-      setCartId(localCartId)
-      setCartTotalQuantity(parseInt(localCartTotalQuantity as unknown as string))
+      setCartIdInternal(localCartId)
+      setCartTotalQuantityInternal(parseInt(localCartTotalQuantity as unknown as string))
     }
   }, [])
+
+  // React.useEffect(() => {
+  //   if(cartTotalQuantity === 0) setCartIdInternal(null)
+  // }, [cartTotalQuantity])
 
   return (
     <GlobalContext.Provider value={state}>

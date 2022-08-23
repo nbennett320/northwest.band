@@ -1,7 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
-import { CreateCartResponse, Product } from '@nw/types'
-import { useGlobalState } from '../../../context/state'
+import { AddCartResponse, CreateCartResponse, Product } from '@nw/types'
+import { useGlobalState } from '../../../hooks/state'
 import { getAllProductPaths, getAllProductData } from '../../../lib/products'
 import Layout from './Layout'
 import ImagePreview from './ImagePreview'
@@ -69,9 +69,25 @@ const Item = (props: Props) => {
 
       const data: CreateCartResponse = await res.json()
       const { id, totalQuantity } = data
-      localStorage.setItem('cartId', id)
-      localStorage.setItem('cartTotalQuantity', totalQuantity as unknown as string)
       state?.setCartId && state.setCartId(id as string)
+      state?.setCartTotalQuantity && state.setCartTotalQuantity(parseInt(totalQuantity as unknown as string))
+    } else if(state?.cartId && state?.cartTotalQuantity) {
+      // handle add to cart by updating existing cart
+      const res = await fetch(`${SERVER_URL}/cart/add`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': SERVER_URL,
+        },
+        body: JSON.stringify({
+          selected,
+          handle: props.data.handle,
+          cartId: state.cartId,
+        }),
+      })
+
+      const data: AddCartResponse = await res.json()
+      const { totalQuantity } = data
       state?.setCartTotalQuantity && state.setCartTotalQuantity(parseInt(totalQuantity as unknown as string))
     }
 

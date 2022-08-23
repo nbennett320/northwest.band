@@ -44,7 +44,7 @@ const Song = (props: Props) => {
       </Head>
 
       <div>
-        <h1 className={styles.title}>
+        <h1 className={`${styles.title} font-sans`}>
           {props.data.title.toLowerCase()}
         </h1>
         <span>

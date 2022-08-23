@@ -15,7 +15,6 @@ interface Props {
 export const getServerSideProps = async (): Promise<{ props: Props }> => {
   const res = await fetch(`${SERVER_URL}/products`)
   const data = await res.json()
-  console.log("returned data: ", data)
   
   return { 
     props: {
@@ -25,8 +24,6 @@ export const getServerSideProps = async (): Promise<{ props: Props }> => {
 }
 
 const Merch = (props: Props) => {
-  console.log(props.data)
-
   return (
     <div className={`${styles.container} ${styles.merch}`}>
       <Head>

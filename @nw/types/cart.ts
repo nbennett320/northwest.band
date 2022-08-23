@@ -2,7 +2,7 @@ import { SelectedOption } from './common'
 import { ProductImage } from './product' 
 
 export interface CostAmount {
-  amount: number,
+  amount: string,
   currencyCode: string,
 }
 
@@ -37,7 +37,11 @@ export interface CreateCartResponse {
   totalQuantity: number,
 }
 
-export interface RemoveCartResponse {
+export interface UpdateCartResponse {
   totalQuantity: number,
   cost: CartCostData,
 }
+
+export interface RemoveCartResponse extends UpdateCartResponse {}
+
+export interface AddCartResponse extends UpdateCartResponse {}

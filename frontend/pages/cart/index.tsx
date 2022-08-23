@@ -3,12 +3,12 @@ import Head from 'next/head'
 import Link from 'next/link'
 import Image from 'next/image'
 import { CartData, CartDataItem, RemoveCartResponse } from '@nw/types'
+import { useGlobalState } from '../../hooks/state'
 import Navbar from '../../components/navbar/Navbar'
 import ImageBlock from '../../components/image-block/ImageBlock'
 import Footer from '../../components/footer/Footer'
 import { SERVER_URL } from '../../env'
 import styles from './styles.module.scss'
-import { useGlobalState } from '../../context/state'
 
 interface Props {
 
@@ -20,7 +20,7 @@ const Cart = (props: Props) => {
 
   React.useEffect(() => {
     const getData = async () => {
-      const cartId = localStorage.getItem('cartId')
+      const cartId = state?.cartId
       const res = await fetch(`${SERVER_URL}/cart`, {
         method: 'POST',
         headers: {
@@ -38,11 +38,18 @@ const Cart = (props: Props) => {
       setData(updateData)
     }
 
-    getData()
-  }, [])
+    if(state?.cartId) getData()
+  }, [state?.cartId])
 
   const removeItem = async (item: CartDataItem, idx: number) => {
-    const cartId = localStorage.getItem('cartId')
+    if(state?.setCartTotalQuantity && state.cartTotalQuantity) {
+      // spoof cart decrememnt
+      if(state?.cartTotalQuantity - 1 > 0) {
+        state.setCartTotalQuantity(state?.cartTotalQuantity - 1)
+      }
+    }
+
+    const cartId = state?.cartId
     const lineId = item.cartLineId
 
     const res = await fetch(`${SERVER_URL}/cart/remove`, {
@@ -94,13 +101,13 @@ const Cart = (props: Props) => {
         <ImageBlock />
 
         {data ? (
-          <div className='w-full'>
+          <div className={`${styles.items} w-full`}>
             <div className='w-full'>
               {/* cart item row */}
-              {data?.items.map((item, idx) => (
+              {data?.items && data?.items.map((item, idx) => (
                 <div 
                   key={item.cartLineId}
-                  className='w-full row border-b pb-4'
+                  className={`${styles.item} w-full row border-b pb-4 h-32`}
                 >
                   <div className='flex justify-center items-center p-1'>
                     <Image 
@@ -153,8 +160,8 @@ const Cart = (props: Props) => {
             </div>
 
             {/* bottom */}
-            <div className='ml-auto mr-4 w-32 pt-4'>
-              <div className='col w-32'>
+            <div className='ml-auto mr-4 w-64 pt-4'>
+              <div className='col ml-auto w-32'>
                 <span className='text-xs text-gray-500 text-right'>
                   subtotal
                 </span>
@@ -162,19 +169,88 @@ const Cart = (props: Props) => {
                   ${parseFloat(data?.cost?.subtotalAmount.amount).toFixed(2)}
                 </span>
               </div>
-              <div className='col w-32'>
+              <div className='col ml-auto w-32'>
                 <span className='text-xs text-gray-500 text-right'>
                   total
                 </span>
                 <span className='text-right'>
-                  ${parseFloat(data?.cost?.totalAmount.amount).toFixed(2)}
+                  ${parseFloat(data?.cost?.checkoutChargeAmount.amount).toFixed(2)}
                 </span>
+              </div>
+
+              <div className='col w-64 mt-8 ml-auto'>
+                <a 
+                  href={data.checkoutUrl}
+                  type='button'
+                  className='inline-block cursor-pointer text-center ml-auto w-48 px-6 py-2.5 border border-gray-300 shadow-sm text-gray-700 text-xs font-bold leading-tight rounded hover:bg-gray-50 hover:shadow-lg focus:ring-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:shadow-md active:bg-gray-200 active:shadow-md transition duration-150 ease-in-out'
+                >
+                  checkout
+                </a>
               </div>
             </div>
           </div>
         ) : (
-          <div>
-            loading...
+          <div className={`${styles.items} w-full`}>
+            <div className='w-full'>
+              {/* page skelleton */}
+              {[...Array(state?.cartTotalQuantity).keys()].map(el => (
+                <div key={el} className={`${styles.item} w-full row border-b pb-4 h-32`}>
+                  {/* spoof image */}
+                  <div className='flex justify-center items-center p-1'>
+                    <div className={`${styles.imgplaceholder} bg-gray-100 rounded-sm`} />
+                  </div>
+
+                  <div className='ml-4'>
+                    {/* spoof title */}
+                    <h3 className='w-64 h-7 text-lg'>
+                      <a className='w-full bg-gray-100 text-gray-100 rounded-sm'>
+                        loading loading loading
+                      </a>
+                    </h3>
+
+                    {/* spoof item details */}
+                    <div>
+                      <ul>
+                        <li className='text-sm bg-gray-100 text-gray-100 rounded-sm'>
+                          loading: loading
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  {/* spoof price */}
+                  <div className='ml-auto mr-4 mt-0 mb-auto items-center col'>
+                    <span className='bg-gray-100 text-gray-100 rounded-sm'>
+                      $lo.ad
+                    </span>
+
+                    <span className='h-4 mt-0.5 text-xs ml-auto mb-0 bg-gray-100 text-gray-100 rounded-sm'>
+                      remove
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* bottom */}
+            {/* <div className='ml-auto mr-4 w-32 pt-4'>
+              <div className='col w-32'>
+                <span className='text-xs text-gray-100 bg-gray-100 text-right'>
+                  subtotal
+                </span>
+                <span className='ml-auto w-16 text-right bg-gray-100 text-gray-100'>
+                  $lo.ad
+                </span>
+              </div>
+              <div className='col w-32'>
+                <span className='text-xs text-gray-100 bg-gray-100 text-right'>
+                  total
+                </span>
+                <span className='ml-auto w-16 text-right bg-gray-100 text-gray-100'>
+                  $lo.ad
+                </span>
+              </div>
+            </div> */}
           </div>
         )}
       </main>
