@@ -20,7 +20,7 @@ const Cart = (props: Props) => {
 
   React.useEffect(() => {
     const getData = async () => {
-      const cartId = localStorage.getItem('cartId')
+      const cartId = state?.cartId
       const res = await fetch(`${SERVER_URL}/cart`, {
         method: 'POST',
         headers: {
@@ -38,11 +38,11 @@ const Cart = (props: Props) => {
       setData(updateData)
     }
 
-    getData()
-  }, [])
+    if(state?.cartId) getData()
+  }, [state?.cartId])
 
   const removeItem = async (item: CartDataItem, idx: number) => {
-    const cartId = localStorage.getItem('cartId')
+    const cartId = state?.cartId
     const lineId = item.cartLineId
 
     const res = await fetch(`${SERVER_URL}/cart/remove`, {
@@ -97,10 +97,10 @@ const Cart = (props: Props) => {
           <div className='w-full'>
             <div className='w-full'>
               {/* cart item row */}
-              {data?.items.map((item, idx) => (
+              {data?.items && data?.items.map((item, idx) => (
                 <div 
                   key={item.cartLineId}
-                  className='w-full row border-b pb-4'
+                  className={`${styles.item} w-full row border-b pb-4 h-32`}
                 >
                   <div className='flex justify-center items-center p-1'>
                     <Image 
@@ -173,8 +173,46 @@ const Cart = (props: Props) => {
             </div>
           </div>
         ) : (
-          <div>
-            loading...
+          <div className='w-full'>
+            <div className='w-full'>
+              {/* page skelleton */}
+              {[...Array(state?.cartTotalQuantity).keys()].map(el => (
+                <div key={el} className={`${styles.item} w-full row border-b pb-4 h-32`}>
+                  {/* spoof image */}
+                  <div className='flex justify-center items-center p-1'>
+                    <div className={`${styles.imgplaceholder} bg-gray-100 rounded-sm`} />
+                  </div>
+
+                  <div className='ml-4'>
+                    {/* spoof title */}
+                    <h3 className='w-64 h-7 text-lg'>
+                      <a className='w-full bg-gray-100 text-gray-100 rounded-sm'>
+                        loading loading loading
+                      </a>
+                    </h3>
+
+                    <div>
+                      <ul>
+                        <li className='text-sm bg-gray-100 text-gray-100 rounded-sm'>
+                          loading: loading
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div className='ml-auto mr-4 mt-0 mb-auto items-center col'>
+                    <span className='bg-gray-100 text-gray-100 rounded-sm'>
+                      $lo.ad
+                    </span>
+
+                    <span className='h-4 mt-0.5 text-xs ml-auto mb-0 bg-gray-100 text-gray-100 rounded-sm'>
+                      remove
+                    </span>
+                  </div>
+                </div>
+              ))}
+              {/* loading... */}
+            </div>
           </div>
         )}
       </main>

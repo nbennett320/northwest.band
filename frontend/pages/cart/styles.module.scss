@@ -21,6 +21,15 @@
   justify-content: start !important;
 }
 
+.item {
+  // height:
+}
+
+.imgplaceholder {
+  height: 100px;
+  width: 100px;
+}
+
 @media (prefers-color-scheme: dark) {
   .cart { 
     background-color: #111;
