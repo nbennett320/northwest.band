@@ -1,10 +1,10 @@
 import React from 'react'
-import { useGlobalState } from '../../context/state'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useGlobalState } from '../../hooks/state'
 import ShoppingBag from '../icons/ShoppingBag'
-import styles from './styles.module.scss'
 import HeaderLogo from '../../public/images/nwStarLogoBlack_407x128.png'
+import styles from './styles.module.scss'
 
 interface Props {
   href?: string

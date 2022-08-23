@@ -3,12 +3,12 @@ import Head from 'next/head'
 import Link from 'next/link'
 import Image from 'next/image'
 import { CartData, CartDataItem, RemoveCartResponse } from '@nw/types'
+import { useGlobalState } from '../../hooks/state'
 import Navbar from '../../components/navbar/Navbar'
 import ImageBlock from '../../components/image-block/ImageBlock'
 import Footer from '../../components/footer/Footer'
 import { SERVER_URL } from '../../env'
 import styles from './styles.module.scss'
-import { useGlobalState } from '../../context/state'
 
 interface Props {
 
