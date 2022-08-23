@@ -374,8 +374,6 @@ router.post('/add', async (req, res, next) => {
     return
   }
 
-  console.log("updated cart data: ", cartData)
-
   const updateData = {
     totalQuantity: cartData?.data.cartLinesAdd.cart.totalQuantity,
     cost: cartData?.data.cartLinesAdd.cart.cost,

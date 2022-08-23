@@ -69,14 +69,10 @@ const Item = (props: Props) => {
 
       const data: CreateCartResponse = await res.json()
       const { id, totalQuantity } = data
-      // localStorage.setItem('cartId', id)
-      // localStorage.setItem('cartTotalQuantity', totalQuantity as unknown as string)
       state?.setCartId && state.setCartId(id as string)
       state?.setCartTotalQuantity && state.setCartTotalQuantity(parseInt(totalQuantity as unknown as string))
     } else if(state?.cartId && state?.cartTotalQuantity) {
       // handle add to cart by updating existing cart
-      console.log('adding to existing')
-
       const res = await fetch(`${SERVER_URL}/cart/add`, {
         method: 'POST',
         headers: {
@@ -92,7 +88,6 @@ const Item = (props: Props) => {
 
       const data: AddCartResponse = await res.json()
       const { totalQuantity } = data
-      // localStorage.setItem('cartTotalQuantity', totalQuantity as unknown as string)
       state?.setCartTotalQuantity && state.setCartTotalQuantity(parseInt(totalQuantity as unknown as string))
     }
 

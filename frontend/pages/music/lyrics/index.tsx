@@ -20,8 +20,6 @@ export const getStaticProps = (): { props: Props } => {
 }
 
 const Lyrics = (props: Props) => {
-  console.log(props)
-
   return (
     <div className={`${styles.container} ${styles.music}`}>
       <Head>
