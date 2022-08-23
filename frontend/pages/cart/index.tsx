@@ -42,6 +42,13 @@ const Cart = (props: Props) => {
   }, [state?.cartId])
 
   const removeItem = async (item: CartDataItem, idx: number) => {
+    if(state?.setCartTotalQuantity && state.cartTotalQuantity) {
+      // spoof cart decrememnt
+      if(state?.cartTotalQuantity - 1 > 0) {
+        state.setCartTotalQuantity(state?.cartTotalQuantity - 1)
+      }
+    }
+
     const cartId = state?.cartId
     const lineId = item.cartLineId
 
@@ -94,7 +101,7 @@ const Cart = (props: Props) => {
         <ImageBlock />
 
         {data ? (
-          <div className='w-full'>
+          <div className={`${styles.items} w-full`}>
             <div className='w-full'>
               {/* cart item row */}
               {data?.items && data?.items.map((item, idx) => (
@@ -153,8 +160,8 @@ const Cart = (props: Props) => {
             </div>
 
             {/* bottom */}
-            <div className='ml-auto mr-4 w-32 pt-4'>
-              <div className='col w-32'>
+            <div className='ml-auto mr-4 w-64 pt-4'>
+              <div className='col ml-auto w-32'>
                 <span className='text-xs text-gray-500 text-right'>
                   subtotal
                 </span>
@@ -162,18 +169,28 @@ const Cart = (props: Props) => {
                   ${parseFloat(data?.cost?.subtotalAmount.amount).toFixed(2)}
                 </span>
               </div>
-              <div className='col w-32'>
+              <div className='col ml-auto w-32'>
                 <span className='text-xs text-gray-500 text-right'>
                   total
                 </span>
                 <span className='text-right'>
-                  ${parseFloat(data?.cost?.totalAmount.amount).toFixed(2)}
+                  ${parseFloat(data?.cost?.checkoutChargeAmount.amount).toFixed(2)}
                 </span>
+              </div>
+
+              <div className='col w-64 mt-8 ml-auto'>
+                <a 
+                  href={data.checkoutUrl}
+                  type='button'
+                  className='inline-block cursor-pointer text-center ml-auto w-48 px-6 py-2.5 border border-gray-300 shadow-sm text-gray-700 text-xs font-bold leading-tight rounded hover:bg-gray-50 hover:shadow-lg focus:ring-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:shadow-md active:bg-gray-200 active:shadow-md transition duration-150 ease-in-out'
+                >
+                  checkout
+                </a>
               </div>
             </div>
           </div>
         ) : (
-          <div className='w-full'>
+          <div className={`${styles.items} w-full`}>
             <div className='w-full'>
               {/* page skelleton */}
               {[...Array(state?.cartTotalQuantity).keys()].map(el => (
@@ -191,6 +208,7 @@ const Cart = (props: Props) => {
                       </a>
                     </h3>
 
+                    {/* spoof item details */}
                     <div>
                       <ul>
                         <li className='text-sm bg-gray-100 text-gray-100 rounded-sm'>
@@ -200,6 +218,7 @@ const Cart = (props: Props) => {
                     </div>
                   </div>
 
+                  {/* spoof price */}
                   <div className='ml-auto mr-4 mt-0 mb-auto items-center col'>
                     <span className='bg-gray-100 text-gray-100 rounded-sm'>
                       $lo.ad
@@ -211,8 +230,27 @@ const Cart = (props: Props) => {
                   </div>
                 </div>
               ))}
-              {/* loading... */}
             </div>
+
+            {/* bottom */}
+            {/* <div className='ml-auto mr-4 w-32 pt-4'>
+              <div className='col w-32'>
+                <span className='text-xs text-gray-100 bg-gray-100 text-right'>
+                  subtotal
+                </span>
+                <span className='ml-auto w-16 text-right bg-gray-100 text-gray-100'>
+                  $lo.ad
+                </span>
+              </div>
+              <div className='col w-32'>
+                <span className='text-xs text-gray-100 bg-gray-100 text-right'>
+                  total
+                </span>
+                <span className='ml-auto w-16 text-right bg-gray-100 text-gray-100'>
+                  $lo.ad
+                </span>
+              </div>
+            </div> */}
           </div>
         )}
       </main>

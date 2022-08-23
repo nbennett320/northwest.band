@@ -13,6 +13,10 @@
   padding: 2rem;
 }
 
+.albums {
+  margin-top: 8rem;
+}
+
 .grid {
   display: flex;
   justify-content: center;
@@ -75,5 +79,9 @@
 
   .cards {
     width: 100%;
+  }
+  
+  .albums {
+    margin-top: 6rem;
   }
 }

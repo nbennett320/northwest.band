@@ -1,6 +1,6 @@
 import express from 'express'
 import fetch from 'node-fetch'
-import { CartData, CreateCartResponse, RemoveCartResponse } from '@nw/types'
+import { AddCartResponse, CartData, CreateCartResponse, RemoveCartResponse } from '@nw/types'
 import config from '../config.json'
 
 const router = express.Router()
@@ -170,7 +170,7 @@ router.post('/create', async (req, res, next) => {
           input: {
             lines: [
               {
-                quantity:1,
+                quantity: 1,
                 merchandiseId: "${variantId}"
               }
             ]
@@ -271,12 +271,115 @@ router.post('/remove', async (req, res, next) => {
       error: true,
       message: `Shopify error ${code} on ${field}: ${message}`
     })
+
+    return
   }
 
   const updateData = {
     totalQuantity: data?.data.cartLinesRemove.cart.totalQuantity,
     cost: data?.data.cartLinesRemove.cart.cost,
   } as RemoveCartResponse
+
+  res.send(updateData)
+})
+
+router.post('/add', async (req, res, next) => {
+  const cartId: string = req.body?.cartId
+  const itemHandle: string = req.body?.handle
+  const selectedOptions = Object.values(req.body?.selected).map(val => ({
+    name: (val as SelectedOption)?.data?.optionName,
+    value: (val as SelectedOption)?.value
+  }))
+  const selectedOptionsJson = JSON.stringify(selectedOptions).replace(/"([^"]+)":/g, '$1:')
+  const variantQuery = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/graphql',
+      'X-Shopify-Storefront-Access-Token': config.access_token,
+    },
+    body: `
+      {
+        product(handle: "${itemHandle}") {
+          variantBySelectedOptions(selectedOptions: ${selectedOptionsJson}) {
+            id
+          }
+        }
+      }
+    `
+  })
+
+  const variantData = await variantQuery?.json()
+  const variantId = variantData?.data?.product?.variantBySelectedOptions?.id
+  const cartQuery = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/graphql',
+      'X-Shopify-Storefront-Access-Token': config.access_token,
+    },
+    body: `
+      mutation {
+        cartLinesAdd(
+          cartId: "${cartId}",
+          lines: [
+            {
+              quantity: 1,
+              merchandiseId: "${variantId}"
+            }
+          ]
+        ) {
+          cart {
+            totalQuantity
+            cost {
+              totalAmount {
+                amount
+                currencyCode
+              }
+              subtotalAmount {
+                amount
+                currencyCode
+              }
+              totalTaxAmount {
+                amount
+                currencyCode
+              }
+              totalDutyAmount {
+                amount
+                currencyCode
+              }
+              checkoutChargeAmount {
+                amount
+                currencyCode
+              }
+            }
+          }
+          userErrors {
+            code
+            field
+            message
+          }
+        }
+      }
+    `
+  })
+
+  const cartData = await cartQuery.json()
+  if(cartData?.data?.userErrors?.code) {
+    const { code, field, message } = cartData.data.userErrors
+
+    res.status(500).send({
+      error: true,
+      message: `Shopify error ${code} on ${field}: ${message}`
+    })
+
+    return
+  }
+
+  console.log("updated cart data: ", cartData)
+
+  const updateData = {
+    totalQuantity: cartData?.data.cartLinesAdd.cart.totalQuantity,
+    cost: cartData?.data.cartLinesAdd.cart.cost,
+  } as AddCartResponse
 
   res.send(updateData)
 })

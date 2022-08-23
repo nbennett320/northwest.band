@@ -37,7 +37,11 @@ export interface CreateCartResponse {
   totalQuantity: number,
 }
 
-export interface RemoveCartResponse {
+export interface UpdateCartResponse {
   totalQuantity: number,
   cost: CartCostData,
 }
+
+export interface RemoveCartResponse extends UpdateCartResponse {}
+
+export interface AddCartResponse extends UpdateCartResponse {}
