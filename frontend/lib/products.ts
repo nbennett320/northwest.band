@@ -1,5 +1,5 @@
 import { SERVER_URL } from '../env'
-import { Product } from '../types/product'
+import { Product } from '@nw/types'
 
 export const getAllProductPaths = async ():
 Promise<{ params: { handle: string } }[]> => {

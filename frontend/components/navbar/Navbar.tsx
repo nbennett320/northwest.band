@@ -1,5 +1,5 @@
 import React from 'react'
-import { useGlobalContext } from '../../context/state'
+import { useGlobalState } from '../../context/state'
 import Image from 'next/image'
 import Link from 'next/link'
 import ShoppingBag from '../icons/ShoppingBag'
@@ -11,13 +11,8 @@ interface Props {
 }
 
 const Navbar = (props: Props) => {
-  const state = useGlobalContext()
+  const state = useGlobalState()
   const [hover, setHover] = React.useState<boolean>(false)
-  const [phantom, setPhantom] = React.useState<number>(0)
-
-  React.useEffect(() => {
-    setPhantom(phantom + 1)
-  }, [])
 
   return (
     <nav className={styles.navbar}>

@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import { ProductImage } from '../../../types/product'
+import { ProductImage } from '@nw/types'
 import styles from './styles.module.scss'
 
 interface Props {

@@ -1,27 +1,16 @@
-@import '../styles/variables.scss';
-
 .container {
   padding: 0 2rem;
   overflow: hidden;
 }
 
-.home {
-  background-color: $pink;
-}
-
-.content {
-  transform: scale(0.85);
+.goodies {
+  background-color: salmon;
 }
 
 @media (prefers-color-scheme: dark) {
-  .home {
-    background-color: rgb(2, 0, 36);
-    background: linear-gradient(0deg, rgba(2, 0, 36, 1) 0%, rgba(36, 11, 109, 1) 33%, rgba(0, 4, 154, 1) 100%);
+  .goodies {
+    background-color: darkslateblue;
   }
-}
-
-.flextop { 
-  justify-content: start !important;
 }
 
 .main {
@@ -41,14 +30,8 @@
   max-width: 800px;
 }
 
-.flexreverse {
-  display: flex;
-  flex-wrap: wrap-reverse;
-}
-
-.fullwidth {
-  max-width: 100vw;
-  width: 100vw;
+.content {
+  transform: scale(0.85);
 }
 
 @media (max-width: 600px) {
@@ -67,10 +50,8 @@
   .fullwidth > div {
     width: 100% !important;
   }
-}
 
-@media (prefers-color-scheme: dark) {
-  .code {
-    background: #111;
+  .cards {
+    width: 100%;
   }
 }

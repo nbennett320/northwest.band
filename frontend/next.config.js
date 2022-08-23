@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+
+const withTM = require('next-transpile-modules')(['@nw'])
+
+const nextConfig = withTM({
   reactStrictMode: false,
   swcMinify: true,
   images: {
@@ -17,6 +20,6 @@ const nextConfig = {
       permanent: false,
     }
   ]
-}
+})
 
 module.exports = nextConfig

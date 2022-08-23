@@ -1,0 +1,28 @@
+.container {
+  padding: 0 2rem;
+  overflow: hidden;
+}
+
+.cart {
+  background-color: white;
+}
+
+.main {
+  min-height: 100vh;
+  padding: 4rem 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.flextop { 
+  justify-content: start !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  .cart { 
+    background-color: #111;
+  }
+}

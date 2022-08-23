@@ -1,10 +1,6 @@
+import { makeKey } from '@nw/util'
 import albums from '../assets/data/Albums.json'
 import songs from '../assets/data/Songs.json'
-
-const makeKey = (title: string) => title
-  .replace(/\s/g,'-')
-  .replace(/[.()]/g,'')
-  .toLowerCase()
 
 export interface SongData {
   key: string

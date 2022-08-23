@@ -1,8 +1,8 @@
 export interface ProductImage {
   url: string
   altText?: string
-  height: number
-  width: number
+  height?: number
+  width?: number
 }
 
 export interface ProductOption {
