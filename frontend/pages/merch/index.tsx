@@ -4,18 +4,18 @@ import Navbar from '../../components/navbar/Navbar'
 import ImageBlock from '../../components/image-block/ImageBlock'
 import Footer from '../../components/footer/Footer'
 import Card from './Card'
-import { Product } from '@nw/types'
+import { ProductListing } from '@nw/types'
 import { SERVER_URL } from '../../env'
 import styles from './styles.module.scss'
 
 interface Props {
-  data: Record<string, any>
+  data: Array<ProductListing>
 }
 
-export const getServerSideProps = async (): Promise<{ props: Props }> => {
+export const getStaticProps = async () => {
   const res = await fetch(`${SERVER_URL}/products`)
   const data = await res.json()
-  
+
   return { 
     props: {
       data
@@ -45,7 +45,7 @@ const Merch = (props: Props) => {
 
         <div className={`${styles.grid} ${styles.fullwidth} ${styles.merchgrid} mt-0`}>
           <div className={styles.cards}>
-            {props.data && props.data.map((el: Product, idx: number) => (
+            {props.data && props.data.map((el: ProductListing, idx: number) => (
               <Card 
                 key={el.id}
                 product={el} 

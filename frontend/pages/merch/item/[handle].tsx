@@ -1,6 +1,6 @@
 import React from 'react'
 import Head from 'next/head'
-import { AddCartResponse, CreateCartResponse, Product } from '@nw/types'
+import { AddCartResponse, CreateCartResponse, ProductData } from '@nw/types'
 import { useGlobalState } from '../../../hooks/state'
 import { getAllProductPaths, getAllProductData } from '../../../lib/products'
 import Layout from './Layout'
@@ -32,7 +32,7 @@ export const getStaticProps = async (
 }
 
 interface Props {
-  data: Product
+  data: ProductData
 }
 
 const Item = (props: Props) => {
@@ -125,13 +125,15 @@ const Item = (props: Props) => {
           </div>
 
           <div className={`pt-4 col ${styles.block}`}>
-            <h1 className={styles.title}>
-              {props.data.title.toLowerCase()}
-            </h1>
+            <div className='h-64 pl-4 pr-4'>
+              <h1 className={styles.title}>
+                {props.data.title.toLowerCase()}
+              </h1>
 
-            <span className={styles.price}>
-              ${parseInt(props.data.price as unknown as string)}
-            </span>
+              <span className={styles.price}>
+                ${parseInt(props.data.price as unknown as string)}
+              </span>
+            </div>
 
             <div className='w-full col items-center mt-2 mb-2'>
               {props.data.options?.map(option => (
@@ -164,6 +166,12 @@ const Item = (props: Props) => {
               </div>
             </div>
           </div>
+        </div>
+
+        <div className={`${styles.description} ml-auto mr-auto mt-8 mb-8 border-t-[1px] border-t-gray-200 border-solid`}>
+          <p className='ml-2 mr-2 mt-4 mb-4'>
+            {props.data.description.toLowerCase()}
+          </p>
         </div>
       </div>
     </Layout>

@@ -11,10 +11,21 @@ export interface ProductOption {
   values: string[]
 }
 
-export interface Product {
+export interface ProductListing {
   id: string
   handle: string
   title: string
+  productType?: string
+  price: number
+  images: [ProductImage]
+  options?: [ProductOption]
+}
+
+export interface ProductData {
+  id: string
+  handle: string
+  title: string
+  description: string
   productType?: string
   price: number
   images: [ProductImage]

@@ -1,5 +1,5 @@
 import { SERVER_URL } from '../env'
-import { Product } from '@nw/types'
+import { ProductData } from '@nw/types'
 
 export const getAllProductPaths = async ():
 Promise<{ params: { handle: string } }[]> => {
@@ -12,7 +12,7 @@ Promise<{ params: { handle: string } }[]> => {
 // get all static data for an individual product
 export const getAllProductData = async (handle: string) => {
   const res = await fetch(`${SERVER_URL}/products/item/${handle}`)
-  const data: Product = await res.json()
+  const data: ProductData = await res.json()
 
   return data
 }

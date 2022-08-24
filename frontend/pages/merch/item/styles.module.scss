@@ -34,7 +34,6 @@
 }
 
 .title {
-  margin-left: 1rem;
   line-height: 1.2;
   letter-spacing: -0.00833em;
   font-weight: 300;
@@ -42,7 +41,6 @@
 }
 
 .price {
-  margin-left: 1rem;
   letter-spacing: -0.00833em;
   font-weight: 300;
   font-size: 1.5rem;
@@ -72,6 +70,10 @@
   }
 }
 
+.description {
+  width: 95%;
+}
+
 // mobile
 @media (max-width: 600px) {
   .item {
@@ -86,5 +88,9 @@
     max-width: 80vw;
     max-height: 80vw;
     align-self: center;
+  }
+
+  .description {
+    width: 90%;
   }
 }

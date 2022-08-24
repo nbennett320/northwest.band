@@ -1,6 +1,7 @@
 import express from 'express'
 import fetch from 'node-fetch'
 import config from '../config.json'
+import { ProductData, ProductListing } from '@nw/types'
 
 const router = express.Router()
 const url = `https://${config.store_name}.myshopify.com/api/2022-07/graphql.json`
@@ -45,7 +46,7 @@ router.get('/', async (req, res, next) => {
   })
 
   const data = await query.json()
-  const products = data?.data?.products?.edges?.map((edge: any) => ({
+  const products: Array<ProductListing> = data?.data?.products?.edges?.map((edge: any) => ({
     id: edge.node?.id,
     handle: edge.node?.handle,
     title: edge.node?.title,
@@ -106,6 +107,7 @@ router.get('/item/:handle', async (req, res, next) => {
           id
           handle
           title
+          description
           productType
           priceRange {
             minVariantPrice {
@@ -134,10 +136,11 @@ router.get('/item/:handle', async (req, res, next) => {
   })
 
   const data = await query.json()
-  const product = {
+  const product: ProductData = {
     id: data?.data?.product?.id,
     handle: data?.data?.product?.handle,
     title: data?.data?.product?.title,
+    description: data?.data?.product?.description,
     productType: data?.data?.product?.data?.productType,
     price: data?.data?.product?.priceRange.minVariantPrice?.amount,
     images: data?.data?.product?.images?.edges?.map((image: any) => ({
