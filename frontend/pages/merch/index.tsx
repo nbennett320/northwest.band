@@ -12,10 +12,10 @@ interface Props {
   data: Record<string, any>
 }
 
-export const getServerSideProps = async (): Promise<{ props: Props }> => {
+export const getStaticProps = async () => {
   const res = await fetch(`${SERVER_URL}/products`)
   const data = await res.json()
-  
+
   return { 
     props: {
       data

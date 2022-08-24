@@ -190,10 +190,20 @@ const Cart = (props: Props) => {
                 </div>
               </div>
             ) : (
-              <div className='w-64'>
-                <span className='text-md'>
+              <div className='w-full flex col ml-auto mr-auto'>
+                <span className='text-md text-center ml-auto mr-auto'>
                   your cart is empty!!
                 </span>
+                <div className='ml-auto mr-auto mt-6'>
+                  <Link href={'/merch'} passHref>
+                    <Button 
+                      element='a'
+                      className='text-center'
+                    >
+                      back to the store
+                    </Button>
+                  </Link>
+                </div>
               </div>
             )}
           </div>

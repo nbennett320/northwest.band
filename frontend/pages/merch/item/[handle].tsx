@@ -125,13 +125,15 @@ const Item = (props: Props) => {
           </div>
 
           <div className={`pt-4 col ${styles.block}`}>
-            <h1 className={styles.title}>
-              {props.data.title.toLowerCase()}
-            </h1>
+            <div className='h-64 pl-4 pr-4'>
+              <h1 className={styles.title}>
+                {props.data.title.toLowerCase()}
+              </h1>
 
-            <span className={styles.price}>
-              ${parseInt(props.data.price as unknown as string)}
-            </span>
+              <span className={styles.price}>
+                ${parseInt(props.data.price as unknown as string)}
+              </span>
+            </div>
 
             <div className='w-full col items-center mt-2 mb-2'>
               {props.data.options?.map(option => (

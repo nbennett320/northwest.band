@@ -35,7 +35,7 @@ const Card = (props: Props) => {
     >
       <div 
         ref={ref} 
-        className={styles.imgpreview}
+        className={`${styles.imgpreview} p-4`}
       >
         {width && <Link href={`/merch/item/${props.product.handle}`}>
           <a 
@@ -55,29 +55,33 @@ const Card = (props: Props) => {
         </Link>}
       </div>
 
-      <div className={styles.textcontainer}>
-        <span className={styles.title}>
-          <Link href={`/merch/item/${props.product.handle}`}>
-            <a 
-              className={`${hover ? styles.link : ''}`}
-              onMouseOver={() => { setHover(true) }}
-              onMouseLeave={() => { setHover(false) }}
-            >
-              {props.product.title.toLocaleLowerCase()}
-            </a>
-          </Link>
-        </span>
+      <div className={`col h-24`}>
+        <div className='flex h-16'>
+          <span className={`${styles.title} mt-auto ml-4`}>
+            <Link href={`/merch/item/${props.product.handle}`}>
+              <a 
+                className={`${hover ? styles.link : ''}`}
+                onMouseOver={() => { setHover(true) }}
+                onMouseLeave={() => { setHover(false) }}
+              >
+                {props.product.title.toLocaleLowerCase()}
+              </a>
+            </Link>
+          </span>
+        </div>
 
-        <span className={styles.price}>
-          <Link href={`/merch/item/${props.product.handle}`}>
-            <a 
-              onMouseOver={() => { setHover(true) }}
-              onMouseLeave={() => { setHover(false) }}
-            >
-              ${parseInt(props.product.price as unknown as string)}
-            </a>
-          </Link>
-        </span>
+        <div className='flex h-8'>
+          <span className={`${styles.price} mb-2 ml-auto mr-4`}>
+            <Link href={`/merch/item/${props.product.handle}`}>
+              <a 
+                onMouseOver={() => { setHover(true) }}
+                onMouseLeave={() => { setHover(false) }}
+              >
+                ${parseInt(props.product.price as unknown as string)}
+              </a>
+            </Link>
+          </span>
+        </div>
       </div>
     </div>
   )
