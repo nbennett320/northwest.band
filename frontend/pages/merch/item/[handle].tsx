@@ -206,7 +206,7 @@ const Item = (props: Props) => {
         </div>
 
         <div className={`${styles.description} ml-auto mr-auto mt-8 mb-8 border-t-[1px] border-t-gray-200 border-solid`}>
-          <p className='ml-2 mr-2 mt-4 mb-4'>
+          <p className='ml-2 mr-2 mt-4 mb-4 text-sm'>
             {props.data.description.toLowerCase()}
           </p>
         </div>

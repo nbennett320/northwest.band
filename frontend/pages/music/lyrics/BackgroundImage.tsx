@@ -5,6 +5,7 @@ import BailBond from '../../../public/images/lyrics/bail-bond.jpg'
 import Buddy from '../../../public/images/lyrics/buddy.jpg'
 import ComeAround from '../../../public/images/lyrics/come-around.jpg'
 import Crumb from '../../../public/images/lyrics/crumb.jpg'
+import CutFromTheSameCloth from '../../../public/images/lyrics/cut-from-the-same-cloth.jpg'
 import Dog from '../../../public/images/lyrics/dog.jpg'
 import Fader from '../../../public/images/lyrics/fader.jpg'
 import Flake from '../../../public/images/lyrics/flake.jpg'
@@ -23,6 +24,7 @@ import Rendezvous from '../../../public/images/lyrics/rendezvous.jpg'
 import Seatbelt from '../../../public/images/lyrics/seatbelt.jpg'
 import Self from '../../../public/images/lyrics/self.jpg'
 import StayWMe2Nite from '../../../public/images/lyrics/stay-w-me-2nite.jpg'
+import TheHill from '../../../public/images/lyrics/the-hill.jpg'
 import Uneasy from '../../../public/images/lyrics/uneasy.jpg'
 import MissingTexture from '../../../public/images/missing_texture.png'
 import styles from './styles.module.scss'
@@ -39,6 +41,7 @@ const BackgroundImage = (props: Props) => {
     if(/.*buddy.*/.test(props.src)) return Buddy
     if(/.*come-around.*/.test(props.src)) return ComeAround
     if(/.*crumb.*/.test(props.src)) return Crumb
+    if(/.*cut-from-the-same-cloth.*/.test(props.src)) return CutFromTheSameCloth
     if(/.*dog.*/.test(props.src)) return Dog
     if(/.*fader.*/.test(props.src)) return Fader
     if(/.*flake.*/.test(props.src)) return Flake
@@ -56,6 +59,7 @@ const BackgroundImage = (props: Props) => {
     if(/.*rendezvous.*/.test(props.src)) return Rendezvous
     if(/.*seatbelt.*/.test(props.src)) return Seatbelt
     if(/.*self.*/.test(props.src)) return Self
+    if(/.*the-hill.*/.test(props.src)) return TheHill
     if(/.*stay-w-me-2nite.*/.test(props.src)) return StayWMe2Nite
     if(/.*uneasy.*/.test(props.src)) return Uneasy
     else return MissingTexture

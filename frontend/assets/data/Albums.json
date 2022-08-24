@@ -35,6 +35,20 @@
     "art": "self.png"
   },
   {
+    "title": "the hill",
+    "date": "September 15, 2021",
+    "dateISO": "2021-09-25",
+    "length": 1,
+    "art": "thehill.jpg"
+  },
+  {
+    "title": "cut from the same cloth",
+    "date": "May 15, 2021",
+    "dateISO": "2021-05-25",
+    "length": 1,
+    "art": "cutfromthesamecloth.jpg"
+  },
+  {
     "title": "new years day",
     "date": "January 1, 2022",
     "dateISO": "2022-01-01",

@@ -18,7 +18,7 @@ const Navbar = (props: Props) => {
     <nav className={styles.navbar}>
       <Link href={props?.href ?? '/'}>
         <a 
-          className={styles.link}
+          className={`${styles.link} flex`}
           onMouseOver={() => { setHover(true) }}
           onMouseLeave={() => { setHover(false) }}
         >
