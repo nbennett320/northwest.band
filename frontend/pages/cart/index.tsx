@@ -9,6 +9,7 @@ import ImageBlock from '../../components/image-block/ImageBlock'
 import Footer from '../../components/footer/Footer'
 import { SERVER_URL } from '../../env'
 import styles from './styles.module.scss'
+import Button from '../../components/button/Button'
 
 interface Props {
 
@@ -159,34 +160,42 @@ const Cart = (props: Props) => {
             </div>
 
             {/* bottom */}
-            <div className='ml-auto mr-4 w-64 pt-4'>
-              <div className='col ml-auto w-32'>
-                <span className='text-xs text-gray-500 text-right'>
-                  subtotal
-                </span>
-                <span className='text-right'>
-                  ${parseFloat(data?.cost?.subtotalAmount.amount).toFixed(2)}
-                </span>
-              </div>
-              <div className='col ml-auto w-32'>
-                <span className='text-xs text-gray-500 text-right'>
-                  total
-                </span>
-                <span className='text-right'>
-                  ${parseFloat(data?.cost?.checkoutChargeAmount.amount).toFixed(2)}
-                </span>
-              </div>
+            {data.totalQuantity > 0 ? (
+              <div className='ml-auto mr-4 w-64 pt-4'>
+                <div className='col ml-auto w-32'>
+                  <span className='text-xs text-gray-500 text-right'>
+                    subtotal
+                  </span>
+                  <span className='text-right'>
+                    ${parseFloat(data?.cost?.subtotalAmount.amount).toFixed(2)}
+                  </span>
+                </div>
+                <div className='col ml-auto w-32'>
+                  <span className='text-xs text-gray-500 text-right'>
+                    total
+                  </span>
+                  <span className='text-right'>
+                    ${parseFloat(data?.cost?.checkoutChargeAmount.amount).toFixed(2)}
+                  </span>
+                </div>
 
-              <div className='col w-64 mt-8 ml-auto'>
-                <a 
-                  href={data.checkoutUrl}
-                  type='button'
-                  className='inline-block cursor-pointer text-center ml-auto w-48 px-6 py-2.5 border border-gray-300 shadow-sm text-gray-700 text-xs font-bold leading-tight rounded hover:bg-gray-50 hover:shadow-lg focus:ring-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:shadow-md active:bg-gray-200 active:shadow-md transition duration-150 ease-in-out'
-                >
-                  checkout
-                </a>
+                <div className='col w-64 mt-8 ml-auto'>
+                  <Button
+                    element='a'
+                    href={data.checkoutUrl}
+                    className='text-center ml-auto'
+                  >
+                    checkout
+                  </Button>
+                </div>
               </div>
-            </div>
+            ) : (
+              <div className='w-64'>
+                <span className='text-md'>
+                  your cart is empty!!
+                </span>
+              </div>
+            )}
           </div>
         ) : (
           <div className={`${styles.items} w-full`}>
