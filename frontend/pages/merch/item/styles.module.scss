@@ -74,6 +74,12 @@
   width: 95%;
 }
 
+.info {
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 // mobile
 @media (max-width: 600px) {
   .item {
@@ -91,6 +97,12 @@
   }
 
   .description {
-    width: 90%;
+    width: 80%;
+  }
+
+  .info {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
