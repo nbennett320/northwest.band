@@ -1,6 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
 import { AddCartResponse, CreateCartResponse, ProductData } from '@nw/types'
+import { isOverflowing, overflowRatio } from '@nw/util'
 import { useGlobalState } from '../../../hooks/state'
 import { getAllProductPaths, getAllProductData } from '../../../lib/products'
 import Layout from './Layout'
@@ -37,7 +38,9 @@ interface Props {
 
 const Item = (props: Props) => {
   const state = useGlobalState()
+  const titleRef = React.useRef<HTMLHeadingElement>(null)
   const [selected, setSelected] = React.useState<Record<string, MenuOption>>()
+  const [ratio, setRatio] = React.useState<number>(0)
 
   const handleSelect = (data: MenuOption) => {
     const val = {
@@ -93,6 +96,16 @@ const Item = (props: Props) => {
     }
   }
 
+  const handleBuyItNow = async () => {
+    
+  }
+
+  React.useEffect(() => {
+    if(titleRef.current) {
+      setRatio(Math.max(...overflowRatio(titleRef.current)))
+    }
+  }, [titleRef])
+
   const isValid = () => {
     if(!selected) return false
     if(props.data.options?.length !== Object.keys(selected).length) return false
@@ -124,13 +137,28 @@ const Item = (props: Props) => {
             />
           </div>
 
-          <div className={`pt-4 col ${styles.block}`}>
-            <div className='h-64 pl-4 pr-4'>
-              <h1 className={styles.title}>
+          <div className={`pt-2 col ${styles.block}`}>
+            <div className={`${styles.info} h-64 pl-4 pr-4`}>
+              <h1 
+                className={`${styles.title} h-36 max-h-34 flex items-center`}
+                ref={titleRef}
+                style={{
+                  fontSize: 
+                    (ratio > 1)
+                      ? `calc(3.75rem * ${Math.pow(ratio, 1) - Math.pow(ratio, -1)})`
+                      : undefined,
+                  opacity: titleRef.current ? 1 : 0,
+                }}
+              >
                 {props.data.title.toLowerCase()}
               </h1>
 
-              <span className={styles.price}>
+              <span 
+                className={styles.price}
+                style={{
+                  opacity: titleRef.current ? 1 : 0,
+                }}
+              >
                 ${parseInt(props.data.price as unknown as string)}
               </span>
             </div>
@@ -156,7 +184,7 @@ const Item = (props: Props) => {
             </div>
 
             <div className='w-full col items-center mt-2'>
-              <div className='flex space-x-2 justify-center'>
+              <div className='flex justify-center mb-2'>
                 <Button 
                   onClick={handleAddToCart}
                   disabled={!isValid()}
@@ -164,12 +192,21 @@ const Item = (props: Props) => {
                   add to cart
                 </Button>
               </div>
+
+              {/* <div className='flex justify-center mt-2'>
+                <Button 
+                  onClick={handleBuyItNow}
+                  disabled={!isValid()}
+                >
+                  buy it now
+                </Button>
+              </div> */}
             </div>
           </div>
         </div>
 
         <div className={`${styles.description} ml-auto mr-auto mt-8 mb-8 border-t-[1px] border-t-gray-200 border-solid`}>
-          <p className='ml-2 mr-2 mt-4 mb-4'>
+          <p className='ml-2 mr-2 mt-4 mb-4 text-sm'>
             {props.data.description.toLowerCase()}
           </p>
         </div>
