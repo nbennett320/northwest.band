@@ -15,6 +15,7 @@ import Lover from '../../../public/images/lyrics/lover.jpg'
 import MissMe from '../../../public/images/lyrics/miss-me.jpg'
 import MorganAve from '../../../public/images/lyrics/morgan-ave.jpg'
 import NewFeel from '../../../public/images/lyrics/new-feel.jpg'
+import Nyd from '../../../public/images/lyrics/new-years-day.jpg'
 import Poem from '../../../public/images/lyrics/poem.jpg'
 import PorterAve from '../../../public/images/lyrics/porter-ave.jpg'
 import Quink from '../../../public/images/lyrics/quink.jpg'
@@ -48,6 +49,7 @@ const BackgroundImage = (props: Props) => {
     if(/.*miss-me.*/.test(props.src)) return MissMe
     if(/.*morgan-ave.*/.test(props.src)) return MorganAve
     if(/.*new-feel.*/.test(props.src)) return NewFeel
+    if(/.*new-years-day.*/.test(props.src)) return Nyd
     if(/.*poem.*/.test(props.src)) return Poem
     if(/.*porter-ave.*/.test(props.src)) return PorterAve
     if(/.*quink.*/.test(props.src)) return Quink

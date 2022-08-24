@@ -33,7 +33,6 @@ const Cart = (props: Props) => {
       })
 
       const updateData: CartData = await res.json()
-      console.log("returned data: ", updateData)
 
       setData(updateData)
     }

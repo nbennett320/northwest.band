@@ -5,7 +5,8 @@ import SuburbanDogs from '../../public/images/music/subbie dogs text w canvas4.j
 import Apathy from '../../public/images/music/apathy2.png'
 import SilverLining from '../../public/images/music/silverlining.jpg'
 import Self from '../../public/images/music/self.png'
-import FriendsTilIDie from '../../public/images/music/friendstilidie.jpg'
+import Nyd from '../../public/images/music/nyd.png'
+import FriendsTilIDie from '../../public/images/music/friendstilidie.png'
 import ILikeMike from '../../public/images/music/ilikemike.jpg'
 import MissingTexture from '../../public/images/missing_texture.png'
 
@@ -23,6 +24,7 @@ const AlbumImage = (props: Props) => {
     if(/.*apathy.*/.test(props.src)) return Apathy
     if(/.*silverlining.*/.test(props.src)) return SilverLining
     if(/.*self.*/.test(props.src)) return Self
+    if(/.*nyd.*/.test(props.src)) return Nyd
     if(/.*friendstilidie.*/.test(props.src)) return FriendsTilIDie
     if(/.*ilikemike.*/.test(props.src)) return ILikeMike
     else return MissingTexture

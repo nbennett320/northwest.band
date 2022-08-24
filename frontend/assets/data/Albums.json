@@ -35,11 +35,11 @@
     "art": "self.png"
   },
   {
-    "title": "FRIENDS 'TIL I DIE",
-    "date": "June 23, 2022",
-    "dateISO": "2022-06-23",
+    "title": "new years day",
+    "date": "January 1, 2022",
+    "dateISO": "2022-01-01",
     "length": 1,
-    "art": "friendstilidie.jpg"
+    "art": "nyd.png"
   },
   {
     "title": "i like mike",
@@ -47,5 +47,12 @@
     "dateISO": "2022-07-11",
     "length": 3,
     "art": "ilikemike.jpg"
+  },
+  {
+    "title": "FRIENDS 'TIL I DIE",
+    "date": "August 4, 2022",
+    "dateISO": "2022-08-04",
+    "length": 1,
+    "art": "friendstilidie.png"
   }
 ]
