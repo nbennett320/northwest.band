@@ -1,11 +1,11 @@
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Product } from '@nw/types'
+import { ProductListing } from '@nw/types'
 import styles from './styles.module.scss'
 
 interface Props {
-  product: Product
+  product: ProductListing
   idx: number
 }
 
@@ -57,7 +57,7 @@ const Card = (props: Props) => {
 
       <div className={`col h-24`}>
         <div className='flex h-16'>
-          <span className={`${styles.title} mt-auto ml-4`}>
+          <span className={`${styles.title} mb-auto ml-4 mr-4 text-lg`}>
             <Link href={`/merch/item/${props.product.handle}`}>
               <a 
                 className={`${hover ? styles.link : ''}`}

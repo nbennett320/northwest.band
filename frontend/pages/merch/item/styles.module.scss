@@ -70,6 +70,10 @@
   }
 }
 
+.description {
+  width: 95%;
+}
+
 // mobile
 @media (max-width: 600px) {
   .item {
@@ -84,5 +88,9 @@
     max-width: 80vw;
     max-height: 80vw;
     align-self: center;
+  }
+
+  .description {
+    width: 90%;
   }
 }
