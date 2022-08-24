@@ -142,3 +142,7 @@ frontend/build/Release
 
 # dotenv environment variables file
 *.env
+
+# backend build config
+backend/build/config.json
+
