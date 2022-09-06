@@ -3,6 +3,7 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
 import { createProxyMiddleware } from 'http-proxy-middleware'
+import { args } from './config'
 
 // Initialize the express engine
 const app: express.Application = express()
@@ -15,7 +16,7 @@ const proxy = createProxyMiddleware({
 
 app.set('strict routing', true)
 
-app.use(cors({ origin: 'http://localhost:3000' }))
+app.use(cors({ origin: args.env === 'production' ? 'https://northwest.band' : 'http://localhost:3000' }))
 
 app.use('/', require('./routes/index'))
 app.use('/products', require('./routes/products'))

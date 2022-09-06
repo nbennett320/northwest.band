@@ -8,7 +8,7 @@ const nextConfig = withTM({
   images: {
     domains: ['cdn.shopify.com'],
     loader: 'akamai',
-    path: '',
+    path: '/',
   },
   redirects: async () => [
     {
