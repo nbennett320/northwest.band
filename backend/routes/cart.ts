@@ -1,7 +1,7 @@
 import express from 'express'
 import fetch from 'node-fetch'
 import { AddCartResponse, CartData, CreateCartResponse, RemoveCartResponse } from '@nw/types'
-import config from '../config'
+import { config } from '../config'
 
 const router = express.Router()
 const url = `https://${config.store_name}.myshopify.com/api/2022-07/graphql.json`

@@ -1,6 +1,6 @@
 import express from 'express'
 import fetch from 'node-fetch'
-import config from '../config'
+import { config } from '../config'
 import { ProductData, ProductListing } from '@nw/types'
 
 const router = express.Router()
