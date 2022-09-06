@@ -13,6 +13,8 @@ const proxy = createProxyMiddleware({
   changeOrigin: true,
 })
 
+app.set('strict routing', true)
+
 app.use(cors({ origin: 'http://localhost:3000' }))
 
 app.use('/', require('./routes/index'))
@@ -22,6 +24,16 @@ app.use('/cart', jsonParser, require('./routes/cart'))
 // Server setup
 app.listen(port, () => {
   console.log(`Express server running on http://localhost:${port}/`)
+})
+
+app.use((req, res, next) => {
+  if (req.path.substr(-1) === '/' && req.path.length > 1) {
+    const query = req.url.slice(req.path.length)
+    const safepath = req.path.slice(0, -1).replace(/\/+/g, '/')
+    res.redirect(301, safepath + query)
+  } else {
+    next()
+  }
 })
 
 
