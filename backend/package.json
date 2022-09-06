@@ -5,8 +5,8 @@
   "main": "index.ts",
   "scripts": {
     "build": "tsc",
-    "start": "node build/index.js",
-    "dev": "nodemon --config nodemon.json index.ts",
+    "start": "node build/index.js --env production",
+    "dev": "nodemon --config nodemon.json index.ts --env development",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "noah bennett",

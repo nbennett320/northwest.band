@@ -15,22 +15,29 @@ const getArgs = () => {
     env: 'development',
   }
 
-  process.argv.forEach((value, index) => {
+  const argv = process.argv.slice(2)
+  for(let i = 0; i < argv.length; i++) {
+    const value = argv[i]
+
     switch(value) {
       case '-e':
       case '--env':
-        if(++index < process.argv.length) {
-          const env = process.argv[++index] 
+        if(i+1 < argv.length) {
+          const env = argv[i+1] 
           if(env === 'development' || env === 'production') {
             args.env = env
+          } else {
+            console.warn("Unknown environment argument: ", env)
           }
+
+          i += 2
         }
         break
       default:
-        console.warn(`Unknown argument at argv[${index}]: `, value)
+        console.warn(`Unknown argument at argv[${i}]: `, value)
         break
     }
-  })
+  }
 
   return args
 }
