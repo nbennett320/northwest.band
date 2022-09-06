@@ -1,8 +1,9 @@
 {
-  "name": "nw",
+  "name": "@nw/types",
   "version": "1.0.0",
   "description": "northwest.band shared package",
   "type": "module",
+  "main": "index.ts",
   "scripts": {
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
