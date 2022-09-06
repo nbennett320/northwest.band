@@ -1,12 +1,12 @@
+import process from 'process'
 import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
 import { createProxyMiddleware } from 'http-proxy-middleware'
-import { args } from './config'
 
 // Initialize the express engine
 const app: express.Application = express()
-const port: number = 4432
+const port: number = (process.env.PORT ? parseInt(process.env.PORT) : undefined) || 4432
 const jsonParser = bodyParser.json()
 const proxy = createProxyMiddleware({ 
   target: 'http://localhost:3000', 
