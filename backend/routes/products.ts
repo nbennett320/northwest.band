@@ -85,6 +85,11 @@ router.get('/all-handles', async (req, res, next) => {
     `
   })
 
+  if (query.status !== 200) {
+    console.log("Query to /products/all-handles returned with status: ", query.status)
+    console.log("/products/all-handles response: ", query.statusText)
+  }
+
   const data = await query.json()
   const products = data?.data?.products
   const handles = products.edges?.map((edge: any) => edge.node?.handle)
@@ -134,6 +139,11 @@ router.get('/item/:handle', async (req, res, next) => {
       }
     `
   })
+
+  if (query.status !== 200) {
+    console.log(`Query to /products/${handle} returned with status: `, query.status)
+    console.log(`/products/${handle} response: `, query.statusText)
+  }
 
   const data = await query.json()
   const product: ProductData = {

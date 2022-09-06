@@ -102,6 +102,11 @@ router.post('/', async (req, res, next) => {
     `
   })
 
+  if(query.status !== 200) {
+    console.log("Query to /cart returned with status: ", query.status)
+    console.log("/cart response: ", query.statusText)
+  }
+
   const data = await query.json()
   const cart = {
     id: data?.data?.cart.id,
@@ -156,6 +161,11 @@ router.post('/create', async (req, res, next) => {
     `
   })
 
+  if(variantQuery.status !== 200) {
+    console.log("Query to /cart/create variantQuery returned with status: ", variantQuery.status)
+    console.log("/cart/create response: ", variantQuery.statusText)
+  }
+
   const variantData = await variantQuery?.json()
   const variantId = variantData?.data?.product?.variantBySelectedOptions?.id
   const cartQuery = await fetch(url, {
@@ -184,6 +194,11 @@ router.post('/create', async (req, res, next) => {
       }
     `
   })
+
+  if (cartQuery.status !== 200) {
+    console.log("Query to /cart/create cartQuery returned with status: ", cartQuery.status)
+    console.log("/cart/create response: ", cartQuery.statusText)
+  }
 
   const cartData = await cartQuery.json()
   const cart = { 
