@@ -79,6 +79,7 @@ frontend/build
 
 # private configs
 backend/config.json
+config.json
 */env.ts
 
 # firebase stuff
