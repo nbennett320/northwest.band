@@ -6,7 +6,7 @@ import { args } from './config'
 
 // Initialize the express engine
 const app: express.Application = express()
-const port: number = args.env === 'development' ? 4432 : 80
+const port: number = 4432
 const jsonParser = bodyParser.json()
 const proxy = createProxyMiddleware({ 
   target: 'http://localhost:3000', 
