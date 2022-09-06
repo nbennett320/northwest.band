@@ -8,15 +8,3 @@ services:
     startCommand: npm --prefix ./backend run start
     buildCommand: npm --prefix ./backend run build
     healthCheckPath: /
-    envVars:
-      - key: REDIS_HOST
-        fromService:
-          type: redis
-          name: lightning
-          property: host # available properties are listed below
-      - key: REDIS_PORT
-        fromService:
-          type: redis
-          name: lightning
-          property: port
-      - fromGroup: conc-settings
