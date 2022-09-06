@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import AlbumImage from './AlbumImage'
-import { MusicData } from '../../lib/music'
+import { MusicData } from '../../../lib/music'
 import styles from './styles.module.scss'
 
 interface Props {

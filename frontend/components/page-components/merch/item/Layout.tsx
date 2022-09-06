@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
-import Navbar from '../../../components/navbar/Navbar'
-import Footer from '../../../components/footer/Footer'
+import Navbar from '../../../navbar/Navbar'
+import Footer from '../../../footer/Footer'
 import { ProductData } from '@nw/types'
 import styles from './styles.module.scss'
 

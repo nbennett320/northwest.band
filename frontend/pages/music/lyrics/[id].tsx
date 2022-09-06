@@ -1,5 +1,7 @@
+import React from 'react'
+import type { NextPage } from 'next'
 import Head from 'next/head'
-import Layout from './Layout'
+import Layout from '../../../components/page-components/music/lyrics/Layout'
 import { getAllSongPaths, getSongData, SongData } from '../../../lib/songs'
 import styles from './styles.module.scss'
 
@@ -26,7 +28,7 @@ interface Props {
   data: SongData
 }
 
-const Song = (props: Props) => {
+const Song: NextPage<Props> = (props: Props) => {
   return (
     <Layout data={props.data}>
       <Head>
@@ -52,7 +54,7 @@ const Song = (props: Props) => {
         </span>
         
         <ul className={styles.list}>
-          {props.data.lyrics.map((line, i) => (
+          {props.data.lyrics?.map((line, i) => (
             <li key={`${line}${i}`}>
               {line.toLowerCase()}
             </li>

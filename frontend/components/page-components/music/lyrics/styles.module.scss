@@ -1,0 +1,63 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  width: 100%;
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: .25rem;
+}
+
+.main {
+  min-height: 100vh;
+  padding: 4rem 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid {
+  z-index: 10;
+}
+
+.date {
+  font-size: smaller;
+  font-weight: lighter;
+  width: 100%;
+  text-align: center;
+  margin-top: .25rem;
+}
+
+.list {
+  list-style: none;
+}
+
+.song {
+  font-size: smaller;
+  list-style-type: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.imgcontainer {
+  z-index: 0;
+  position: fixed !important;
+  height: 100vh;
+  width: 100vw;
+  object-fit: cover;
+}
+
+.bgimage {
+  object-fit: cover;
+}
+
+.footer {
+  display: fixed;
+  top: 100vh;
+}

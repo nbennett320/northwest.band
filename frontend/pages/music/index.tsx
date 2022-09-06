@@ -1,8 +1,9 @@
 import Head from 'next/head'
+import type { NextPage } from 'next'
 import Image from 'next/image'
 import Navbar from '../../components/navbar/Navbar'
 import Footer from '../../components/footer/Footer'
-import Album from './Album'
+import Album from '../../components/page-components/music/Album'
 import { getAllMusicData, MusicData } from '../../lib/music'
 import styles from './styles.module.scss'
 
@@ -20,7 +21,7 @@ export const getStaticProps = (): { props: Props } => {
   }
 }
 
-const Music = (props: Props) => {
+const Music: NextPage<Props> = (props: Props) => {
   const albumKeys = Object.keys(props.data)
 
   return (

@@ -1,11 +1,12 @@
 import React from 'react'
+import type { NextPage } from 'next'
 import Head from 'next/head'
 import { AddCartResponse, CreateCartResponse, ProductData } from '@nw/types'
 import { isOverflowing, overflowRatio } from '@nw/util'
 import { useGlobalState } from '../../../hooks/state'
 import { getAllProductPaths, getAllProductData } from '../../../lib/products'
-import Layout from './Layout'
-import ImagePreview from './ImagePreview'
+import Layout from '../../../components/page-components/merch/item/Layout'
+import ImagePreview from '../../../components/page-components/merch/item/ImagePreview'
 import Button from '../../../components/button/Button'
 import DropdownSelect, { MenuOption } from '../../../components/menu/DropdownSelect'
 import { SERVER_URL } from '../../../env'
@@ -36,7 +37,7 @@ interface Props {
   data: ProductData
 }
 
-const Item = (props: Props) => {
+const Item: NextPage<Props> = (props: Props) => {
   const state = useGlobalState()
   const titleRef = React.useRef<HTMLHeadingElement>(null)
   const [selected, setSelected] = React.useState<Record<string, MenuOption>>()

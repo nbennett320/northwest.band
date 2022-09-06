@@ -15,7 +15,7 @@ const Card = (props: Props) => {
   const [hover, setHover] = React.useState<boolean>(false)
 
   const image = (() => {
-    if(props.product.images.length <= 1) return props.product.images[0] 
+    if(props.product?.images.length <= 1) return props.product.images[0] 
     else return props.product.images.at(hover ? 1 : 0)
   })()
 

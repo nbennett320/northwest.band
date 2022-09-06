@@ -11,7 +11,9 @@ export interface SongData {
 }
 
 export const getAllSongPaths = () => (
-  songs.map(e => ({ params: { id: makeKey(e.title) } }))
+  songs
+    .filter(e => !e.instrumental)
+    .map(e => ({ params: { id: makeKey(e.title) } }))
 )
 
 export const getSongData = (id: string) => {

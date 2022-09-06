@@ -1,8 +1,8 @@
 import React from 'react'
-import Navbar from '../../../components/navbar/Navbar'
-import Footer from '../../../components/footer/Footer'
-import { SongData } from '../../../lib/songs'
-import { hasDarkTextOverImage } from '../../../lib/image'
+import Navbar from '../../../navbar/Navbar'
+import Footer from '../../../footer/Footer'
+import { SongData } from '../../../../lib/songs'
+import { hasDarkTextOverImage } from '../../../../lib/image'
 import BackgroundImage from './BackgroundImage'
 import styles from './styles.module.scss'
 
@@ -14,7 +14,7 @@ const Layout = (props: React.PropsWithChildren<Props>) => {
   const containerRef = React.useRef<HTMLDivElement>(null)
   const [darkText, setDarkText] = React.useState<boolean>()
   const [textBottom, setTextBottom] = React.useState<number>()
-  const src = `/images/lyrics/${props.data.id}.jpg`
+  const src = `/images/lyrics/${props.data?.id}.jpg`
 
   React.useEffect(() => {
     const img: HTMLImageElement = new Image()
@@ -52,7 +52,7 @@ const Layout = (props: React.PropsWithChildren<Props>) => {
         <div className={styles.imgcontainer}>
           <BackgroundImage 
             src={src} 
-            alt={`${props.data.title} background image`} 
+            alt={`${props.data?.title} background image`} 
           />
         </div>
       </main>

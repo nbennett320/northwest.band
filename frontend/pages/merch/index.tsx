@@ -1,9 +1,10 @@
 import React from 'react'
+import type { NextPage } from 'next'
 import Head from 'next/head'
 import Navbar from '../../components/navbar/Navbar'
 import ImageBlock from '../../components/image-block/ImageBlock'
 import Footer from '../../components/footer/Footer'
-import Card from './Card'
+import Card from '../../components/page-components/merch/Card'
 import { ProductListing } from '@nw/types'
 import { SERVER_URL } from '../../env'
 import styles from './styles.module.scss'
@@ -23,7 +24,7 @@ export const getStaticProps = async () => {
   }
 }
 
-const Merch = (props: Props) => {
+const Merch: NextPage<Props> = (props: Props) => {
   return (
     <div className={`${styles.container} ${styles.merch}`}>
       <Head>
