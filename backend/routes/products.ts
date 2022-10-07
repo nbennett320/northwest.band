@@ -15,7 +15,7 @@ router.get('/', async (req, res, next) => {
     },
     body: `
       {
-        products(first: 3) {
+        products(first: 20) {
           edges {
             node {
               id
@@ -112,7 +112,7 @@ router.get('/item/:handle', async (req, res, next) => {
           id
           handle
           title
-          description
+          descriptionHtml
           productType
           priceRange {
             minVariantPrice {
@@ -150,7 +150,7 @@ router.get('/item/:handle', async (req, res, next) => {
     id: data?.data?.product?.id,
     handle: data?.data?.product?.handle,
     title: data?.data?.product?.title,
-    description: data?.data?.product?.description,
+    descriptionHtml: data?.data?.product?.descriptionHtml,
     productType: data?.data?.product?.data?.productType,
     price: data?.data?.product?.priceRange.minVariantPrice?.amount,
     images: data?.data?.product?.images?.edges?.map((image: any) => ({

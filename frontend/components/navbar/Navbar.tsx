@@ -35,6 +35,7 @@ const Navbar = (props: Props) => {
       </Link>
 
       {state && state.cartId && <div className={styles.cart}>
+      {/* <div className={styles.cart}> */}
         <Link href={'/cart'}>
           <a>
             <ShoppingBag />

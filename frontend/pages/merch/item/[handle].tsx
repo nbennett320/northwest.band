@@ -141,15 +141,8 @@ const Item: NextPage<Props> = (props: Props) => {
           <div className={`pt-2 col ${styles.block}`}>
             <div className={`${styles.info} h-64 pl-4 pr-4`}>
               <h1 
-                className={`${styles.title} h-36 max-h-34 flex items-center`}
+                className={`${styles.title} h-36 max-h-34 flex items-center overflow-hidden`}
                 ref={titleRef}
-                style={{
-                  fontSize: 
-                    (ratio > 1)
-                      ? `calc(3.75rem * ${Math.pow(ratio, 1) - Math.pow(ratio, -1)})`
-                      : undefined,
-                  opacity: titleRef.current ? 1 : 0,
-                }}
               >
                 {props.data.title.toLowerCase()}
               </h1>
@@ -206,10 +199,8 @@ const Item: NextPage<Props> = (props: Props) => {
           </div>
         </div>
 
-        <div className={`${styles.description} ml-auto mr-auto mt-8 mb-8 border-t-[1px] border-t-gray-200 border-solid`}>
-          <p className='ml-2 mr-2 mt-4 mb-4 text-sm'>
-            {props.data.description.toLowerCase()}
-          </p>
+        <div className={`${styles.description} ml-auto mr-auto mt-8 mb-8 pt-4 pb-4 border-t-[1px] border-t-gray-200 border-solid`}>
+          <div dangerouslySetInnerHTML={{ __html: props.data.descriptionHtml?.toLowerCase() }} />
         </div>
       </div>
     </Layout>

@@ -42,7 +42,7 @@ const Home = () => {
             duration={`0.8s`}
             className={`${styles.content} ${styles.fullwidth}`}
           >
-            <Link href='/goodies/demos'>
+            <Link href='https://tinyurl.com/area-code-demos'>
               <a>
                 <AnimatedBackground 
                   src={text[0]}
@@ -59,7 +59,7 @@ const Home = () => {
             </Link>
           </AnimatedBackground>
 
-          <h2 className='hidden'>merch</h2>
+          {/* <h2 className='hidden'>merch</h2>
           <AnimatedBackground 
             src={images[1]}
             frames={3}
@@ -80,7 +80,7 @@ const Home = () => {
                 />
               </a>
             </Link>
-          </AnimatedBackground>
+          </AnimatedBackground> */}
         </div>
       </main>
 

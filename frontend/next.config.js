@@ -1,14 +1,21 @@
 /** @type {import('next').NextConfig} */
 
-const withTM = require('next-transpile-modules')(['@nw'])
+const withTM = require('next-transpile-modules')([
+  '@nw/types', 
+  '@nw/util',
+])
 
 const nextConfig = withTM({
   reactStrictMode: false,
   swcMinify: true,
   images: {
     domains: ['cdn.shopify.com'],
-    loader: 'akamai',
-    path: '/',
+    formats: ['image/webp'],
+  },
+  experimental: {
+    images: {
+      unoptimized: true
+    }
   },
   redirects: async () => [
     {

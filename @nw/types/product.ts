@@ -25,7 +25,7 @@ export interface ProductData {
   id: string
   handle: string
   title: string
-  description: string
+  descriptionHtml: string
   productType?: string
   price: number
   images: [ProductImage]
